@@ -1,0 +1,45 @@
+# -*- mode: conf; -*-
+
+[ui]
+username = Sebastian Wiesner <lunaryorn@gmail.com>
+
+[web]
+# nice pygments theme
+pygments_style = emacs
+
+[auth]
+bitbucket.schemes = https
+bitbucket.prefix = bitbucket.org
+bitbucket.username = lunar
+
+[extensions]
+# colored output for some commands
+hgext.color =
+# easy pulling and updating
+hgext.fetch =
+# highlight code in web site ("serve" command)
+hgext.highlight =
+# repo conversion
+hgext.convert =
+# enable parent revs like foo^
+hgext.parentrevspec =
+# record changes for commit
+hgext.record =
+# ascii art
+hgext.graphlog =
+# cherry-picking changes
+hgext.transplant =
+# enable patch queue and strip command
+hgext.mq =
+# git-style log viewing through less
+hgext.pager =
+# rebasing
+hgext.rebase =
+# changeset bookmarks (equivalent to git branches)
+hgext.bookmarks =
+
+
+[alias]
+slog = log --limit 5
+gslog = slog --graph
+switch = update -C
