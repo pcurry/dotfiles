@@ -1,0 +1,32 @@
+# -*- mode: gitconfig; -*-
+
+[user]
+	name = Sebastian Wiesner
+	email = lunaryorn@gmail.com
+[credential "https://github.com"]
+	username = lunaryorn
+[credential "https://bitbucket.org"]
+	username = lunaryorn
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = auto
+[diff]
+	mnemonicprefix = true
+[diff "org"]
+	xfuncname = "^\\*+.*"
+[diff "lisp"]
+	xfuncname = "^\\([^ ]+ [^ ]+"	
+[push]
+	default = tracking
+[merge]
+	log = true
+	defaultToUpstream = true
+	tool = p4merge
+[github]
+	user = lunaryorn
+[hub]
+	protocol = https
+[credential]
+	helper = osxkeychain
