@@ -22,7 +22,6 @@
 	prompt = false
 [merge]
 	log = true
-	defaultToUpstream = true
 	tool = p4merge
 [github]
 	user = lunaryorn
