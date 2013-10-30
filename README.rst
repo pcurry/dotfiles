@@ -32,6 +32,9 @@ Available packages
   Configuration for Ruby
 `x11`
   Configuration for X11, e.g. X11 Resources
+`zsh`
+  Zsh configuration, using Prezto_
 
 
 .. _GNU Stow: http://www.gnu.org/software/stow/
+.. _Prezto: https://github.com/sorin-ionescu/prezto
