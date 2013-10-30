@@ -18,6 +18,8 @@
 	xfuncname = "^\\([^ ]+ [^ ]+"	
 [push]
 	default = tracking
+[mergetool]
+	prompt = false
 [merge]
 	log = true
 	defaultToUpstream = true
