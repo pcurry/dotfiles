@@ -12,6 +12,7 @@
 	ui = auto
 [diff]
 	mnemonicprefix = true
+	algorithm = patience
 [diff "org"]
 	xfuncname = "^\\*+.*"
 [diff "lisp"]
