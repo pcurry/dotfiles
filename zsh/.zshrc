@@ -15,6 +15,3 @@ fi
 if (( $+commands[opam] )); then
   eval "$(opam config env)"
 fi
-
-# Step Prezto from mingling in GEM_HOME
-unset GEM_HOME
