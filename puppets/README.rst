@@ -56,7 +56,7 @@ Additionally the following 3rd party modules are available as Git Submodules:
 `stdlib`
   The `Puppet Standard Library`_
 
-`vcsrepo`:
+`vcsrepo`
   The vcsrepo_ module to manage version control repositories with Git,
   Mercurial, etc.
 
