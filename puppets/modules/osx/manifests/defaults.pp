@@ -70,7 +70,7 @@ define osx::defaults(
 
       # Escape values properly
       $valuearg = $type ? {
-        string  => "\"${value}\"",
+        string  => "'${value}'",
         default => $value
       }
 
