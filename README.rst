@@ -40,10 +40,11 @@ Available packages
 Puppet manifests
 ================
 
-The directory `puppets` provides Puppet manifests to setup my systems.
+The directory `puppets` provides Puppet_ manifests to setup my systems.
 
 
 .. _GNU Stow: http://www.gnu.org/software/stow/
 .. _Prezto: https://github.com/sorin-ionescu/prezto
 .. _Stante Pede: https://github.com/lunaryorn/stante-pede
 .. _Cask: https://github.com/cask/cask
+.. _Puppet: http://puppetlabs.com/
