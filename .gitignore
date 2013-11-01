@@ -1,0 +1,2 @@
+# Ignore private dotfiles
+/git/.config/git/config.secret
