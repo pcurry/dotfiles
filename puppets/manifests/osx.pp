@@ -106,7 +106,7 @@ node default {
   # Disable the annoying beep on boot
   if $::id == 'root' {
     exec { 'Disable beep on boot':
-      command => 'nvram SystemAudioVolume=" "',
+      command => '/usr/sbin/nvram SystemAudioVolume=" "',
     }
   }
   else {
