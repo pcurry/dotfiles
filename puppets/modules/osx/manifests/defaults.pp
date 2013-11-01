@@ -65,6 +65,7 @@ define osx::defaults(
           false   => '0',
           default => fail("${value} for ${key} in ${domain} is not a valid boolean")
         },
+        # FIXME: Handle arrays!
         default => $value
       }
 
