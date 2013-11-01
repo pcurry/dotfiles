@@ -3,7 +3,6 @@
 # This class changes the OS X timezone
 #
 # Parameters:
-#
 # - The new $timezone
 #
 # Actions:
@@ -12,6 +11,7 @@
 # Requires:
 #
 # Sample Usage:
+#  osx::timezone { 'Europe/Berlin': }
 define osx::timezone($timezone = $title) {
   if $::operatingsystem != 'Darwin' {
     fail('Timezone is only supported on OS X')
