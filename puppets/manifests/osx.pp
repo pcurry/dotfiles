@@ -43,7 +43,8 @@ node default {
   }
 
   # Install our Homebrew packages
-  package { [ 'git',             # VCS tools
+  package { [ 'stow',                # To manage these dotfiles
+              'git',                 # VCS tools
               'mercurial',
               'bazaar',
               'texinfo',             # Build Emacs docs
