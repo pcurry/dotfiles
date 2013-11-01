@@ -78,9 +78,9 @@ define osx::defaults(
         fail("Unsupported type ${type} for ${key} in ${domain}")
       }
       else {
-        exec { "defaults write ${domain} ${key} ${typearg} ${valuearg}":
+        exec { "defaults write '${domain}' '${key}' ${typearg} ${valuearg}":
           # FIXME: Doesn't handle boolean values
-          unless  => "defaults read ${domain} ${key} | egrep '^${expected_value}$'",
+          unless  => "defaults read '${domain}' '${key}' | egrep '^${expected_value}$'",
           user    => $real_user,
           path    => ['/usr/sbin', '/usr/bin'],
         }
@@ -94,8 +94,8 @@ define osx::defaults(
         warning("Ignoring type ${type} when deleting ${key} in ${domain}")
       }
 
-      exec { "defaults delete ${domain} ${key}":
-        onlyif  => "defaults read ${domain} | grep ${key}",
+      exec { "defaults delete '${domain}' '${key}'":
+        onlyif  => "defaults read '${domain}' | grep ${key}",
         user    => $real_user,
         path    => ['/usr/sbin', '/usr/bin'],
       }
