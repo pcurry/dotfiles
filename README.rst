@@ -22,6 +22,8 @@ Available packages
   Configuration for Arch Linux, e.g. `makepkg`
 `clojure`
   Configuration for Clojure, e.g. Leiningen Profiles
+`emacs`
+  Emacs configuration, using `Stante Pede`_ and Cask_
 `fontconfig`
   Font configuration for Linux
 `git`
@@ -38,3 +40,5 @@ Available packages
 
 .. _GNU Stow: http://www.gnu.org/software/stow/
 .. _Prezto: https://github.com/sorin-ionescu/prezto
+.. _Stante Pede: https://github.com/lunaryorn/stante-pede
+.. _Cask: https://github.com/cask/cask
