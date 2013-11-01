@@ -13,6 +13,11 @@ node default {
     fail('Get Mavericks, stupid!')
   }
 
+  # We also want filefault
+  if ! $::osx_file_vault_active {
+    fail('Hey man, put your files in the vault!')
+  }
+
   # If we can, let's install Homebrew
   if $::id == 'root' {
     include homebrew::install
