@@ -3,6 +3,7 @@
 node default {
 
   $user = 'swiesner'
+  $hostname = 'lunaryorn-air'
 
   class { 'homebrew':
     user => $user
@@ -112,12 +113,31 @@ node default {
     notice('We are not root, and cannot disable the boot sound')
   }
 
-  # TODO: Set hostname
-  # hostname="lunaryorn-air"
-  # sudo scutil --set ComputerName "${hostname}"
-  # sudo scutil --set HostName "${hostname}"
-  # sudo scutil --set LocalHostName "${hostname}"
-  # sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "${hostname}"
+  # Set hostname
+  if $::id == 'root' {
+    osx::systemconfig { 'ComputerName':
+      value => $hostname
+    }
+
+    osx::systemconfig { 'HostName':
+      value => $hostname
+    }
+
+    osx::systemconfig { 'LocalHostName':
+      value => hostname
+    }
+
+    osx::defaults { 'Set SMB host name':
+      ensure => present,
+      domain => '/Library/Preferences/SystemConfiguration/com.apple.smb.server',
+      key    => 'NetBIOSName',
+      type   => string,
+      value  => $hostname,
+    }
+  }
+  else {
+    notice('We are not root, and cannot change the host name')
+  }
 
   # Locale
   # TODO: Select languages
@@ -154,7 +174,6 @@ node default {
   }
 
   # Security
-
   osx::defaults { 'Disable "Are you sure you want to open this application?"':
     ensure => present,
     domain => 'com.apple.LaunchServices',
