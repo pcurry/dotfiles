@@ -238,7 +238,7 @@ node default {
     domain => 'com.apple.finder',
     key    => 'FXDefaultSearchScope',
     type   => string,
-    value  => "SCcf",
+    value  => 'SCcf',
   }
 
   osx::defaults { 'Do not warn when changing the file extension':
