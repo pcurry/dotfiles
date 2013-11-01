@@ -37,6 +37,11 @@ Available packages
 `zsh`
   Zsh configuration, using Prezto_
 
+Puppet manifests
+================
+
+The directory `puppets` provides Puppet manifests to setup my systems.
+
 
 .. _GNU Stow: http://www.gnu.org/software/stow/
 .. _Prezto: https://github.com/sorin-ionescu/prezto
