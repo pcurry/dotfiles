@@ -14,20 +14,32 @@ for provisioning
 Usage
 =====
 
-With the exception of `puppets`, each directory is a package for `GNU Stow`_.
+Clone this repository::
 
-Use `gnu stow` to install the package you want, e.g.::
+   git clone --recursive https://github.com/lunaryorn/dotfiles.git ~/dotfiles
 
-   $ stow git mercurial clojure ruby
+Don't forget `--recursive` to bring all submodules in, and clone to
+`~/dotfiles`, really.
 
-`puppets` is a special directory, as it contains Puppet_ manifests to provision
-my systems.  A `Makefile` is provided to run the manifests, e.g.::
+Provision the system with any of the `Puppet manifests`_::
 
    make -C puppets osx
+
+Install any of the `available Stow packages`_::
+
+   $ stow emacs git mercurial clojure ruby zsh
+
+Puppet manifests
+================
+
+The directory `puppets/` provides Puppet manifests to provision my systems.
+Refer to the `README <puppets/README.rst>`_ for more information.
 
 
 Available Stow packages
 =======================
+
+All other directories are `GNU Stow`_ packages:
 
 `arch`
   Configuration for Arch Linux, e.g. `makepkg`
@@ -47,11 +59,6 @@ Available Stow packages
   Configuration for X11, e.g. X11 Resources
 `zsh`
   Zsh configuration, using Prezto_
-
-Puppet manifests
-================
-
-The directory `puppets` provides Puppet_ manifests to setup my systems.
 
 
 .. _GNU Stow: http://www.gnu.org/software/stow/
