@@ -2,21 +2,32 @@
  My Dotfiles
 =============
 
-My personal dotfiles, for use with `GNU Stow`_
+My personal dotfiles, for use with `GNU Stow`_, and a bunch of Puppet_ manifests
+for provisioning
 
 .. default-role:: code
+
+.. contents:: Table of Contents
+   :local:
+   :depth: 2
 
 Usage
 =====
 
-Each directory is a package for `GNU Stow`_.
+With the exception of `puppets`, each directory is a package for `GNU Stow`_.
 
 Use `gnu stow` to install the package you want, e.g.::
 
    $ stow git mercurial clojure ruby
 
-Available packages
-==================
+`puppets` is a special directory, as it contains Puppet_ manifests to provision
+my systems.  A `Makefile` is provided to run the manifests, e.g.::
+
+   make -C puppets osx
+
+
+Available Stow packages
+=======================
 
 `arch`
   Configuration for Arch Linux, e.g. `makepkg`
