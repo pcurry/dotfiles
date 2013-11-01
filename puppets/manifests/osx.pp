@@ -258,11 +258,27 @@ node default {
   }
 
   # Terminal.app
-  # TODO: Change the theme
-  # open "${HOME}/init/Mathias.terminal"
-  # sleep 1 # Wait a bit to make sure the theme is loaded
-  # defaults write com.apple.terminal "Default Window Settings" -string "Mathias"
-  # defaults write com.apple.terminal "Startup Window Settings" -string "Mathias"
+  exec { 'Import Terminal.app color theme':
+    # FIXME: Can we stop this from popping up a new terminal window?
+    command => 'open -j -g "files/Solarized Light.terminal" && sleep 1',
+    path    => ['/usr/bin', '/bin']
+  }
+
+  osx::defaults { 'Set default color theme':
+    ensure => present,
+    domain => 'com.apple.terminal',
+    key    => 'Default Window Settings',
+    type   => string,
+    value  => 'Solarized Light',
+  }
+
+  osx::defaults { 'Set startup color theme':
+    ensure => present,
+    domain => 'com.apple.terminal',
+    key    => 'Startup Window Settings',
+    type   => string,
+    value  => 'Solarized Light',
+  }
 
   # Dock and Dashboard
   osx::defaults { 'Minimize windows to their application\'s icon':
