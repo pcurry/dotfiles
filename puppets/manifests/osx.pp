@@ -298,6 +298,14 @@ node default {
     value  => true,
   }
 
+  osx::defaults { 'Move Dock to left side':
+    ensure => present,
+    domain => 'com.apple.dock',
+    key    => 'orientation',
+    type   => string,
+    value  => 'left',
+  }
+
   osx::defaults { 'Disable the Dashboard':
     ensure => present,
     domain => 'com.apple.dashboard',
