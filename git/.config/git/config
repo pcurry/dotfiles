@@ -24,7 +24,6 @@
 [merge]
 	log = true
 	tool = p4merge
-	ff = false
 [github]
 	user = lunaryorn
 [hub]
