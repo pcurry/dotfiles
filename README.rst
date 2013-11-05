@@ -61,6 +61,13 @@ All other directories are `GNU Stow`_ packages:
   Zsh configuration, using Prezto_
 
 
+Other configuration files
+=========================
+
+`VisualStudio`
+  Settings files and extension list for Visual Studio
+
+
 .. _GNU Stow: http://www.gnu.org/software/stow/
 .. _Prezto: https://github.com/sorin-ionescu/prezto
 .. _Stante Pede: https://github.com/lunaryorn/stante-pede
