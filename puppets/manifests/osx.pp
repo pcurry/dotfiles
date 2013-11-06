@@ -226,14 +226,6 @@ node default {
   }
 
   # Finder
-  osx::defaults { 'Show all filename extensions':
-    ensure => present,
-    domain => 'NSGlobalDomain',
-    key    => 'AppleShowAllExtensions',
-    type   => boolean,
-    value  => true,
-  }
-
   osx::defaults { 'Search in the current folder by default':
     ensure => present,
     domain => 'com.apple.finder',
