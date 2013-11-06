@@ -21,6 +21,7 @@
 	default = tracking
 [mergetool]
 	prompt = false
+	keepBackup = false
 [merge]
 	log = true
 	tool = p4merge
