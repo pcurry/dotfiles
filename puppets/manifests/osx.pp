@@ -90,7 +90,7 @@ node default {
 
   # Link Texinfo to /usr/bin, for convenience
   if $::operatingsystem == 'Darwin' {
-    exec { 'roles::devel::emacs::link-texinfo':
+    exec { 'Link Texinfo from Homebrew':
       command     => "${::homebrew::prefix}/bin/brew link --force texinfo",
       user        => $::homebrew::realuser,
       environment => ["USER=${::homebrew::user}",
