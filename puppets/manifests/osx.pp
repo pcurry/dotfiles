@@ -294,7 +294,7 @@ node default {
     domain => 'com.apple.terminal',
     key    => 'Default Window Settings',
     type   => string,
-    value  => 'Solarized Light',
+    value  => 'Zenburn',
   }
 
   osx::defaults { 'Set startup color theme':
@@ -302,7 +302,7 @@ node default {
     domain => 'com.apple.terminal',
     key    => 'Startup Window Settings',
     type   => string,
-    value  => 'Solarized Light',
+    value  => 'Zenburn',
   }
 
   # Dock and Dashboard
