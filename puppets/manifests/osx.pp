@@ -276,9 +276,16 @@ node default {
   }
 
   # Terminal.app
-  exec { 'Import Terminal.app color theme':
-    # FIXME: Can we stop this from popping up a new terminal window?
+  # FIXME: Can we stop this from popping up a new terminal window?
+  exec { 'Import Solarized Light theme':
     command => 'open -j -g "files/Solarized Light.terminal" && sleep 1',
+    unless  => 'defaults read com.apple.Terminal "Window Settings" | grep "Solarized Light"',
+    path    => ['/usr/bin', '/bin']
+  }
+
+  exec { 'Import Zenburn theme':
+    command => 'open -j -g "files/Zenburn.terminal" && sleep 1',
+    unless  => 'defaults read com.apple.Terminal "Window Settings" | grep "Zenburn"',
     path    => ['/usr/bin', '/bin']
   }
 
