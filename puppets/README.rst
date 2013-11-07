@@ -30,12 +30,13 @@ The following manifests are available in the `manifests/` directory:
   - Warn about FileVault being disabled
   - Install Homebrew, and a good selection of Homebrew packages
   - Switch my shell to the awesome Zsh
+  - Install the `Source Code Pro`_ monospace font
   - Disable the annoying beep sound on boot
   - Set the host name
   - Configure German locale and timezone
   - Change a number of OS X defaults (e.g. Dock behaviour, Finder settings,
     etc.)
-  - Change the Terminal.app color theme to Solarized Light
+  - Change the Terminal.app color theme to Zenburn
   - Configure Twitter.app
 
 
@@ -64,3 +65,4 @@ Additionally the following 3rd party modules are available as Git Submodules:
 .. _Puppet: http://puppetlabs.com/
 .. _Puppet Standard Library: https://github.com/puppetlabs/puppetlabs-stdlib
 .. _vcsrepo: https://github.com/puppetlabs/puppetlabs-vcsrepo
+.. _Source Code Pro: https://github.com/adobe/source-code-pro
