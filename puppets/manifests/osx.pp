@@ -3,6 +3,12 @@
 node default {
 
   $user = 'swiesner'
+  $home = "/Users/${user}"
+  $realuser = $::id ? {
+    $user   => undef,
+    default => $user,
+  }
+
   $hostname = 'lunaryorn-air'
 
   class { 'homebrew':
@@ -92,6 +98,25 @@ node default {
       creates     => "${::homebrew::prefix}/bin/makeinfo",
       require     => [Class['homebrew'], Package['texinfo']],
     }
+  }
+
+  # Install Source Code Pro font
+  $sourcecodepro_url = 'http://sourceforge.net/projects/sourcecodepro.adobe/files/SourceCodePro_FontsOnly-1.017.zip/download'
+  $sourcecodepro_archive = "${home}/Downloads/SourceCodePro.zip"
+  exec { 'Download Source Code Pro':
+    command => "curl -L -s -o ${sourcecodepro_archive} ${sourcecodepro_url}",
+    unless  => "test -f ${home}/Library/Fonts/SourceCodePro-Regular.otf",
+    creates => $sourcecodepro_archive,
+    user    => $real_user,
+    path    => ['/usr/bin', '/bin'],
+  }
+
+  exec { 'Install Source Code Pro':
+    command => "unzip -oj ${sourcecodepro_archive} '*.otf' -d ${home}/Library/Fonts",
+    creates => "${home}/Library/Fonts/SourceCodePro-Regular.otf",
+    user    => $real_user,
+    path    => ['/usr/bin'],
+    require => Exec['Download Source Code Pro'],
   }
 
   Osx::Defaults {
