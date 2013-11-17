@@ -127,7 +127,6 @@ class lunaryorn::packages(
     }
   }
 
-
   # For our dotfiles
   package { 'stow': ensure => latest }
 
@@ -160,6 +159,13 @@ class lunaryorn::packages(
         ensure  => link,
         target  => "${::homebrew::prefix}/Cellar/emacs/HEAD/Emacs.app",
         require => [Class['homebrew'], Package['emacs']],
+      }
+    }
+    'Archlinux': {
+      package { 'emacs-bzr':
+        ensure  => latest,
+        require => Package['bzr'],
+        alias   => 'emacs',
       }
     }
     default: {
