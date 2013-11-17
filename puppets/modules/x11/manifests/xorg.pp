@@ -1,7 +1,7 @@
-# Class: apps::xorg
+# Class: x11::xorg
 #
 # Install Xorg
-class apps::xorg {
+class x11::xorg {
   # The server
   package { ['xorg-server']: ensure => latest }
 
