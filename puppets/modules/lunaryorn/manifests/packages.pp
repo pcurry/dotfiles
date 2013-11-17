@@ -69,9 +69,7 @@ class lunaryorn::packages(
     }
 
     # X11
-    package { ['xorg-server', 'xf86-video-ati']:
-      ensure => latest,
-    }
+    include apps::xorg
 
     # Gnome
     $gnome_packages = [ 'baobab',  # Directory tree analyzer
