@@ -82,7 +82,7 @@ es_US ISO-8859-1
 
       # On OS X, we set the locale settings per user
       file { '/etc/locale.conf':
-        content => 'LANG="de_DE.UTF-8"\n',
+        content => 'LANG="de_DE.utf8"',
       }
     }
 
