@@ -68,6 +68,11 @@ class lunaryorn::packages(
       require => Package['networkmanager'],
     }
 
+    # X11
+    package { ['xorg-server', 'xf86-video-ati']:
+      ensure => latest,
+    }
+
     # Gnome
     $gnome_packages = [ 'baobab',  # Directory tree analyzer
                         'eog',     # Image viewer
@@ -123,7 +128,7 @@ class lunaryorn::packages(
     service { 'gdm':
       ensure  => running,
       enable  => true,
-      require => Package['gdm'],
+      require => [Package['gdm'], Package['xf86-video-ati']],
     }
   }
 
