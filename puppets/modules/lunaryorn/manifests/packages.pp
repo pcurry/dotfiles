@@ -36,6 +36,22 @@ class lunaryorn::packages(
     }
   }
 
+  unless $::operatingsystem == 'Darwin' {
+    # The following packages are pre-installed on OS X
+
+    # My preferred shell
+    package { 'zsh': ensure => latest }
+
+    # OpenSSH for remote access
+    package { 'openssh': ensure => latest }
+    service { 'sshd.socket':
+      ensure  => running,
+      enable  => true,
+      require => Package['openssh'],
+    }
+  }
+
+
   # For our dotfiles
   package { 'stow': ensure => latest }
 
@@ -44,13 +60,6 @@ class lunaryorn::packages(
   unless $::operatingsystem == 'Darwin' {
     package { 'puppet': ensure => latest}
   }
-
-  # Zsh.  On OS X, it's preinstalled
-  unless $::operatingsystem == 'Darwin' {
-    package { 'zsh': ensure => latest }
-  }
-  # Fast directory switching for Zsh
-  package { 'fasd': ensure  => latest }
 
   # VCSs
   $bazaar = $::operatingsystem ? {
@@ -165,6 +174,7 @@ class lunaryorn::packages(
   package { [ 'pwgen',           # Password generator
               'nmap',            # Port scanner for diagnostics
               'youtube-dl',      # Youtube downloader
+              'fasd',            # Fast directory switching for Zsh
               ]:
     ensure => latest
   }
