@@ -218,6 +218,9 @@ class lunaryorn::packages(
       # Dropbox has a silly non-standard OS X installer
       warning('Please download and install Dropbox manually from https://www.dropbox.com/downloading?os=mac.')
     }
+    'Archlinux': {
+      package { 'dropbox': ensure => latest }
+    }
     default: {
       warning("Don't know how to install Dropbox on ${::operatingsystem}")
     }
