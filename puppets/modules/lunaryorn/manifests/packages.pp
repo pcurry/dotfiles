@@ -98,7 +98,7 @@ class lunaryorn::packages(
                         'gnome-user-share',
                         'grilo-plugins',
                         'gucharmap',
-                        'mouse tweaks',
+                        'mousetweaks',
                         'mutter',   # Window manager
                         'nautilus', # Finder for Gnome
                         'sushi',    # Preview application
