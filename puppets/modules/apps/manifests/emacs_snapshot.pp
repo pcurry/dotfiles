@@ -20,8 +20,11 @@ class apps::emacs_snapshot {
       }
     }
     'Archlinux': {
+      # Versioning of snapshots is unstable, and causes Emacs Bzr to be
+      # re-installed on every run with ensure => latest.  Hence, we just make
+      # sure that Emacs is installed.  To update it, just remove emacs-bzr
       package { 'emacs-bzr':
-        ensure  => latest,
+        ensure  => present,
         require => Package['bzr'],
         alias   => 'emacs',
       }
