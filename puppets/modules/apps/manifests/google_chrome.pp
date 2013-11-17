@@ -1,0 +1,20 @@
+# Class: apps::google_chrome
+#
+# Install Google Chrome
+class apps::google_chrome {
+  case $::operatingsystem {
+    'Darwin': {
+      package { 'google-chrome':
+        ensure   => installed,
+        provider => appdmg,
+        source   => 'https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg',
+      }
+    }
+    'Archlinux': {
+      package { 'google-chrome': ensure => latest }
+    }
+    default: {
+      warning("Don't know how to install Chrome on ${::operatingsystem}")
+    }
+  }
+}

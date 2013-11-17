@@ -150,36 +150,6 @@ class lunaryorn::packages(
   }
   package { ['git', 'mercurial', $bazaar]: ensure => latest }
 
-  # Emacs snapshot
-  case $::operatingsystem {
-    'Darwin': {
-      package { 'emacs':
-        ensure          => latest,
-        # Install Emacs trunk, with Cocoa support, better colors, and GNU TLS
-        # built-in
-        install_options => ['--HEAD', '--cocoa', '--srgb', '--with-gnutls'],
-        require         => Package['aspell'] # For flyspell
-      }
-
-      # Put Emacs into the applications folder
-      file { '/Applications/Emacs.app':
-        ensure  => link,
-        target  => "${::homebrew::prefix}/Cellar/emacs/HEAD/Emacs.app",
-        require => [Class['homebrew'], Package['emacs']],
-      }
-    }
-    'Archlinux': {
-      package { 'emacs-bzr':
-        ensure  => latest,
-        require => Package['bzr'],
-        alias   => 'emacs',
-      }
-    }
-    default: {
-      warning("Don't know how to install Emacs snapshot on $::operatingsystem")
-    }
-  }
-
   # Emacs documentation
   package { 'texinfo': ensure => latest }
 
@@ -208,36 +178,10 @@ class lunaryorn::packages(
     }
   }
 
-  # Google Chrome
-  case $::operatingsystem {
-    'Darwin': {
-      package { 'google-chrome':
-        ensure   => installed,
-        provider => appdmg,
-        source   => 'https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg',
-      }
-    }
-    'Archlinux': {
-      package { 'google-chrome': ensure => latest }
-    }
-    default: {
-      warning("Don't know how to install Chrome on ${::operatingsystem}")
-    }
-  }
-
-  # Dropbox
-  case $::operatingsystem {
-    'Darwin': {
-      # Dropbox has a silly non-standard OS X installer
-      warning('Please download and install Dropbox manually from https://www.dropbox.com/downloading?os=mac.')
-    }
-    'Archlinux': {
-      package { 'dropbox': ensure => latest }
-    }
-    default: {
-      warning("Don't know how to install Dropbox on ${::operatingsystem}")
-    }
-  }
+  # Applications
+  include apps::emacs_snapshot
+  include apps::google_chrome
+  include apps::dropbox
 
   # Ocaml
   $ocaml = $::operatingsystem ? {

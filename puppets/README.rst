@@ -25,6 +25,9 @@ all my personal configuration.
 
 The other modules provide additional resources and facts:
 
+`apps`
+  Classes to install various applications
+
 `homebrew`
   A `package` provider for Homebrew Formulae, a class to install Homebrew on the
   system, and some resources to manage Homebrew.
@@ -34,8 +37,6 @@ The other modules provide additional resources and facts:
 
 `osx`
   Additional facts and resources for OS X
-
-
 
 Additionally the following 3rd party modules are available as Git Submodules:
 
