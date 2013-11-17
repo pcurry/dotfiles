@@ -53,7 +53,11 @@ class lunaryorn::packages(
   package { 'fasd': ensure  => latest }
 
   # VCSs
-  package { ['git', 'mercurial', 'bazaar']: ensure => latest }
+  $bazaar = $::operatingsystem ? {
+    'Darwin' => 'bazaar',
+    default  => 'bzr',
+  }
+  package { ['git', 'mercurial', $bazaar]: ensure => latest }
 
   # Emacs snapshot
   case $::operatingsystem {
