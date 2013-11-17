@@ -157,7 +157,18 @@ class lunaryorn::packages(
   # hub: Github from CLI
   # ghi: Github issues from CLI
   # the_silver_searcher: Grep for Code!
-  package { ['hub', 'ghi', 'the_silver_searcher']: ensure => latest }
+  package { ['hub', 'the_silver_searcher']: ensure => latest }
+  $ghi_requires = $::operatingsystem ? {
+    'Archlinux' => Package['wget'], # AUR ghi needs wget to install
+    default     => [],
+  }
+  package { 'ghi':
+    require => $ghi_requires,
+  }
+
+  if $::operatingsystem == 'Archlinux' {
+    package { 'wget': ensure => latest }
+  }
 
   # Misc packages
   package { [ 'pwgen',           # Password generator
