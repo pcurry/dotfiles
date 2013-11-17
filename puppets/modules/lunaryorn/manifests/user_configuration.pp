@@ -14,8 +14,6 @@ class lunaryorn::user_configuration(
   $home_directory = $lunaryorn::params::home_directory,
   ) inherits lunaryorn::params {
 
-  require lunaryorn::packages
-
   if $::id != $user_name {
     $exec_user = $user_name
   }

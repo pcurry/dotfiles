@@ -11,8 +11,6 @@ class lunaryorn::packages(
   $homebrew_user = $lunaryorn::params::user_name
 ) inherits lunaryorn::params {
 
-  require lunaryorn::system_configuration
-
   case $::operatingsystem {
     'Darwin': {
       class { 'homebrew':
