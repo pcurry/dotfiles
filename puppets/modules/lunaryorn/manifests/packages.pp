@@ -49,6 +49,16 @@ class lunaryorn::packages(
       enable  => true,
       require => Package['openssh'],
     }
+
+    # Sudo
+    package { 'sudo': ensure => latest }
+    # Let wheel users execute sudo
+    file { '/etc/sudoers.d/10-wheel':
+      contents => '%wheel ALL=(ALL) ALL',
+      owner    => 'root',
+      group    => 'root',
+      mode     => 0600,
+    }
   }
 
 
