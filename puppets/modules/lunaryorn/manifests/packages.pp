@@ -67,6 +67,64 @@ class lunaryorn::packages(
       enable  => true,
       require => Package['networkmanager'],
     }
+
+    # Gnome
+    $gnome_packages = [ 'baobab',  # Directory tree analyzer
+                        'eog',     # Image viewer
+                        'evince',  # Document viewer
+                        'gdm',     # Login manager
+                        'gnome-backgrounds',
+                        'gnome-calculator',
+                        'gnome-contacts',
+                        'gnome-control-center',
+                        'gnome-desktop',
+                        'gnome-dictionary',
+                        'gnome-disk-utility',
+                        'gnome-font-viewer',
+                        'gnome-icon-theme',
+                        'gnome-icon-theme-extras',
+                        'gnome-icon-theme-symbolic',
+                        'gnome-keyring',
+                        'gnome-screenshot',
+                        'gnome-session',
+                        'gnome-settings-daemon',
+                        'gnome-shell',
+                        'gnome-shell-extensions',
+                        'gnome-system-log',
+                        'gnome-system-monitor',
+                        'gnome-terminal',
+                        'gnome-themes-standard',
+                        'gnome-user-docs',
+                        'gnome-user-share',
+                        'grilo-plugins',
+                        'gucharmap',
+                        'mouse tweaks',
+                        'mutter',   # Window manager
+                        'nautilus', # Finder for Gnome
+                        'sushi',    # Preview application
+                        'totem',    # Video player
+                        'totem-plugin', # And its browser plugin
+                        'tracker',      # Desktop search engine
+                        'vino',         # VNC server
+                        'xdg-user-dirs-gtk',
+                        'yelp',
+                        'brasero',     # Disk burner
+                        'file-roller', # Archive tool
+                        'nautilus-sendto',
+                        'gnome-weather',
+                        ]
+    package { $gnome_packages: ensure => latest }
+
+    package { 'network-manager-applet':
+      require => Package['networkmanager']
+    }
+
+    # Start GDM
+    service { 'gdm':
+      ensure  => running,
+      enable  => true,
+      require => Package['gdm'],
+    }
   }
 
 
