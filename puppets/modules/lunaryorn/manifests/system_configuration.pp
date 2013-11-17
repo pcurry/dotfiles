@@ -53,7 +53,7 @@ class lunaryorn::system_configuration(
       default: {
         # Linux systems
         file { '/etc/hostname':
-          content => "${hostname}\n"
+          content => "${hostname}"
         }
       }
     }
