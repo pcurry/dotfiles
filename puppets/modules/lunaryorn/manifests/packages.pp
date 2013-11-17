@@ -117,6 +117,7 @@ class lunaryorn::packages(
                         'file-roller', # Archive tool
                         'nautilus-sendto',
                         'gnome-weather',
+                        'gnome-tweak-tool' # Tweak gnome
                         ]
     package { $gnome_packages: ensure => latest }
 
