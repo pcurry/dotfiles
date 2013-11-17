@@ -154,17 +154,6 @@ class lunaryorn::packages(
   # the_silver_searcher: Grep for Code!
   package { ['hub', 'ghi', 'the_silver_searcher']: ensure => latest }
 
-  # Fonts
-  case $::operatingsystem {
-    'Darwin': {
-      # On OS X we install Source Code Pro to the user's font directory in
-      # lunaryorn::user_configuration
-    }
-    default : {
-      warning("Don't know how to install Source Code Pro on ${::operatingsystem}")
-    }
-  }
-
   # Misc packages
   package { [ 'pwgen',           # Password generator
               'nmap',            # Port scanner for diagnostics
