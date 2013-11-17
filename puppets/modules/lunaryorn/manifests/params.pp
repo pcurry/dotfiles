@@ -4,8 +4,9 @@
 class lunaryorn::params {
   $timezone = 'Europe/Berlin'
   $hostname = $::operatingsystem ? {
-    'Darwin' => 'lunaryorn-air',
-    default  => unset
+    'Darwin'    => 'lunaryorn-air',
+    'Archlinux' => 'lunaryorn-arch',
+    default     => undef,
   }
 
   $user_name = 'swiesner'
