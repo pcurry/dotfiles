@@ -25,8 +25,8 @@ class lunaryorn::user_configuration(
     $shell_requires = []
   }
   if $::id == 'root' {
-    exec { "chsh -s /bin/zsh ${user}":
-      path => ['/usr/bin', '/usr/sbin', '/bin', '/sbin'],
+    exec { "chsh -s /bin/zsh ${user_name}":
+      path    => ['/usr/bin', '/usr/sbin', '/bin', '/sbin'],
       require => $shell_requires,
     }
   }
