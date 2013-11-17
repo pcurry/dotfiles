@@ -59,6 +59,27 @@ class lunaryorn::system_configuration(
     }
 
     if $::operatingsystem != 'Darwin' {
+      # Linux specific configuration
+
+      # Locale generation
+      file { '/etc/locale.gen':
+        content => "de_DE.UTF-8 UTF-8
+de_DE ISO-8859-1
+de_DE@euro ISO-8859-15
+en_GB.UTF-8 UTF-8
+en_GB ISO-8859-1
+es_US.UTF-8 UTF-8
+es_US ISO-8859-1
+",
+        notify  => Exec['locale-gen'],
+      }
+
+      # Re-generate locales if changed.
+      exec { 'locale-gen':
+        path        => ['/usr/bin', '/bin'],
+        refreshonly => true,
+      }
+
       # On OS X, we set the locale settings per user
       file { '/etc/locale.conf':
         content => 'LANG="de_DE.UTF-8"\n',
