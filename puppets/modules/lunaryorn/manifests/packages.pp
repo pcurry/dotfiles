@@ -119,6 +119,9 @@ class lunaryorn::packages(
         source   => 'https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg',
       }
     }
+    'Archlinux': {
+      package { 'google-chrome': ensure => latest }
+    }
     default: {
       warning("Don't know how to install Chrome on ${::operatingsystem}")
     }
