@@ -57,7 +57,7 @@ class lunaryorn::packages(
       contents => '%wheel ALL=(ALL) ALL',
       owner    => 'root',
       group    => 'root',
-      mode     => 0600,
+      mode     => '0600',
     }
   }
 
