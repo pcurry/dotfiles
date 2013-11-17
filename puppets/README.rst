@@ -11,46 +11,31 @@ Usage
 
 Install Puppet_ with `bundle install` from the provided `Gemfile`.
 
-Use `make MANIFEST` to run any of the following manifests.  Be sure to omit the
-``.pp`` file extension in `MANIFEST`, e.g.::
+Use `make` to run apply all manifests:
 
-   make PUPPETARGS=--debug osx
+   make PUPPETARGS=--debug
 
 The variable `PUPPETARGS` passes additional arguments to `puppet apply`.
-
-
-Available manifests
-===================
-
-The following manifests are available in the `manifests/` directory:
-
-`osx.pp`
-  Provision my OS X system:
-
-  - Warn about FileVault being disabled
-  - Install Homebrew, and a good selection of Homebrew packages
-  - Switch my shell to the awesome Zsh
-  - Install the `Source Code Pro`_ monospace font
-  - Disable the annoying beep sound on boot
-  - Set the host name
-  - Configure German locale and timezone
-  - Change a number of OS X defaults (e.g. Dock behaviour, Finder settings,
-    etc.)
-  - Change the Terminal.app color theme to Zenburn
-  - Configure Twitter.app
-
 
 Available modules
 =================
 
-The following modules are available in the `modules/` directory:
+The directory `modules/` contains all modules.  The module `lunaryorn` contains
+all my personal configuration.
 
-`osx`
-  Additional facts resources to manage OS X
+The other modules provide additional resources and facts:
 
 `homebrew`
   A `package` provider for Homebrew Formulae, a class to install Homebrew on the
   system, and some resources to manage Homebrew.
+
+`system`
+  Resources to configuration system settings
+
+`osx`
+  Additional facts and resources for OS X
+
+
 
 Additionally the following 3rd party modules are available as Git Submodules:
 

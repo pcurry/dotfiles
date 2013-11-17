@@ -1,6 +1,6 @@
 PUPPET = puppet
 PUPPETARGS =
 
-.PHONY: osx
-osx:
-	$(PUPPET) apply --modulepath "modules/" $(PUPPETARGS) manifests/osx.pp
+.PHONY: provision
+provision:
+	$(PUPPET) apply --modulepath "modules/" $(PUPPETARGS) manifests/site.pp

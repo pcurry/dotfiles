@@ -1,173 +1,38 @@
-# Setup an OS X system
-
-node default {
-
-  $user = 'swiesner'
-  $home = "/Users/${user}"
-  $realuser = $::id ? {
-    $user   => undef,
-    default => $user,
-  }
-
-  $hostname = 'lunaryorn-air'
-
-  class { 'homebrew':
-    user => $user
-  }
-
-  # We must have 10.9
-  if $::macosx_productversion_major != '10.9' {
-    fail('Get Mavericks, stupid!')
-  }
-
-  # We also want filefault
-  if ! $::osx_file_vault_active {
-    fail('Hey man, put your files in the vault!')
-  }
-
-  # If we can, let's install Homebrew
-  if $::id == 'root' {
-    include homebrew::install
-
-    Class['homebrew::install'] -> Package<| |>
-  }
-  else {
-    notice('We are not root, and cannot install Homebrew')
-  }
-
-  # Switch my shell to Zsh
-  if $::id == 'root' {
-    exec { "/usr/bin/chsh -s /bin/zsh ${user}": }
-  }
-  else {
-    notice('We are not root, and cannot switch your shell')
-  }
-
-  # Install all our packages with Homebrew
-  Package {
-    provider => homebrew,
-  }
-
-  # Install our Homebrew packages
-  package { [ 'stow',                # To manage these dotfiles
-              'git',                 # VCS tools
-              'mercurial',
-              'bazaar',
-              'texinfo',             # Build Emacs docs
-              'leiningen',           # Clojure project management
-              'objective-caml',      # Ocaml and its package manager
-              'opam',
-              'nmap',                # The port scanner for network debugging
-              'pwgen',               # Password generation from command line
-              'the_silver_searcher', # Code search reloaded
-              'fasd',                # Fast directory switching for Zsh
-              'hub',                 # Control Github from command line
-              'ghi',                 # Browse Github issues from command line
-              'youtube-dl',          # Youtube video downloader
-              ]:
-  }
-
-  package { 'emacs':
-    ensure          => latest,
-    # Install Emacs trunk, with Cocoa support, better colors, and GNU TLS
-    # built-in
-    install_options => ['--HEAD', '--cocoa', '--srgb', '--with-gnutls'],
-    require         => Package['aspell'] # For flyspell
-  }
-
-  # Put Emacs into the Applications folder
-  file { '/Applications/Emacs.app':
-    ensure  => link,
-    target  => "${::homebrew::prefix}/Cellar/emacs/HEAD/Emacs.app",
-    require => [Class['homebrew'], Package['emacs']],
-  }
-
-  # Spell checker for Emacs
-  package { 'aspell':
-    ensure          => latest,
-    install_options => ['--with-lang-de', '--with-lang-en']
-  }
-
-  # Link Texinfo to /usr/bin, for convenience
-  if $::operatingsystem == 'Darwin' {
-    exec { 'Link Texinfo from Homebrew':
-      command     => "${::homebrew::prefix}/bin/brew link --force texinfo",
-      user        => $::homebrew::realuser,
-      environment => ["USER=${::homebrew::user}",
-                      "HOME=/Users/${::homebrew::user}"],
-      creates     => "${::homebrew::prefix}/bin/makeinfo",
-      require     => [Class['homebrew'], Package['texinfo']],
-    }
-  }
-
-  # Install Source Code Pro font
-  $sourcecodepro_url = 'http://sourceforge.net/projects/sourcecodepro.adobe/files/SourceCodePro_FontsOnly-1.017.zip/download'
-  $sourcecodepro_archive = "${home}/Downloads/SourceCodePro.zip"
-  exec { 'Download Source Code Pro':
-    command => "curl -L -s -o ${sourcecodepro_archive} ${sourcecodepro_url}",
-    unless  => "test -f ${home}/Library/Fonts/SourceCodePro-Regular.otf",
-    creates => $sourcecodepro_archive,
-    user    => $real_user,
-    path    => ['/usr/bin', '/bin'],
-  }
-
-  exec { 'Install Source Code Pro':
-    command => "unzip -oj ${sourcecodepro_archive} '*.otf' -d ${home}/Library/Fonts",
-    creates => "${home}/Library/Fonts/SourceCodePro-Regular.otf",
-    user    => $real_user,
-    path    => ['/usr/bin'],
-    require => Exec['Download Source Code Pro'],
-  }
-
+# Class: lunaryorn::user_configuration::osx
+#
+# This class sets my personal preferences on OS X
+#
+# Parameters:
+#
+# Actions:
+# - Change to German locale
+# - Disable quarantine configuration for downloaded applications
+# - Enable daily update checks
+# - Show remaining battery time instead of percentage in the battery applet
+# - Disable shadows in screenshots
+# - Enable subpixel rendering for all LCDs
+# - Change the default search directory of Finder to the current directory
+# - Disable warnings about changing the file extension or moving files to Trash
+# - Import the Solarized Light and Zenburn themes for Terminal.app
+# - Switch Terminal.app to Zenburn color theme
+# - Move the Dock to the left site
+# - Enable indicators lights for open applications
+# - Disable the dashboard and remove it from spaces
+# - Make applications minimize to their icons
+# - Make icons of hidden applications translucent
+# - Disable automatic hiding of the Dock
+# - Automatically hide the Twitter.app window
+# - Make Twitter.app open the window when clicking the menu icon
+# - Make Twitter.app show full names rather than handles
+class lunaryorn::user_configuration::osx {
   Osx::Defaults {
-    user => $user,
+    user => $::lunaryorn::user_configuration::user_name
   }
 
   # TODO: Reset Launchpad?
   # find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
 
-  # Change OS X settings
-
-  # System settings
-  # Disable the annoying beep on boot
-  if $::id == 'root' {
-    exec { 'Disable beep on boot':
-      command => '/usr/sbin/nvram SystemAudioVolume=" "',
-    }
-  }
-  else {
-    notice('We are not root, and cannot disable the boot sound')
-  }
-
-  # Set hostname
-  if $::id == 'root' {
-    osx::systemconfig { 'ComputerName':
-      value => $hostname
-    }
-
-    osx::systemconfig { 'HostName':
-      value => $hostname
-    }
-
-    osx::systemconfig { 'LocalHostName':
-      value => hostname
-    }
-
-    osx::defaults { 'Set SMB host name':
-      ensure => present,
-      domain => '/Library/Preferences/SystemConfiguration/com.apple.smb.server',
-      key    => 'NetBIOSName',
-      type   => string,
-      value  => $hostname,
-    }
-  }
-  else {
-    notice('We are not root, and cannot change the host name')
-  }
-
-  # Locale
-  # TODO: Select languages
-  # defaults write NSGlobalDomain AppleLanguages -array "de" "en" "uk"
+  # Local settings
   osx::defaults { 'Use German locale settings':
     ensure => present,
     domain => 'NSGlobalDomain',
@@ -190,13 +55,6 @@ node default {
     key    => 'AppleMetricUnits',
     type   => boolean,
     value  => true,
-  }
-
-  if $::id == 'root' {
-    osx::timezone { 'Europe/Berlin': }
-  }
-  else {
-    notice('We are not root, and cannot change the timezone')
   }
 
   # Security
@@ -233,7 +91,7 @@ node default {
     value  => 'YES',
   }
 
-  #
+  # Desktop settings
   osx::defaults { 'Disable shadow in screenshots':
     ensure => present,
     domain => 'com.apple.screencapture',
