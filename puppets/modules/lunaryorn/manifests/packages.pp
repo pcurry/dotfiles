@@ -59,6 +59,14 @@ class lunaryorn::packages(
       group   => 'root',
       mode    => '0600',
     }
+
+    # Network Manager
+    package { 'networkmanager': ensure => latest }
+    service { 'NetworkManager':
+      ensure  => running,
+      enable  => true,
+      require => Package['networkmanager'],
+    }
   }
 
 
