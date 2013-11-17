@@ -21,8 +21,8 @@ define osx::systemconfig($value, $preference = $title) {
     warning('Cannot change system preferences as non-root')
   }
   else {
-    exec { "scutil -set ${preference} ${value}":
-      unless => "scutil -get ${preference} | egrep '^${value}$'",
+    exec { "scutil --set ${preference} ${value}":
+      unless => "scutil --get ${preference} | egrep '^${value}$'",
       path   => ['/usr/sbin', '/usr/bin'],
     }
   }
