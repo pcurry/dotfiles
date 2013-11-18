@@ -89,8 +89,8 @@ class lunaryorn::packages(
     # A good fontset for non-OS X systems
     $fonts = [ 'adobe-source-code-pro-fonts',
                'terminus-font',
-                'ttf-dejavu',
-                'ttf-liberation' ]
+               'ttf-dejavu',
+               'ttf-liberation' ]
     package { $fonts : ensure => latest }
   }
 
