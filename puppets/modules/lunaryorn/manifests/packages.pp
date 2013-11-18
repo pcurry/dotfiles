@@ -99,6 +99,7 @@ class lunaryorn::packages(
                           'gst-plugins-ugly', # Media codecs
                           'gst-libav',
                           'libgpod', # iPod support
+                          'nautilus-dropbox', # Dropbox integration for Nautilus
                           ]
       package { $gnome_packages: ensure => latest }
 
