@@ -85,6 +85,13 @@ class lunaryorn::packages(
     package { 'network-manager-applet':
       require => Package['networkmanager']
     }
+
+    # A good fontset for non-OS X systems
+    $fonts = [ 'adobe-source-code-pro-fonts',
+               'terminus-font',
+                'ttf-dejavu',
+                'ttf-liberation' ]
+    package { $fonts : ensure => latest }
   }
 
   # For our dotfiles
