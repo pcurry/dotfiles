@@ -3,6 +3,7 @@
 # This class sets my personal preferences on OS X
 #
 # Parameters:
+# - The $user whose defaults to change
 #
 # Actions:
 # - Change to German locale
@@ -24,9 +25,11 @@
 # - Automatically hide the Twitter.app window
 # - Make Twitter.app open the window when clicking the menu icon
 # - Make Twitter.app show full names rather than handles
-class lunaryorn::user_configuration::osx {
+class lunaryorn::user_configuration::osx(
+  $user = $lunaryorn::params::user_name) inherits lunaryorn::params {
+
   Osx::Defaults {
-    user => $::lunaryorn::user_configuration::user_name
+    user => $user
   }
 
   # TODO: Reset Launchpad?
