@@ -1,6 +1,16 @@
 # Class: lunaryorn::user_configuration::gnome
 #
-# This class sets my Gnome settings
+# This class sets my Gnome settings.
+#
+# Parameters:
+# - The $user whose settings to change
+#
+# Actions:
+# - Disable the blinking cursor
+# - Set document and monospace fonts
+# - Set keyboard layouts and options
+# - Configure the Gnome Shell
+# - Configure NetworkManager, PackageKit and Eye of Gnome
 class lunaryorn::user_configuration::gnome(
   $user = $lunaryorn::params::user_name
   ) inherits lunaryorn::params {

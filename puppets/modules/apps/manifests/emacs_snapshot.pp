@@ -1,6 +1,11 @@
 # Class: apps::emacs_snapshot
 #
-# Install an Emacs Bazaar snapshot
+# This class installs a snapshot build of Emacs.
+#
+# Parameters:
+#
+# Actions:
+# - Install a snapshot build of Emacs
 class apps::emacs_snapshot {
   case $::operatingsystem {
     'Darwin': {

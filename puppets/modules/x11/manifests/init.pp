@@ -1,6 +1,12 @@
 # Class: x11
 #
-# Install X11
+# This class installs X11.  On Linux, it installs Xorg.  On OS X, it uses
+# XQuartz.
+#
+# Parameters:
+#
+# Actions:
+# - Install an X11 distribution appropriate for the provisioned system
 class x11 {
   case $::operatingsystem {
     'Darwin': {

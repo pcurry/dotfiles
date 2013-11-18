@@ -6,7 +6,25 @@
 # - The $user_name (for OS X Homebrew)
 #
 # Actions:
+# - On OS X, install Homebrew if possible
+# - On Arch Linux, configure Pacman
+# - On Linux, install Zsh, Openssh, Sudo, NetworkManager, Gnome and various
+#   fonts
 # - Install GNU Stow for this dotfile repo
+# - Install popular VCS programs
+# - Install GNU Texinfo to build Emacs documentation
+# - Install Aspell as Emacs spell checker
+# - Install Emacs snapshot
+# - Install Google Chrome
+# - Install Dropbox
+# - Install Ocaml and its package manager Opam
+# - Install Leinigen for Clojure development
+# - Install Github command line tools hub and ghi
+# - Install Ag, the silver searcher for fast code searchx
+# - Install pwgen to generate passwords
+# - Install nmap for network diagnosis
+# - Install youtube-dl to download youtube videos
+# - Install fasd for fast directory jumps in Zsh
 class lunaryorn::packages(
   $homebrew_user = $lunaryorn::params::user_name
   ) inherits lunaryorn::params {

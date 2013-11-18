@@ -1,6 +1,14 @@
 # Class: x11::xorg
 #
-# Install Xorg
+# This class installs Xorg.
+#
+# Parameters:
+#
+# Actions:
+# - Install the Xorg server
+# - Install the Xorg input drivers
+# - Install the Xorg video drivers
+# - Install the Xorg utility applications
 class x11::xorg {
   # The server
   package { ['xorg-server']: ensure => latest }

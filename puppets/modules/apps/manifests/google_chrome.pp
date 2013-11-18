@@ -1,6 +1,11 @@
 # Class: apps::google_chrome
 #
-# Install Google Chrome
+# This class installs Google Chrome
+#
+# Parameters:
+#
+# Actions:
+# - Install Google Chrome
 class apps::google_chrome {
   case $::operatingsystem {
     'Darwin': {

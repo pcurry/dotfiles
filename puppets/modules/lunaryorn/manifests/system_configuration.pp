@@ -8,6 +8,7 @@
 # - Set the hostname of the system
 # - Set the system timezone
 # - On Linux, set the system locale
+# - On Linux, allow users of the wheel group to use sudo
 # - On OS X, disable the boot beep
 class lunaryorn::system_configuration(
   $hostname = $lunaryorn::params::hostname,

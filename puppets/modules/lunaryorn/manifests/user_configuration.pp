@@ -9,6 +9,8 @@
 # Actions:
 # - Change my login shell to Zsh
 # - Configure an OS X system with lunaryorn::user_configuration::osx
+# - On OS X, install Source Code Pro for the $user
+# - Configure a Gnome system with lunaryorn::user_configuration::gnome
 class lunaryorn::user_configuration(
   $user_name = $lunaryorn::params::user_name,
   $home_directory = $lunaryorn::params::home_directory,

@@ -1,6 +1,13 @@
 # Definition: gnome::settings
 #
 # This class changes Gnome settings using gsettings.
+#
+# Parameters:
+# - The $schema the $key belongs to
+# - The $key to set
+# - The new $value, as boolean, or string containing a serialized GVariant
+# - The $user whose settings to change
+# - The state to $ensure, either present or reset
 define gnome::settings(
   $schema,
   $key,

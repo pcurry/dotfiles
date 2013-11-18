@@ -1,6 +1,11 @@
 # Class: gnome
 #
-# Install the Gnome base
+# This class installs Gnome.
+#
+# Parameters:
+#
+# Actions:
+# - Install Telepathy and Gnome Base
 class gnome {
   require x11
 
