@@ -84,6 +84,14 @@ class lunaryorn::packages(
       # My preferred shell
       package { 'zsh': ensure => latest }
 
+      # Audio tools
+      package { ['alsa-utils', 'pavucontrol']: ensure => installed }
+      # Save and restore mixer volume on boot
+      service { ['alsa-restore', 'alsa-store']:
+        enable  => true,
+        require => Package['alsa-utils'],
+      }
+
       # OpenSSH for remote access
       package { 'openssh': ensure => latest }
       service { 'sshd.socket':
