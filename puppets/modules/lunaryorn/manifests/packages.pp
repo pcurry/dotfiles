@@ -58,7 +58,7 @@ class lunaryorn::packages(
     }
 
     unless $::operatingsystem == 'Darwin' {
-      # The following packages are pre-installed on OS X
+      # The following packages are pre-installed or not required on OS X
 
       # My preferred shell
       package { 'zsh': ensure => latest }
@@ -75,6 +75,7 @@ class lunaryorn::packages(
       package { 'sudo': ensure => latest }
 
       # Network Manager
+      package { 'wireless_tools': ensure => latest }
       package { 'networkmanager': ensure => latest }
       service { 'NetworkManager':
         ensure  => running,
