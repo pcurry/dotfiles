@@ -9,7 +9,6 @@ class apps::emacs_snapshot {
         # Install Emacs trunk, with Cocoa support, better colors, and GNU TLS
         # built-in
         install_options => ['--HEAD', '--cocoa', '--srgb', '--with-gnutls'],
-        require         => Package['aspell'] # For flyspell
       }
 
       # Put Emacs into the applications folder
