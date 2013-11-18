@@ -33,7 +33,22 @@ class lunaryorn::packages(
       }
     }
     'Archlinux': {
+      file { '/etc/pacman.conf':
+        source => 'puppet:///modules/lunaryorn/pacman.conf',
+        owner  => 'root',
+        group  => 'root',
+        mode   => '0644',
+        notify => Exec['pacman -Sy'],
+      }
 
+      # Refresh package lists if the configuration changed
+      exec { 'pacman -Sy':
+        path        => ['/usr/bin/'],
+        refreshonly => true,
+      }
+
+      # Configure pacman before installing anything
+      File['/etc/pacman.conf'] -> Package<| |>
     }
     default : {
     }
