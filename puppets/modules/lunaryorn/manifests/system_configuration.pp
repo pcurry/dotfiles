@@ -19,6 +19,13 @@ class lunaryorn::system_configuration(
       fail('No hostname set for this system')
     }
 
+    # Resource defaults
+    File {
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0644',
+    }
+
     # Timezone
     case $::operatingsystem {
       'Darwin': {
@@ -63,15 +70,8 @@ class lunaryorn::system_configuration(
 
       # Locale generation
       file { '/etc/locale.gen':
-        content => "de_DE.UTF-8 UTF-8
-de_DE ISO-8859-1
-de_DE@euro ISO-8859-15
-en_GB.UTF-8 UTF-8
-en_GB ISO-8859-1
-es_US.UTF-8 UTF-8
-es_US ISO-8859-1
-",
-        notify  => Exec['locale-gen'],
+        source => 'puppet:///modules/lunaryorn/locale.gen',
+        notify => Exec['locale-gen'],
       }
 
       # Re-generate locales if changed.
@@ -82,7 +82,14 @@ es_US ISO-8859-1
 
       # On OS X, we set the locale settings per user
       file { '/etc/locale.conf':
-        content => 'LANG="de_DE.utf8"',
+        source => 'puppet:///modules/lunaryorn/locale.conf'
+      }
+
+      # Configure Sudo
+      file { '/etc/sudoers.d/10-wheel':
+        source  => 'puppet:///modules/lunaryorn/sudo-wheel',
+        mode    => '0600',      # Sudo wants very restrictive modes
+        require => Package['sudo'],
       }
     }
 

@@ -32,6 +32,9 @@ class lunaryorn::packages(
         notice('We are not root, and cannot install Homebrew')
       }
     }
+    'Archlinux': {
+
+    }
     default : {
     }
   }
@@ -52,13 +55,6 @@ class lunaryorn::packages(
 
     # Sudo
     package { 'sudo': ensure => latest }
-    # Let wheel users execute sudo
-    file { '/etc/sudoers.d/10-wheel':
-      content => '%wheel ALL=(ALL) ALL',
-      owner   => 'root',
-      group   => 'root',
-      mode    => '0600',
-    }
 
     # Network Manager
     package { 'networkmanager': ensure => latest }
