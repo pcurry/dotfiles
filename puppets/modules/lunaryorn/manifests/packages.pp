@@ -75,6 +75,7 @@ class lunaryorn::packages(
     # Additional utilities for Gnome
     $gnome_packages = [ 'brasero',     # Disk burner
                         'file-roller', # Archive tool
+                        'evolution',   # Organizer
                         'nautilus-sendto',
                         'gnome-weather',
                         'gnome-tweak-tool',
