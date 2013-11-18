@@ -79,6 +79,10 @@ class lunaryorn::packages(
                         'gnome-weather',
                         'gnome-tweak-tool',
                         'gnome-packagekit',
+                        'rhythmbox', # Audio player
+                        'gst-plugins-ugly', # Media codecs
+                        'gst-libav',
+                        'libgpod', # iPod support
                         ]
     package { $gnome_packages: ensure => latest }
 
