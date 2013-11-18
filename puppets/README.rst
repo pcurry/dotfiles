@@ -28,6 +28,9 @@ The other modules provide additional resources and facts:
 `apps`
   Classes to install various applications
 
+`gnome`
+  Install and configure Gnome 3
+
 `homebrew`
   A `package` provider for Homebrew Formulae, a class to install Homebrew on the
   system, and some resources to manage Homebrew.
@@ -37,6 +40,9 @@ The other modules provide additional resources and facts:
 
 `osx`
   Additional facts and resources for OS X
+
+`x11`
+  Install and configure X11
 
 Additionally the following 3rd party modules are available as Git Submodules:
 
