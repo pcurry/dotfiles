@@ -78,6 +78,9 @@ class lunaryorn::packages(
     unless $::operatingsystem == 'Darwin' {
       # The following packages are pre-installed or not required on OS X
 
+      # Access to NTFS file systems
+      package { 'ntfs3g': ensure => latest }
+
       # My preferred shell
       package { 'zsh': ensure => latest }
 
