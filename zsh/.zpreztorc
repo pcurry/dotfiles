@@ -43,6 +43,7 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'python' \
   'ruby' \
+  'ocaml' \
   'haskell' \
   'node' \
   'osx' \
