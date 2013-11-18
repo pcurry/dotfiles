@@ -37,6 +37,11 @@ define osx::defaults(
     default => $user,
   }
 
+  Exec {
+    user    => $real_user,
+    path    => ['/usr/sbin', '/usr/bin'],
+  }
+
   if $::operatingsystem != 'Darwin' {
     fail('Defaults are only supported on OS X')
   }
@@ -81,8 +86,6 @@ define osx::defaults(
         exec { "defaults write '${domain}' '${key}' ${typearg} ${valuearg}":
           # FIXME: Doesn't handle boolean values
           unless  => "defaults read '${domain}' '${key}' | egrep '^${expected_value}$'",
-          user    => $real_user,
-          path    => ['/usr/sbin', '/usr/bin'],
         }
       }
     }
@@ -96,8 +99,6 @@ define osx::defaults(
 
       exec { "defaults delete '${domain}' '${key}'":
         onlyif  => "defaults read '${domain}' | grep ${key}",
-        user    => $real_user,
-        path    => ['/usr/sbin', '/usr/bin'],
       }
 
     }
