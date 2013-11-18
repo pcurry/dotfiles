@@ -11,7 +11,7 @@ Usage
 
 Install Puppet_ with `bundle install` from the provided `Gemfile`.
 
-Use `make` to run apply all manifests:
+Use `make` to run apply all manifests::
 
    make PUPPETARGS=--debug
 
