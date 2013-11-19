@@ -26,7 +26,12 @@
 # - Make Twitter.app open the window when clicking the menu icon
 # - Make Twitter.app show full names rather than handles
 class lunaryorn::user_configuration::osx(
-  $user = $lunaryorn::params::user_name) inherits lunaryorn::params {
+  $user = $lunaryorn::params::user_name
+  ) inherits lunaryorn::params {
+
+  if $user != $::id {
+    $exec_user = $user
+  }
 
   Osx::Defaults {
     user => $user
@@ -141,13 +146,15 @@ class lunaryorn::user_configuration::osx(
   exec { 'Import Solarized Light theme':
     command => 'open -j -g "files/Solarized Light.terminal" && sleep 1',
     unless  => 'defaults read com.apple.Terminal "Window Settings" | grep "Solarized Light"',
-    path    => ['/usr/bin', '/bin']
+    path    => ['/usr/bin', '/bin'],
+    user    => $exec_user,
   }
 
   exec { 'Import Zenburn theme':
     command => 'open -j -g "files/Zenburn.terminal" && sleep 1',
     unless  => 'defaults read com.apple.Terminal "Window Settings" | grep "Zenburn"',
-    path    => ['/usr/bin', '/bin']
+    path    => ['/usr/bin', '/bin'],
+    user    => $exec_user,
   }
 
   osx::defaults { 'Set default color theme':
