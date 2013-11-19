@@ -22,15 +22,25 @@ class apps::firefox($language) {
       }
     }
     'Archlinux': {
-      # Firefox and the German language
-      $lang_code = downcase($language)
-      $lang_pack = "firefox-i18n-${lang_code}"
+      package { 'firefox': ensure => latest }
 
-      package { ['firefox', $lang_pack]: ensure => latest }
+      if $language {
+        # Firefox and the German language
+        $lang_code = downcase($language)
+        $lang_pack = "firefox-i18n-${lang_code}"
+
+        package { $lang_pack:
+          ensure  => latest,
+          require => Package['firefox'],
+        }
+      }
 
       if defined(Class['gnome']) {
         # Plug the Gnome keyring into Firefox if Gnome is available
-        package { 'firefox-gnome-keyring': ensure => latest}
+        package { 'firefox-gnome-keyring':
+          ensure  => latest,
+          require => [Class['gnome'], Package['firefox']]
+        }
       }
     }
     default: {
