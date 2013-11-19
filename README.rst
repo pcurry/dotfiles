@@ -51,6 +51,10 @@ All other directories are `GNU Stow`_ packages:
   Font configuration for Linux
 `git`
   Configuration for Git
+`git.gnome`
+  Configuration for Git, specific to Gnome 3
+`git.osx`
+  Configuration for Git, specific to OS X
 `mercurial`
   Configuration for Mercurial
 `ruby`

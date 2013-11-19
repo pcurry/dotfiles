@@ -29,7 +29,6 @@
 	user = lunaryorn
 [hub]
 	protocol = https
-[credential]
-	helper = osxkeychain
 [include]
 	path = config.secret
+	path = config.platform
