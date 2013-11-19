@@ -34,14 +34,6 @@ class apps::firefox($language) {
           require => Package['firefox'],
         }
       }
-
-      if defined(Class['gnome']) {
-        # Plug the Gnome keyring into Firefox if Gnome is available
-        package { 'firefox-gnome-keyring':
-          ensure  => latest,
-          require => [Class['gnome'], Package['firefox']]
-        }
-      }
     }
     default: {
       warning("Don't know how to install Firefoxx on ${::operatingsystem}")
