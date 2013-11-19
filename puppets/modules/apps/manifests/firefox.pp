@@ -27,6 +27,11 @@ class apps::firefox($language) {
       $lang_pack = "firefox-i18n-${lang_code}"
 
       package { ['firefox', $lang_pack]: ensure => latest }
+
+      if defined(Class['gnome']) {
+        # Plug the Gnome keyring into Firefox if Gnome is available
+        package { 'firefox-gnome-keyring': ensure => latest}
+      }
     }
     default: {
       warning("Don't know how to install Firefoxx on ${::operatingsystem}")
