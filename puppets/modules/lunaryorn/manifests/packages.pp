@@ -211,9 +211,7 @@ class lunaryorn::packages(
     # Applications
     include apps::emacs_snapshot
     include apps::dropbox
-    class { 'apps::firefox':
-      language => 'de',
-    }
+    include apps::chrome
 
     # Ocaml
     $ocaml = $::operatingsystem ? {
