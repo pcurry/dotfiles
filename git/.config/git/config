@@ -22,6 +22,8 @@
 [mergetool]
 	prompt = false
 	keepBackup = false
+[rebase]
+	autosquash = true
 [merge]
 	log = true
 	tool = p4merge
