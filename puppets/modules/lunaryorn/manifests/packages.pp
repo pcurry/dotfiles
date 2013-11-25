@@ -198,20 +198,10 @@ class lunaryorn::packages(
     # Emacs tag browsing
     package { 'ctags': ensure => latest }
 
-    # Emacs spell checker
-    case $::operatingsystem {
-      'Darwin': {
-        package { 'aspell':
-          ensure          => latest,
-          install_options => ['--with-lang-de', '--with-lang-en']
-        }
-      }
-      default: {
-        package { ['aspell', 'aspell-de', 'aspell-en']: ensure => latest }
-      }
-    }
-
     # Applications
+    class {'apps::aspell':      # Emacs spell checker
+      languages => ['en', 'de']
+    }
     include apps::emacs_snapshot
     include apps::dropbox
     include apps::chrome
