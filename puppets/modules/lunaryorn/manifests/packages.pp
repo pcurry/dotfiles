@@ -195,6 +195,9 @@ class lunaryorn::packages(
       }
     }
 
+    # Emacs tag browsing
+    package { 'ctags': ensure => latest }
+
     # Emacs spell checker
     case $::operatingsystem {
       'Darwin': {
