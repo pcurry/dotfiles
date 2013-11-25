@@ -204,7 +204,7 @@ class lunaryorn::packages(
     }
     include apps::emacs_snapshot
     include apps::dropbox
-    include apps::chrome
+    include apps::google_chrome
 
     # Ocaml
     $ocaml = $::operatingsystem ? {
