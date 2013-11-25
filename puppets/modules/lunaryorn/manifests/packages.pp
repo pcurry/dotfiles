@@ -204,7 +204,9 @@ class lunaryorn::packages(
     }
     include apps::emacs_snapshot
     include apps::dropbox
-    include apps::google_chrome
+    class { 'apps::firefox':
+      language => 'de',
+    }
 
     include apps::ocaml
     include apps::clojure
