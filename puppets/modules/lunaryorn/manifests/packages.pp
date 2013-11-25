@@ -206,22 +206,8 @@ class lunaryorn::packages(
     include apps::dropbox
     include apps::google_chrome
 
-    # Ocaml
-    $ocaml = $::operatingsystem ? {
-      'Darwin' => 'objective-caml',
-      default  => 'ocaml',
-    }
-    package { $ocaml:
-      ensure => latest,
-      alias  => 'ocaml',
-    }
-    package { 'opam':
-      ensure  => latest,
-      require => Package['ocaml']
-    }
-
-    # Clojure
-    package { 'leiningen': ensure => latest}
+    include apps::ocaml
+    include apps::clojure
 
     # Developer tools:
     # hub: Github from CLI
