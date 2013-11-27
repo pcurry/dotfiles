@@ -928,7 +928,7 @@ CSS 3.0;CSS 3.0</PropertyValue>
 			<PropertyValue name="ErrorListShowsMessages">true</PropertyValue>
 			<PropertyValue name="ErrorListScopeFilteringActive">false</PropertyValue>
 			<PropertyValue name="ErrorListFilterScope">3</PropertyValue>
-			<PropertyValue name="ActiveProvider">{00000000-0000-0000-0000-000000000000}</PropertyValue>
+			<PropertyValue name="ActiveProvider">{7E5BB8D2-57E5-4FA9-9542-3870395C16A1}</PropertyValue>
 			<TaskProviders>
 				<Provider GUID="{7E5BB8D2-57E5-4FA9-9542-3870395C16A1}">
 					<Columns>
@@ -1099,7 +1099,7 @@ CSS 3.0;CSS 3.0</PropertyValue>
 		</Category>
 		<Category name="Environment_SimplifiedToolsOptions" Category="{13BEDEE6-9051-4809-B9E3-2EEC749EB15A}" Package="{DA9FB551-C724-11d0-AE1F-00A0C90FFFC3}" RegisteredName="Environment_SimplifiedToolsOptions" PackageName="Visual Studio Environment Package">
 			<PropertyValue name="SupportsSimpleToolsOptions">false</PropertyValue>
-			<PropertyValue name="ShowingAllPages">false</PropertyValue>
+			<PropertyValue name="ShowingAllPages">true</PropertyValue>
 			<PropertyValue name="ShowFlatList">false</PropertyValue>
 		</Category>
 		<Category name="Environment_SolutionExplorer" Category="{6FA9062F-82B2-4725-BA6D-58CF7CBA7DEA}" Package="{cf6a5c16-83b0-4d04-b702-195c35c6e887}" RegisteredName="Environment_SolutionExplorer" PackageName="Microsoft.VisualStudio.PlatformUI.SolutionNavigatorPackage">
@@ -1146,174 +1146,6 @@ CSS 3.0;CSS 3.0</PropertyValue>
 					</Columns>
 				</Provider>
 				<Provider GUID="{18267819-C975-4292-8741-255590F76EB5}">
-					<Columns>
-						<Column Name="Priority" Width="20" Visibility="Visible" SortPriority="0" SortDirection="Up"/>
-						<Column Name="Bitmap" Width="17" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="ProviderKnowsOrder" Width="17" Visibility="Invisible" SortPriority="2" SortDirection="Up"/>
-						<Column Name="Checked" Width="28" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="Description" Width="250" Visibility="Visible" SortPriority="7" SortDirection="Up"/>
-						<Column Name="File" Width="120" Visibility="Visible" SortPriority="4" SortDirection="Up"/>
-						<Column Name="Line" Width="70" Visibility="Visible" SortPriority="5" SortDirection="Up"/>
-						<Column Name="Column" Width="70" Visibility="Invisible" SortPriority="6" SortDirection="Up"/>
-						<Column Name="Category" Width="0" Visibility="Invisible" SortPriority="1" SortDirection="Up"/>
-						<Column Name="Subcategory" Width="0" Visibility="Invisible" SortPriority="3" SortDirection="Up"/>
-					</Columns>
-				</Provider>
-				<Provider GUID="{00000000-0000-0000-0000-000000000000}">
-					<Columns>
-						<Column Name="Priority" Width="20" Visibility="Visible" SortPriority="0" SortDirection="Up"/>
-						<Column Name="Bitmap" Width="17" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="ProviderKnowsOrder" Width="17" Visibility="Invisible" SortPriority="2" SortDirection="Up"/>
-						<Column Name="Checked" Width="28" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="Description" Width="250" Visibility="Visible" SortPriority="7" SortDirection="Up"/>
-						<Column Name="File" Width="120" Visibility="Visible" SortPriority="4" SortDirection="Up"/>
-						<Column Name="Line" Width="70" Visibility="Visible" SortPriority="5" SortDirection="Up"/>
-						<Column Name="Column" Width="70" Visibility="Invisible" SortPriority="6" SortDirection="Up"/>
-						<Column Name="Category" Width="0" Visibility="Invisible" SortPriority="1" SortDirection="Up"/>
-						<Column Name="Subcategory" Width="0" Visibility="Invisible" SortPriority="3" SortDirection="Up"/>
-					</Columns>
-				</Provider>
-				<Provider GUID="{00000000-0000-0000-0000-000000000000}">
-					<Columns>
-						<Column Name="Priority" Width="20" Visibility="Visible" SortPriority="0" SortDirection="Up"/>
-						<Column Name="Bitmap" Width="17" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="ProviderKnowsOrder" Width="17" Visibility="Invisible" SortPriority="2" SortDirection="Up"/>
-						<Column Name="Checked" Width="28" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="Description" Width="250" Visibility="Visible" SortPriority="7" SortDirection="Up"/>
-						<Column Name="File" Width="120" Visibility="Visible" SortPriority="4" SortDirection="Up"/>
-						<Column Name="Line" Width="70" Visibility="Visible" SortPriority="5" SortDirection="Up"/>
-						<Column Name="Column" Width="70" Visibility="Invisible" SortPriority="6" SortDirection="Up"/>
-						<Column Name="Category" Width="0" Visibility="Invisible" SortPriority="1" SortDirection="Up"/>
-						<Column Name="Subcategory" Width="0" Visibility="Invisible" SortPriority="3" SortDirection="Up"/>
-					</Columns>
-				</Provider>
-				<Provider GUID="{00000000-0000-0000-0000-000000000000}">
-					<Columns>
-						<Column Name="Priority" Width="20" Visibility="Visible" SortPriority="0" SortDirection="Up"/>
-						<Column Name="Bitmap" Width="17" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="ProviderKnowsOrder" Width="17" Visibility="Invisible" SortPriority="2" SortDirection="Up"/>
-						<Column Name="Checked" Width="28" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="Description" Width="250" Visibility="Visible" SortPriority="7" SortDirection="Up"/>
-						<Column Name="File" Width="120" Visibility="Visible" SortPriority="4" SortDirection="Up"/>
-						<Column Name="Line" Width="70" Visibility="Visible" SortPriority="5" SortDirection="Up"/>
-						<Column Name="Column" Width="70" Visibility="Invisible" SortPriority="6" SortDirection="Up"/>
-						<Column Name="Category" Width="0" Visibility="Invisible" SortPriority="1" SortDirection="Up"/>
-						<Column Name="Subcategory" Width="0" Visibility="Invisible" SortPriority="3" SortDirection="Up"/>
-					</Columns>
-				</Provider>
-				<Provider GUID="{00000000-0000-0000-0000-000000000000}">
-					<Columns>
-						<Column Name="Priority" Width="20" Visibility="Visible" SortPriority="0" SortDirection="Up"/>
-						<Column Name="Bitmap" Width="17" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="ProviderKnowsOrder" Width="17" Visibility="Invisible" SortPriority="2" SortDirection="Up"/>
-						<Column Name="Checked" Width="28" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="Description" Width="250" Visibility="Visible" SortPriority="7" SortDirection="Up"/>
-						<Column Name="File" Width="120" Visibility="Visible" SortPriority="4" SortDirection="Up"/>
-						<Column Name="Line" Width="70" Visibility="Visible" SortPriority="5" SortDirection="Up"/>
-						<Column Name="Column" Width="70" Visibility="Invisible" SortPriority="6" SortDirection="Up"/>
-						<Column Name="Category" Width="0" Visibility="Invisible" SortPriority="1" SortDirection="Up"/>
-						<Column Name="Subcategory" Width="0" Visibility="Invisible" SortPriority="3" SortDirection="Up"/>
-					</Columns>
-				</Provider>
-				<Provider GUID="{00000000-0000-0000-0000-000000000000}">
-					<Columns>
-						<Column Name="Priority" Width="20" Visibility="Visible" SortPriority="0" SortDirection="Up"/>
-						<Column Name="Bitmap" Width="17" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="ProviderKnowsOrder" Width="17" Visibility="Invisible" SortPriority="2" SortDirection="Up"/>
-						<Column Name="Checked" Width="28" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="Description" Width="250" Visibility="Visible" SortPriority="7" SortDirection="Up"/>
-						<Column Name="File" Width="120" Visibility="Visible" SortPriority="4" SortDirection="Up"/>
-						<Column Name="Line" Width="70" Visibility="Visible" SortPriority="5" SortDirection="Up"/>
-						<Column Name="Column" Width="70" Visibility="Invisible" SortPriority="6" SortDirection="Up"/>
-						<Column Name="Category" Width="0" Visibility="Invisible" SortPriority="1" SortDirection="Up"/>
-						<Column Name="Subcategory" Width="0" Visibility="Invisible" SortPriority="3" SortDirection="Up"/>
-					</Columns>
-				</Provider>
-				<Provider GUID="{00000000-0000-0000-0000-000000000000}">
-					<Columns>
-						<Column Name="Priority" Width="20" Visibility="Visible" SortPriority="0" SortDirection="Up"/>
-						<Column Name="Bitmap" Width="17" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="ProviderKnowsOrder" Width="17" Visibility="Invisible" SortPriority="2" SortDirection="Up"/>
-						<Column Name="Checked" Width="28" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="Description" Width="250" Visibility="Visible" SortPriority="7" SortDirection="Up"/>
-						<Column Name="File" Width="120" Visibility="Visible" SortPriority="4" SortDirection="Up"/>
-						<Column Name="Line" Width="70" Visibility="Visible" SortPriority="5" SortDirection="Up"/>
-						<Column Name="Column" Width="70" Visibility="Invisible" SortPriority="6" SortDirection="Up"/>
-						<Column Name="Category" Width="0" Visibility="Invisible" SortPriority="1" SortDirection="Up"/>
-						<Column Name="Subcategory" Width="0" Visibility="Invisible" SortPriority="3" SortDirection="Up"/>
-					</Columns>
-				</Provider>
-				<Provider GUID="{00000000-0000-0000-0000-000000000000}">
-					<Columns>
-						<Column Name="Priority" Width="20" Visibility="Visible" SortPriority="0" SortDirection="Up"/>
-						<Column Name="Bitmap" Width="17" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="ProviderKnowsOrder" Width="17" Visibility="Invisible" SortPriority="2" SortDirection="Up"/>
-						<Column Name="Checked" Width="28" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="Description" Width="250" Visibility="Visible" SortPriority="7" SortDirection="Up"/>
-						<Column Name="File" Width="120" Visibility="Visible" SortPriority="4" SortDirection="Up"/>
-						<Column Name="Line" Width="70" Visibility="Visible" SortPriority="5" SortDirection="Up"/>
-						<Column Name="Column" Width="70" Visibility="Invisible" SortPriority="6" SortDirection="Up"/>
-						<Column Name="Category" Width="0" Visibility="Invisible" SortPriority="1" SortDirection="Up"/>
-						<Column Name="Subcategory" Width="0" Visibility="Invisible" SortPriority="3" SortDirection="Up"/>
-					</Columns>
-				</Provider>
-				<Provider GUID="{00000000-0000-0000-0000-000000000000}">
-					<Columns>
-						<Column Name="Priority" Width="20" Visibility="Visible" SortPriority="0" SortDirection="Up"/>
-						<Column Name="Bitmap" Width="17" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="ProviderKnowsOrder" Width="17" Visibility="Invisible" SortPriority="2" SortDirection="Up"/>
-						<Column Name="Checked" Width="28" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="Description" Width="250" Visibility="Visible" SortPriority="7" SortDirection="Up"/>
-						<Column Name="File" Width="120" Visibility="Visible" SortPriority="4" SortDirection="Up"/>
-						<Column Name="Line" Width="70" Visibility="Visible" SortPriority="5" SortDirection="Up"/>
-						<Column Name="Column" Width="70" Visibility="Invisible" SortPriority="6" SortDirection="Up"/>
-						<Column Name="Category" Width="0" Visibility="Invisible" SortPriority="1" SortDirection="Up"/>
-						<Column Name="Subcategory" Width="0" Visibility="Invisible" SortPriority="3" SortDirection="Up"/>
-					</Columns>
-				</Provider>
-				<Provider GUID="{00000000-0000-0000-0000-000000000000}">
-					<Columns>
-						<Column Name="Priority" Width="20" Visibility="Visible" SortPriority="0" SortDirection="Up"/>
-						<Column Name="Bitmap" Width="17" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="ProviderKnowsOrder" Width="17" Visibility="Invisible" SortPriority="2" SortDirection="Up"/>
-						<Column Name="Checked" Width="28" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="Description" Width="250" Visibility="Visible" SortPriority="7" SortDirection="Up"/>
-						<Column Name="File" Width="120" Visibility="Visible" SortPriority="4" SortDirection="Up"/>
-						<Column Name="Line" Width="70" Visibility="Visible" SortPriority="5" SortDirection="Up"/>
-						<Column Name="Column" Width="70" Visibility="Invisible" SortPriority="6" SortDirection="Up"/>
-						<Column Name="Category" Width="0" Visibility="Invisible" SortPriority="1" SortDirection="Up"/>
-						<Column Name="Subcategory" Width="0" Visibility="Invisible" SortPriority="3" SortDirection="Up"/>
-					</Columns>
-				</Provider>
-				<Provider GUID="{00000000-0000-0000-0000-000000000000}">
-					<Columns>
-						<Column Name="Priority" Width="20" Visibility="Visible" SortPriority="0" SortDirection="Up"/>
-						<Column Name="Bitmap" Width="17" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="ProviderKnowsOrder" Width="17" Visibility="Invisible" SortPriority="2" SortDirection="Up"/>
-						<Column Name="Checked" Width="28" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="Description" Width="250" Visibility="Visible" SortPriority="7" SortDirection="Up"/>
-						<Column Name="File" Width="120" Visibility="Visible" SortPriority="4" SortDirection="Up"/>
-						<Column Name="Line" Width="70" Visibility="Visible" SortPriority="5" SortDirection="Up"/>
-						<Column Name="Column" Width="70" Visibility="Invisible" SortPriority="6" SortDirection="Up"/>
-						<Column Name="Category" Width="0" Visibility="Invisible" SortPriority="1" SortDirection="Up"/>
-						<Column Name="Subcategory" Width="0" Visibility="Invisible" SortPriority="3" SortDirection="Up"/>
-					</Columns>
-				</Provider>
-				<Provider GUID="{00000000-0000-0000-0000-000000000000}">
-					<Columns>
-						<Column Name="Priority" Width="20" Visibility="Visible" SortPriority="0" SortDirection="Up"/>
-						<Column Name="Bitmap" Width="17" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="ProviderKnowsOrder" Width="17" Visibility="Invisible" SortPriority="2" SortDirection="Up"/>
-						<Column Name="Checked" Width="28" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
-						<Column Name="Description" Width="250" Visibility="Visible" SortPriority="7" SortDirection="Up"/>
-						<Column Name="File" Width="120" Visibility="Visible" SortPriority="4" SortDirection="Up"/>
-						<Column Name="Line" Width="70" Visibility="Visible" SortPriority="5" SortDirection="Up"/>
-						<Column Name="Column" Width="70" Visibility="Invisible" SortPriority="6" SortDirection="Up"/>
-						<Column Name="Category" Width="0" Visibility="Invisible" SortPriority="1" SortDirection="Up"/>
-						<Column Name="Subcategory" Width="0" Visibility="Invisible" SortPriority="3" SortDirection="Up"/>
-					</Columns>
-				</Provider>
-				<Provider GUID="{00000000-0000-0000-0000-000000000000}">
 					<Columns>
 						<Column Name="Priority" Width="20" Visibility="Visible" SortPriority="0" SortDirection="Up"/>
 						<Column Name="Bitmap" Width="17" Visibility="Visible" SortPriority="-1" SortDirection="Up"/>
@@ -1680,6 +1512,7 @@ CSS 3.0;CSS 3.0</PropertyValue>
 									<wm:ToolWindowView ContextVisibilityEnabled="False" Name="ST:0:0:{4a791147-19e4-11d3-b86b-00c04f79f802}" DockedHeight="537.6" DockedWidth="450.8" FloatingTop="76.8" FloatingLeft="819.2" FloatingHeight="537.6" FloatingWidth="204.8"/>
 									<wm:ToolWindowView ContextVisibilityEnabled="False" Name="ST:0:0:{73f6dd58-437e-11d3-b88e-00c04f79f802}" DockedHeight="537.6" DockedWidth="450.8" FloatingTop="76.8" FloatingLeft="819.2" FloatingHeight="537.6" FloatingWidth="204.8"/>
 									<wm:ToolWindowView ContextVisibilityEnabled="False" Name="ST:0:0:{57dc5d59-11c2-4955-a7b4-d7699d677e93}" DockedHeight="537.6" DockedWidth="450.8" FloatingTop="76.8" FloatingLeft="819.2" FloatingHeight="537.6" FloatingWidth="204.8"/>
+									<wm:ToolWindowView OnTopWhenLastInContext="False" ForceCreate="ForceCreate" IconIndex="0" IconResourceID="508" IconResourcePackage="4c82e17d-927e-42d2-8460-b473ac7df316" Name="ST:0:0:{75d09b86-471e-4b30-8720-362d13ad0a45}" IsVisible="True" DockedWidth="450.8" FloatingTop="100" FloatingLeft="100" FloatingHeight="450" FloatingWidth="450"/>
 								</AutoHideGroup>
 								<AutoHideGroup IsVisible="True">
 									<wm:ToolWindowView OnTopWhenLastInContext="False" ForceCreate="ForceCreate" IconIndex="1" IconResourceID="6650" IconResourcePackage="da9fb551-c724-11d0-ae1f-00a0c90fffc3" Name="ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}" IsVisible="True" DockedHeight="384" DockedWidth="450.8" FloatingTop="76.8" FloatingLeft="819.2" FloatingHeight="384" FloatingWidth="204.8"/>
@@ -1690,7 +1523,7 @@ CSS 3.0;CSS 3.0</PropertyValue>
 								<AutoHideGroup IsVisible="True">
 									<wm:ToolWindowView ContextVisibilityEnabled="False" ForceCreate="ForceCreate" IconIndex="15" IconResourceID="6650" IconResourcePackage="4a9b7e50-aa16-11d0-a8c5-00a0c921a4d2" Name="ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}" IsVisible="True" DockedHeight="192" DockedWidth="1024" FloatingTop="576" FloatingLeft="102.4" FloatingHeight="192" FloatingWidth="614.4"/>
 									<wm:ToolWindowView ContextVisibilityEnabled="False" ForceCreate="ForceCreate" IconIndex="13" IconResourceID="6650" IconResourcePackage="da9fb551-c724-11d0-ae1f-00a0c90fffc3" Name="ST:0:0:{68487888-204a-11d3-87eb-00c04f7971a5}" IsVisible="True" DockedHeight="192" DockedWidth="1024" FloatingTop="576" FloatingLeft="102.4" FloatingHeight="192" FloatingWidth="614.4"/>
-									<wm:ToolWindowView OnTopWhenLastInContext="False" ForceCreate="DontForceCreate" IconIndex="0" IconResourceID="10969" IconResourcePackage="24e33dbf-cadf-4da8-acfe-566366fc8468" Name="ST:0:0:{eccc9e97-fd3b-4c15-af76-ef71a71d8b17}" DockedHeight="192" DockedWidth="1024" FloatingTop="100" FloatingLeft="100" FloatingHeight="450" FloatingWidth="450"/>
+									<wm:ToolWindowView OnTopWhenLastInContext="False" ForceCreate="DontForceCreate" IconIndex="0" IconResourceID="10969" IconResourcePackage="24e33dbf-cadf-4da8-acfe-566366fc8468" Name="ST:0:0:{eccc9e97-fd3b-4c15-af76-ef71a71d8b17}" IsVisible="True" DockedHeight="192" DockedWidth="1024" FloatingTop="100" FloatingLeft="100" FloatingHeight="450" FloatingWidth="450"/>
 									<wm:ToolWindowView ContextVisibilityEnabled="False" ForceCreate="ForceCreate" IconIndex="3" IconResourceID="6650" IconResourcePackage="da9fb551-c724-11d0-ae1f-00a0c90fffc3" Name="ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}" IsVisible="True" DockedHeight="192" DockedWidth="1024" FloatingTop="576" FloatingLeft="102.4" FloatingHeight="192" FloatingWidth="614.4"/>
 									<wm:ToolWindowView ContextVisibilityEnabled="False" ForceCreate="ForceCreate" IconIndex="11" IconResourceID="6650" IconResourcePackage="da9fb551-c724-11d0-ae1f-00a0c90fffc3" Name="ST:0:0:{0f887920-c2b6-11d2-9375-0080c747d9a0}" IsVisible="True" DockedHeight="192" DockedWidth="1024" FloatingTop="576" FloatingLeft="102.4" FloatingHeight="192" FloatingWidth="307.2"/>
 								</AutoHideGroup>
@@ -1709,20 +1542,18 @@ CSS 3.0;CSS 3.0</PropertyValue>
 									</TabGroup>
 									<DockGroup Orientation="Vertical" IsVisible="True" DockedHeight="*" DockedWidth="*">
 										<DocumentGroupContainer IsVisible="True" DockedHeight="*" DockedWidth="*">
-											<wm:WMDocumentGroup DockedWidth="200.21528525296">
+											<wm:WMDocumentGroup IsVisible="True" DockedWidth="200.21528525296">
 												<wm:ToolWindowView ForceCreate="ForceCreate" Name="ST:0:0:{c79b74ff-f1d7-4c94-aefa-4d22bfe1b1f9}" DockedWidth="200.21528525296" FloatingTop="76.8" FloatingLeft="102.4" FloatingHeight="537.6" FloatingWidth="716.8"/>
 												<wm:ToolWindowView ContextVisibilityEnabled="False" ForceCreate="DontForceCreate" Name="ST:0:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}" DockedWidth="200.21528525296" FloatingTop="76.8" FloatingLeft="102.4" FloatingHeight="537.6" FloatingWidth="716.8"/>
 												<wm:ToolWindowView ContextVisibilityEnabled="False" Name="ST:0:0:{46c87f81-5a06-43a8-9e25-85d33bac49f8}" DockedWidth="200.21528525296" FloatingTop="76.8" FloatingLeft="102.4" FloatingHeight="537.6" FloatingWidth="716.8"/>
 												<wm:ToolWindowView ContextVisibilityEnabled="False" ForceCreate="ForceCreate" IconIndex="4" IconResourceID="6650" IconResourcePackage="da9fb551-c724-11d0-ae1f-00a0c90fffc3" Name="ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}" DockedWidth="200.21528525296" FloatingTop="76.8" FloatingLeft="102.4" FloatingHeight="384" FloatingWidth="512"/>
 												<wm:ToolWindowView ForceCreate="ForceCreate" Name="ST:0:0:{99b8fa2f-ab90-4f57-9c32-949f146f1914}" DockedWidth="200.21528525296" FloatingTop="76.8" FloatingLeft="102.4" FloatingHeight="537.6" FloatingWidth="716.8"/>
-												<wm:ToolWindowView ForceCreate="DontForceCreate" Name="ST:0:0:{387cb18d-6153-4156-9257-9ac3f9207bbe}" DockedWidth="200.21528525296" FloatingTop="100" FloatingLeft="100" FloatingHeight="450" FloatingWidth="450"/>
 												<wm:ToolWindowView ForceCreate="ForceCreate" Name="ST:0:0:{36809645-0533-4b8a-bc2f-b8ad61600452}" DockedWidth="200.21528525296" FloatingTop="100" FloatingLeft="100" FloatingHeight="450" FloatingWidth="450"/>
 												<wm:ToolWindowView ForceCreate="ForceCreate" Name="ST:0:0:{1820bae5-c385-4492-9de5-e35c9cf17b18}" DockedWidth="200.21528525296" FloatingTop="100" FloatingLeft="100" FloatingHeight="450" FloatingWidth="450"/>
 												<ViewBookmark Name="ST:0:0:{36809645-0533-4b8a-bc2f-b8ad61600452}" ViewBookmarkType="DocumentWell" DockedWidth="200.21528525296"/>
 											</wm:WMDocumentGroup>
-											<wm:WMDocumentGroup IsVisible="True"/>
-											<wm:WMDocumentGroup IsVisible="True"/>
 										</DocumentGroupContainer>
+										<wm:ToolWindowView ForceCreate="ForceCreate" IconIndex="0" IconResourceID="502" IconResourcePackage="4c82e17d-927e-42d2-8460-b473ac7df316" Name="ST:0:0:{260978c3-582c-487d-ab12-c1fdde07c578}" IsSelected="True" FloatingTop="119" FloatingLeft="0"/>
 										<DockGroup DockedHeight="192" DockedWidth="1024">
 											<TabGroup DockedHeight="192" DockedWidth="1024">
 												<ViewBookmark Name="ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}" DockedHeight="192" DockedWidth="1024"/>
@@ -1773,6 +1604,7 @@ CSS 3.0;CSS 3.0</PropertyValue>
 											<ViewBookmark Name="ST:0:0:{57dc5d59-11c2-4955-a7b4-d7699d677e93}" DockedWidth="450.8"/>
 											<wm:ToolWindowView ForceCreate="ForceCreate" IconIndex="0" IconResourceID="105" IconResourcePackage="8889e051-b7f9-4781-bb33-2a36a9bdb3a5" Name="ST:0:0:{a34b1c5d-6d37-4a0c-a8b0-99f8e8158b48}" DockedWidth="450.8" FloatingTop="100" FloatingLeft="100" FloatingHeight="450" FloatingWidth="450"/>
 											<wm:ToolWindowView ForceCreate="ForceCreate" IconIndex="0" IconResourceID="301" IconResourcePackage="494b203e-3c94-40ab-b331-6cb32460b617" Name="ST:0:0:{ed485b08-5acf-4ce9-8e13-699174ea0201}" DockedWidth="450.8" FloatingTop="100" FloatingLeft="100" FloatingHeight="450" FloatingWidth="450"/>
+											<ViewBookmark Name="ST:0:0:{75d09b86-471e-4b30-8720-362d13ad0a45}" DockedWidth="450.8"/>
 										</TabGroup>
 										<TabGroup DockedHeight="384" DockedWidth="450.8">
 											<ViewBookmark Name="ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}" DockedHeight="384" DockedWidth="450.8"/>
@@ -2113,7 +1945,7 @@ CSS 3.0;CSS 3.0</PropertyValue>
 			<PropertyValue name="Version">2</PropertyValue>
 			<FontsAndColors Version="2.0">
 				<Categories>
-					<Category GUID="{58E96763-1D3B-4E05-B6BA-FF7115FD0B7B}" FontIsDefault="Yes">
+					<Category GUID="{58E96763-1D3B-4E05-B6BA-FF7115FD0B7B}" FontName="Source Code Pro" FontSize="9" CharSet="1" FontIsDefault="No">
 						<Items>
 							<Item Name="Plain Text" Foreground="0x00837B65" Background="0x00E3F6FD" BoldFont="Yes"/>
 							<Item Name="Selected Text" Foreground="0x00837B65" Background="0x00A1A193" BoldFont="No"/>
@@ -2122,13 +1954,28 @@ CSS 3.0;CSS 3.0</PropertyValue>
 							<Item Name="Visible Whitespace" Foreground="0x00D5E8EE" Background="0x02000000" BoldFont="No"/>
 						</Items>
 					</Category>
-					<Category GUID="{75A05685-00A8-4DED-BAE5-E7A50BFA929A}" FontIsDefault="Yes">
+					<Category GUID="{75A05685-00A8-4DED-BAE5-E7A50BFA929A}" FontName="Source Code Pro" FontSize="9" CharSet="1" FontIsDefault="No">
 						<Items>
+							<Item Name="MarkerFormatDefinition/HighlightedReference" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="No"/>
+							<Item Name="XML Doc Comment" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="Yes"/>
+							<Item Name="XML Doc Tag" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="No"/>
+							<Item Name="MarkerFormatDefinition/FindHighlight" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="No"/>
+							<Item Name="Comment" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Excluded Code" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="No"/>
+							<Item Name="Identifier" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Keyword" Foreground="0x00079A71" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Preprocessor Keyword" Foreground="0x00164BCB" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Operator" Foreground="0x00079A71" Background="0x02000000" BoldFont="No"/>
+							<Item Name="String" Foreground="0x0098A12A" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Number" Foreground="0x0098A12A" Background="0x02000000" BoldFont="No"/>
+							<Item Name="CurrentLineActiveFormat" Foreground="0x00D5E8EE" Background="0x00D5E8EE" BoldFont="No"/>
+							<Item Name="CurrentLineInactiveFormat" Foreground="0x00D5E8EE" Background="0x00D5E8EE" BoldFont="No"/>
+							<Item Name="Line Number" Foreground="0x00969483" Background="0x00D5E8EE" BoldFont="No"/>
+							<Item Name="Track Changes before save" Foreground="0x02000000" Background="0x000089B5" BoldFont="No"/>
+							<Item Name="Track Changes after save" Foreground="0x02000000" Background="0x00079A71" BoldFont="No"/>
+							<Item Name="Visible Whitespace" Foreground="0x00D5E8EE" Background="0x02000000" BoldFont="No"/>
 							<Item Name="Selected Text" Foreground="0x00837B65" Background="0x00A1A193" BoldFont="No"/>
 							<Item Name="Inactive Selected Text" Foreground="0x00837B65" Background="0x00A1A193" BoldFont="No"/>
-							<Item Name="Line Number" Foreground="0x00969483" Background="0x00D5E8EE" BoldFont="No"/>
-							<Item Name="Visible Whitespace" Foreground="0x00D5E8EE" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Comment" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
 							<Item Name="CppMacroSemanticTokenFormat" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
 							<Item Name="CppEnumSemanticTokenFormat" Foreground="0x000089B5" Background="0x02000000" BoldFont="No"/>
 							<Item Name="CppGlobalVariableSemanticTokenFormat" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
@@ -2149,17 +1996,12 @@ CSS 3.0;CSS 3.0</PropertyValue>
 							<Item Name="CppFunctionTemplateSemanticTokenFormat" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
 							<Item Name="CppNamespaceSemanticTokenFormat" Foreground="0x00164BCB" Background="0x02000000" BoldFont="No"/>
 							<Item Name="CppLabelSemanticTokenFormat" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
-							<Item Name="CSS Comment" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
 							<Item Name="CSS Keyword" Foreground="0x00164BCB" Background="0x02000000" BoldFont="No"/>
+							<Item Name="CSS Comment" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
+							<Item Name="CSS Selector" Foreground="0x00079A71" Background="0x02000000" BoldFont="No"/>
 							<Item Name="CSS Property Name" Foreground="0x000089B5" Background="0x02000000" BoldFont="No"/>
 							<Item Name="CSS Property Value" Foreground="0x0098A12A" Background="0x02000000" BoldFont="No"/>
-							<Item Name="CSS Selector" Foreground="0x00079A71" Background="0x02000000" BoldFont="No"/>
 							<Item Name="CSS String Value" Foreground="0x0098A12A" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Excluded Code" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="No"/>
-							<Item Name="MarkerFormatDefinition/HighlightedReference" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="No"/>
-							<Item Name="MarkerFormatDefinition/FindHighlight" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="No"/>
-							<Item Name="CurrentLineActiveFormat" Foreground="0x00D5E8EE" Background="0x00D5E8EE" BoldFont="No"/>
-							<Item Name="CurrentLineInactiveFormat" Foreground="0x00D5E8EE" Background="0x00D5E8EE" BoldFont="No"/>
 							<Item Name="HTML Attribute" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
 							<Item Name="HTML Attribute Value" Foreground="0x0098A12A" Background="0x02000000" BoldFont="No"/>
 							<Item Name="HTML Comment" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
@@ -2168,81 +2010,64 @@ CSS 3.0;CSS 3.0</PropertyValue>
 							<Item Name="HTML Operator" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
 							<Item Name="HTML Server-Side Script" Foreground="0x008236D3" Background="0x00D5E8EE" BoldFont="No"/>
 							<Item Name="HTML Tag Delimiter" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Identifier" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Keyword" Foreground="0x00079A71" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Number" Foreground="0x0098A12A" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Operator" Foreground="0x00079A71" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Preprocessor Keyword" Foreground="0x00164BCB" Background="0x02000000" BoldFont="No"/>
-							<Item Name="String" Foreground="0x0098A12A" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Track Changes after save" Foreground="0x02000000" Background="0x00079A71" BoldFont="No"/>
-							<Item Name="Track Changes before save" Foreground="0x02000000" Background="0x000089B5" BoldFont="No"/>
-							<Item Name="XML Doc Comment" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="Yes"/>
-							<Item Name="XML Doc Tag" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="No"/>
-							<Item Name="CSS Extension Variable Declaration" Foreground="0x00C4716C" Background="0x00E3F6FD" BoldFont="No"/>
-							<Item Name="CSS Extension Variable Reference" Foreground="0x00C4716C" Background="0x00E3F6FD" BoldFont="No"/>
-							<Item Name="CSS Extension Directive" Foreground="0x00164BCB" Background="0x00E3F6FD" BoldFont="Yes"/>
-							<Item Name="CSS Extension Embedded Script" Foreground="0x00C4716C" Background="0x00E3F6FD" BoldFont="No"/>
-							<Item Name="modernizr" Foreground="0x00756E58" Background="0x00E3F6FD" BoldFont="Yes"/>
-							<Item Name="vendorhighlight" Foreground="0x00756E58" Background="0x00E3F6FD" BoldFont="No"/>
-							<Item Name="vendor.declaration" Foreground="0x00756E58" Background="0x00E3F6FD" BoldFont="No"/>
-							<Item Name="CoffeeScriptRawJavaScriptFormatDefinition" Foreground="0x000089B5" Background="0x00E3F6FD" BoldFont="No"/>
-							<Item Name="CoffeeScriptHeRegExSeparatorFormatDefinition" Foreground="0x00164BCB" Background="0x00E3F6FD" BoldFont="No"/>
-							<Item Name="LessCssVariableAtClassificationFormat" Foreground="0x00C4716C" Background="0x00E3F6FD" BoldFont="No"/>
-							<Item Name="LessCssVariableDeclarationClassificationFormat" Foreground="0x00C4716C" Background="0x00E3F6FD" BoldFont="No"/>
-							<Item Name="LessCssVariableReferenceFormat" Foreground="0x00C4716C" Background="0x00E3F6FD" BoldFont="No"/>
-							<Item Name="LessCssNamespaceReferenceFormat" Foreground="0x002F32DC" Background="0x00E3F6FD" BoldFont="No"/>
-							<Item Name="LessCssMixinDeclarationFormat" Foreground="0x002F32DC" Background="0x00E3F6FD" BoldFont="No"/>
-							<Item Name="LessCssMixinReferenceFormat" Foreground="0x002F32DC" Background="0x00E3F6FD" BoldFont="No"/>
-							<Item Name="LessCssExpressionFormat" Foreground="0x0098A12A" Background="0x00E3F6FD" BoldFont="No"/>
-							<Item Name="LessCssAccessorFormat" Foreground="0x002F32DC" Background="0x00E3F6FD" BoldFont="No"/>
-							<Item Name="LessCssKeywordFormat" Foreground="0x00164BCB" Background="0x00E3F6FD" BoldFont="No"/>
 						</Items>
 					</Category>
-					<Category GUID="{E0187991-B458-4F7E-8CA9-42C9A573B56C}" FontIsDefault="Yes">
+					<Category GUID="{B36B0228-DBAD-4DB0-B9C7-2AD3E572010F}" FontName="Segoe UI" FontSize="9" CharSet="1" FontIsDefault="No">
 						<Items>
-							<Item Name="Comment" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Excluded Code" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="No"/>
-							<Item Name="Identifier" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Different content" Foreground="0x000014E5" Background="0x00FFFFFF" BoldFont="No"/>
+							<Item Name="Identical content" Foreground="0x00000000" Background="0x00FFFFFF" BoldFont="No"/>
+							<Item Name="Source Only" Foreground="0x00000000" Background="0x00FFFFFF" BoldFont="No"/>
+							<Item Name="Target Only" Foreground="0x00000000" Background="0x00FFFFFF" BoldFont="No"/>
+							<Item Name="Not Downloaded" Foreground="0x006D6D6D" Background="0x00FFFFFF" BoldFont="No"/>
+							<Item Name="Even Row Items" Foreground="0x00000000" Background="0x00FFFFFF" BoldFont="No"/>
+							<Item Name="Odd Row Items" Foreground="0x00000000" Background="0x00FFFFFF" BoldFont="No"/>
+						</Items>
+					</Category>
+					<Category GUID="{E0187991-B458-4F7E-8CA9-42C9A573B56C}" FontName="Source Code Pro" FontSize="9" CharSet="1" FontIsDefault="No">
+						<Items>
 							<Item Name="Keyword" Foreground="0x00079A71" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Memory Changed" Foreground="0x002F32DC" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Comment" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Identifier" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
+							<Item Name="String" Foreground="0x0098A12A" Background="0x02000000" BoldFont="No"/>
 							<Item Name="Number" Foreground="0x0098A12A" Background="0x02000000" BoldFont="No"/>
+							<Item Name="XML Doc Comment" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="Yes"/>
+							<Item Name="XML Doc Tag" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="No"/>
+							<Item Name="XML Doc Attribute" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="No"/>
+							<Item Name="XML CData Section" Foreground="0x00837B65" Background="0x00D5E8EE" BoldFont="No"/>
+							<Item Name="XML Comment" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
+							<Item Name="String(C# @ Verbatim)" Foreground="0x0098A12A" Background="0x02000000" BoldFont="Yes"/>
 							<Item Name="Operator" Foreground="0x00079A71" Background="0x02000000" BoldFont="No"/>
 							<Item Name="Preprocessor Keyword" Foreground="0x00164BCB" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Register Data Changed" Foreground="0x002F32DC" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Stale Code" Foreground="0x008236D3" Background="0x02000000" BoldFont="No"/>
-							<Item Name="String" Foreground="0x0098A12A" Background="0x02000000" BoldFont="No"/>
-							<Item Name="String(C# @ Verbatim)" Foreground="0x0098A12A" Background="0x02000000" BoldFont="Yes"/>
+							<Item Name="Excluded Code" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="No"/>
 							<Item Name="User Types" Foreground="0x000089B5" Background="0x02000000" BoldFont="Yes"/>
+							<Item Name="User Types(Value types)" Foreground="0x000089B5" Background="0x02000000" BoldFont="Yes"/>
+							<Item Name="User Types(Interfaces)" Foreground="0x000089B5" Background="0x02000000" BoldFont="Yes"/>
 							<Item Name="User Types(Delegates)" Foreground="0x00C4716C" Background="0x02000000" BoldFont="Yes"/>
 							<Item Name="User Types(Enums)" Foreground="0x000089B5" Background="0x02000000" BoldFont="Yes"/>
-							<Item Name="User Types(Interfaces)" Foreground="0x000089B5" Background="0x02000000" BoldFont="Yes"/>
-							<Item Name="User Types(Value types)" Foreground="0x000089B5" Background="0x02000000" BoldFont="Yes"/>
-							<Item Name="XAML Attribute" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
-							<Item Name="XAML Attribute Quotes" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
-							<Item Name="XAML Attribute Value" Foreground="0x0098A12A" Background="0x02000000" BoldFont="No"/>
-							<Item Name="XAML CData Section" Foreground="0x00837B65" Background="0x00D5E8EE" BoldFont="No"/>
-							<Item Name="XAML Comment" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
-							<Item Name="XAML Delimiter" Foreground="0x008236D3" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Stale Code" Foreground="0x008236D3" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Memory Changed" Foreground="0x002F32DC" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Register Data Changed" Foreground="0x002F32DC" Background="0x02000000" BoldFont="No"/>
+							<Item Name="XAML Text" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
 							<Item Name="XAML Keyword" Foreground="0x00D28B26" Background="0x02000000" BoldFont="No"/>
+							<Item Name="XAML Delimiter" Foreground="0x008236D3" Background="0x02000000" BoldFont="No"/>
+							<Item Name="XAML Comment" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
+							<Item Name="XAML Name" Foreground="0x00D28B26" Background="0x02000000" BoldFont="Yes"/>
+							<Item Name="XAML Attribute" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
+							<Item Name="XAML CData Section" Foreground="0x00837B65" Background="0x00D5E8EE" BoldFont="No"/>
+							<Item Name="XAML Processing Instruction" Foreground="0x00164BCB" Background="0x02000000" BoldFont="No"/>
+							<Item Name="XAML Attribute Value" Foreground="0x0098A12A" Background="0x02000000" BoldFont="No"/>
+							<Item Name="XAML Attribute Quotes" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
 							<Item Name="XAML Markup Extension Class" Foreground="0x00164BCB" Background="0x02000000" BoldFont="No"/>
 							<Item Name="XAML Markup Extension Parameter Name" Foreground="0x00079A71" Background="0x02000000" BoldFont="No"/>
 							<Item Name="XAML Markup Extension Parameter Value" Foreground="0x000089B5" Background="0x02000000" BoldFont="No"/>
-							<Item Name="XAML Name" Foreground="0x00D28B26" Background="0x02000000" BoldFont="Yes"/>
-							<Item Name="XAML Processing Instruction" Foreground="0x00164BCB" Background="0x02000000" BoldFont="No"/>
-							<Item Name="XAML Text" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
-							<Item Name="XML Attribute" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
-							<Item Name="XML Attribute Quotes" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
-							<Item Name="XML Attribute Value" Foreground="0x0098A12A" Background="0x02000000" BoldFont="No"/>
-							<Item Name="XML CData Section" Foreground="0x00837B65" Background="0x00D5E8EE" BoldFont="No"/>
-							<Item Name="XML Comment" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
-							<Item Name="XML Delimiter" Foreground="0x008236D3" Background="0x02000000" BoldFont="No"/>
-							<Item Name="XML Doc Attribute" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="No"/>
-							<Item Name="XML Doc Comment" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="Yes"/>
-							<Item Name="XML Doc Tag" Foreground="0x00A1A193" Background="0x00D5E8EE" BoldFont="No"/>
-							<Item Name="XML Keyword" Foreground="0x00D28B26" Background="0x02000000" BoldFont="No"/>
-							<Item Name="XML Name" Foreground="0x00D28B26" Background="0x02000000" BoldFont="Yes"/>
-							<Item Name="XML Processing Instruction" Foreground="0x00164BCB" Background="0x02000000" BoldFont="No"/>
 							<Item Name="XML Text" Foreground="0x00164BCB" Background="0x02000000" BoldFont="No"/>
+							<Item Name="XML Keyword" Foreground="0x00D28B26" Background="0x02000000" BoldFont="No"/>
+							<Item Name="XML Delimiter" Foreground="0x008236D3" Background="0x02000000" BoldFont="No"/>
+							<Item Name="XML Name" Foreground="0x00D28B26" Background="0x02000000" BoldFont="Yes"/>
+							<Item Name="XML Attribute" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
+							<Item Name="XML Processing Instruction" Foreground="0x00164BCB" Background="0x02000000" BoldFont="No"/>
+							<Item Name="XML Attribute Value" Foreground="0x0098A12A" Background="0x02000000" BoldFont="No"/>
+							<Item Name="XML Attribute Quotes" Foreground="0x00A1A193" Background="0x02000000" BoldFont="No"/>
 							<Item Name="XSLT Keyword" Foreground="0x00D28B26" Background="0x02000000" BoldFont="No"/>
 						</Items>
 					</Category>
@@ -2253,36 +2078,36 @@ CSS 3.0;CSS 3.0</PropertyValue>
 							<Item Name="Inactive Selected Text" Foreground="0x00837B65" Background="0x00A1A193" BoldFont="No"/>
 						</Items>
 					</Category>
-					<Category GUID="{FF349800-EA43-46C1-8C98-878E78F46501}" FontIsDefault="Yes">
+					<Category GUID="{FF349800-EA43-46C1-8C98-878E78F46501}" FontName="Source Code Pro" FontSize="9" CharSet="1" FontIsDefault="No">
 						<Items>
+							<Item Name="Task List Shortcut" Foreground="0x00E3F6FD" Background="0x00D28B26" BoldFont="No"/>
 							<Item Name="Bookmark" Foreground="0x00D5E8EE" Background="0x00423607" BoldFont="No"/>
-							<Item Name="Brace Matching (Rectangle)" Foreground="0x02000000" Background="0x00423607" BoldFont="No"/>
-							<Item Name="Breakpoint (Disabled)" Foreground="0x002F32DC" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Breakpoint (Enabled)" Foreground="0x00362B00" Background="0x002F32DC" BoldFont="No"/>
-							<Item Name="Breakpoint (Error)" Foreground="0x00423607" Background="0x002F32DC" BoldFont="No"/>
-							<Item Name="Breakpoint (Warning)" Foreground="0x00362B00" Background="0x002F32DC" BoldFont="No"/>
-							<Item Name="Breakpoint - Advanced (Disabled)" Foreground="0x002F32DC" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Breakpoint - Advanced (Enabled)" Foreground="0x00362B00" Background="0x002F32DC" BoldFont="No"/>
-							<Item Name="Breakpoint - Advanced (Error)" Foreground="0x00423607" Background="0x002F32DC" BoldFont="No"/>
-							<Item Name="Breakpoint - Advanced (Warning)" Foreground="0x00362B00" Background="0x002F32DC" BoldFont="No"/>
-							<Item Name="Breakpoint - Mapped (Disabled)" Foreground="0x002F32DC" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Breakpoint - Mapped (Enabled)" Foreground="0x00362B00" Background="0x002F32DC" BoldFont="No"/>
-							<Item Name="Breakpoint - Mapped (Error)" Foreground="0x00423607" Background="0x002F32DC" BoldFont="No"/>
-							<Item Name="Breakpoint - Mapped (Warning)" Foreground="0x00362B00" Background="0x002F32DC" BoldFont="No"/>
-							<Item Name="Breakpoint - Selected" Foreground="0x00D28B26" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Call Return" Foreground="0x00E3F6FD" Background="0x0098A12A" BoldFont="No"/>
-							<Item Name="Code Snippet Dependent Field" Foreground="0x00423607" Background="0x02000000" BoldFont="No"/>
 							<Item Name="Code Snippet Field" Foreground="0x01000000" Background="0x00423607" BoldFont="No"/>
+							<Item Name="Smart Tag" Foreground="0x00D28B26" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Track Changes before save" Foreground="0x02000000" Background="0x000089B5" BoldFont="No"/>
+							<Item Name="Track Changes after save" Foreground="0x02000000" Background="0x00079A71" BoldFont="No"/>
+							<Item Name="Brace Matching (Rectangle)" Foreground="0x02000000" Background="0x00423607" BoldFont="No"/>
 							<Item Name="Definition Window Current Match" Foreground="0x00837B65" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Warning Lines Path" Foreground="0x00D28B26" Background="0x00D5E8EE" BoldFont="No"/>
 							<Item Name="Refactoring Background" Foreground="0x01000002" Background="0x00362B00" BoldFont="No"/>
+							<Item Name="Code Snippet Dependent Field" Foreground="0x00423607" Background="0x02000000" BoldFont="No"/>
 							<Item Name="Refactoring Current Field" Foreground="0x01000000" Background="0x00423607" BoldFont="No"/>
 							<Item Name="Refactoring Dependent Field" Foreground="0x00423607" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Smart Tag" Foreground="0x00D28B26" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Breakpoint - Advanced (Disabled)" Foreground="0x002F32DC" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Breakpoint - Advanced (Enabled)" Foreground="0x00362B00" Background="0x002F32DC" BoldFont="No"/>
+							<Item Name="Breakpoint - Advanced (Warning)" Foreground="0x00362B00" Background="0x002F32DC" BoldFont="No"/>
+							<Item Name="Breakpoint - Mapped (Warning)" Foreground="0x00362B00" Background="0x002F32DC" BoldFont="No"/>
+							<Item Name="Breakpoint - Mapped (Disabled)" Foreground="0x002F32DC" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Breakpoint - Mapped (Error)" Foreground="0x00423607" Background="0x002F32DC" BoldFont="No"/>
+							<Item Name="Breakpoint - Advanced (Error)" Foreground="0x00423607" Background="0x002F32DC" BoldFont="No"/>
+							<Item Name="Breakpoint (Disabled)" Foreground="0x002F32DC" Background="0x02000000" BoldFont="No"/>
+							<Item Name="Breakpoint (Error)" Foreground="0x00423607" Background="0x002F32DC" BoldFont="No"/>
+							<Item Name="Breakpoint (Warning)" Foreground="0x00362B00" Background="0x002F32DC" BoldFont="No"/>
+							<Item Name="Breakpoint - Selected" Foreground="0x00D28B26" Background="0x02000000" BoldFont="No"/>
 							<Item Name="SQL DML Marker" Foreground="0x00D28B26" Background="0x02000000" BoldFont="No"/>
-							<Item Name="Task List Shortcut" Foreground="0x00E3F6FD" Background="0x00D28B26" BoldFont="No"/>
-							<Item Name="Track Changes after save" Foreground="0x02000000" Background="0x00079A71" BoldFont="No"/>
-							<Item Name="Track Changes before save" Foreground="0x02000000" Background="0x000089B5" BoldFont="No"/>
-							<Item Name="Warning Lines Path" Foreground="0x00D28B26" Background="0x00D5E8EE" BoldFont="No"/>
+							<Item Name="Breakpoint (Enabled)" Foreground="0x00362B00" Background="0x002F32DC" BoldFont="No"/>
+							<Item Name="Call Return" Foreground="0x00E3F6FD" Background="0x0098A12A" BoldFont="No"/>
+							<Item Name="Breakpoint - Mapped (Enabled)" Foreground="0x00362B00" Background="0x002F32DC" BoldFont="No"/>
 						</Items>
 					</Category>
 				</Categories>
@@ -2428,5 +2253,14 @@ CSS 3.0;CSS 3.0</PropertyValue>
 		<PropertyValue name="QuoteStyle">DoubleQuote</PropertyValue>
 		<PropertyValue name="WrapColumn">120</PropertyValue>
 		<PropertyValue name="WrapTags">False</PropertyValue>
+	</Category>
+	<Category name="Sandcastle Help File Builder_General" Category="{de9c39b5-826b-46be-98b7-da7909000c95}" Package="{c997d569-ee8e-4947-a46f-9a0717ce39a0}" RegisteredName="Sandcastle Help File Builder_General" PackageName="SandcastleBuilder.Package.SandcastleBuilderPackage, SandcastleBuilder.Package, Version=1.9.7.0, Culture=neutral, PublicKeyToken=9deb6837eb1abd97">
+		<PropertyValue name="AspNetDevelopmentServerPort">12345</PropertyValue>
+		<PropertyValue name="HxsViewerPath"/>
+		<PropertyValue name="MSHelpViewerPath"/>
+		<PropertyValue name="OpenHelpAfterBuild">False</PropertyValue>
+		<PropertyValue name="OpenLogViewerOnFailedBuild">False</PropertyValue>
+		<PropertyValue name="UseExternalWebBrowser">False</PropertyValue>
+		<PropertyValue name="VerboseLogging">False</PropertyValue>
 	</Category>
 </UserSettings>
