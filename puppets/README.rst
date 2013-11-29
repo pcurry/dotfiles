@@ -35,9 +35,6 @@ The other modules provide additional resources and facts:
   A `package` provider for Homebrew Formulae, a class to install Homebrew on the
   system, and some resources to manage Homebrew.
 
-`system`
-  Resources to configuration system settings
-
 `osx`
   Additional facts and resources for OS X
 

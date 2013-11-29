@@ -39,7 +39,7 @@ Refer to the `README <puppets/README.rst>`_ for more information.
 Available Stow packages
 =======================
 
-All other directories are `GNU Stow`_ packages:
+Most other directories are `GNU Stow`_ packages:
 
 `arch`
   Configuration for Arch Linux, e.g. `makepkg`
