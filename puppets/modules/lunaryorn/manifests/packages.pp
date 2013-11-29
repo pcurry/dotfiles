@@ -68,8 +68,42 @@ class lunaryorn::packages(
           refreshonly => true,
         }
 
-        # Configure pacman before installing anything
-        File['/etc/pacman.conf'] -> Package<| |>
+        # Install current Pacman first
+        package { 'pacman':
+          ensure  => latest,
+          require => [File['/etc/pacman.conf'], Exec['pacman -Sy']]
+        }
+
+        # Now generate a list of fast mirrors, with reflector
+        package { 'reflector':
+          ensure  => latest,
+          require => Package['pacman'],
+        }
+
+        # We don't use "creates" here, because we want to regenerate the mirror
+        # list each time before provisioning
+        exec { 'reflector -c Germany -p https -n 10 -f 5 --sort rate --save /etc/pacman.d/mirrorlist':
+          path    => ['/usr/bin/', '/bin/'],
+          require => Package['reflector'],
+          before  => File['/etc/pacman.d/mirrorlist'],
+        }
+
+        # Resource anchor for the mirrorlist
+        file { '/etc/pacman.d/mirrorlist':
+          ensure => present,
+        }
+
+        # Now install Yaourt, to automatically install packages from AUR
+        package { 'yaourt':
+          ensure  => latest,
+          require => [Package['pacman'],
+                      File['/etc/pacman.conf'],
+                      File['/etc/pacman.d/mirrorlist']],
+        }
+
+        Package {
+          require => Package['yaourt']
+        }
       }
       default : {
       }
