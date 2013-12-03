@@ -23,7 +23,7 @@ Don't forget `--recursive` to bring all submodules in, and clone to
 
 Provision the system with any of the `Puppet manifests`_::
 
-   make -C puppets osx
+   make -C puppets
 
 Install any of the `available Stow packages`_::
 
@@ -39,7 +39,7 @@ Refer to the `README <puppets/README.rst>`_ for more information.
 Available Stow packages
 =======================
 
-All other directories are `GNU Stow`_ packages:
+Most other directories are `GNU Stow`_ packages:
 
 `arch`
   Configuration for Arch Linux, e.g. `makepkg`
