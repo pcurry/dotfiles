@@ -174,7 +174,7 @@ class lunaryorn::user_configuration::osx(
     value  => 'Solarized Light',
   }
 
-  # Dock and Dashboard
+  # Dock, Dashboard and Mission Control
   osx::defaults { 'Minimize windows to their application\'s icon':
     ensure => present,
     domain => 'com.apple.dock',
@@ -213,6 +213,14 @@ class lunaryorn::user_configuration::osx(
     key    => 'showhidden',
     type   => boolean,
     value  => true,
+  }
+
+  osx::defaults { 'Do not rearrange spaces by most recent usage':
+    ensure => present,
+    domain => 'com.apple.dock',
+    key    => 'mru-spaces',
+    type   => boolean,
+    value  => true
   }
 
   osx::defaults { 'Disable the Dashboard':
