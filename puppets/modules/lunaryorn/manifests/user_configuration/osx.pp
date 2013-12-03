@@ -199,22 +199,6 @@ class lunaryorn::user_configuration::osx(
     value  => 'left',
   }
 
-  osx::defaults { 'Disable the Dashboard':
-    ensure => present,
-    domain => 'com.apple.dashboard',
-    key    => 'mcx-disabled',
-    type   => boolean,
-    value  => true,
-  }
-
-  osx::defaults { 'Do not show the Dashboard as a Space':
-    ensure => present,
-    domain => 'com.apple.dock',
-    key    => 'dashboard-in-overlay',
-    type   => boolean,
-    value  => true,
-  }
-
   osx::defaults { 'Do not automatically hide the Dock':
     ensure => present,
     domain => 'com.apple.dock',
@@ -227,6 +211,22 @@ class lunaryorn::user_configuration::osx(
     ensure => present,
     domain => 'com.apple.dock',
     key    => 'showhidden',
+    type   => boolean,
+    value  => true,
+  }
+
+  osx::defaults { 'Disable the Dashboard':
+    ensure => present,
+    domain => 'com.apple.dashboard',
+    key    => 'mcx-disabled',
+    type   => boolean,
+    value  => true,
+  }
+
+  osx::defaults { 'Do not show the Dashboard as a Space':
+    ensure => present,
+    domain => 'com.apple.dock',
+    key    => 'dashboard-in-overlay',
     type   => boolean,
     value  => true,
   }
