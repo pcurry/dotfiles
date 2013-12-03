@@ -105,7 +105,16 @@ class lunaryorn::user_configuration::osx(
     value  => 'YES',
   }
 
-  # Desktop settings
+  # General UI
+  osx::defaults { 'Expand save panel by default':
+    ensure => present,
+    domain => 'NSGlobalDomain',
+    key    => 'NSNavPanelExpandedStateForSaveMode',
+    type   => boolean,
+    value  => true,
+  }
+
+  # Desktop
   osx::defaults { 'Disable shadow in screenshots':
     ensure => present,
     domain => 'com.apple.screencapture',
