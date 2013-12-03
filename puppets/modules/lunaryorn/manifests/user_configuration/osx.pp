@@ -25,6 +25,7 @@
 # - Automatically hide the Twitter.app window
 # - Make Twitter.app open the window when clicking the menu icon
 # - Make Twitter.app show full names rather than handles
+# - Disable Ping in iTunes
 class lunaryorn::user_configuration::osx(
   $user = $lunaryorn::params::user_name
   ) inherits lunaryorn::params {
@@ -261,5 +262,22 @@ class lunaryorn::user_configuration::osx(
     key    => 'HideInBackground',
     type   => boolean,
     value  => true
+  }
+
+  # iTunes
+  osx::defaults { 'Disable iTunes Ping side bar':
+    ensure => present,
+    domain => 'com.apple.iTunes',
+    key    => 'disablePingSidebar',
+    type   => boolean,
+    value  => true,
+  }
+
+  osx::defaults { 'Disable iTunes Ping':
+    ensure => present,
+    domain => 'com.apple.iTunes',
+    key    => 'disablePing',
+    type   => boolean,
+    value  => true,
   }
 }
