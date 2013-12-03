@@ -1,6 +1,11 @@
 # Class: lunaryorn::user_configuration::osx
 #
-# This class sets my personal preferences on OS X
+# This class sets my personal preferences on OS X.
+#
+# Graciously taken from Mathias Bynens and at Yan Pritzker
+# https://github.com/mathiasbynens/dotfiles/blob/master/.osx and
+# https://github.com/skwp/dotfiles/blob/master/osx respectively.
+#
 #
 # Parameters:
 # - The $user whose defaults to change
