@@ -1,6 +1,11 @@
 # Class: lunaryorn::user_configuration::osx
 #
-# This class sets my personal preferences on OS X
+# This class sets my personal preferences on OS X.
+#
+# Graciously taken from Mathias Bynens and at Yan Pritzker
+# https://github.com/mathiasbynens/dotfiles/blob/master/.osx and
+# https://github.com/skwp/dotfiles/blob/master/osx respectively.
+#
 #
 # Parameters:
 # - The $user whose defaults to change
@@ -25,6 +30,7 @@
 # - Automatically hide the Twitter.app window
 # - Make Twitter.app open the window when clicking the menu icon
 # - Make Twitter.app show full names rather than handles
+# - Disable Ping in iTunes
 class lunaryorn::user_configuration::osx(
   $user = $lunaryorn::params::user_name
   ) inherits lunaryorn::params {
@@ -99,7 +105,16 @@ class lunaryorn::user_configuration::osx(
     value  => 'YES',
   }
 
-  # Desktop settings
+  # General UI
+  osx::defaults { 'Expand save panel by default':
+    ensure => present,
+    domain => 'NSGlobalDomain',
+    key    => 'NSNavPanelExpandedStateForSaveMode',
+    type   => boolean,
+    value  => true,
+  }
+
+  # Desktop
   osx::defaults { 'Disable shadow in screenshots':
     ensure => present,
     domain => 'com.apple.screencapture',
@@ -173,7 +188,7 @@ class lunaryorn::user_configuration::osx(
     value  => 'Solarized Light',
   }
 
-  # Dock and Dashboard
+  # Dock, Dashboard and Mission Control
   osx::defaults { 'Minimize windows to their application\'s icon':
     ensure => present,
     domain => 'com.apple.dock',
@@ -198,22 +213,6 @@ class lunaryorn::user_configuration::osx(
     value  => 'left',
   }
 
-  osx::defaults { 'Disable the Dashboard':
-    ensure => present,
-    domain => 'com.apple.dashboard',
-    key    => 'mcx-disabled',
-    type   => boolean,
-    value  => true,
-  }
-
-  osx::defaults { 'Do not show the Dashboard as a Space':
-    ensure => present,
-    domain => 'com.apple.dock',
-    key    => 'dashboard-in-overlay',
-    type   => boolean,
-    value  => true,
-  }
-
   osx::defaults { 'Do not automatically hide the Dock':
     ensure => present,
     domain => 'com.apple.dock',
@@ -226,6 +225,30 @@ class lunaryorn::user_configuration::osx(
     ensure => present,
     domain => 'com.apple.dock',
     key    => 'showhidden',
+    type   => boolean,
+    value  => true,
+  }
+
+  osx::defaults { 'Do not rearrange spaces by most recent usage':
+    ensure => present,
+    domain => 'com.apple.dock',
+    key    => 'mru-spaces',
+    type   => boolean,
+    value  => true
+  }
+
+  osx::defaults { 'Disable the Dashboard':
+    ensure => present,
+    domain => 'com.apple.dashboard',
+    key    => 'mcx-disabled',
+    type   => boolean,
+    value  => true,
+  }
+
+  osx::defaults { 'Do not show the Dashboard as a Space':
+    ensure => present,
+    domain => 'com.apple.dock',
+    key    => 'dashboard-in-overlay',
     type   => boolean,
     value  => true,
   }
@@ -261,5 +284,22 @@ class lunaryorn::user_configuration::osx(
     key    => 'HideInBackground',
     type   => boolean,
     value  => true
+  }
+
+  # iTunes
+  osx::defaults { 'Disable iTunes Ping side bar':
+    ensure => present,
+    domain => 'com.apple.iTunes',
+    key    => 'disablePingSidebar',
+    type   => boolean,
+    value  => true,
+  }
+
+  osx::defaults { 'Disable iTunes Ping':
+    ensure => present,
+    domain => 'com.apple.iTunes',
+    key    => 'disablePing',
+    type   => boolean,
+    value  => true,
   }
 }

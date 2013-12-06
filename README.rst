@@ -23,7 +23,7 @@ Don't forget `--recursive` to bring all submodules in, and clone to
 
 Provision the system with any of the `Puppet manifests`_::
 
-   make -C puppets osx
+   make -C puppets
 
 Install any of the `available Stow packages`_::
 
