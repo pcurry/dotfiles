@@ -137,8 +137,8 @@ class lunaryorn::packages(
       # Sudo
       package { 'sudo': ensure => latest }
 
-      # Network Manager
-      package { 'wireless_tools': ensure => latest }
+      # Network Manager and utilities
+      package { ['wireless_tools', 'net-tools']: ensure => latest }
       package { 'networkmanager': ensure => latest }
       service { 'NetworkManager':
         ensure  => running,
@@ -245,6 +245,8 @@ class lunaryorn::packages(
     include apps::ocaml
     include apps::clojure
     include apps::haskell_platform
+
+    include apps::virtualbox
 
     # Developer tools:
     # hub: Github from CLI
