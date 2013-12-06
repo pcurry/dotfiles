@@ -230,11 +230,11 @@ class lunaryorn::packages(
     }
 
     # Misc packages
-    $misc_packages = [ 'pwgen',           # Password generator
-                       'nmap',            # Port scanner for diagnostics
-                       'youtube-dl',      # Youtube downloader
-                       'fasd',            # Fast directory switching for Zsh
-                       ]
+    $misc_packages = ['pwgen',           # Password generator
+                      'nmap',            # Port scanner for diagnostics
+                      'youtube-dl',      # Youtube downloader
+                      'fasd',            # Fast directory switching for Zsh
+                      ]
     package { $misc_packages: ensure => latest }
   }
   else {
