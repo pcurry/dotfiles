@@ -210,6 +210,7 @@ class lunaryorn::packages(
 
     include apps::ocaml
     include apps::clojure
+    include apps::haskell_platform
 
     # Developer tools:
     # hub: Github from CLI
