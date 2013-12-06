@@ -36,7 +36,7 @@ class apps::firefox($language) {
       }
     }
     default: {
-      warning("Don't know how to install Firefoxx on ${::operatingsystem}")
+      warning("Don't know how to install Firefox on ${::operatingsystem}")
     }
   }
 }
