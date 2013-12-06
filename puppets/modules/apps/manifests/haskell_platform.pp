@@ -18,6 +18,7 @@ class apps::haskell_platform {
     'Archlinux': {
       $haskell_packages = [ 'ghc',
                             'haddock',
+                            'cabal-install',
                             # Some basic libraries
                             'haskell-regex-posix',
                             'haskell-parsec',
