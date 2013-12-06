@@ -20,6 +20,7 @@ class apps::haskell_platform {
                             'haddock',
                             'cabal-install',
                             # Some basic libraries
+                            'happy',
                             'haskell-regex-posix',
                             'haskell-parsec',
                             'haskell-random']
