@@ -234,7 +234,7 @@ class lunaryorn::user_configuration::osx(
     domain => 'com.apple.dock',
     key    => 'mru-spaces',
     type   => boolean,
-    value  => true
+    value  => false,
   }
 
   osx::defaults { 'Disable the Dashboard':
