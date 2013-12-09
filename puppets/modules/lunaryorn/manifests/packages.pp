@@ -137,14 +137,8 @@ class lunaryorn::packages(
       # Sudo
       package { 'sudo': ensure => latest }
 
-      # Network Manager and utilities
-      package { ['wireless_tools', 'net-tools']: ensure => latest }
-      package { 'networkmanager': ensure => latest }
-      service { 'NetworkManager':
-        ensure  => running,
-        enable  => true,
-        require => Package['networkmanager'],
-      }
+      # Network utilities and management
+      package { ['wireless_tools', 'net-tools', 'netctl']: ensure => latest }
 
       # Gnome
       include gnome
@@ -166,10 +160,6 @@ class lunaryorn::packages(
                           'nautilus-dropbox', # Dropbox integration for Nautilus
                           ]
       package { $gnome_packages: ensure => latest }
-
-      package { 'network-manager-applet':
-        require => Package['networkmanager']
-      }
 
       # A good fontset for non-OS X systems
       $fonts = [# Essential standard fonts
