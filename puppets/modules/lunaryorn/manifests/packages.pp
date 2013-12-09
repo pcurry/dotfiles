@@ -54,11 +54,15 @@ class lunaryorn::packages(
         }
       }
       'Archlinux': {
+        File {
+          owner => 'root',
+          group => 'root',
+          mode  => '0644',
+        }
+
+        # The Pacman configuration file
         file { '/etc/pacman.conf':
           source => 'puppet:///modules/lunaryorn/pacman.conf',
-          owner  => 'root',
-          group  => 'root',
-          mode   => '0644',
           notify => Exec['pacman -Sy'],
         }
 
@@ -94,9 +98,14 @@ class lunaryorn::packages(
         }
 
         # Now install Yaourt, to automatically install packages from AUR
+        file { '/etc/yaourtrc':
+          source => 'puppet:///modules/lunaryorn/yaourtrc',
+        }
+
         package { 'yaourt':
           ensure  => latest,
-          require => [Package['pacman'],
+          require => [File['/etc/yaourtrc'],
+                      Package['pacman'],
                       File['/etc/pacman.conf'],
                       File['/etc/pacman.d/mirrorlist']],
         }
