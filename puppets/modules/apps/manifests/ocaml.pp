@@ -18,6 +18,13 @@ class apps::ocaml {
     alias  => 'ocaml',
   }
 
+  if $::operatingsystem != 'Darwin' {
+    # On Linux, we need to install ocamlfind separately
+    package { 'ocaml-findlib':
+      ensure => latest,
+    }
+  }
+
   package { 'opam':
     ensure  => latest,
     require => Package[$package],
