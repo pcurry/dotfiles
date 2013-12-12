@@ -59,6 +59,8 @@ Most other directories are `GNU Stow`_ packages:
   Configuration for Mercurial
 `ruby`
   Configuration for Ruby
+`ssh`
+  Configuration for SSH
 `x11`
   Configuration for X11, e.g. X11 Resources
 `zsh`
