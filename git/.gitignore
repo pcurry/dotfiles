@@ -1,0 +1,2 @@
+# Ignore private Git settings
+/.config/git/config.secret
