@@ -11,8 +11,8 @@ class apps::virtualbox {
   case $::operatingsystem {
     'Darwin': {
 
-      $vbox_version = '4.3.4'
-      $vbox_url = "http://download.virtualbox.org/virtualbox/${vbox_version}/VirtualBox-${vbox_version}-91027-OSX.dmg"
+      $vbox_version = '4.3.6'
+      $vbox_url = "http://download.virtualbox.org/virtualbox/${vbox_version}/VirtualBox-${vbox_version}-91406-OSX.dmg"
 
       package { "virtualbox-${vbox_version}":
         ensure   => installed,
@@ -21,8 +21,8 @@ class apps::virtualbox {
         alias    => 'virtualbox'
       }
 
-      $vagrant_version = '1.3.5'
-      $vagrant_url = "http://files.vagrantup.com/packages/a40522f5fabccb9ddabad03d836e120ff5d14093/Vagrant-${vagrant_version}.dmg"
+      $vagrant_version = '1.4.1'
+      $vagrant_url = "https://dl.bintray.com/mitchellh/vagrant/Vagrant-${vagrant_version}.dmg"
 
       package { "vagrant-${vagrant_version}":
         ensure   => installed,
