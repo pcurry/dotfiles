@@ -11,7 +11,7 @@ class apps::firefox($language) {
   case $::operatingsystem {
     'Darwin': {
 
-      $version = '25.0.1'
+      $version = '26.0'
       $url = "http://download-installer.cdn.mozilla.net/pub/firefox/releases/${version}/mac/${language}/Firefox%20${version}.dmg"
 
       package { "firefox-${version}":
