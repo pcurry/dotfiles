@@ -16,7 +16,7 @@ class apps::virtualbox {
 
       package { "virtualbox-${vbox_version}":
         ensure   => installed,
-        provider => appdmg,
+        provider => pkgdmg,
         source   => $vbox_url,
         alias    => 'virtualbox'
       }
@@ -26,7 +26,7 @@ class apps::virtualbox {
 
       package { "vagrant-${vagrant_version}":
         ensure   => installed,
-        provider => appdmg,
+        provider => pkgdmg,
         source   => $vagrant_url,
         require  => Package['virtualbox'],
         alias    => 'vagrant'
