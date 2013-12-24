@@ -56,7 +56,7 @@ class lunaryorn::user_configuration(
       }
 
       exec { 'Install Source Code Pro':
-        command => "unzip -oj ${sourcecodepro_archive} '*.otf' -d ${home}/Library/Fonts",
+        command => "unzip -oj ${sourcecodepro_archive} '*.otf' -d ${::home}/Library/Fonts",
         creates => "${home_directory}/Library/Fonts/SourceCodePro-Regular.otf",
         user    => $exec_user,
         path    => ['/usr/bin'],
