@@ -11,9 +11,8 @@ class apps::emacs_snapshot {
     'Darwin': {
       package { 'emacs':
         ensure          => latest,
-        # Install Emacs trunk, with Cocoa support, better colors, and GNU TLS
-        # built-in
-        install_options => ['--HEAD', '--cocoa', '--srgb', '--with-gnutls'],
+        # Install Emacs trunk, with Cocoa support, and GNU TLS built-in
+        install_options => ['--HEAD', '--cocoa', '--with-gnutls'],
       }
 
       # Put Emacs into the applications folder
