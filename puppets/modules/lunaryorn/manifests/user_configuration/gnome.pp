@@ -40,11 +40,18 @@ class lunaryorn::user_configuration::gnome(
   }
 
   # Keyboard settings
+  gnome::settings { 'Emacs keybindings in Gnome':
+    schema => 'org.gnome.desktop.interface',
+    key    => 'gtk-key-theme',
+    value  => 'Emacs',
+  }
+
   gnome::settings { 'Select input sources':
     schema => 'org.gnome.desktop.input-sources',
     key    => 'sources',
     value  => "[('xkb', 'us+altgr-intl'), ('xkb', 'de')]",
   }
+
   gnome::settings { 'Remap Capslock to Control':
     schema => 'org.gnome.desktop.input-sources',
     key    => 'xkb-options',
