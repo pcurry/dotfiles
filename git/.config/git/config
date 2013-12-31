@@ -29,8 +29,6 @@
 	tool = p4merge
 [github]
 	user = lunaryorn
-[hub]
-	protocol = https
 [include]
 	path = config.secret
 	path = config.platform
