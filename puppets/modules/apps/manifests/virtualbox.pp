@@ -21,7 +21,7 @@ class apps::virtualbox {
         alias    => 'virtualbox'
       }
 
-      $vagrant_version = '1.4.1'
+      $vagrant_version = '1.4.2'
       $vagrant_url = "https://dl.bintray.com/mitchellh/vagrant/Vagrant-${vagrant_version}.dmg"
 
       package { "vagrant-${vagrant_version}":
