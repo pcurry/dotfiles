@@ -269,7 +269,7 @@ class lunaryorn::packages(
     $misc_packages = ['pwgen',           # Password generator
                       'nmap',            # Port scanner for diagnostics
                       'youtube-dl',      # Youtube downloader
-                      'offlineimap',     # Imap synchronization
+                      'offline-imap',    # IMAP synchronization
                       'fasd',            # Fast directory switching for Zsh
                       ]
     package { $misc_packages: ensure => latest }
