@@ -57,6 +57,8 @@ Most other directories are `GNU Stow`_ packages:
   Configuration for Git, specific to OS X
 `mercurial`
   Configuration for Mercurial
+`offlineimap`
+  Configuration for OfflineImap
 `ruby`
   Configuration for Ruby
 `ssh`
