@@ -12,7 +12,7 @@ class apps::mu4e {
     'Darwin': {
       package { 'mu':
         ensure          => latest,
-        install_options => ['--with-emacs'],
+        install_options => ['--HEAD', '--with-emacs'],
         require         => Package['emacs'],
       }
     }
