@@ -16,6 +16,13 @@ class apps::mu4e {
         require         => Package['emacs'],
       }
     }
+    'Archlinux': {
+      package { 'mu-git':
+        ensure  => latest,
+        require => Package['emacs'],
+        alias   => 'mu',
+      }
+    }
     default: {
       fail("Cannot install mu4e on ${::operatingsystem}")
     }
