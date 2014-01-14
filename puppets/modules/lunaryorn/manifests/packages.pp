@@ -266,10 +266,15 @@ class lunaryorn::packages(
     }
 
     # Misc packages
+    $offlineimap = $::operatingsystem ? {
+      'Darwin' => 'offline-imap',
+      default  => 'offlineimap'
+    }
+
     $misc_packages = ['pwgen',           # Password generator
                       'nmap',            # Port scanner for diagnostics
+                      $offlineimap,      # Mail synchronization
                       'youtube-dl',      # Youtube downloader
-                      'offline-imap',    # IMAP synchronization
                       'fasd',            # Fast directory switching for Zsh
                       ]
     package { $misc_packages: ensure => latest }
