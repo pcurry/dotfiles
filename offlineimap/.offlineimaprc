@@ -22,6 +22,3 @@ ssl = yes
 cert_fingerprint = 89091347184d41768bfc0da9fad94bfe882dd358
 maxconnections = 1
 realdelete = no
-# Localized folder names
-trashfolder = [Gmail]/Papierkorb
-spamfolder = [Gmail]/Spam
