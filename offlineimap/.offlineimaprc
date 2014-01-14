@@ -22,3 +22,4 @@ ssl = yes
 cert_fingerprint = 89091347184d41768bfc0da9fad94bfe882dd358
 maxconnections = 1
 realdelete = no
+folderfilter = lambda n: n not in ['[Google Mail]/Spam', '[Google Mail]/All Mail', '[Google Mail]/Important']
