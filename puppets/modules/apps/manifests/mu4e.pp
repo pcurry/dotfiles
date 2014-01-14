@@ -17,7 +17,7 @@ class apps::mu4e {
       }
     }
     default: {
-      fail("Cannot install Emacs snapshot on ${::operatingsystem}")
+      fail("Cannot install mu4e on ${::operatingsystem}")
     }
   }
 }
