@@ -49,7 +49,7 @@ class lunaryorn::user_configuration::gnome(
   gnome::settings { 'Emacs keybindings in Gnome':
     schema => 'org.gnome.desktop.interface',
     key    => 'gtk-key-theme',
-    value  => 'Emacs',
+    value  => "'Emacs'",
   }
 
   gnome::settings { 'Select input sources':
