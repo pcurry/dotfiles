@@ -249,6 +249,7 @@ class lunaryorn::packages(
       language => 'de',
     }
 
+    include apps::python2
     include apps::ocaml
     include apps::clojure
     include apps::haskell_platform
