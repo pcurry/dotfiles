@@ -71,6 +71,12 @@ class lunaryorn::user_configuration::gnome(
     value  => true,
   }
 
+  gnome::settings { 'Always show logout item':
+    schema => 'org.gnome.shell',
+    key    => 'always-show-log-out',
+    value  => true,
+  }
+
   # Network manager
   gnome::settings { 'Disable notification about new Wifis':
     schema => 'org.gnome.nm-applet',
