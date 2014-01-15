@@ -147,7 +147,14 @@ class lunaryorn::packages(
       package { 'sudo': ensure => latest }
 
       # Network utilities and management
-      package { ['wireless_tools', 'net-tools', 'netctl']: ensure => latest }
+      package { ['wireless_tools', 'net-tools', 'netctl', 'wpa_actiond']:
+        ensure => latest
+      }
+      service { 'netctl-auto@wlp0s19f2u6':
+        ensure  => running,
+        enable  => true,
+        require => Package['wpa_actiond'],
+      }
 
       # Gnome
       include gnome
