@@ -26,6 +26,12 @@ class lunaryorn::user_configuration::gnome(
     value  => false,
   }
 
+  gnome::settings { 'Show date in top bar':
+    schema => 'org.gnome.desktop.interface',
+    key    => 'clock-show-date',
+    value  => true,
+  }
+
   # Fonts
   gnome::settings { 'Use DejaVu Sans as document font':
     schema => 'org.gnome.desktop.interface',
