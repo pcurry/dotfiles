@@ -245,9 +245,7 @@ class lunaryorn::packages(
     include apps::emacs_snapshot
     include apps::mu4e
     include apps::dropbox
-    class { 'apps::firefox':
-      language => 'de',
-    }
+    include apps::google_chrome
 
     include apps::python2
     include apps::ocaml
