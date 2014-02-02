@@ -207,10 +207,13 @@ class lunaryorn::packages(
     # For our dotfiles
     package { 'stow': ensure => latest }
 
-    # Puppet for provisioning.  On OS X, we install it as user-local Gem via
-    # bundler, so we don't have it here
     unless $::operatingsystem == 'Darwin' {
-      package { 'puppet': ensure => latest}
+      # Puppet for provisioning.  On OS X, we install it as user-local Gem via
+      # bundler, so we don't have it here
+      package { 'puppet': ensure => latest }
+
+      # Install Texinfo.  On OS X, Texinfo is already included.
+      package { 'texinfo': ensure => latest }
     }
 
     # VCSs
@@ -219,21 +222,6 @@ class lunaryorn::packages(
       default  => 'bzr',
     }
     package { ['git', 'mercurial', $bazaar]: ensure => latest }
-
-    # Emacs documentation
-    package { 'texinfo': ensure => latest }
-
-    if $::operatingsystem == 'Darwin' {
-      # On OS X, link our modern Texinfo to /usr/bin, for convenience
-      exec { 'Link Texinfo from Homebrew':
-        command     => "${::homebrew::prefix}/bin/brew link --force texinfo",
-        user        => $::homebrew::realuser,
-        environment => ["USER=${::homebrew::user}",
-                        "HOME=/Users/${::homebrew::user}"],
-        creates     => "${::homebrew::prefix}/bin/makeinfo",
-        require     => [Class['homebrew'], Package['texinfo']],
-      }
-    }
 
     # Emacs tag browsing
     package { 'ctags': ensure => latest }
