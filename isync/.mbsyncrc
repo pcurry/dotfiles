@@ -19,7 +19,7 @@ Flatten .
 Channel gmail
 Master :gmail:
 Slave :local:
-Patterns * ![Gmail]/* [Gmail]/Drafts "[Gmail]/Sent Mail" "[Gmail]/Starred"
+Patterns * "![Google Mail]/*" "[Google Mail]/Drafts" "[Google Mail]/Sent Mail" "[Google Mail]/Starred"
 Create Slave
 Expunge None
 Sync All
