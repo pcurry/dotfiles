@@ -20,7 +20,7 @@
 # - Change the default search directory of Finder to the current directory
 # - Disable warnings about changing the file extension or moving files to Trash
 # - Import the Solarized Light and Zenburn themes for Terminal.app
-# - Switch Terminal.app to Solarized Light color theme
+# - Switch Terminal.app to Zenburn color theme
 # - Move the Dock to the left site
 # - Enable indicators lights for open applications
 # - Disable the dashboard and remove it from spaces
@@ -177,7 +177,7 @@ class lunaryorn::user_configuration::osx(
     domain => 'com.apple.terminal',
     key    => 'Default Window Settings',
     type   => string,
-    value  => 'Solarized Light',
+    value  => 'Zenburn',
   }
 
   osx::defaults { 'Set startup color theme':
