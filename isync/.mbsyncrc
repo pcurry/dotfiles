@@ -21,5 +21,5 @@ Master :gmail:
 Slave :local:
 Patterns * "![Google Mail]/*" "[Google Mail]/Drafts" "[Google Mail]/Sent Mail" "[Google Mail]/Starred" "[Google Mail]/Trash"
 Create Slave
-Expunge None
+Expunge Both
 Sync All
