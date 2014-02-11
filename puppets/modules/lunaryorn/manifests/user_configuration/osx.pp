@@ -185,7 +185,7 @@ class lunaryorn::user_configuration::osx(
     domain => 'com.apple.terminal',
     key    => 'Startup Window Settings',
     type   => string,
-    value  => 'Solarized Light',
+    value  => 'Zenburn',
   }
 
   # Dock, Dashboard and Mission Control
