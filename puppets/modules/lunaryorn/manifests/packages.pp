@@ -260,15 +260,15 @@ class lunaryorn::packages(
     }
 
     # Misc packages
-    $offlineimap = $::operatingsystem ? {
-      'Darwin' => 'offline-imap',
-      default  => 'offlineimap'
+    $isync = $::operatingsystem ? {
+      'Archlinux' => 'isync-git', # isync itself is outdated in AUR
+      default     => 'isync'
     }
 
     $misc_packages = ['pwgen',           # Password generator
                       'nmap',            # Port scanner for diagnostics
-                      $offlineimap,      # Mail synchronization
                       'youtube-dl',      # Youtube downloader
+                      $isync,            # IMAP mail sync
                       'fasd',            # Fast directory switching for Zsh
                       ]
     package { $misc_packages: ensure => latest }
