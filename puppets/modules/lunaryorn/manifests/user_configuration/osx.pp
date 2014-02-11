@@ -210,7 +210,7 @@ class lunaryorn::user_configuration::osx(
     domain => 'com.apple.dock',
     key    => 'orientation',
     type   => string,
-    value  => 'left',
+    value  => 'bottom',
   }
 
   osx::defaults { 'Do not automatically hide the Dock':
