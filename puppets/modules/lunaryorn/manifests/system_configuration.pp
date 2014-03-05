@@ -20,50 +20,14 @@ class lunaryorn::system_configuration(
       fail('No hostname set for this system')
     }
 
+    system::hostname { $hostname: }
+    system::timezone { $timezone: }
+
     # Resource defaults
     File {
       owner  => 'root',
       group  => 'root',
       mode   => '0644',
-    }
-
-    # Timezone
-    case $::operatingsystem {
-      'Darwin': {
-        exec { "systemsetup -settimezone ${timezone}":
-          unless => "systemsetup -gettimezone | grep ${timezone}",
-          path   => ['/usr/sbin', '/usr/bin'],
-        }
-      }
-      default: {
-        file { '/etc/localtime':
-          ensure => link,
-          target => "/usr/share/zoneinfo/${timezone}",
-        }
-      }
-    }
-
-    # Host name
-    case $::operatingsystem {
-      'Darwin': {
-        osx::systemconfig { 'ComputerName':  value => $hostname }
-        osx::systemconfig { 'HostName':      value => $hostname }
-        osx::systemconfig { 'LocalHostName': value => hostname }
-        osx::defaults { 'Set SMB host name':
-          ensure => present,
-          domain => '/Library/Preferences/SystemConfiguration/com.apple.smb.server',
-          key    => 'NetBIOSName',
-          type   => string,
-          value  => $hostname,
-          user   => 'root',
-        }
-      }
-      default: {
-        # Linux systems
-        file { '/etc/hostname':
-          content => "${hostname}"
-        }
-      }
     }
 
     if $::operatingsystem != 'Darwin' {
