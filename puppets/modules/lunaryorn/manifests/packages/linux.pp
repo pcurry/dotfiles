@@ -36,7 +36,12 @@ class lunaryorn::packages::linux {
   # Sudo
   package { 'sudo': ensure => latest }
 
-  # Network utilities and management
+  # Network drivers, management and utilities
+  package { 'dkms-8192cu':      # A much better driver for my Edimax WLAN device
+    ensure => latest,
+    before => Class['desktop::networkmanager']
+  }
+
   include desktop::networkmanager
   package { ['wireless_tools', 'net-tools']:
     ensure => latest
