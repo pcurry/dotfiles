@@ -8,8 +8,7 @@
 class kde::tools {
   require kde
 
-  $packages = [ 'kde-gtk-config',
-                'yakuake',]
+  $packages = [ 'yakuake', ]
 
   package { $packages:
     ensure  => latest,
