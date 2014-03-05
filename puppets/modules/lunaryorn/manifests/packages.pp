@@ -166,6 +166,7 @@ class lunaryorn::packages(
       include kde::tools
       include kde::k3b
       include kde::amarok
+      include kde::dropbox
       kde::l10n { [ 'de', 'en_gb' ]: }
     }
 
