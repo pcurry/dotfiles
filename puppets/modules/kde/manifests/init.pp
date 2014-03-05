@@ -9,8 +9,8 @@
 # - Install KDE
 class kde() {
   require x11
-
-  include desktop::gstreamer::legacy
+  require desktop::fonts
+  require desktop::gstreamer::legacy
 
   # Install the Phonon backend
   $phonon_backend = 'phonon-gstreamer'
