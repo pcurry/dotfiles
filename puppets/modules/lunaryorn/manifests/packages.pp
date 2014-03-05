@@ -152,26 +152,15 @@ class lunaryorn::packages(
         ensure => latest
       }
 
-      # Gnome
-      include gnome
-      include gnome::gdm          # Enable and start Gnome
-
-      # Additional utilities for Gnome
-      $gnome_packages = [ 'brasero',     # Disk burner
-                          'file-roller', # Archive tool
-                          'seahorse',    # Manage keyring
-                          'evolution',   # Organizer
-                          'nautilus-sendto',
-                          'gnome-weather',
-                          'gnome-tweak-tool',
-                          'gnome-packagekit',
-                          'rhythmbox', # Audio player
-                          'gst-plugins-ugly', # Media codecs
-                          'gst-libav',
-                          'libgpod', # iPod support
-                          'nautilus-dropbox', # Dropbox integration for Nautilus
-                          ]
-      package { $gnome_packages: ensure => latest }
+      # KDE
+      include kde
+      include kde::networkmanager
+      include kde::telepathy
+      include kde::kdm
+      include kde::tools
+      include kde::k3b
+      include kde::amarok
+      kde::l10n { [ 'de', 'en_gb' ]: }
 
       # A good fontset for non-OS X systems
       $fonts = [# Essential standard fonts

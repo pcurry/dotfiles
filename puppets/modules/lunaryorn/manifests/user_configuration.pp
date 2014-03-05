@@ -39,7 +39,6 @@ class lunaryorn::user_configuration(
   # System-specific user configuration
   case $::operatingsystem {
     'Archlinux': {
-      include lunaryorn::user_configuration::gnome
     }
     'Darwin': {
       include lunaryorn::user_configuration::osx
