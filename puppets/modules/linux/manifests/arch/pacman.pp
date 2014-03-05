@@ -16,7 +16,7 @@ class linux::arch::pacman {
 
   # The Pacman configuration file
   file { '/etc/pacman.conf':
-    source => 'puppet:///modules/lunaryorn/pacman.conf',
+    source => 'puppet:///modules/linux/arch/pacman.conf',
     notify => Exec['pacman -Sy'],
   }
 
@@ -53,7 +53,7 @@ class linux::arch::pacman {
 
   # Now install Yaourt, to automatically install packages from AUR
   file { '/etc/yaourtrc':
-    source => 'puppet:///modules/lunaryorn/yaourtrc',
+    source => 'puppet:///modules/linux/arch/yaourtrc',
   }
 
   package { 'yaourt':
