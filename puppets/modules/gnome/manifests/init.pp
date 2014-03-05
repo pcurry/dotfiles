@@ -8,13 +8,7 @@
 # - Install Telepathy and Gnome Base
 class gnome {
   require x11
-
-  $telepathy_packages = ['telepathy-gabble',
-                         'telepathy-haze',
-                         'telepathy-idle',
-                         'telepathy-rakia',
-                         'telepathy-salut',]
-  package { $telepathy_packages: ensure => latest }
+  require desktop::telepathy
 
   $base_packages = ['baobab',
                     'empathy',
