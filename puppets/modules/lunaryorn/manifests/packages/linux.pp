@@ -51,6 +51,7 @@ class lunaryorn::packages::linux {
   # KDE
   include kde
   include kde::gtk
+  include kde::appmenu
   include kde::networkmanager
   include kde::telepathy
   include kde::kdm
