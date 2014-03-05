@@ -3,12 +3,13 @@
 # This class installs 3rd party tools for KDE.
 #
 # Actions:
-# - Install KCM module for Gtk applications
 # - Install Yakuake, a Quake-like drop-down terminal
+# - Install Gwenview plugins
 class kde::tools {
   require kde
 
-  $packages = [ 'yakuake', ]
+  $packages = [ 'yakuake',
+                'kipi-plugins', ]
 
   package { $packages:
     ensure  => latest,
