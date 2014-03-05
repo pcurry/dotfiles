@@ -1,7 +1,7 @@
 # Class: linux::packages
 #
 # This class sets up and configures Linux package managers.
-class linux::packages{
+class linux::packages {
   case $::operatingsystem {
     'Archlinux': {
       require linux::arch::pacman
