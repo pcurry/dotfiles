@@ -152,6 +152,12 @@ class lunaryorn::packages(
         ensure => latest
       }
 
+      # Desktop services
+      include desktop::telepathy
+      include desktop::gstreamer
+      include desktop::gstreamer::legacy
+      include desktop::fonts
+
       # KDE
       include kde
       include kde::networkmanager
@@ -161,32 +167,6 @@ class lunaryorn::packages(
       include kde::k3b
       include kde::amarok
       kde::l10n { [ 'de', 'en_gb' ]: }
-
-      # A good fontset for non-OS X systems
-      $fonts = [# Essential standard fonts
-                'ttf-dejavu',
-                'ttf-liberation',
-                # Monospace fonts
-                'adobe-source-code-pro-fonts',
-                'ttf-anonymous-pro',
-                'ttf-inconsolata',
-                'terminus-font',
-                # Misc fonts
-                'ttf-droid',
-                'ttf-ubuntu-font-family',
-                # Windows fonts
-                'ttf-ms-fonts',
-                'ttf-vista-fonts',
-                # Taiwan, Chinese and Arabic fonts
-                'ttf-baekmuk',
-                'wqy-microhei',
-                'wqy-zenhei',
-                'ttf-arphic-ukai',
-                'ttf-arphic-uming',
-                'opendesktop-fonts',
-                'ttf-hannom',
-                ]
-      package { $fonts : ensure => latest }
     }
 
     # For our dotfiles
