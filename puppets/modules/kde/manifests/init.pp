@@ -27,6 +27,7 @@ class kde() {
                     'kde-meta-kdeplasma-addons',
                     'kde-meta-kdeutils',
                     'kde-meta-kdetoys',
+                    'kde-meta-kdegames',
                     'kde-meta-kdepim',
                     'kde-meta-kdeedu',
                     'kde-meta-kdeaccessibility',]
