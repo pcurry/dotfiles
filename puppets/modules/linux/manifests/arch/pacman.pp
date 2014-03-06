@@ -14,22 +14,30 @@ class linux::arch::pacman {
     mode  => '0644',
   }
 
-  # The Pacman configuration file
+  # The path of the generated mirror list
+  $generated_mirrorlist = '/etc/pacman.d/mirrorlist.reflector'
+
   file { '/etc/pacman.conf':
-    source => 'puppet:///modules/linux/arch/pacman.conf',
-    notify => Exec['pacman -Sy'],
+    content => template('linux/arch/pacman.conf'),
+    notify  => Exec['linux::arch::pacman::initialize-repos']
   }
 
-  # Refresh package lists if the configuration changed
-  exec { 'pacman -Sy':
-    path        => ['/usr/bin/'],
+  # Install a default mirrorlist
+  file { '/etc/pacman.d/mirrorlist':
+    source => 'puppet:///modules/linux/arch/mirrorlist',
+  }
+
+  exec { 'linux::arch::pacman::initialize-repos':
+    command     => '/usr/bin/pacman -Sy',
     refreshonly => true,
+    require     => File['/etc/pacman.d/mirrorlist'],
   }
 
-  # Install current Pacman first
+  # Update pacman
   package { 'pacman':
     ensure  => latest,
-    require => [File['/etc/pacman.conf'], Exec['pacman -Sy']]
+    require => [File['/etc/pacman.conf'],
+                Exec['linux::arch::pacman::initialize-repos']]
   }
 
   # Now generate a list of fast mirrors, with reflector
@@ -38,20 +46,28 @@ class linux::arch::pacman {
     require => Package['pacman'],
   }
 
-  # We don't use "creates" here, because we want to regenerate the mirror
-  # list each time before provisioning
-  exec { 'reflector -c Germany -p https -n 10 -f 5 --sort rate --save /etc/pacman.d/mirrorlist':
-    path    => ['/usr/bin/', '/bin/'],
-    require => Package['reflector'],
-    before  => File['/etc/pacman.d/mirrorlist'],
+  exec { 'linux::arch::pacman::generate-mirrorlist':
+    command     => "reflector -c Germany -l 10 -f 5 --sort score --save ${generated_mirrorlist}",
+    path        => ['/usr/bin/', '/bin/'],
+    creates     => $generated_mirrorlist,
+    notify      => Exec['linux::arch::pacman::update-repos'],
+    require     => Package['reflector'],
   }
 
-  # Resource anchor for the mirrorlist
-  file { '/etc/pacman.d/mirrorlist':
-    ensure => present,
+  exec { 'linux::arch::pacman::update-repos':
+    command     => '/usr/bin/pacman -Sy',
+    refreshonly => true,
+    require     => Exec['linux::arch::pacman::generate-mirrorlist']
   }
 
-  # Now install Yaourt, to automatically install packages from AUR
+  # Resource anchor for the generated mirrorlist
+  file { $generated_mirrorlist:
+    ensure  => present,
+    require => [Exec['linux::arch::pacman::generate-mirrorlist'],
+                Exec['linux::arch::pacman::update-repos']]
+  }
+
+  # Install Yaourt
   file { '/etc/yaourtrc':
     source => 'puppet:///modules/linux/arch/yaourtrc',
   }
@@ -59,8 +75,6 @@ class linux::arch::pacman {
   package { 'yaourt':
     ensure  => latest,
     require => [File['/etc/yaourtrc'],
-                Package['pacman'],
-                File['/etc/pacman.conf'],
-                File['/etc/pacman.d/mirrorlist']],
+                File[$generated_mirrorlist]],
   }
 }
