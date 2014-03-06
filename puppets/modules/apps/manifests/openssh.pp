@@ -19,6 +19,11 @@ class apps::openssh {
       require => Package['openssh']
     }
 
-    # TODO: Configure OpenSSH!
+    file { '/etc/ssh/sshd_config':
+      source => 'puppet:///modules/apps/openssh/sshd_config',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0644',
+    }
   }
 }
