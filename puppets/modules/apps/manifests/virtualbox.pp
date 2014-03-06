@@ -39,7 +39,7 @@ class apps::virtualbox {
       }
 
       file { '/etc/modules-load.d/virtualbox.conf':
-        source  => 'puppet:///modules/apps/modules-load.d/virtualbox.conf',
+        source  => 'puppet:///modules/apps/virtualbox/modules-load.d/virtualbox.conf',
         owner   => 'root',
         group   => 'root',
         mode    => '0644',
