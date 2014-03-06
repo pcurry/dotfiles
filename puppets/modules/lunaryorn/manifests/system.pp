@@ -84,11 +84,14 @@ class lunaryorn::system {
       include kde::networkmanager
       include kde::telepathy
       include kde::kdm
-      include kde::tools
       include kde::k3b
       include kde::amarok
       include kde::dropbox
-      kde::l10n { [ 'de', 'en_gb' ]: }
+      include kde::tools
+      include kde::calligra
+      $kde_languages = [ 'de' ]
+      kde::l10n { $kde_languages: }
+      kde::calligra::l10n { $kde_languages: }
     }
   }
 
