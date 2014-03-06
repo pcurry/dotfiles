@@ -113,6 +113,7 @@ class lunaryorn::system {
   include apps::dropbox
   include apps::google_chrome
   include apps::virtualbox
+  include apps::inkscape
 
   # Dotfile tools
   package { 'stow': ensure => latest } # Symlink manager
