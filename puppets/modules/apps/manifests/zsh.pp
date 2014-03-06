@@ -16,12 +16,6 @@ class apps::zsh {
       before => Package[$plugins]
     }
   }
-  else {
-    # Use Homebrew on OS X
-    Package {
-      provider => homebrew
-    }
-  }
 
   package { $plugins:
     ensure => latest

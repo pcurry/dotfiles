@@ -38,11 +38,6 @@ class lunaryorn::packages(
         user => $homebrew_user
       }
 
-      # Enable our Homebrew provider
-      Package {
-        provider => homebrew
-      }
-
       if $::id == 'root' {
         # Install Homebrew if possible
         require homebrew::install

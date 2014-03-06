@@ -10,6 +10,11 @@ node default {
       if ! $::osx_file_vault_active {
         fail('Hey man, put your files in the vault!')
       }
+
+      # Enable Homebrew globally
+      Package {
+        provider => homebrew,
+      }
     }
     default : {
     }

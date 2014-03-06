@@ -16,12 +16,6 @@ class apps::github_cli_tools {
     require apps::git           # Since we install ghi from Git
   }
 
-  if $::operatingsystem == 'Darwin' {
-    Package {
-      provider => 'homebrew'
-    }
-  }
-
   package { [$ghi, $hub]:
     ensure => latest
   }
