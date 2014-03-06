@@ -33,7 +33,7 @@ class linux::locale(
   $enabled_locales_str = join($enabled_locales, "\n")
 
   file { '/etc/locale.gen':
-    content => "${enabled_locales}\n",
+    content => "${enabled_locales_str}\n",
     notify  => Exec['linux::locale::generate']
   }
 
