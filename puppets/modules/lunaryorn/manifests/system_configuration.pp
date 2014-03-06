@@ -49,13 +49,6 @@ class lunaryorn::system_configuration(
       file { '/etc/locale.conf':
         source => 'puppet:///modules/lunaryorn/locale.conf'
       }
-
-      # Configure Sudo
-      file { '/etc/sudoers.d/10-wheel':
-        source  => 'puppet:///modules/lunaryorn/sudo-wheel',
-        mode    => '0600',      # Sudo wants very restrictive modes
-        require => Package['sudo'],
-      }
     }
 
     if $::operatingsystem == 'Darwin' {
