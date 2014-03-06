@@ -1,6 +1,6 @@
-# Class: lunaryorn::user_configuration
+# Class: lunaryorn::user::settings.
 #
-# This class sets my personal user settings
+# This class sets my personal user settings.
 #
 # Parameters:
 # - The $user_name
@@ -11,23 +11,19 @@
 # - Configure an OS X system with lunaryorn::user_configuration::osx
 # - On OS X, install Source Code Pro for the $user
 # - Configure a Gnome system with lunaryorn::user_configuration::gnome
-class lunaryorn::user_configuration(
-  $user_name = $lunaryorn::params::user_name,
-  $home_directory = $lunaryorn::params::home_directory,
-  ) inherits lunaryorn::params {
+class lunaryorn::user::settings {
+  require lunaryorn
 
-  if $::id != $user_name {
-    $exec_user = $user_name
+  if $::id != $::lunaryorn::user_name {
+    $exec_user = $::lunaryorn::user_name
   }
 
-  if defined(Package['zsh']) {
-    $shell_requires = [Package['zsh']]
+  if defined(Class['apps::zsh']) {
+    $shell_requires = Class['apps::zsh']
   }
-  else {
-    $shell_requires = []
-  }
+
   if $::id == 'root' {
-    exec { "chsh -s /bin/zsh ${user_name}":
+    exec { "chsh -s /bin/zsh ${::lunaryorn::user_name}":
       path    => ['/usr/bin', '/usr/sbin', '/bin', '/sbin'],
       require => $shell_requires,
     }
@@ -39,9 +35,10 @@ class lunaryorn::user_configuration(
   # System-specific user configuration
   case $::operatingsystem {
     'Archlinux': {
+      include lunaryorn::user::settings::kde
     }
     'Darwin': {
-      include lunaryorn::user_configuration::osx
+      include lunaryorn::user::settings::osx
 
       # Install the awesome Source Code Pro font
       $sourcecodepro_url = 'http://sourceforge.net/projects/sourcecodepro.adobe/files/SourceCodePro_FontsOnly-1.017.zip/download'

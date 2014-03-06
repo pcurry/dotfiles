@@ -1,4 +1,4 @@
-# Class: lunaryorn::user_configuration::osx
+# Class: lunaryorn::user::settings::osx
 #
 # This class sets my personal preferences on OS X.
 #
@@ -31,17 +31,16 @@
 # - Make Twitter.app open the window when clicking the menu icon
 # - Make Twitter.app show full names rather than handles
 # - Disable Ping in iTunes
-class lunaryorn::user_configuration::osx(
-  $user = $lunaryorn::params::user_name
-  ) inherits lunaryorn::params {
+class lunaryorn::user::settings::osx {
+  require lunaryorn
 
-  if $user != $::id {
-    $exec_user = $user
+  if $::lunaryorn::user_name != $::id {
+    $exec_user = $::lunaryorn::user_name
   }
 
   Osx::Defaults {
-    user => $user
-  }
+    user =>} $::lunaryorn::user_name
+
 
   # TODO: Reset Launchpad?
   # find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete

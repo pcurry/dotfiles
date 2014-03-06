@@ -1,4 +1,4 @@
-# Class: lunaryorn::user_configuration::gnome
+# Class: lunaryorn::user::settings::gnome
 #
 # This class sets my Gnome settings.
 #
@@ -11,12 +11,11 @@
 # - Set keyboard layouts and options
 # - Configure the Gnome Shell
 # - Configure NetworkManager, PackageKit and Eye of Gnome
-class lunaryorn::user_configuration::gnome(
-  $user = $lunaryorn::params::user_name
-  ) inherits lunaryorn::params {
+class lunaryorn::user::settings::gnome {
+  require lunaryorn
 
   Gnome::Settings {
-    user => $user,
+    user => $::lunaryorn::user_name,
   }
 
   # Desktop settings
