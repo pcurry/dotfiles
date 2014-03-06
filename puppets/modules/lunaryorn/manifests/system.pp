@@ -55,14 +55,7 @@ class lunaryorn::system {
       }
 
       # Drivers
-      package { 'dkms-8192cu':  # A much better driver for my Edimax WLAN device
-        ensure => latest,
-        before => Class['desktop::networkmanager']
-      }
-
-      package { 'ntfs-3g':      # NTFS driver for Linux
-        ensure => latest
-      }
+      include linux::drivers
 
       # System services and tools
       include linux::alsa
