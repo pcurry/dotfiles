@@ -23,35 +23,23 @@ class lunaryorn::system_configuration(
     system::hostname { $hostname: }
     system::timezone { $timezone: }
 
-    # Resource defaults
-    File {
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0644',
-    }
-
     if $::operatingsystem != 'Darwin' {
-      # Linux specific configuration
+      # Configure system locales on Linux
+      $locales = ['de_DE.UTF-8 UTF-8',
+                  'de_DE ISO-8859-1',
+                  'de_DE@euro ISO-8859-15',
+                  'en_GB.UTF-8 UTF-8',
+                  'en_GB ISO-8859-1',
+                  'en_US.UTF-8 UTF-8',
+                  'en_US ISO-8859-1',
+                  ]
 
-      # Locale generation
-      file { '/etc/locale.gen':
-        source => 'puppet:///modules/lunaryorn/locale.gen',
-        notify => Exec['locale-gen'],
-      }
-
-      # Re-generate locales if changed.
-      exec { 'locale-gen':
-        path        => ['/usr/bin', '/bin'],
-        refreshonly => true,
-      }
-
-      # On OS X, we set the locale settings per user
-      file { '/etc/locale.conf':
-        source => 'puppet:///modules/lunaryorn/locale.conf'
+      class { 'linux::locale':
+        system_language => 'de_DE.utf8',
+        enabled_locales => $locales,
       }
     }
-
-    if $::operatingsystem == 'Darwin' {
+    else {
       # Disable the annoying beep on boot
       exec { 'Disable beep on boot':
         command => '/usr/sbin/nvram SystemAudioVolume=" "',
