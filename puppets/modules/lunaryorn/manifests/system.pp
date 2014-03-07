@@ -70,7 +70,17 @@ class lunaryorn::system {
       include desktop::telepathy
       include desktop::gstreamer
       include desktop::gstreamer::legacy
-      include desktop::fonts
+
+      # Fonts
+      include desktop::fonts    # Basic fonts and settings
+      # Font settings
+      include desktop::fonts::subpixel  # Enable RGB subpixel rendering
+      include desktop::fonts::lcdfilter # Enable default LCD filter
+      # Some extra fonts
+      include desktop::fonts::droid
+      include desktop::fonts::source_code_pro
+      include desktop::fonts::anonymous_pro
+      include desktop::fonts::inconsolata
 
       # Desktop environment
       include kde
