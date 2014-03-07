@@ -5,22 +5,19 @@
 # Parameters:
 # - The $timezone (title parameter)
 define system::timezone($timezone = $title) {
-  case $::operatingsystem {
-    'Darwin': {
-      exec { "systemsetup -settimezone ${timezone}":
-        unless => "systemsetup -gettimezone | grep ${timezone}",
-        path   => ['/usr/sbin', '/usr/bin'],
-      }
-    }
-    default: {
-      file { '/etc/localtime':
-        ensure => link,
-        target => "/usr/share/zoneinfo/${timezone}",
-        owner  => 'root',
-        group  => 'root',
-        mode   => '0644',
-      }
-    }
+
+  $command = $::operatingsystem ? {
+    'Darwin' => "systemsetup -settimezone ${timezone}",
+    default  => "timedatectl set-timezone ${timezone}",
+  }
+  $is_enabled = $::operatingsystem ? {
+    'Darwin' => "systemsetup -gettimezone | grep -q ${timezone}",
+    default  => "timedatectl status | grep -q 'Timezone: ${timezone} '"
   }
 
+  exec { 'system::timezone':
+    command => $command,
+    unless  => $is_enabled,
+    path    => ['/usr/bin', '/usr/sbin', '/bin', '/sbin'],
+  }
 }
