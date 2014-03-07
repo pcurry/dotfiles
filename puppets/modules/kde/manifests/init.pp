@@ -5,18 +5,18 @@
 # Parameters:
 #
 # Actions:
-# - Install the Phonon backend
+# - Install the GStreamer Phonon backend
 # - Install KDE
-class kde() {
+class kde {
   require x11
-  require desktop::fonts
-  require desktop::gstreamer::legacy
+  require desktop::pulseaudio        # Sound server
+  require desktop::fonts             # Base fonts
+  require desktop::gstreamer::legacy # Gstreamer support
 
   # Install the Phonon backend
   $phonon_backend = 'phonon-gstreamer'
   package { $phonon_backend:
     ensure  => latest,
-    require => Class['desktop::gstreamer::legacy'],
   }
 
   $kde_packages = [ 'kde-meta-kdebase',
