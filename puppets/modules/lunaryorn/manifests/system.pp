@@ -68,6 +68,7 @@ class lunaryorn::system {
       # Desktop services
       include desktop::cups
       include desktop::cups::hp
+      include desktop::cups::systemconfig
       include desktop::avahi
       include desktop::pulseaudio
       include desktop::telepathy
