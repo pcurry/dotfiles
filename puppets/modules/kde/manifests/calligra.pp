@@ -5,6 +5,6 @@ class kde::calligra {
   require kde
 
   package { 'calligra-meta':
-    ensure => installed
+    ensure => latest
   }
 }
