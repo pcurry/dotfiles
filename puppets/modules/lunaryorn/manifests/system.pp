@@ -58,6 +58,7 @@ class lunaryorn::system {
       include linux::drivers
 
       # System services and tools
+      include linux::pc_speaker
       include linux::alsa
       include desktop::networkmanager
       package { ['wireless_tools', 'net-tools']:
