@@ -1,3 +1,5 @@
+# -*- mode: conf; -*-
+
 # Clone devel packages persistently
 DEVELBUILDDIR="/var/abs/local/yaourtbuild"
 
