@@ -68,7 +68,7 @@ path=(
 # Temporary Files
 #
 
-TMPPREFIX="${TMPDIR%/}/zsh"
+TMPPREFIX="${TMPDIR:-/tmp}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
