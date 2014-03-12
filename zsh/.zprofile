@@ -78,8 +78,6 @@ fi
 #
 
 if [[ "$OSTYPE" == darwin* ]]; then
-  # Keep GNU Info files for all homebrew formulas
-  export HOMEBREW_KEEP_INFO=1
   export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 fi
 
