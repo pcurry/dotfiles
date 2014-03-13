@@ -7,14 +7,7 @@
 # - Install Hub, for Github-enhanced Git commands
 class apps::github_cli_tools {
   $hub = 'hub'
-  $ghi = $::operatingsystem ? {
-    'Archlinux' => 'ghi-git',
-    default     => 'ghi'
-  }
-
-  if $::operatingsystem == 'Archlinux' {
-    require apps::git           # Since we install ghi from Git
-  }
+  $ghi = 'ghi'
 
   package { [$ghi, $hub]:
     ensure => latest
