@@ -7,12 +7,15 @@
 # Actions:
 # - Install a snapshot build of Emacs
 class apps::emacs_snapshot {
+  require apps::git
+
   case $::operatingsystem {
     'Darwin': {
       package { 'emacs':
         ensure          => latest,
         # Install Emacs trunk, with Cocoa support, and GNU TLS built-in
-        install_options => ['--HEAD', '--cocoa', '--with-gnutls'],
+        install_options => ['--HEAD', '--use-git-head',
+                            '--cocoa', '--with-gnutls'],
       }
 
       # Put Emacs into the applications folder
@@ -26,9 +29,8 @@ class apps::emacs_snapshot {
       # Versioning of snapshots is unstable, and causes Emacs Bzr to be
       # re-installed on every run with ensure => latest.  Hence, we just make
       # sure that Emacs is installed.  To update it, just remove emacs-bzr
-      package { 'emacs-bzr':
+      package { 'emacs-git':
         ensure  => present,
-        require => Package['bzr'],
         alias   => 'emacs',
       }
     }
