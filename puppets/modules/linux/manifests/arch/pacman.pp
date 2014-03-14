@@ -47,11 +47,11 @@ class linux::arch::pacman {
   }
 
   exec { 'linux::arch::pacman::generate-mirrorlist':
-    command     => "reflector -c Germany -l 10 -f 5 --sort score --save ${generated_mirrorlist}",
-    path        => ['/usr/bin/', '/bin/'],
-    creates     => $generated_mirrorlist,
-    notify      => Exec['linux::arch::pacman::update-repos'],
-    require     => Package['reflector'],
+    command => "reflector -c Germany -l 10 -f 5 --sort score --save ${generated_mirrorlist}",
+    path    => ['/usr/bin/', '/bin/'],
+    creates => $generated_mirrorlist,
+    notify  => Exec['linux::arch::pacman::update-repos'],
+    require => Package['reflector'],
   }
 
   exec { 'linux::arch::pacman::update-repos':
