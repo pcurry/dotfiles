@@ -69,6 +69,8 @@ Most other directories are `GNU Stow`_ packages:
 `zsh`
   Zsh configuration, using Prezto_
 
+Use `make` to install the best set of Stow packages for your system.
+
 
 Other configuration files
 =========================
