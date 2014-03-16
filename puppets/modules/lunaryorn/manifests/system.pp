@@ -150,6 +150,7 @@ class lunaryorn::system {
   include apps::ocaml
   include apps::clojure
   include apps::haskell_platform
+  include apps::texlive
 
   # Developer tools
   include apps::git
