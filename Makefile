@@ -1,5 +1,5 @@
 STOW = stow
-STOWFLAGS = --no-folding
+STOWFLAGS =
 STOWVERBOSE = 0
 
 STOW-CMD = $(STOW) --target $(HOME) -v $(STOWVERBOSE) $(STOWFLAGS)
