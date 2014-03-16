@@ -61,7 +61,7 @@ class lunaryorn::system {
       include linux::pc_speaker
       include linux::alsa
       include desktop::networkmanager
-      package { ['wireless_tools', 'net-tools']:
+      package { ['wireless_tools', 'net-tools', 'htop']:
         ensure => latest
       }
 
