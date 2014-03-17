@@ -161,15 +161,9 @@ class lunaryorn::system {
   }
 
   # Misc packages
-  $isync = $::operatingsystem ? {
-    'Archlinux' => 'isync-git', # isync itself is outdated in AUR
-    default     => 'isync'
-  }
-
   $misc_packages = ['pwgen',           # Password generator
                     'nmap',            # Port scanner for diagnostics
                     'youtube-dl',      # Youtube downloader
-                    $isync,            # IMAP mail sync
                     ]
   package { $misc_packages: ensure => latest }
 }
