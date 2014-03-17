@@ -142,7 +142,6 @@ class lunaryorn::system {
     languages => ['en', 'de']
   }
   include apps::emacs_snapshot
-  include apps::mu4e
   package { 'ctags': ensure => latest } # Tags for Emacs
 
   # Programming languages and environments
