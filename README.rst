@@ -54,12 +54,8 @@ Most other directories are `GNU Stow`_ packages:
   Configuration for Git, specific to Gnome 3
 `git.osx`
   Configuration for Git, specific to OS X
-`isync`
-  Configuration for `mbsync`, to synchronize IMAP
 `mercurial`
   Configuration for Mercurial
-`offlineimap`
-  Configuration for OfflineImap (deprecated in favor of `isync`)
 `ruby`
   Configuration for Ruby
 `ssh`
