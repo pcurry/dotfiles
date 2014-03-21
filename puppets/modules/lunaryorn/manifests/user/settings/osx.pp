@@ -204,7 +204,7 @@ class lunaryorn::user::settings::osx {
     value  => true,
   }
 
-  osx::defaults { 'Move Dock to left side':
+  osx::defaults { 'Move Dock to bottom':
     ensure => present,
     domain => 'com.apple.dock',
     key    => 'orientation',
