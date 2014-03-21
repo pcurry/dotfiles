@@ -39,8 +39,8 @@ class lunaryorn::user::settings::osx {
   }
 
   Osx::Defaults {
-    user =>} $::lunaryorn::user_name
-
+    user => $::lunaryorn::user_name
+  }
 
   # TODO: Reset Launchpad?
   # find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
