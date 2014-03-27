@@ -1,33 +1,25 @@
-# Class: apps::haskell_platform
+# Class: apps::haskell
 #
-# This class installs Haskell Platform.
-#
-# On some operating systems, namely Arch Linux, this class only installs an
-# incomplete subset of Haskell Platform, because the operating system does not
-# provide complete packages.
+# This class installs Haskell.
 #
 # Parameters:
 #
 # Actions:
-# - Install Haskell Platform.
+# - Install GHC
+# - Install cabal-install
+# - Install some additional libraries
 class apps::haskell_platform {
-  case $::operatingsystem {
-    'Darwin': {
-      package { 'haskell-platform': ensure => latest }
-    }
-    'Archlinux': {
-      $haskell_packages = [ 'ghc',
-                            'haddock',
-                            'cabal-install',
-                            # Some basic libraries
+  $common_packages = ['ghc', 'cabal-install']
+
+  package { $common_packages: ensure => latest }
+
+  if $::operatingsystem == 'Archlinux' {
+    $additional_packages = ['haddock',
                             'happy',
                             'haskell-regex-posix',
                             'haskell-parsec',
-                            'haskell-random']
-      package { $haskell_packages: ensure => latest }
-    }
-    default: {
-      fail("Cannot install Haskell Platform on ${::operatingsystem}")
-    }
+                            'haskell-random',
+                            ]
+    package { $additional_packages: ensure => latest }
   }
 }
