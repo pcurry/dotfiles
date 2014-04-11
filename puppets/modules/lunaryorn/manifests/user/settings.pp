@@ -2,10 +2,6 @@
 #
 # This class sets my personal user settings.
 #
-# Parameters:
-# - The $user_name
-# - The $home_directory
-#
 # Actions:
 # - Change my login shell to Zsh
 # - Configure an OS X system with lunaryorn::user_configuration::osx
@@ -18,6 +14,12 @@ class lunaryorn::user::settings {
     $exec_user = $::lunaryorn::user_name
   }
 
+  Exec {
+    user => $exec_user,
+  }
+
+  $home = $::lunaryorn::home_directory
+
   if defined(Class['apps::zsh']) {
     $shell_requires = Class['apps::zsh']
   }
@@ -25,6 +27,7 @@ class lunaryorn::user::settings {
   if $::id == 'root' {
     exec { "chsh -s /bin/zsh ${::lunaryorn::user_name}":
       path    => ['/usr/bin', '/usr/sbin', '/bin', '/sbin'],
+      user    => undef,
       require => $shell_requires,
     }
   }
@@ -42,19 +45,16 @@ class lunaryorn::user::settings {
 
       # Install the awesome Source Code Pro font
       $sourcecodepro_url = 'http://sourceforge.net/projects/sourcecodepro.adobe/files/SourceCodePro_FontsOnly-1.017.zip/download'
-      $sourcecodepro_archive = "${home_directory}/Downloads/SourceCodePro.zip"
+      $sourcecodepro_archive = "${home}/Downloads/SourceCodePro.zip"
       exec { 'Download Source Code Pro':
         command => "curl -L -s -o ${sourcecodepro_archive} ${sourcecodepro_url}",
-        unless  => "test -f ${home_directory}/Library/Fonts/SourceCodePro-Regular.otf",
-        creates => $sourcecodepro_archive,
-        user    => $exec_user,
+        creates => "${home}/Library/Fonts/SourceCodePro-Regular.otf",
         path    => ['/usr/bin', '/bin'],
       }
 
       exec { 'Install Source Code Pro':
-        command => "unzip -oj ${sourcecodepro_archive} '*.otf' -d ${::home}/Library/Fonts",
-        creates => "${home_directory}/Library/Fonts/SourceCodePro-Regular.otf",
-        user    => $exec_user,
+        command => "unzip -oj ${sourcecodepro_archive} '*.otf' -d ${home}/Library/Fonts",
+        creates => "${home}/Library/Fonts/SourceCodePro-Regular.otf",
         path    => ['/usr/bin'],
         require => Exec['Download Source Code Pro'],
       }
