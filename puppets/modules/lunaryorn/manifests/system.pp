@@ -138,11 +138,9 @@ class lunaryorn::system {
   }
 
   # Emacs
-  class {'apps::aspell':      # Emacs spell checker
-    languages => ['en', 'de']
-  }
   include apps::emacs_snapshot
-  package { 'ctags': ensure => latest } # Tags for Emacs
+  # Tags and spell check for Emacs
+  package { ['ctags', 'hunspell']: ensure => latest } # Tags for Emacs
 
   # Programming languages and environments
   include apps::python2
