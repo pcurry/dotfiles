@@ -146,7 +146,7 @@ class lunaryorn::system {
   include apps::python2
   include apps::ocaml
   include apps::clojure
-  include apps::haskell
+  include apps::ghc
   include apps::texlive
 
   # Developer tools
