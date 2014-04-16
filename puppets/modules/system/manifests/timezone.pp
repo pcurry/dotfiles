@@ -12,7 +12,7 @@ define system::timezone($timezone = $title) {
   }
   $is_enabled = $::operatingsystem ? {
     'Darwin' => "systemsetup -gettimezone | grep -q ${timezone}",
-    default  => "timedatectl status | grep -q 'Timezone: ${timezone} '"
+    default  => "timedatectl status | grep -q 'Time zone: ${timezone} '"
   }
 
   exec { 'system::timezone':
