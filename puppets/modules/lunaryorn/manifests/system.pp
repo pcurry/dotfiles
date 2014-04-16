@@ -140,7 +140,11 @@ class lunaryorn::system {
   # Emacs
   include apps::emacs_snapshot
   # Tags and spell check for Emacs
-  package { ['ctags', 'hunspell']: ensure => latest } # Tags for Emacs
+  package { ['ctags', 'hunspell']: ensure => latest }
+  if $::operatingsystem != 'Darwin' {
+    # On OS X we install dictionaries per user
+    package { ['hunspell-de', 'hunspell-en']: ensure => latest }
+  }
 
   # Programming languages and environments
   include apps::python2
