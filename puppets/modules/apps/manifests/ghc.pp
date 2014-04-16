@@ -13,6 +13,9 @@ class apps::ghc {
     notice('Cabal install must be manually installed on OS X!')
   }
   else {
-    package { ['ghc', 'cabal-install']: ensure => latest }
+    $ghc_packages = [ 'ghc', 'cabal-install', # The basics
+                      'happy', 'alex'         # And some utilities
+                      ]
+    package { $ghc_packages: ensure => latest }
   }
 }
