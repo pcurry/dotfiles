@@ -8,8 +8,8 @@ STOW-UNINSTALL = $(STOW-CMD) -D
 
 BASEPKGS = zsh emacs ssh mercurial git
 PROGPKGS = clojure ruby
-LINUXPKGS = arch x11 fontconfig
 OSXPKGS = git.osx
+LINUXPKGS =
 GNOMEPKGS = git.gnome
 UNITYPKGS = git.gnome
 
@@ -34,12 +34,11 @@ gnome:
 	$(STOW-INSTALL) $(GNOMEPKGS)
 
 linux:
-	$(STOW-INSTALL) $(LINUXPKGS)
 	$(STOW-UNINSTALL) $(OSXPKGS)
 
 osx:
 	$(STOW-INSTALL) $(OSXPKGS)
-	$(STOW-UNINSTALL) $(LINUXPKGS) $(GNOMEPKGS)
+	$(STOW-UNINSTALL) $(GNOMEPKGS)
 
 prog:
 	$(STOW-INSTALL) $(PROGPKGS)

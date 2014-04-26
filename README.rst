@@ -40,14 +40,10 @@ Available Stow packages
 
 Most other directories are `GNU Stow`_ packages:
 
-`arch`
-  Configuration for Arch Linux, e.g. `makepkg`
 `clojure`
   Configuration for Clojure, e.g. Leiningen Profiles
 `emacs`
   Emacs configuration, using `Stante Pede`_ and Cask_
-`fontconfig`
-  Font configuration for Linux
 `git`
   Configuration for Git
 `git.gnome`
@@ -60,8 +56,6 @@ Most other directories are `GNU Stow`_ packages:
   Configuration for Ruby
 `ssh`
   Configuration for SSH
-`x11`
-  Configuration for X11, e.g. X11 Resources
 `zsh`
   Zsh configuration, using Prezto_
 

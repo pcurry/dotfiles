@@ -1,5 +1,0 @@
-# Clone devel packages persistently
-DEVELBUILDDIR="/var/abs/local/yaourtbuild"
-
-# Always upgrade AUR packages on -Sy
-AURUPGRADE=1
