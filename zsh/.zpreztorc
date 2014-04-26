@@ -36,20 +36,14 @@ zstyle ':prezto:load' pmodule \
   'gnu-utility' \
   'utility' \
   'completion' \
-  'fasd' \
   'prompt' \
   'syntax-highlighting' \
   'history-substring-search' \
   'archive' \
   'git' \
-  'python' \
-  'ruby' \
-  'haskell' \
-  'node' \
   'osx' \
   'homebrew' \
-  'pacman' \
-  'emacs'
+  'dpkg'
 
 #
 # Editor

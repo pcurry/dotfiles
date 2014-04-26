@@ -59,8 +59,12 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  $HOME/bin
-  $HOME/.cabal/bin
+  $HOME/bin                           # Personal tools
+  $HOME/.cask/bin                     # Cask
+  $HOME/.cabal/bin                    # Local Haskell packages
+  ${PYTHONUSERBASE:-$HOME/.local}/bin # Local Python packages
+  $HOME/Library/Python/*/bin(N)       # Local Python packages on OS X
+  $HOME/.gem/ruby/*/bin(N)            # Local Ruby packages
   /usr/local/{bin,sbin}
   $path
 )
