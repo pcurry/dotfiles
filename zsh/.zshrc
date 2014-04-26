@@ -6,6 +6,9 @@
 #   Sebastian Wiesner <lunaryorn@gmail.com>
 #
 
+# Functions
+fpath=($HOME/.zsh.d/functions $fpath)
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
