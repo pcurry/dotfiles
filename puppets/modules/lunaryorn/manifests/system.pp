@@ -104,24 +104,8 @@ class lunaryorn::system {
     }
   }
 
-  # Host name and time zone
-  $hostname = $::operatingsystem ? {
-    'Darwin'    => 'lunaryorn-air',
-    'Archlinux' => 'lunaryorn-arch',
-    default     => fail("No hostname for ${::operatingsystem}!")
-  }
-  system::hostname { $hostname:
-    before => Class['system::ntp'],
-  }
-  system::timezone { 'Europe/Berlin':
-    before => Class['system::ntp'],
-  }
-
-  include system::ntp
-
   # System services and tools
   include apps::zsh
-  include apps::sudo
   include apps::openssh
 
   # Applications
