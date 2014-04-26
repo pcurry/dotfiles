@@ -34,73 +34,6 @@ class lunaryorn::system {
       }
     }
     default: {
-      # Linux
-
-      # Setup package manager
-      require linux::package_manager
-
-      # System locales
-      $locales = ['de_DE.UTF-8 UTF-8',
-                  'de_DE ISO-8859-1',
-                  'de_DE@euro ISO-8859-15',
-                  'en_GB.UTF-8 UTF-8',
-                  'en_GB ISO-8859-1',
-                  'en_US.UTF-8 UTF-8',
-                  'en_US ISO-8859-1',
-                  ]
-
-      class { 'linux::locale':
-        system_language => 'de_DE.utf8',
-        enabled_locales => $locales,
-      }
-
-      # Drivers
-      include linux::drivers
-
-      # System services and tools
-      include linux::pc_speaker
-      include linux::alsa
-      include desktop::networkmanager
-      package { ['wireless_tools', 'net-tools', 'htop']:
-        ensure => latest
-      }
-
-      # Desktop services
-      include desktop::cups
-      include desktop::cups::hp
-      include desktop::cups::systemconfig
-      include desktop::avahi
-      include desktop::pulseaudio
-      include desktop::telepathy
-      include desktop::gstreamer
-      include desktop::gstreamer::legacy
-
-      # Fonts
-      include desktop::fonts    # Basic fonts and settings
-      # Font settings
-      include desktop::fonts::subpixel  # Enable RGB subpixel rendering
-      include desktop::fonts::lcdfilter # Enable default LCD filter
-      # Some extra fonts
-      include desktop::fonts::droid
-      include desktop::fonts::source_code_pro
-      include desktop::fonts::anonymous_pro
-      include desktop::fonts::inconsolata
-
-      # Desktop environment
-      include kde
-      include kde::gtk
-      include kde::appmenu
-      include kde::networkmanager
-      include kde::telepathy
-      include kde::kdm
-      include kde::k3b
-      include kde::amarok
-      include kde::dropbox
-      include kde::tools
-      include kde::calligra
-      $kde_languages = [ 'de' ]
-      kde::l10n { $kde_languages: }
-      kde::calligra::l10n { $kde_languages: }
     }
   }
 
@@ -133,7 +66,6 @@ class lunaryorn::system {
   # Programming languages and environments
   include apps::python2
   include apps::ocaml
-  include apps::clojure
   include apps::ghc
   include apps::texlive
 
