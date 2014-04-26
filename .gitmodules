@@ -7,9 +7,6 @@
 [submodule "emacs/.emacs.d"]
 	path = emacs/.emacs.d
 	url = https://github.com/lunaryorn/stante-pede.git
-[submodule "puppets/modules/vcsrepo"]
-	path = puppets/modules/vcsrepo
-	url = https://github.com/puppetlabs/puppetlabs-vcsrepo.git
 [submodule "puppets/modules/stdlib"]
 	path = puppets/modules/stdlib
 	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
