@@ -11,6 +11,7 @@ PROGPKGS = clojure ruby
 LINUXPKGS = arch x11 fontconfig
 OSXPKGS = git.osx
 GNOMEPKGS = git.gnome
+UNITYPKGS = git.gnome
 
 UNAME := $(shell uname -s)
 ifeq ($(UNAME),Darwin)
@@ -19,6 +20,9 @@ else
 SYSTEMTARGETS += linux
 endif
 ifeq ($(XDG_CURRENT_DESKTOP),GNOME)
+SYSTEMTARGETS += gnome
+endif
+ifeq ($(XDG_CURRENT_DESKTOP),Unity)
 SYSTEMTARGETS += gnome
 endif
 
