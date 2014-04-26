@@ -49,7 +49,7 @@ function prompt_lunaryorn_setup {
   # Add hook for calling git-info before each command.
   add-zsh-hook precmd prompt_lunaryorn_precmd
 
-  PROMPT='%(!.%B%F{red}.%F{cyan})${_prompt_lunaryorn_pwd}%f%b%F{blue}${_prompt_lunaryorn_env}%f%(?.. %B%F{red}%?%f%b) $ '
+  PROMPT='%(!.%B%F{red}.%F{cyan})${_prompt_lunaryorn_pwd}%f%b%F{blue}${_prompt_lunaryorn_env}%f%(?.. %B%F{red}%?%f%b) %F{yellow}$%f '
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 
