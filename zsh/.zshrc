@@ -10,3 +10,8 @@
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
+# Source OPAM
+if [[ -f "$HOME/.opam/opam-init/init.zsh" ]]; then
+  source "$HOME/.opam/opam-init/init.zsh"
+fi
