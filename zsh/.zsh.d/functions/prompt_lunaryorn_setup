@@ -96,7 +96,7 @@ function prompt_lunaryorn_setup {
   # Battery styling
   zstyle ':battery_info:*:prompt_lunaryorn' chargingstr '%F{yellow}'
   zstyle ':battery_info:*:prompt_lunaryorn' dischargingstr '%F{magenta}'
-  zstyle ':battery_info:*:prompt_lunaryorn' format ' %c%r%f'
+  zstyle ':battery_info:*:prompt_lunaryorn' format ' %c%(R.%p%%%%.%r)%%f'
 
   local pwd='%(!.%B%F{red}.%F{cyan})$(prompt_lunaryorn_cwd)%f%b'
   local info='$(prompt_lunaryorn_hostname)${battery_info_msg_}'
