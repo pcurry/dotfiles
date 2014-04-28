@@ -1,37 +1,190 @@
-# -*- mode: sh; -*-
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sebastian Wiesner <lunaryorn@gmail.com>
-#
+# Copyright (c) 2014 Sebastian Wiesner <lunaryorn@gmail.com>
+# Copyright (c) 2011-2014 Sorin Ionescu <sorin.ionescu@gmail.com>
+# Copyright (c) 2009-2011 Robby Russell and contributors.
 
-# Functions
-fpath=($HOME/.zsh.d/functions $fpath)
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
 
-# Prompt setup
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+
+ZSHD="$HOME/.zsh.d"
+
+fpath=(
+  $ZSHD/functions # My own functions
+  $ZSHD/plugins/completions/src # 3rd party completions
+  $fpath
+)
+
+# Basic options
+setopt correct                  # Correct commands
+setopt brace_ccl                # Always do brace expansion
+setopt combining_chars          # Enable combining characters
+setopt rc_quotes                # ' is a quote in single-quoted strings
+setopt no_mail_warning          # Do not warn about mail file access
+
+# Globbing
+setopt case_glob                # Case sensitive globbing
+setopt extended_glob            # Power up globbing
+
+# Jobs control options
+setopt long_list_jobs           # Long job listings
+setopt auto_resume              # Auto-resume jobs on single word commands
+setopt notify                   # Report job status immediately
+setopt no_bg_nice               # Do not decrease priority of background jobs
+setopt no_hup                   # Do not send SIGHUP when the shell exists
+setopt no_check_jobs            # Do not check job status on exit
+
+# Directories
+setopt auto_cd                  # Change to dirs when typing the dir name
+setopt auto_pushd               # Automatically push dirs on the stack
+setopt pushd_ignore_dups        # Ignore duplicates on the stack
+setopt pushd_silent             # Shut up
+setopt pushd_to_home            # Bare pushd pushes $HOME
+setopt cdable_vars
+setopt auto_name_dirs           # Make params containing directories available #
+                                # for ~foo
+
+# Redirection
+setopt multios                  # Redirect to multiple fds
+setopt no_clobber               # Don't overwrite files with redirection
+
+# History
+HISTFILE="${HOME}/.zhistory"
+HISTSIZE=10000                   # Size of internal history
+SAVEHIST=10000                   # Size of history file
+setopt bang_hist                 # '!' is special during expansion.
+setopt extended_history          # Write more info to history
+setopt inc_append_history        # Write history file immediately
+setopt share_history             # Share history
+setopt hist_expire_dups_first    # Expire duplicates first
+setopt hist_ignore_dups          # Do not record duplicates,
+setopt hist_ignore_all_dups      # and delete old duplicates
+setopt hist_find_no_dups         # Do not show duplicates
+setopt hist_ignore_space         # Ignore events with leading space
+setopt hist_save_no_dups         # Do not save duplicates in history files
+setopt hist_verify               # Do not execute immediately after expansion
+setopt hist_beep                 # Beep when accessing non-existent history
+
+# Aliases for builtins
+alias cd='nocorrect cd'
+alias po='popd'
+alias pu='pushd'
+alias type='type -a'
+
+# Prompt
 zstyle ':vcs_info:*:prompt_lunaryorn:*' enable git hg svn
-
 autoload -Uz promptinit
 promptinit
 prompt 'lunaryorn'
 
-# Source OPAM
-if [[ -f "$HOME/.opam/opam-init/init.zsh" ]]; then
-  source "$HOME/.opam/opam-init/init.zsh"
+# Editor and completion
+source "$ZSHD/editor.zsh"
+source "$ZSHD/completion.zsh"
+
+# Syntax highlighting (KEEP BEFORE substring search!)
+source "$ZSHD/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh"
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(
+  main                          # Basic highlighting
+  brackets                      # Match parenthesis
+  root                          # Highlight when root
+  cursor                        # The cursor position
+)
+
+# Substring search
+source "$ZSHD/plugins/history-substring-search/zsh-history-substring-search.zsh"
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+
+# Tools
+source "$ZSHD/coreutils.zsh"
+source "$ZSHD/git.zsh"
+
+# Misc
+alias ag='nocorrect ag'
+alias locate='noglob locate'
+alias rsync='noglob rsync'
+alias scp='noglob scp'
+alias sftp='noglob sftp'
+alias _='sudo'
+alias b='${(z)BROWSER}'         # Browse
+alias e='${(z)VISUAL:-${(z)EDITOR}}' # Edit
+alias http-serve='python -m SimpleHTTPServer' # Simple HTTP server
+alias o='open'
+alias p='${(z)PAGER}'           # View with pager
+alias pbc='pbcopy'
+alias pbp='pbpaste'
+
+# Download files
+if (( $+commands[curl] )); then
+  alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
+elif (( $+commands[wget] )); then
+  alias get='wget --continue --progress=bar --timestamping'
 fi
 
-# Source Cask completions
-if [[ -d "$HOME/.cask" ]]; then
-  source "$HOME/.cask/etc/cask_completion.zsh" 2> /dev/null
+# OS X everywhere
+if [[ $OSTYPE != darwin* ]]; then
+  alias open='xdg-open'
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
 fi
 
-# Setup Virtualenvs
+# Hombebrew
+alias brewc='brew cleanup'
+alias brewC='brew cleanup --force'
+alias brewi='brew install'
+alias brewl='brew list'
+alias brews='brew search'
+alias brewu='brew upgrade'
+alias brewU='brew update && brew upgrade'
+alias brewx='brew remove'
+
+# DPKG
+alias debc='sudo apt-get clean && sudo apt-get autoclean'
+alias debf='apt-file search --regexp'
+alias debi='sudo apt-get install'
+alias debI='sudo dpkg -i'
+alias debq='apt-cache show'
+alias debs='apt-cache search'
+alias debu='sudo apt-get update'
+alias debU='sudo apt-get update && sudo apt-get dist-upgrade'
+alias debx='sudo apt-get remove'
+alias debX='sudo apt-get remove --purge && sudo apt-get autoremove --purge'
+
+# ** Functions
+function mkdcd {
+  [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
+}
+
+function cdls {
+  builtin cd "$argv[-1]" && ls "${(@)argv[1,-2]}"
+}
+
+# OPAM
+[[ -f "$HOME/.opam/opam-init/init.zsh" ]] && source "$HOME/.opam/opam-init/init.zsh"
+
+# Cask
+[[ -d "$HOME/.cask" ]] && source "$HOME/.cask/etc/cask_completion.zsh" 2> /dev/null
+
+alias cai='cask install'
+alias cau='cask update'
+alias caU='cask install && cask update'
+
+# Virtualenv
 VIRTUAL_ENV_DISABLE_PROMPT=1    # Don't mess with my prompt!
 if (( $+commands[virtualenvwrapper_lazy.sh] )); then
   export WORKON_HOME="$HOME/.virtualenvs"

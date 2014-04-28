@@ -20,6 +20,9 @@
 # SOFTWARE.
 
 function prompt_lunaryorn_cwd {
+  emulate -L zsh
+  setopt extended_glob
+
   local cwd="${PWD/#$HOME/~}"
 
   # Compute the working directory
@@ -57,7 +60,8 @@ function prompt_lunaryorn_precmd {
 }
 
 function prompt_lunaryorn_setup {
-  setopt local_options
+  emulate -L zsh
+
   unsetopt xtrace ksh_arrays
   prompt_opts=(cr percent subst)
 
