@@ -110,6 +110,16 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
+# Autojump
+if (( $+commands[brew] )); then
+  local autojump_directory="$(brew --prefix)/etc/"
+else
+  local autojump_directory="/usr/share/autojump/"
+fi
+if [[ -d "${autojump_directory}" ]]; then
+  source "${autojump_directory}/autojump.zsh"
+fi
+
 # Tools
 source "$ZSHD/coreutils.zsh"
 source "$ZSHD/git.zsh"
