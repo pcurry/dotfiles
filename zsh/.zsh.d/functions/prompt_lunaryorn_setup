@@ -19,6 +19,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+local _prompt_lunaryorn_cwd
+local _prompt_lunaryorn_env
+
 function prompt_lunaryorn_cwd {
   local cwd="${PWD/#$HOME/~}"
 
