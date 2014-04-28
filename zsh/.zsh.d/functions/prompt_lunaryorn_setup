@@ -38,7 +38,7 @@ function prompt_lunaryorn_env {
   # Compute environment information
   _prompt_lunaryorn_env=''
   if [[ -n $VIRTUAL_ENV ]]; then
-    _prompt_lunaryorn_env="%F{blue}py%f:%F{green}${VIRTUAL_ENV##*/}%f"
+    _prompt_lunaryorn_env="%F{blue}py%f:%F{yellow}${VIRTUAL_ENV##*/}%f"
   fi
   if [[ -n $_prompt_lunaryorn_env ]]; then
     _prompt_lunaryorn_env=" in %F{blue}${_prompt_lunaryorn_env}%f"
@@ -65,12 +65,16 @@ function prompt_lunaryorn_setup {
   # VCS info styling
   zstyle ':vcs_info:*:prompt_lunaryorn:*' check-for-changes true
   zstyle ':vcs_info:*:prompt_lunaryorn:*' use-prompt-escapes true
+  zstyle ':vcs_info:*:prompt_lunaryorn:*' get-revision true
+  zstyle ':vcs_info:*:prompt_lunaryorn:*' get-bookmarks true
   zstyle ':vcs_info:*:prompt_lunaryorn:*' stagedstr '+'
   zstyle ':vcs_info:*:prompt_lunaryorn:*' unstagedstr '*'
+  zstyle ':vcs_info:*:prompt_lunaryorn:*' hgrevformat '%r' # Local revno only
+  zstyle ':vcs_info:hg:prompt_lunaryorn:*' branchformat 'r%r'
   zstyle ':vcs_info:*:prompt_lunaryorn:*' formats \
-         '%F{cyan}%r%f@%F{blue}%s%f:%F{green}%b%f%%B%F{yellow}%c%u%f%%b'
+         '%F{cyan}%r%f@%F{blue}%s%f:%F{yellow}%b%f%%B%F{green}%c%f%F{magenta}%u%f%%b'
   zstyle ':vcs_info:*:prompt_lunaryorn:*' actionformats \
-         '%F{blue}%s%f:%F{green}%b%f%%B%F{red}(%a)%f%%b%%B%F{yellow}%c%u%f%%b'
+         '%F{cyan}%r%f@%F{blue}%s%f:%F{yellow}%b%f%%B%F{red}(%a)%f%F{green}%c%f%F{magenta}%u%f%%b'
 
   local pwd='%(!.%B%F{red}.%F{cyan})${_prompt_lunaryorn_cwd}%f%b'
   local sep='%(?.%F{green}.%B%F{red})$%f%b '
