@@ -43,7 +43,7 @@ function prompt_lunaryorn_env {
 }
 
 function prompt_lunaryorn_precmd {
-  vcs_info
+  vcs_info 'prompt_lunaryorn'
   prompt_lunaryorn_cwd
   prompt_lunaryorn_env
 }
@@ -59,13 +59,22 @@ function prompt_lunaryorn_setup {
   # Add hook for calling git-info before each command.
   add-zsh-hook precmd prompt_lunaryorn_precmd
 
+  # VCS info styling
+  zstyle ':vcs_info:*:prompt_lunaryorn:*' check-for-changes true
+  zstyle ':vcs_info:*:prompt_lunaryorn:*' use-prompt-escapes true
+  zstyle ':vcs_info:*:prompt_lunaryorn:*' stagedstr '+'
+  zstyle ':vcs_info:*:prompt_lunaryorn:*' unstagedstr '*'
+  zstyle ':vcs_info:*:prompt_lunaryorn:*' formats \
+         '%F{cyan}%r%f@%F{blue}%s%f:%F{green}%b%f%%B%F{yellow}%c%u%f%%b'
+  zstyle ':vcs_info:*:prompt_lunaryorn:*' actionformats \
+         '%F{blue}%s%f:%F{green}%b%f%%B%F{red}(%a)%f%%b%%B%F{yellow}%c%u%f%%b'
+
   local pwd='%(!.%B%F{red}.%F{cyan})${_prompt_lunaryorn_cwd}%f%b'
-  local env='%F{blue}${_prompt_lunaryorn_env}%f'
   local exitcode='%(?.. %B%F{red}%?%f%b)'
   local sep='%F{yellow}$%f '
 
   PROMPT="${pwd}${exitcode} ${sep}"
-  RPROMPT="${env}"
+  RPROMPT='${vcs_info_msg_0_}${_prompt_lunaryorn_env}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 
