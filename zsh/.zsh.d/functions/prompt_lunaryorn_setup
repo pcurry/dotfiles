@@ -70,10 +70,9 @@ function prompt_lunaryorn_setup {
          '%F{blue}%s%f:%F{green}%b%f%%B%F{red}(%a)%f%%b%%B%F{yellow}%c%u%f%%b'
 
   local pwd='%(!.%B%F{red}.%F{cyan})${_prompt_lunaryorn_cwd}%f%b'
-  local exitcode='%(?.. %B%F{red}%?%f%b)'
-  local sep='%F{yellow}$%f '
+  local sep='%(?.%F{green}.%B%F{red})$%f%b '
 
-  PROMPT="${pwd}${exitcode} ${sep}"
+  PROMPT="${pwd} ${sep}"
   RPROMPT='${vcs_info_msg_0_}${_prompt_lunaryorn_env}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
