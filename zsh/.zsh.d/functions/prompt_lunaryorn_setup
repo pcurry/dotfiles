@@ -87,9 +87,9 @@ function prompt_lunaryorn_setup {
   zstyle ':vcs_info:*:prompt_lunaryorn:*' hgrevformat '%r' # Local revno only
   zstyle ':vcs_info:hg:prompt_lunaryorn:*' branchformat 'r%r'
   zstyle ':vcs_info:*:prompt_lunaryorn:*' formats \
-         '%F{cyan}%r%f@%F{blue}%s%f:%F{yellow}%b%f%%B%F{green}%c%f%F{magenta}%u%f%%b'
+         '%F{blue}%s%f:%F{yellow}%b%f%%B%F{green}%c%f%F{magenta}%u%f%%b'
   zstyle ':vcs_info:*:prompt_lunaryorn:*' actionformats \
-         '%F{cyan}%r%f@%F{blue}%s%f:%F{yellow}%b%f%%B%F{red}(%a)%f%F{green}%c%f%F{magenta}%u%f%%b'
+         '%F{blue}%s%f:%F{yellow}%b%f%%B%F{red}(%a)%f%F{green}%c%f%F{magenta}%u%f%%b'
 
   local pwd='%(!.%B%F{red}.%F{cyan})$(prompt_lunaryorn_cwd)%f%b'
   local sep='%(?.%F{green}.%B%F{red})$%f%b '
