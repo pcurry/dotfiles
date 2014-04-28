@@ -37,11 +37,11 @@ function prompt_lunaryorn_cwd {
 function prompt_lunaryorn_env {
   # Compute environment information
   _prompt_lunaryorn_env=''
-  if [[ -n "$VIRTUAL_ENV" ]]; then
-    _prompt_lunaryorn_env="py:${VIRTUAL_ENV##*/}"
+  if [[ -n $VIRTUAL_ENV ]]; then
+    _prompt_lunaryorn_env="%F{blue}py%f:%F{green}${VIRTUAL_ENV##*/}%f"
   fi
-  if [[ -n "${_prompt_lunaryorn_env}" ]]; then
-    _prompt_lunaryorn_env="${_prompt_lunaryorn_env}"
+  if [[ -n $_prompt_lunaryorn_env ]]; then
+    _prompt_lunaryorn_env=" in %F{blue}${_prompt_lunaryorn_env}%f"
   fi
 }
 
