@@ -19,17 +19,20 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-function prompt_lunaryorn_precmd {
-  local pwd="${PWD/#$HOME/~}"
+function prompt_lunaryorn_cwd {
+  local cwd="${PWD/#$HOME/~}"
 
+  # Compute the working directory
   if [[ "$pwd" == (#m)[/~] ]]; then
-    _prompt_lunaryorn_pwd="$MATCH"
+    _prompt_lunaryorn_cwd="$MATCH"
     unset MATCH
   else
-    _prompt_lunaryorn_pwd="${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}/${pwd:t}"
+    _prompt_lunaryorn_cwd="${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}/${pwd:t}"
   fi
+}
 
-  # Compute sandbox information
+function prompt_lunaryorn_env {
+  # Compute environment information
   _prompt_lunaryorn_env=''
   if [[ -n "$VIRTUAL_ENV" ]]; then
     _prompt_lunaryorn_env="py:${VIRTUAL_ENV##*/}"
@@ -39,17 +42,24 @@ function prompt_lunaryorn_precmd {
   fi
 }
 
+function prompt_lunaryorn_precmd {
+  vcs_info
+  prompt_lunaryorn_cwd
+  prompt_lunaryorn_env
+}
+
 function prompt_lunaryorn_setup {
   setopt local_options
   unsetopt xtrace ksh_arrays
   prompt_opts=(cr percent subst)
 
   autoload -Uz add-zsh-hook
+  autoload -Uz vcs_info
 
   # Add hook for calling git-info before each command.
   add-zsh-hook precmd prompt_lunaryorn_precmd
 
-  local pwd='%(!.%B%F{red}.%F{cyan})${_prompt_lunaryorn_pwd}%f%b'
+  local pwd='%(!.%B%F{red}.%F{cyan})${_prompt_lunaryorn_cwd}%f%b'
   local env='%F{blue}${_prompt_lunaryorn_env}%f'
   local exitcode='%(?.. %B%F{red}%?%f%b)'
   local sep='%F{yellow}$%f '
