@@ -38,7 +38,7 @@ function prompt_lunaryorn_env {
     _prompt_lunaryorn_env="py:${VIRTUAL_ENV##*/}"
   fi
   if [[ -n "${_prompt_lunaryorn_env}" ]]; then
-    _prompt_lunaryorn_env=" ${_prompt_lunaryorn_env}"
+    _prompt_lunaryorn_env="${_prompt_lunaryorn_env}"
   fi
 }
 
@@ -64,7 +64,8 @@ function prompt_lunaryorn_setup {
   local exitcode='%(?.. %B%F{red}%?%f%b)'
   local sep='%F{yellow}$%f '
 
-  PROMPT="${pwd}${env}${exitcode} ${sep}"
+  PROMPT="${pwd}${exitcode} ${sep}"
+  RPROMPT="${env}"
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 
