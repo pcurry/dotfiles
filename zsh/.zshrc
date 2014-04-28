@@ -14,6 +14,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Prompt setup
+zstyle ':vcs_info:*:prompt_lunaryorn:*' enable git hg svn
+
+autoload -Uz promptinit
+promptinit
+prompt 'lunaryorn'
+
 # Source OPAM
 if [[ -f "$HOME/.opam/opam-init/init.zsh" ]]; then
   source "$HOME/.opam/opam-init/init.zsh"
