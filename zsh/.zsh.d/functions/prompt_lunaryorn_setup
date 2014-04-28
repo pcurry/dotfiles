@@ -36,19 +36,26 @@ function prompt_lunaryorn_cwd {
 
 function prompt_lunaryorn_env {
   # Compute environment information
-  _prompt_lunaryorn_env=''
+  local -a envs
+
+  # Python virtualenv
   if [[ -n $VIRTUAL_ENV ]]; then
-    _prompt_lunaryorn_env="%F{blue}py%f:%F{yellow}${VIRTUAL_ENV##*/}%f"
+    envs+="%F{blue}py%f:%F{yellow}${VIRTUAL_ENV##*/}%f"
   fi
-  if [[ -n $_prompt_lunaryorn_env ]]; then
-    _prompt_lunaryorn_env=" in %F{blue}${_prompt_lunaryorn_env}%f"
+
+  # Cabal sandbox
+  if [[ -f ${PWD}/cabal.sandbox.config ]]; then
+    envs+="%F{blue}hs%f:%F{yellow}sandbox%f"
+  fi
+
+  if [[ -n $envs ]]; then
+    echo " in ${(j:,:)envs}"
   fi
 }
 
 function prompt_lunaryorn_precmd {
   vcs_info 'prompt_lunaryorn'
   prompt_lunaryorn_cwd
-  prompt_lunaryorn_env
 }
 
 function prompt_lunaryorn_setup {
@@ -80,7 +87,7 @@ function prompt_lunaryorn_setup {
   local sep='%(?.%F{green}.%B%F{red})$%f%b '
 
   PROMPT="${pwd} ${sep}"
-  RPROMPT='${vcs_info_msg_0_}${_prompt_lunaryorn_env}'
+  RPROMPT='${vcs_info_msg_0_}$(prompt_lunaryorn_env)'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 
