@@ -55,6 +55,12 @@ function prompt_lunaryorn_env {
   fi
 }
 
+function prompt_lunaryorn_hostname {
+  if [[ -n $SSH_CONNECTION ]]; then
+    echo ' %B%F{cyan}%n@%F{yellow}%M%f%b'
+  fi
+}
+
 function prompt_lunaryorn_precmd {
   vcs_info 'prompt_lunaryorn'
 }
@@ -88,7 +94,7 @@ function prompt_lunaryorn_setup {
   local pwd='%(!.%B%F{red}.%F{cyan})$(prompt_lunaryorn_cwd)%f%b'
   local sep='%(?.%F{green}.%B%F{red})$%f%b '
 
-  PROMPT="${pwd} ${sep}"
+  PROMPT="${pwd}$(prompt_lunaryorn_hostname) ${sep}"
   RPROMPT='${vcs_info_msg_0_}$(prompt_lunaryorn_env)'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
