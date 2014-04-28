@@ -19,19 +19,18 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-local _prompt_lunaryorn_cwd
-local _prompt_lunaryorn_env
-
 function prompt_lunaryorn_cwd {
   local cwd="${PWD/#$HOME/~}"
 
   # Compute the working directory
   if [[ "$cwd" == (#m)[/~] ]]; then
-    _prompt_lunaryorn_cwd="$MATCH"
+    cwd="$MATCH"
     unset MATCH
   else
-    _prompt_lunaryorn_cwd="${${${(@j:/:M)${(@s:/:)cwd}##.#?}:h}%/}/${cwd:t}"
+    cwd="${${${(@j:/:M)${(@s:/:)cwd}##.#?}:h}%/}/${cwd:t}"
   fi
+
+  echo "${cwd}"
 }
 
 function prompt_lunaryorn_env {
@@ -49,13 +48,12 @@ function prompt_lunaryorn_env {
   fi
 
   if [[ -n $envs ]]; then
-    echo " in ${(j:,:)envs}"
+    echo " ${(j:,:)envs}"
   fi
 }
 
 function prompt_lunaryorn_precmd {
   vcs_info 'prompt_lunaryorn'
-  prompt_lunaryorn_cwd
 }
 
 function prompt_lunaryorn_setup {
@@ -83,7 +81,7 @@ function prompt_lunaryorn_setup {
   zstyle ':vcs_info:*:prompt_lunaryorn:*' actionformats \
          '%F{cyan}%r%f@%F{blue}%s%f:%F{yellow}%b%f%%B%F{red}(%a)%f%F{green}%c%f%F{magenta}%u%f%%b'
 
-  local pwd='%(!.%B%F{red}.%F{cyan})${_prompt_lunaryorn_cwd}%f%b'
+  local pwd='%(!.%B%F{red}.%F{cyan})$(prompt_lunaryorn_cwd)%f%b'
   local sep='%(?.%F{green}.%B%F{red})$%f%b '
 
   PROMPT="${pwd} ${sep}"
