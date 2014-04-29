@@ -60,7 +60,6 @@ function prompt_lunaryorn_setup {
   autoload -Uz battery_info
   autoload -Uz fancy_cwd
 
-  # Add hook for calling git-info before each command.
   add-zsh-hook precmd prompt_lunaryorn_precmd
 
   # VCS info styling
