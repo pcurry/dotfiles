@@ -175,6 +175,23 @@ alias debU='sudo apt-get update && sudo apt-get dist-upgrade'
 alias debx='sudo apt-get remove'
 alias debX='sudo apt-get remove --purge && sudo apt-get autoremove --purge'
 
+# Cabal
+alias cab='cabal'
+alias cabb='cabal build'
+alias cabc='cabal configure'
+alias cabC='cabal clean'
+alias cabd='cabal install --enable-tests --only-dependencies' # (d)ependencies
+alias cabi='cabal install'
+alias cabI='cabal copy'
+alias cabp='cabal upload'       # (p)ush
+alias cabq='cabal info'
+alias cabs='cabal list'
+alias cabt='cabal test'
+alias cabX='cabal clean && cabal sandbox delete'
+alias cabSi='cabal sandbox init'
+alias cabSI='cabal sandbox init && cabal install --enable-tests --only-dependencies'
+alias cabSx='cabal sandbox delete'
+
 # OPAM
 [[ -f "$HOME/.opam/opam-init/init.zsh" ]] && source "$HOME/.opam/opam-init/init.zsh"
 
