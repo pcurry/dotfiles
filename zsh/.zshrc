@@ -84,11 +84,17 @@ alias po='popd'
 alias pu='pushd'
 alias type='type -a'
 
+# VCS support
+zstyle ':vcs_info:*' enable git hg svn
+
 # Prompt
-zstyle ':vcs_info:*:prompt_lunaryorn:*' enable git hg svn
 autoload -Uz promptinit
 promptinit
 prompt 'lunaryorn'
+
+# Terminal title
+autoload -Uz title_lunaryorn_setup
+title_lunaryorn_setup
 
 # Editor and completion
 source "$ZSHD/editor.zsh"
