@@ -175,15 +175,6 @@ alias debU='sudo apt-get update && sudo apt-get dist-upgrade'
 alias debx='sudo apt-get remove'
 alias debX='sudo apt-get remove --purge && sudo apt-get autoremove --purge'
 
-# ** Functions
-function mkdcd {
-  [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
-}
-
-function cdls {
-  builtin cd "$argv[-1]" && ls "${(@)argv[1,-2]}"
-}
-
 # OPAM
 [[ -f "$HOME/.opam/opam-init/init.zsh" ]] && source "$HOME/.opam/opam-init/init.zsh"
 

@@ -60,3 +60,12 @@ alias lk='ll -Sr'        # By size, largest last.
 alias lt='ll -tr'        # By date, most recent last.
 alias lc='lt -c'         # By date, most recent last, change time.
 alias lu='lt -u'         # By date, most recent last, access time.
+
+# Convenience functions
+function mkdcd {
+  [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
+}
+
+function cdls {
+  builtin cd "$argv[-1]" && ls "${(@)argv[1,-2]}"
+}
