@@ -28,7 +28,7 @@ function title_lunaryorn_base_title {
   local host
 
   if [[ -z $vcs_info_msg_0_ ]]; then
-    cwd="$(fancy_cwd)"
+    cwd="$(shorten_path "${PWD}")"
   else
     cwd="${vcs_info_msg_0_}"
   fi

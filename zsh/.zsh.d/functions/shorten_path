@@ -19,15 +19,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# Get a fancy variant of the current working directory
+# Shorten the given path, by collapsing all leading components to their first
+# letter.
 
 emulate -L zsh
 setopt extended_glob
 
-local cwd="${PWD/#$HOME/~}"
+local cwd="${1/#$HOME/~}"
 
 # Compute the working directory
-if [[ "$cwd" == (#m)[/~] ]]; then
+if [[ "$cwd" == (#m)[/~.] ]]; then
   cwd="$MATCH"
   unset MATCH
 else
