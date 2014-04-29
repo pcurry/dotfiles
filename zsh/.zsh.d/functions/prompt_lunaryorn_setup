@@ -19,23 +19,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-function prompt_lunaryorn_cwd {
-  emulate -L zsh
-  setopt extended_glob
-
-  local cwd="${PWD/#$HOME/~}"
-
-  # Compute the working directory
-  if [[ "$cwd" == (#m)[/~] ]]; then
-    cwd="$MATCH"
-    unset MATCH
-  else
-    cwd="${${${(@j:/:M)${(@s:/:)cwd}##.#?}:h}%/}/${cwd:t}"
-  fi
-
-  echo "${cwd}"
-}
-
 function prompt_lunaryorn_env {
   # Compute environment information
   local -a envs
@@ -75,6 +58,7 @@ function prompt_lunaryorn_setup {
   autoload -Uz add-zsh-hook
   autoload -Uz vcs_info
   autoload -Uz battery_info
+  autoload -Uz fancy_cwd
 
   # Add hook for calling git-info before each command.
   add-zsh-hook precmd prompt_lunaryorn_precmd
@@ -98,7 +82,7 @@ function prompt_lunaryorn_setup {
   zstyle ':battery_info:*:prompt_lunaryorn' dischargingstr '%F{magenta}'
   zstyle ':battery_info:*:prompt_lunaryorn' format ' %c%(R.%p%%%%.%r)%%f'
 
-  local pwd='%(!.%B%F{red}.%F{cyan})$(prompt_lunaryorn_cwd)%f%b'
+  local pwd='%(!.%B%F{red}.%F{cyan})$(fancy_cwd)%f%b'
   local info='$(prompt_lunaryorn_hostname)${battery_info_msg_}'
   local sep='%(?.%F{green}.%B%F{red})$%f%b '
 
