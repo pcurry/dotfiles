@@ -30,7 +30,11 @@ function title_lunaryorn_base_title {
   if [[ -z $vcs_info_msg_0_ ]]; then
     cwd="$(shorten_path "${PWD}")"
   else
-    cwd="${vcs_info_msg_0_}"
+    local repo_name="${vcs_info_msg_0_}"
+    local repo_subdir="/$(shorten_path "${vcs_info_msg_1_}")"
+    local ongoing_action="${vcs_info_msg_2_}"
+    # Don't print /. for the repo directory of the repo
+    cwd="${repo_name}${repo_subdir:#/.}${ongoing_action}"
   fi
 
   if [[ -n $SSH_CONNECTION ]]; then
@@ -61,8 +65,8 @@ function title_lunaryorn_setup {
   zstyle ':vcs_info:*:title_lunaryorn:*' check-for-changes false
   zstyle ':vcs_info:*:title_lunaryorn:*' get-revision false
   zstyle ':vcs_info:*:title_lunaryorn:*' get-bookmarks false
-  zstyle ':vcs_info:*:title_lunaryorn:*' formats '%r/%S'
-  zstyle ':vcs_info:*:title_lunaryorn:*' actionformats '%r/%S(!)'
+  zstyle ':vcs_info:*:title_lunaryorn:*' formats '%r' '%S'
+  zstyle ':vcs_info:*:title_lunaryorn:*' actionformats '%r' '%S' '(!)'
 
   add-zsh-hook precmd title_lunaryorn_precmd
   add-zsh-hook preexec title_lunaryorn_preexec
