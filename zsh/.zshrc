@@ -28,6 +28,9 @@ fpath=(
   $fpath
 )
 
+# Basic functions
+autoload -Uz add-zsh-hook
+
 # Basic options
 setopt correct                  # Correct commands
 setopt brace_ccl                # Always do brace expansion
@@ -95,6 +98,10 @@ prompt 'lunaryorn'
 # Terminal title
 autoload -Uz title_lunaryorn_setup
 title_lunaryorn_setup
+
+# Terminal working directory
+autoload -Uz update_terminal_cwd
+add-zsh-hook chpwd update_terminal_cwd
 
 # Editor and completion
 source "$ZSHD/editor.zsh"
