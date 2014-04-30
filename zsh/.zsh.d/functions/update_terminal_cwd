@@ -37,7 +37,7 @@ function __terminal_encode_pwd {
 
 function __terminal_accepts_cwd {
   # Apple Terminal or VTE (Gnome Terminal and derivates)
-  [[ $TERM_PROGRAM == 'Apple Terminal' || ${VTE_VERSION:-0} -ge 3405 ]]
+  [[ $TERM_PROGRAM == 'Apple_Terminal' || ${VTE_VERSION:-0} -ge 3405 ]]
 }
 
 function update_terminal_cwd {
