@@ -33,8 +33,10 @@ function prompt_lunaryorn_env {
   fi
 
   # Cabal sandbox
-  if [[ -f ${PWD}/cabal.sandbox.config ]]; then
-    envs+="%F{blue}hs%f:%F{yellow}sandbox%f"
+  local sandbox_config="${CABAL_SANDBOX_CONFIG:-${PWD}/cabal.sandbox.config}"
+  if [[ -f $sandbox_config ]]; then
+    local sandbox_name="${${sandbox_config%/*}##*/}"
+    envs+="%F{blue}hs%f:%F{yellow}${sandbox_name}%f"
   fi
 
   if [[ -n $envs ]]; then
