@@ -20,6 +20,18 @@
 # SOFTWARE.
 
 function __terminal_encode_pwd {
+  # Taken from http://superuser.com/a/328148/44601
+  local LC_ALL=C LANG=C         # Enforce byte-wise string manipulation
+  local i char
+  local urlpath
+  for ((i = 1; i <= ${#PWD}; ++i)); do
+    char="$PWD[i]"
+    if [[ $char == [!a-zA-Z0-9/:_\.\-\!\'\(\)~] ]]; then
+      urlpath+="$char"
+    else
+      urlpath+="%$(printf "%02X" "'$char")"
+    fi
+  done
   printf 'file://%s%s' "${HOST:-}" "${PWD/ /%20}/"
 }
 
