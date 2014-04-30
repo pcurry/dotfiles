@@ -19,7 +19,19 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# Inform the terminal about our current working directory
-if [[ $TERM_PROGRAM == "Apple_Terminal" && -z $INSIDE_EMACS ]]; then
-  printf '\e]7;%s\a' "file://$HOST${${1:-$PWD}// /%20}"
-fi
+function __terminal_encode_pwd {
+  printf 'file://%s%s' "${HOST:-}" "${PWD/ /%20}/"
+}
+
+function __terminal_accepts_cwd {
+  # Apple Terminal or VTE (Gnome Terminal and derivates)
+  [[ $TERM_PROGRAM == 'Apple Terminal' || ${VTE_VERSION:-0} -ge 3405 ]]
+}
+
+function update_terminal_cwd {
+  if __terminal_accepts_cwd && [[ $TERM == xterm* ]]; then
+    printf '\e]7;%s\a' "$(__terminal_encode_pwd)"
+  fi
+}
+
+update_terminal_cwd "$@"
