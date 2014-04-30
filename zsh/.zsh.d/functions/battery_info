@@ -25,8 +25,10 @@ if [[ $OSTYPE == darwin* ]]; then
   battery_info_[backend]='pmset'
 
   # Take the values out
-  local battery
-  battery=("${(s/; /)${${(s/	/)$(pmset -g batt | tail -n1)}[2]}}")
+  local -a pmset
+  local -a battery
+  pmset=("${(@f)$(pmset -g batt)}")
+  battery=("${(s/; /)${(s/	/)${pmset[(r)*InternalBattery*]}}}")
   battery_info_[raw]="${battery[@]}"
   battery_info_[percent]="${${battery[1]}%%%*}"
   if [[ ${battery[3]} != '(no estimate)' ]]; then
