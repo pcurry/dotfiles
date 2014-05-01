@@ -217,6 +217,7 @@ alias cabSx='cabal sandbox delete'
 alias cai='cask install'
 alias cau='cask update'
 alias caU='cask install && cask update'
+alias caUe='(cd $HOME/.emacs.d && cask install && cask update)'
 
 # Virtualenv
 VIRTUAL_ENV_DISABLE_PROMPT=1    # Don't mess with my prompt!
