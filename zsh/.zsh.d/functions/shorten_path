@@ -25,14 +25,32 @@
 emulate -L zsh
 setopt extended_glob
 
-local cwd="${1/#$HOME/~}"
+local pathname="${1/#$HOME/~}"
+local tail="${pathname:t}"
 
-# Compute the working directory
-if [[ "$cwd" == (#m)[/~.] ]]; then
-  cwd="$MATCH"
+if [[ "$pathname" == (#m)[/~.] ]]; then
+  pathname="${MATCH}"
   unset MATCH
+  echo "${pathname}"
+elif [[ $tail == $pathname ]]; then
+  # If the path has no components, don't shorten it, as we promise to keep the
+  # last component untouched
+  echo "$tail"
 else
-  cwd="${${${(@j:/:M)${(@s:/:)cwd}##.#?}:h}%/}/${cwd:t}"
-fi
+  # If the path has more than one component, shorten all leading components
+  local -a parts
+  local -a shortened
+  local head="${${pathname:h}:#.}"
 
-echo "${cwd}"
+  # Split the head into its components
+  parts=("${(@s:/:)head}")
+  # Retain the first characters, and any leading dots.  We need extended_glob
+  # for the # operator, which matches zero or more occurrences of . here.  @
+  # retains empty parts, which is required to accurately restore the directory
+  # separators later, and M inverts the meaning of ## so that we keep leading
+  # characters instead of removing them.
+  shortened=("${(@M)parts##.#?}")
+  shortened+="$tail"
+  # Join all components again
+  echo "${(@j:/:)shortened}"
+fi
