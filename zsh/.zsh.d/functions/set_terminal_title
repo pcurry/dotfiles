@@ -25,4 +25,6 @@ emulate -L zsh
 setopt prompt_percent
 setopt prompt_subst
 
-printf "\e]0;%s\a" ${(V%)1}
+if [[ $TERM == xterm* ]]; then
+  printf "\e]0;%s\a" ${(V%)1}
+fi
