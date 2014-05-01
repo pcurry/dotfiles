@@ -109,7 +109,9 @@ source "$ZSHD/editor.zsh"
 source "$ZSHD/completion.zsh"
 
 # Syntax highlighting (KEEP BEFORE substring search!)
-source "$ZSHD/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh"
+if [[ TERM == xterm* ]]; then
+  source "$ZSHD/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(
   main                          # Basic highlighting
   brackets                      # Match parenthesis
