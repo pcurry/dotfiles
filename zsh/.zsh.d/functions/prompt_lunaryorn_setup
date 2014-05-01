@@ -89,7 +89,7 @@ function prompt_lunaryorn_setup {
   zstyle ':vcs_info:hg:prompt_lunaryorn:*' branchformat 'r%r'
   zstyle ':vcs_info:*:prompt_lunaryorn:*' formats \
          '%F{blue}%s%f:%F{yellow}%b%f%%B%F{green}%c%f%F{magenta}%u%f%%b' \
-         '%r' '%S'
+         '%r' '%S'              # The repo name and subdir for use in our cwd
   zstyle ':vcs_info:*:prompt_lunaryorn:*' actionformats \
          '%F{blue}%s%f:%F{yellow}%b%f%%B%F{red}(%a)%f%F{green}%c%f%F{magenta}%u%f%%b' \
          '%r' '%S'
