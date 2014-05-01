@@ -99,12 +99,18 @@ function prompt_lunaryorn_setup {
   zstyle ':battery_info:*:prompt_lunaryorn' dischargingstr '%F{magenta}'
   zstyle ':battery_info:*:prompt_lunaryorn' format ' %c%(R.%p%%%%.%r)%%f'
 
-  local pwd='%(!.%B%F{red}.%F{cyan})$(prompt_lunaryorn_cwd)%f%b'
+  local pwd='%(!.%F{red}.%F{cyan})$(prompt_lunaryorn_cwd)%f%b'
   local info='$(prompt_lunaryorn_hostname)${battery_info_msg_}'
   local sep='%(?.%F{green}.%B%F{red})$%f%b '
 
-  PROMPT="${pwd}${info} ${sep}"
-  RPROMPT='${vcs_info_msg_0_}$(prompt_lunaryorn_env)'
+  local inline_rprompt
+  if [[ $TERM == xterm* ]]; then
+    RPROMPT='${vcs_info_msg_0_}$(prompt_lunaryorn_env)'
+  else
+    inline_rprompt=' ${vcs_info_msg_0_}$(prompt_lunaryorn_env)'
+  fi
+
+  PROMPT="${pwd}${info}${inline_rprompt} ${sep}"
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 
