@@ -37,6 +37,12 @@ else
   alias ls='ls -G'
 fi
 
+if [[ $TERM == dumb ]]; then
+  # If the terminal doesn't support colors, make ls disable the file type by
+  # characters instead by colors
+  alias ls="${aliases[ls]} -F"
+fi
+
 # Misc coreutils
 alias cp='nocorrect cp -i'      # Safe copy
 alias df='df -kh'               # Nicer df
