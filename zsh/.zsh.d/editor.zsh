@@ -50,15 +50,23 @@ WORDCHARS='_-'
 
 zmodload zsh/terminfo
 
+function bindtermkey {
+  local key="${terminfo[$1]}"
+  if [[ -n $key ]]; then
+    bindkey -M emacs "$key" "${2}"
+  fi
+}
+
 #  Keybindings
 bindkey -M emacs '\C-X\C-E' edit-command-line
 bindkey -M emacs '\C-I' expand-or-complete
 bindkey -M emacs ' ' magic-space
 bindkey -M emacs '.' expand-dot-to-parent-directory-path
 bindkey -M isearch . self-insert 2> /dev/null # Not in isearch
-bindkey -M emacs "$terminfo[kcbt]" reverse-menu-complete # Previous item on
-                                                         # Shift+Tab
 bindkey -M emacs '\C-x\C-S' prepend-sudo
 bindkey -M emacs '\ee' expand-cmd-path
+
+# Bind terminal keys
+bindtermkey 'kcbt' reverse-menu-complete # Previous item on Shift+Tab
 
 bindkey -e                      # Emacs keybindings

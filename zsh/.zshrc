@@ -121,8 +121,8 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(
 
 # Substring search
 source "$ZSHD/plugins/history-substring-search/zsh-history-substring-search.zsh"
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
+bindtermkey 'kcuu1' history-substring-search-up
+bindtermkey 'kcud1' history-substring-search-down
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
