@@ -31,10 +31,10 @@ function title_lunaryorn_base_title {
     cwd="$(shorten_path "${PWD}")"
   else
     local repo_name="${vcs_info_msg_0_}"
-    local repo_subdir="/$(shorten_path "${vcs_info_msg_1_}")"
+    local repo_subdir="/$(shorten_path "${vcs_info_msg_1_:#.}")"
     local ongoing_action="${vcs_info_msg_2_}"
     # Don't print /. for the repo directory of the repo
-    cwd="${repo_name}${repo_subdir:#/.}${ongoing_action}"
+    cwd="${repo_name}${repo_subdir:#/}${ongoing_action}"
   fi
 
   if [[ -n $SSH_CONNECTION ]]; then
