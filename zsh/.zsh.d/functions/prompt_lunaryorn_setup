@@ -20,7 +20,16 @@
 # SOFTWARE.
 
 function prompt_lunaryorn_cwd {
-  echo -n "$(shorten_path "${PWD}")"
+  local repo_name="${vcs_info_msg_1_}"
+
+  if [[ -n $repo_name ]]; then
+    # In a VCS repository, print the repository and the
+    local repo_subdir="/$(shorten_path "${vcs_info_msg_2_:#.}")"
+    printf "%s%s" "${repo_name}" "${repo_subdir:#/}"
+  else
+    # Fall back to just printing the working directory
+    echo -n "$(shorten_path "${PWD}")"
+  fi
 }
 
 function prompt_lunaryorn_env {
@@ -69,6 +78,7 @@ function prompt_lunaryorn_setup {
   add-zsh-hook precmd prompt_lunaryorn_precmd
 
   # VCS info styling
+  zstyle ':vcs_info:*:prompt_lunaryorn:*' max-exports 3
   zstyle ':vcs_info:*:prompt_lunaryorn:*' check-for-changes true
   zstyle ':vcs_info:*:prompt_lunaryorn:*' use-prompt-escapes true
   zstyle ':vcs_info:*:prompt_lunaryorn:*' get-revision true
@@ -78,9 +88,11 @@ function prompt_lunaryorn_setup {
   zstyle ':vcs_info:*:prompt_lunaryorn:*' hgrevformat '%r' # Local revno only
   zstyle ':vcs_info:hg:prompt_lunaryorn:*' branchformat 'r%r'
   zstyle ':vcs_info:*:prompt_lunaryorn:*' formats \
-         '%F{blue}%s%f:%F{yellow}%b%f%%B%F{green}%c%f%F{magenta}%u%f%%b'
+         '%F{blue}%s%f:%F{yellow}%b%f%%B%F{green}%c%f%F{magenta}%u%f%%b' \
+         '%r' '%S'
   zstyle ':vcs_info:*:prompt_lunaryorn:*' actionformats \
-         '%F{blue}%s%f:%F{yellow}%b%f%%B%F{red}(%a)%f%F{green}%c%f%F{magenta}%u%f%%b'
+         '%F{blue}%s%f:%F{yellow}%b%f%%B%F{red}(%a)%f%F{green}%c%f%F{magenta}%u%f%%b' \
+         '%r' '%S'
 
   # Battery styling
   zstyle ':battery_info:*:prompt_lunaryorn' chargingstr '%F{yellow}'
