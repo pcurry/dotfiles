@@ -96,6 +96,7 @@ function prompt_lunaryorn_setup {
 
   # Battery styling
   zstyle ':battery_info:*:prompt_lunaryorn' chargingstr '%F{yellow}'
+  zstyle ':battery_info:*:prompt_lunaryorn' chargedstr '%F{yellow}'
   zstyle ':battery_info:*:prompt_lunaryorn' dischargingstr '%F{magenta}'
   zstyle ':battery_info:*:prompt_lunaryorn' format ' %c%(R.%p%%%%.%r)%%f'
 

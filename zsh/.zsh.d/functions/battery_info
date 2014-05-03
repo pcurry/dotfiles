@@ -35,26 +35,22 @@ if [[ $OSTYPE == darwin* ]]; then
     battery_info_[remaining]="${${battery[3]}%% *}"
   fi
 
-  if [[ ${battery[2]} == 'discharging' ]]; then
-    battery_info_[charging]='no'
-  else
-    battery_info_[charging]='yes'
-  fi
+  case $battery[2] in
+    discharging) battery_info_[state]='discharging';;
+    charging) battery_info_[state]='charging';;
+    charged) battery_info_[state]='charged';;
+    *) battery_info_[state]='unknown'
+  esac
 else
   battery_info_[backend]='none'
 fi
 
 # Arguments
 local context="${1:-default}"
-local chargingstr
+local statestr
 
-if [[ $battery_info_[charging] == 'yes' ]]; then
-  zstyle -s ":battery_info:${battery_info_[backend]}:${context}" \
-       chargingstr chargingstr || chargingstr='charging'
-else
-  zstyle -s ":battery_info:${battery_info_[backend]}:${context}" \
-       dischargingstr chargingstr || chargingstr='discharging'
-fi
+zstyle -s ":battery_info:${battery_info_[backend]}:${context}" \
+       "${battery_info_[state]}str" statestr || statestr="${battery_info_[state]}"
 
 local format
 zstyle -s ":battery_info:${backend}:${context}" \
@@ -67,5 +63,5 @@ if [[ $battery_info_[backend] != 'none' ]]; then
           "p:${battery_info_[percent]}" \
           "r:${battery_info_[remaining]}" \
           "R:${+battery_info_[remaining]}" \
-          "c:${chargingstr}"
+          "c:${statestr}"
 fi
