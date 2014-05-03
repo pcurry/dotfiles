@@ -62,6 +62,11 @@ function prompt_lunaryorn_hostname {
 function prompt_lunaryorn_precmd {
   vcs_info 'prompt_lunaryorn'
   battery_info 'prompt_lunaryorn'
+
+  if [[ $battery_info_[state] == 'charged' ]]; then
+    # Don't show battery information if the battery is fully charged
+    battery_info_msg_=''
+  fi
 }
 
 function prompt_lunaryorn_setup {
