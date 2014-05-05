@@ -28,7 +28,10 @@ if [[ $OSTYPE == darwin* ]]; then
   local -a pmset
   local -a battery
   pmset=("${(@f)$(pmset -g batt)}")
-  battery=("${(s/; /)${(s/	/)${pmset[(r)*InternalBattery*]}}}")
+  # Split the name of the battery stats
+  battery=("${(s/	/)${pmset[(r)*InternalBattery*]}}")
+  # Now split the stats into parts
+  battery=("${(s/; /)battery[2]}");
   battery_info_[raw]="${battery[@]}"
   battery_info_[percent]="${${battery[1]}%%%*}"
   if [[ ${battery[3]} != '(no estimate)' ]]; then
