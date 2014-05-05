@@ -16,3 +16,6 @@
 [submodule "zsh/.zsh.d/plugins/completions"]
 	path = zsh/.zsh.d/plugins/completions
 	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "zsh/.zsh.d/plugins/zshfunctions"]
+	path = zsh/.zsh.d/plugins/zshfunctions
+	url = https://github.com/lunaryorn/zshfunctions.git
