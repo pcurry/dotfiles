@@ -23,9 +23,9 @@
 ZSHD="$HOME/.zsh.d"
 
 fpath=(
-  $ZSHD/functions               # My own functions
-  $ZSHD/plugins/zshfunctions    # 3rd party functions
-  $ZSHD/plugins/completions/src # 3rd party completions
+  "$ZSHD/functions"               # My own functions
+  "$ZSHD/plugins/zshfunctions"    # 3rd party functions
+  "$ZSHD/plugins/completions/src" # 3rd party completions
   $fpath
 )
 
