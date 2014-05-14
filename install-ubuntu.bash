@@ -131,7 +131,9 @@ EOF
 fi
 
 # Add the required repos and update the package list
-if add-ppa 'ubuntu-elisp/ppa' || add-ppa 'hansjorg/rust'; then
+if add-ppa 'ubuntu-elisp/ppa' ||
+   add-ppa 'hansjorg/rust' ||
+   add-ppa 'chris-lea/node.js'; then
   sudo apt-get update -y
 fi
 
@@ -150,7 +152,7 @@ packages=(
   'git' 'mercurial' 'subversion' # VCS
   'ruby2.0' 'ruby2.0-dev'       # Ruby
   'python-pip'                  # Python 2
-  'nodejs' 'npm'                # NodeJS
+  'nodejs'                      # NodeJS
   'ocaml' 'opam'                # OCaml
   'alex' 'happy'                # Haskell tools
   'pandoc'                      # *The* markdown processor
