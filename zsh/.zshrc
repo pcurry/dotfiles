@@ -192,7 +192,9 @@ alias debs='apt-cache search'
 alias debu='sudo apt-get update'
 alias debU='sudo apt-get update && sudo apt-get dist-upgrade'
 alias debx='sudo apt-get remove'
-alias debX='sudo apt-get remove --purge && sudo apt-get autoremove --purge'
+function debX {
+  sudo apt-get remove --purge "$@" && sudo apt-get autoremove --purge
+}
 
 # Cabal
 alias cab='cabal'
