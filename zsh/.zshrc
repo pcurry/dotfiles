@@ -137,6 +137,11 @@ if [[ -d "${autojump_directory}" ]]; then
   source "${autojump_directory}/autojump.zsh"
 fi
 
+# Command Not Found
+if [[ -f /etc/zsh_command_not_found ]]; then
+  source /etc/zsh_command_not_found
+fi
+
 # Tools
 source "$ZSHD/coreutils.zsh"
 source "$ZSHD/git.zsh"
