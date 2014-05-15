@@ -29,6 +29,8 @@ fpath=(
   $fpath
 )
 
+MANPATH="$ZSHD/plugins/zshfunctions/man:${MANPATH}"
+
 # Basic functions
 autoload -Uz add-zsh-hook
 
