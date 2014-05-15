@@ -22,20 +22,6 @@ Install dotfiles for this system:
 $ make
 ```
 
-Provision the system with any of the [Puppet][] manifests:
-
-```console
-$ make -C puppets
-```
-
-Puppet manifests
-================
-
-The directory `puppets/` provides [Puppet][] manifests to provision my systems.
-Refer to `puppets/README.md` for more information.
-
-[Puppet]: http://puppetlabs.com/
-
 Available Stow packages
 =======================
 
