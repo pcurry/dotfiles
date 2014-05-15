@@ -158,12 +158,12 @@ packages=(
   'pandoc'                      # *The* markdown processor
   'virtualbox-qt'               # Virtualbox
   # Multimedia support
+  'vlc'                                # VLC for video playback
+  'adobe-flashplugin'                  # Flash
   'gstreamer1.0-plugins-bad'
   'gstreamer1.0-plugins-ugly'
   'gstreamer1.0-libav'
   # Desktop tools
-  'vlc'                                # VLC for video playback
-  'adobe-flashplugin'                  # Flash
   'keepass2'                           # Password manager
   # Languages
   'language-pack-de'
