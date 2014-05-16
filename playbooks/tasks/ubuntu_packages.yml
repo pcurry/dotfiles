@@ -1,0 +1,66 @@
+- name: Update Ubuntu package cache
+  apt: update_cache=yes cache_valid_time=21600
+- name: Add Ubuntu package archives
+  apt_repository: name=ppa:{{item}} update_cache=yes
+  with_items:
+    - ubuntu-elisp/ppa          # Emacs snapshots
+    - chris-lea/node.js         # Nodejs
+    - rquillo/ansible           # Ansible
+- name: Install Ubuntu packages
+  apt: name={{item}} state=latest
+  with_items:
+    # Kernel modules
+    - linux-headers-generic
+    - dkms
+    # Basic tools
+    - curl
+    - nmap
+    - xsel                      # Copy & paste from CLI
+    - openssh-server            # Remote access
+    - ansible                   # System setup
+    - stow                      # Dotfile management
+    - pandoc                    # Document processor
+    # My shell
+    - zsh
+    - zsh-doc
+    - autojump
+    # My editor
+    - emacs-snapshot
+    - emacs-snapshot-el
+    # Development
+    - build-essential
+    - silversearcher-ag         # Grep for code
+    # VCS
+    - git
+    - mercurial
+    - subversion
+    # Python
+    - python-dev
+    - python-pip
+    # Ruby
+    - ruby2.0
+    - ruby2.0-dev
+    # Node
+    - nodejs
+    # OCaml
+    - ocaml
+    - opam
+    # Haskell tools
+    - alex
+    - happy
+    # Apps
+    - virtualbox-qt
+    - keepass2
+    # Multimedia support
+    - vlc                       # VLC for video playback
+    - adobe-flashplugin         # Flash
+    - gstreamer1.0-plugins-bad
+    - gstreamer1.0-plugins-ugly
+    - gstreamer1.0-libav
+    # Language support
+    - language-pack-de
+    - language-pack-gnome-de
+    - libreoffice-help-de
+    - libreoffice-l10n-de
+    - hunspell-de-de-frami
+    - hunspell-en-us

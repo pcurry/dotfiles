@@ -1,0 +1,100 @@
+- name: Set OS X Locale
+  osx_defaults: domain=NSGlobalDomain name=AppleLocale
+                type=string value=de_DE
+- name: Set OS X Measurement Units
+  osx_defaults: domain=NSGlobalDomain name=AppleMeasurementUnits
+                type=string value='Centimeters'
+- name: Enable Metric units
+  osx_defaults: domain=NSGlobalDomain name=AppleMetricUnits
+                type=bool value=true
+- name: Disable security question about downloaded applications
+  osx_defaults: domain=com.apple.LaunchServices name=LSQuarantine
+                type=bool value=false
+- name: Hide battery percentage in menu bar
+  osx_defaults: domain=com.apple.menuextra.battery name=ShowPercent
+                type=string value='NO'
+- name: Show remaining battery time in menu bar
+  osx_defaults: domain=com.apple.menuextra.battery name=ShowTime
+                type=string value='YES'
+- name: Show extended save panel
+  osx_defaults: domain=NSGlobalDomain name={{item}} type=bool value=true
+  with_items:
+    - NSNavPanelExpandedStateForSaveMode
+    - NSNavPanelExpandedStateForSaveMode2
+- name: Show extended print panel
+  osx_defaults: domain=NSGlobalDomain name={{item}} type=bool value=true
+  with_items:
+    - PMPrintingExpandedStateForPrint
+    - PMPrintingExpandedStateForPrint2
+- name: Do not create .DS_Store files on network volumes
+  osx_defaults: domain=com.apple.desktopservices name=DSDontWriteNetworkStores
+                type=bool value=true
+- name: Show control characters
+  osx_defaults: domain=NSGlobalDomain name=NSTextShowsControlCharacters
+                type=bool value=true
+- name: No shadow in screenshots
+  osx_defaults: domain=com.apple.screencapture name=disable-shadow
+                type=bool value=true
+- name: Subpixel rendering in non-Apple LCDs
+  osx_defaults: domain=NSGlobalDomain name=AppleFontSmoothing type=int value=2
+- name: Search in current folder by default
+  osx_defaults: domain=com.apple.finder name=FXDefaultSearchScope
+                type=string value='SCcf'
+- name: Do not warn about changing extensions
+  osx_defaults: domain=com.apple.finder name=FXEnableExtensionChangeWarning
+                type=bool value=false
+- name: Do not warn when emptying trash
+  osx_defaults: domain=com.apple.finder name=WarnOnEmptyTrash
+                type=bool value=false
+- name: Show icons for hard drives, servers, and removable media on the desktop
+  osx_defaults: domain=com.apple.finder name={{item}} type=bool value=true
+  with_items:
+    - ShowExternalHardDrivesOnDesktop
+    - ShowHardDrivesOnDesktop
+    - ShowMountedServersOnDesktop
+    - ShowRemovableMediaOnDesktop
+- name: Minimize windows to their apps
+  osx_defaults: domain=com.apple.dock name=minimize-to-application
+                type=bool value=true
+- name: Show indicators for open applications
+  osx_defaults: domain=com.apple.dock name=show-process-indicators
+                type=bool value=true
+- name: Dock to bottom
+  osx_defaults: domain=com.apple.dock name=orientation type=string value=bottom
+- name: Do not hide the dock automatically
+  osx_defaults: domain=com.apple.dock name=autohide type=bool value=false
+- name: Make hidden icons transparent
+  osx_defaults: domain=com.apple.dock name=showhidden type=bool value=true
+- name: Do not rearrange spaces on most recent usage
+  osx_defaults: domain=com.apple.dock name=mru-spaces type=bool value=false
+- name: Disable the Dashboard
+  osx_defaults: domain=com.apple.dashboard name=mcx-disabled
+                type=bool value=true
+- name: Do not show Dashboard as a Space
+  osx_defaults: domain=com.apple.dock name=dashboard-in-overlay
+                type=bool value=true
+- name: Show Twitter.app window when clicking the icon
+  osx_defaults: domain=com.twitter.twitter-mac name=MenuItemBehavior
+                type=int value=1
+- name: Allow closing the “new tweet” window by pressing `Esc`
+  osx_defaults: domain=com.twitter.twitter-mac name=ESCClosesComposeWindow
+                type=bool value=true
+- name: Show full names rather than handles
+  osx_defaults: domain=com.twitter.twitter-mac name=ShowFullNames
+                type=bool value=true
+- name: Keep Twitter visible
+  osx_defaults: domain=com.twitter.twitter-mac name=HideInBackground
+                type=bool value=false
+- name: Disable iTunes Ping
+  osx_defaults: domain=com.apple.iTunes name={{item}} type=bool value=true
+  with_items:
+    - disablePingSidebar
+    - disablePing
+- name: Set Terminal.app window settings
+  osx_defaults: domain=com.apple.terminal name='{{item}}'
+                type=string value='Solarized Light'
+  with_items:
+    - Default Window Settings
+    - Startup Window Settings
+- name: Show ~/Library
+  command: chflags nohidden {{my_home}}/Library

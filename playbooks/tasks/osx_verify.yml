@@ -1,0 +1,7 @@
+- name: Check FileVault status
+  command: fdesetup isactive
+  register: filevault_active
+  ignore_errors: True
+- name: Fail if FileVault disabled
+  fail: msg="PUT YOUR DISK IN FILEVAULT!"
+  when: filevault_active.stdout.strip() != 'true'

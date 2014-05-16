@@ -1,0 +1,125 @@
+#!/usr/bin/env python
+# Copyright (c) 2014 Sebastian Wiesner <lunaryorn@gmail.com>
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+
+from subprocess import check_output, check_call
+
+from ansible.module_utils.basic import *
+
+
+class String(unicode):
+
+    type_name = 'string'
+
+    @classmethod
+    def from_str(cls, s):
+        if isinstance(s, str):
+            s = s.decode('utf-8')
+        return cls(s)
+
+    def to_str(self):
+        return self
+
+
+class Bool(object):
+
+    type_name = 'bool'
+
+    @classmethod
+    def from_str(cls, s):
+        if s in {'1', 'true', 'True'}:
+            return cls(True)
+        elif s in {'0', 'false', 'False'}:
+            return cls(False)
+        else:
+            raise ValueError('Invalid boolean value: ' + repr(s))
+
+    def __init__(self, value):
+        self.value = value
+
+    def to_str(self):
+        return 'true' if self else 'false'
+
+    def __eq__(self, other):
+        if isinstance(other, Bool):
+            other = other.value
+        return self.value == other
+
+    def __ne__(self, other):
+        return not (self == other)
+
+    def __hash__(self):
+        return hash(self.value)
+
+
+class Int(int):
+
+    type_name = 'int'
+
+    @classmethod
+    def from_str(cls, s):
+        return cls(s)
+
+    def to_str(self):
+        return str(self)
+
+
+TYPES = dict((t.type_name, t) for t in [Int, Bool, String])
+
+
+def get_value(domain, name, type):
+    return type.from_str(
+        check_output(['defaults', 'read', domain, name]).strip())
+
+
+def set_value(domain, name, value):
+    check_call(['defaults', 'write', domain, name,
+                '-'+value.type_name, value.to_str()])
+
+
+def main():
+    module = AnsibleModule(
+        argument_spec=dict(
+            name=dict(required=True),
+            domain=dict(required=True),
+            type=dict(default='string', choices=TYPES.keys()),
+            value=dict(required=True)
+        ),
+        supports_check_mode=True
+    )
+
+    name = module.params['name']
+    domain = module.params['domain']
+    type = TYPES[module.params['type']]
+    try:
+        value = type.from_str(module.params['value'])
+    except ValueError as error:
+        module.exit_json(msg=str(error))
+
+    current_value = get_value(domain, name, type)
+    changed = value != current_value
+    if changed and not module.check_mode:
+        set_value(domain, name, value)
+
+    module.exit_json(name=name, domain=domain, type=type.type_name,
+                     value=value.to_str(), changed=changed, msg='OK')
+
+
+main()

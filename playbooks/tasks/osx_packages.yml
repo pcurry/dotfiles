@@ -1,0 +1,23 @@
+- name: Install Homebrew formulae
+  homebrew: update_homebrew=yes name={{item}} state=latest
+  with_items:
+    # VCS systems
+    - git
+    - mercurial
+    - subversion
+    # Github tools
+    - hub
+    - ghi
+    # OCaml
+    - objective-caml
+    - opam
+    # Dotfile management and system setup
+    - stow
+    - ansible
+    # Misc tools
+    - nmap
+    - hunspell
+    - the_silver_searcher
+    - trash
+    - youtube-dl
+    - autojump

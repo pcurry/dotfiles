@@ -1,0 +1,18 @@
+- name: Install Eggs
+  pip: name={{item}} state=latest extra_args=--user
+  with_items:
+    - pip
+    - virtualenv
+    - virtualenvwrapper
+    - pygments
+    - ipython
+    - docutils
+- name: Install Gems
+  gem: name={{item}} user_install=yes state=latest
+       executable={{gem_executable}}
+  with_items:
+    - travis
+    - travis-lint
+    - puppet
+    - puppet-lint
+    - rubocop
