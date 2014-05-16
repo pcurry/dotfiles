@@ -23,3 +23,12 @@
     - ghi
     - hub
   when: ansible_distribution != 'MacOSX'
+- name: Update Cabal package list
+  command: cabal update
+           creates={{my_home}}/.cabal/packages/hackage.haskell.org/00-index.tar
+- name: Install Cabal packages
+  command: cabal install {{item}}
+           creates={{my_home}}/.cabal/bin/{{item}}
+  with_items:
+    - hlint
+    - shellcheck
