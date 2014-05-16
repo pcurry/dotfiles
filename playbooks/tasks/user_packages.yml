@@ -16,3 +16,10 @@
     - puppet
     - puppet-lint
     - rubocop
+- name: Install Github CLI Gems
+  gem: name={{item}} user_install=yes state=latest
+       executable={{gem_executable}}
+  with_items:
+    - ghi
+    - hub
+  when: ansible_distribution != 'MacOSX'
