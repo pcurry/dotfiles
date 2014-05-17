@@ -20,9 +20,8 @@
 # THE SOFTWARE.
 
 import pwd
-from subprocess import check_call
 
-from ansible.module_utils.basic import *
+from ansible.module_utils.basic import AnsibleModule
 
 
 def main():
@@ -38,7 +37,7 @@ def main():
     shell = module.params['shell']
     changed = pwd.getpwnam(name).pw_shell != shell
     if changed and not module.check_mode:
-        check_call(['chsh', '-s', shell, name])
+        module.run_command(['chsh', '-s', shell, name], check_rc=True)
     module.exit_json(name=name, shell=shell, changed=changed, msg='OK')
 
 

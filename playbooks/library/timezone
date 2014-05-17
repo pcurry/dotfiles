@@ -20,9 +20,8 @@
 # THE SOFTWARE.
 
 import platform
-from subprocess import check_call, check_output
 
-from ansible.module_utils.basic import *
+from ansible.module_utils.basic import AnsibleModule
 
 
 def main():
@@ -36,13 +35,16 @@ def main():
     timezone = module.params['name']
 
     if platform.system() == 'Darwin':
-        output = check_output(['systemsetup', '-gettimezone']).strip()
+        _, output, _ = module.run_command(['systemsetup', '-gettimezone'],
+                                          check_rc=True)
+        output = output.strip()
         if not output.startswith('Time Zone: '):
             module.fail_json(
                 msg='Failed to parse timezone from ' + repr(output))
         changed = timezone != output[11:]
         if changed and not module.check_mode:
-            check_call(['systemsetup', '-settimezone', timezone])
+            module.run_command(['systemsetup', '-settimezone', timezone],
+                               check_rc=True)
         module.exit_json(name=timezone, changed=changed, message='OK')
     else:
         module.fail_json(msg='Operating system not supported')

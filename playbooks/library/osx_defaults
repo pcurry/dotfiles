@@ -19,9 +19,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-from subprocess import check_output, check_call
 
-from ansible.module_utils.basic import *
+from ansible.module_utils.basic import AnsibleModule
 
 
 class String(unicode):
@@ -84,14 +83,16 @@ class Int(int):
 TYPES = dict((t.type_name, t) for t in [Int, Bool, String])
 
 
-def get_value(domain, name, type):
-    return type.from_str(
-        check_output(['defaults', 'read', domain, name]).strip())
+def get_value(module, domain, name, type):
+    (_, stdout, _) = module.run_command(['defaults', 'read', domain, name],
+                                        check_rc=True)
+    return type.from_str(stdout.strip())
 
 
-def set_value(domain, name, value):
-    check_call(['defaults', 'write', domain, name,
-                '-'+value.type_name, value.to_str()])
+def set_value(module, domain, name, value):
+    module.run_command(['defaults', 'write', domain, name,
+                        '-'+value.type_name, value.to_str()],
+                       check_rc=True)
 
 
 def main():
@@ -113,10 +114,10 @@ def main():
     except ValueError as error:
         module.exit_json(msg=str(error))
 
-    current_value = get_value(domain, name, type)
+    current_value = get_value(module, domain, name, type)
     changed = value != current_value
     if changed and not module.check_mode:
-        set_value(domain, name, value)
+        set_value(module, domain, name, value)
 
     module.exit_json(name=name, domain=domain, type=type.type_name,
                      value=value.to_str(), changed=changed, msg='OK')
