@@ -58,7 +58,7 @@ function title_lunaryorn_setup {
 
   autoload -Uz add-zsh-hook
   autoload -Uz vcs_info
-  autoload -Uz fancy_cwd
+  autoload -Uz shorten_path
   autoload -Uz set_terminal_title
 
   # VCS Info in terminal title
