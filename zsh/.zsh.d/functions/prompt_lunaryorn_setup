@@ -49,7 +49,7 @@ function prompt_lunaryorn_env {
   fi
 
   if [[ -n $envs ]]; then
-    echo " ${(j:,:)envs}"
+    echo "${(j:,:)envs} "
   fi
 }
 
@@ -111,7 +111,7 @@ function prompt_lunaryorn_setup {
 
   local inline_rprompt
   if [[ $TERM == xterm* ]]; then
-    RPROMPT='${vcs_info_msg_0_}$(prompt_lunaryorn_env)'
+    RPROMPT='$(prompt_lunaryorn_env)${vcs_info_msg_0_}'
   else
     inline_rprompt=' ${vcs_info_msg_0_}$(prompt_lunaryorn_env)'
   fi
