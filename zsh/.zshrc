@@ -104,7 +104,6 @@ title_lunaryorn_setup
 
 # Terminal working directory
 autoload -Uz update_terminal_cwd
-add-zsh-hook chpwd update_terminal_cwd
 add-zsh-hook precmd update_terminal_cwd
 
 # Editor and completion
