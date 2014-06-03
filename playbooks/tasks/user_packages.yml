@@ -32,3 +32,7 @@
   with_items:
     - hlint
     - shellcheck
+    - hasktags
+    - hoogle
+    - packdeps
+    - pandoc
