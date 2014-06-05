@@ -37,3 +37,4 @@
     - packdeps
     - pandoc
     - present
+    - pointfree
