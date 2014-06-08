@@ -1,10 +1,6 @@
 [user]
 	name = Sebastian Wiesner
 	email = lunaryorn@gmail.com
-[credential "https://github.com"]
-	username = lunaryorn
-[credential "https://bitbucket.org"]
-	username = lunaryorn
 [color]
 	diff = auto
 	status = auto
