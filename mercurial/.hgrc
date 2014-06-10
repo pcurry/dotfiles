@@ -1,7 +1,7 @@
 # -*- mode: conf; -*-
 
 [ui]
-username = Sebastian Wiesner <lunaryorn@gmail.com>
+username = Sebastian Wiesner <swiesner@lunaryorn.com>
 
 [web]
 # nice pygments theme
