@@ -22,7 +22,7 @@ alias quota='quota -gsl'
 
 function taillog {
   local servicename="$1"
-  if [[ -z "$servicename" ]]; then
+  if [[ -n "$servicename" ]]; then
     tail -f "$HOME/logs/${servicename}/current" | tai64nlocal
   else
     echo "Available services":
