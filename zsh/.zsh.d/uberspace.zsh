@@ -19,3 +19,16 @@
 # THE SOFTWARE.
 
 alias quota='quota -gsl'
+
+function taillog {
+  local servicename="$1"
+  if [[ -z "$servicename" ]]; then
+    tail -f "$HOME/logs/${servicename}/current" | tai64nlocal
+  else
+    echo "Available services":
+    local servicedirs=("$HOME"/logs/*(/))
+    for dir in $servicedirs; do
+      echo " * ${dir:t}"
+    done
+  fi
+}
