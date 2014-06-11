@@ -25,9 +25,8 @@ function taillog {
   if [[ -n "$servicename" ]]; then
     tail -f "$HOME/logs/${servicename}/current" | tai64nlocal
   else
-    echo "Available services":
-    local servicedirs=("$HOME"/logs/*(/))
-    for dir in $servicedirs; do
+    echo "Available services: "
+    for dir in "$HOME"/logs/*(/); do
       echo " * ${dir:t}"
     done
   fi
