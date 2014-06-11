@@ -162,6 +162,9 @@ alias p='${(z)PAGER}'           # View with pager
 alias pbc='pbcopy'
 alias pbp='pbpaste'
 
+# Utility aliases for Uberspace
+alias quota='quota -gsl'
+
 # Download files
 if (( $+commands[curl] )); then
   alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
