@@ -23,6 +23,8 @@
 [merge]
 	log = true
 	tool = p4merge
+[core]
+	preloadindex = true
 [github]
 	user = lunaryorn
 [include]
