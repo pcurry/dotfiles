@@ -20,6 +20,8 @@
 
 # Set basic variables at login, before .zshrc.
 
+umask 022                       # Get others from our files
+
 # Paths
 typeset -gU cdpath fpath mailpath path
 path=(
