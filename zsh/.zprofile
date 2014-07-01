@@ -20,7 +20,11 @@
 
 # Set basic variables at login, before .zshrc.
 
-umask 022                       # Get others from our files
+if [[ $HOSTNAME == *.uberspace.de ]]; then
+  umask 077
+else
+  umask 022
+fi
 
 # Paths
 typeset -gU cdpath fpath mailpath path
