@@ -1,6 +1,6 @@
 [submodule "emacs/.emacs.d"]
 	path = emacs/.emacs.d
-	url = https://github.com/lunaryorn/stante-pede.git
+	url = https://github.com/lunaryorn/.emacs.d.git
 [submodule "zsh/.zsh.d/plugins/history-substring-search"]
 	path = zsh/.zsh.d/plugins/history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search.git
