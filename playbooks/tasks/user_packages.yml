@@ -12,9 +12,6 @@
        executable={{gem_executable}}
   with_items:
     - travis
-    - travis-lint
-    - puppet
-    - puppet-lint
     - rubocop
 - name: Install Github CLI Gems
   gem: name={{item}} user_install=yes state=latest
