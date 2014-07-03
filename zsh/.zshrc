@@ -223,7 +223,7 @@ alias cabs='cabal list'
 alias cabt='cabal test'
 alias cabX='cabal clean && cabal sandbox delete'
 alias cabSi='cabal sandbox init'
-alias cabSI='cabal sandbox init && cabal install --enable-tests --only-dependencies'
+alias cabSI='cabSi && cabd'
 alias cabSx='cabal sandbox delete'
 
 # OPAM
