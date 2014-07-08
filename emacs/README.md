@@ -6,8 +6,8 @@ This package provides the Emacs configuration.
 Files
 -----
 
-- `.emacs.d/`: The Emacs configuration from [Stante Pede][]
+- `.emacs.d/`: My [Emacs configuration][]
 - `.cask/`: The Emacs bundler [Cask][]
 
-[Stante Pede]: https://github.com/lunaryorn/stante-pede
+[Emacs configuration]: https://github.com/lunaryorn/.emacs.d
 [Cask]: https://github.com/cask/cask
