@@ -19,9 +19,43 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+import os
 import platform
 
 from ansible.module_utils.basic import *
+
+
+def timezone_osx(module, name):
+    _, output, _ = module.run_command(['systemsetup', '-gettimezone'],
+                                      check_rc=True)
+    output = output.strip()
+    if not output.startswith('Time Zone: '):
+        module.fail_json(msg='Failed to parse timezone from ' + repr(output))
+    changed = name != output[11:]
+    if changed and not module.check_mode:
+        module.run_command(['systemsetup', '-settimezone', name],
+                           check_rc=True)
+    module.exit_json(name=name, changed=changed, message='OK')
+
+
+def timezone_linux(module, name):
+    target = os.path.join('/usr/share/zoneinfo', name)
+    if not os.path.exists(target):
+        module.fail_json(msg='Time zone {0!r} does not exist!'.format(name))
+    if os.path.islink('/etc/localtime'):
+        changed = not os.path.samefile(
+            target, os.path.readlink('/etc/localtime'))
+    else:
+        # If we can't determine the old zone, we'll just forcibly change it
+        changed = True
+    if changed and not module.check_mode:
+        module.run_command(['ln', '-sf', target, '/etc/localtime'],
+                           check_rc=True)
+    module.exit_json(name=name, changed=changed, message='OK')
+
+
+HANDLERS = {'Darwin': timezone_osx,
+            'Linux': timezone_linux}
 
 
 def main():
@@ -32,20 +66,9 @@ def main():
         supports_check_mode=True
     )
 
-    timezone = module.params['name']
-
-    if platform.system() == 'Darwin':
-        _, output, _ = module.run_command(['systemsetup', '-gettimezone'],
-                                          check_rc=True)
-        output = output.strip()
-        if not output.startswith('Time Zone: '):
-            module.fail_json(
-                msg='Failed to parse timezone from ' + repr(output))
-        changed = timezone != output[11:]
-        if changed and not module.check_mode:
-            module.run_command(['systemsetup', '-settimezone', timezone],
-                               check_rc=True)
-        module.exit_json(name=timezone, changed=changed, message='OK')
+    handler = HANDLERS.get(platform.system())
+    if handler:
+        handler(module, **module.params)
     else:
         module.fail_json(msg='Operating system not supported')
 
