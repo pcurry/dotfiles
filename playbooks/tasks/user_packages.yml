@@ -7,6 +7,7 @@
     - pygments
     - ipython
     - docutils
+    - tox
 - name: Install Gems
   gem: name={{item}} user_install=yes state=latest
        executable={{gem_executable}}
