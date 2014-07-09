@@ -1,7 +1,7 @@
 - name: Update Ubuntu package cache
   apt: update_cache=yes cache_valid_time=21600
 - name: Add Ubuntu package archives
-  apt_repository: name=ppa:{{item}} update_cache=yes
+  apt_repository: repo=ppa:{{item}} update_cache=yes
   with_items:
     - ubuntu-elisp/ppa          # Emacs snapshots
     - chris-lea/node.js         # Nodejs
