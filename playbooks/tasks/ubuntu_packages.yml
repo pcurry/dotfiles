@@ -12,6 +12,10 @@
     # Kernel modules
     - linux-headers-generic
     - dkms
+    # Build tools
+    - build-essential
+    - autoconf
+    - automake
     # Basic tools
     - curl
     - nmap
