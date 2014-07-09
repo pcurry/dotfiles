@@ -19,6 +19,8 @@
     - openssh-server            # Remote access
     - ansible                   # System setup
     - stow                      # Dotfile management
+    - htop                      # Process management
+    - iotop                     # IO Load Viewer
     # My shell
     - zsh
     - zsh-doc
