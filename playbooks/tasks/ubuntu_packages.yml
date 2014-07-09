@@ -26,6 +26,8 @@
     # My editor
     - emacs-snapshot
     - emacs-snapshot-el
+    # Spell checker
+    - hunspell
     # Development
     - build-essential
     - silversearcher-ag         # Grep for code
