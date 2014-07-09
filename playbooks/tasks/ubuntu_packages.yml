@@ -19,7 +19,6 @@
     - openssh-server            # Remote access
     - ansible                   # System setup
     - stow                      # Dotfile management
-    - pandoc                    # Document processor
     # My shell
     - zsh
     - zsh-doc
