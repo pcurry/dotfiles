@@ -1,8 +1,0 @@
--- -*- mode: haskell-cabal; -*-
-
-require-sandbox: True
-remote-repo: hackage.haskell.org:http://hackage.haskell.org/packages/archive
-remote-repo-cache: /Users/swiesner/.cabal/packages
-documentation: True
-remote-build-reporting: anonymous
-jobs: $ncpus
