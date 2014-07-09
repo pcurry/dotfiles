@@ -33,6 +33,5 @@
     - hoogle
     - packdeps
     - pandoc
-    - present
     - pointfree
     - haskell-docs
