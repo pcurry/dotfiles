@@ -33,8 +33,11 @@
     # My editor
     - emacs-snapshot
     - emacs-snapshot-el
-    # Spell checker
+    # Spell checker and dictionaries
     - hunspell
+    - hunspell-de-de-frami
+    - hunspell-en-us
+    - myspell-en-gb
     # Development
     - build-essential
     - silversearcher-ag         # Grep for code
@@ -70,5 +73,3 @@
     - language-pack-gnome-de
     - libreoffice-help-de
     - libreoffice-l10n-de
-    - hunspell-de-de-frami
-    - hunspell-en-us
