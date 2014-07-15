@@ -209,6 +209,18 @@ function debX {
   sudo apt-get remove --purge "$@" && sudo apt-get autoremove --purge
 }
 
+# Yum
+alias yumc='sudo yum clean all'
+alias yumi='sudo yum install'
+alias yumq='yum info'
+alias yums='yum search'
+alias yumu='sudo yum update'
+alias yumU='sudo yum upgrade'
+alias yumx='sudo yum erase'
+function yumX {
+  sudo yum remove "$@" && sudo yum autoremove
+}
+
 # Cabal
 alias cab='cabal'
 alias cabb='cabal build'
