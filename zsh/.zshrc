@@ -238,9 +238,6 @@ alias cabSi='cabal sandbox init'
 alias cabSI='cabSi && cabd'
 alias cabSx='cabal sandbox delete'
 
-# OPAM
-[[ -f "$HOME/.opam/opam-init/init.zsh" ]] && source "$HOME/.opam/opam-init/init.zsh"
-
 # Cask
 [[ -d "$HOME/.cask" ]] && source "$HOME/.cask/etc/cask_completion.zsh" 2> /dev/null
 
