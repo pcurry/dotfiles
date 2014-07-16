@@ -236,6 +236,7 @@ alias cabSi='cabal sandbox init'
 alias cabSI='cabSi && cabd'
 alias cabSx='cabal sandbox delete'
 alias cabt='cabal test'
+alias cabU='cabal install --upgrade-dependencies --force-reinstalls world'
 alias cabX='cabal clean && cabal sandbox delete'
 
 # Cask
