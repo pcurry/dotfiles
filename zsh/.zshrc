@@ -212,6 +212,7 @@ function debX {
 # Yum
 alias yumc='sudo yum clean all'
 alias yumi='sudo yum install'
+alias yuml='repoquery --list'
 alias yumq='yum info'
 alias yums='yum search'
 alias yumu='sudo yum update'
