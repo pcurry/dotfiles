@@ -19,6 +19,7 @@
 # THE SOFTWARE.
 
 alias quota='quota -gsl'
+alias proc-tree='ps fuxwww'
 
 function taillog {
   local servicename="$1"
