@@ -39,7 +39,6 @@ setopt correct                  # Correct commands
 setopt brace_ccl                # Always do brace expansion
 setopt combining_chars          # Enable combining characters
 setopt rc_quotes                # ' is a quote in single-quoted strings
-setopt no_mail_warning          # Do not warn about mail file access
 
 # Globbing
 setopt case_glob                # Case sensitive globbing
@@ -83,6 +82,10 @@ setopt hist_ignore_space         # Ignore events with leading space
 setopt hist_save_no_dups         # Do not save duplicates in history files
 setopt hist_verify               # Do not execute immediately after expansion
 setopt hist_beep                 # Beep when accessing non-existent history
+
+# Mail
+unset MAILCHECK
+setopt no_mail_warning          # Do not warn about mail file access
 
 # Aliases for builtins
 alias cd='nocorrect cd'
@@ -165,9 +168,6 @@ alias o='open'
 alias p='${(z)PAGER}'           # View with pager
 alias pbc='pbcopy'
 alias pbp='pbpaste'
-
-# Utility aliases for Uberspace
-alias quota='quota -gsl'
 
 # Download files
 if (( $+commands[curl] )); then
