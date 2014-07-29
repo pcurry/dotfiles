@@ -196,9 +196,11 @@ alias brewU='brew update && brew upgrade'
 alias brewx='brew remove'
 
 # Arch Linux (aura)
+alias pac='aura'
 alias pacc='sudo aura --sync --clean'
 alias pacC='sudo aura --orphans --abandon'
 alias paci='sudo aura --sync'
+alias pacl='aura --query --list'
 alias paco='aura --orphans'
 alias pacq='aura --sync --info'
 alias pacQ='aura --query --info'
