@@ -132,14 +132,17 @@ bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 
 # Autojump
+local -a autojump_candidates
+autojump_candidates=("/usr/share/autojump/autojump.zsh"
+                     "/etc/profile.d/autojump.zsh")
 if (( $+commands[brew] )); then
-  local autojump_directory="$(brew --prefix)/etc/"
-else
-  local autojump_directory="/usr/share/autojump/"
+  autojump_candidates+="$(brew --prefix)/etc/autojump.zsh"
 fi
-if [[ -d "${autojump_directory}" ]]; then
-  source "${autojump_directory}/autojump.zsh"
-fi
+for candidate in "${autojump_candidates[@]}"; do
+  if [[ -f "${candidate}" ]]; then
+    source "${candidate}"
+  fi
+done
 
 # Command Not Found
 if [[ -f /etc/zsh_command_not_found ]]; then
