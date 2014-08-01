@@ -263,6 +263,11 @@ alias cabt='cabal test'
 alias cabU='cabal install --upgrade-dependencies --force-reinstalls world'
 alias cabX='cabal clean && cabal sandbox delete'
 
+# Rubygems
+alias gemi='gem install --user-install --no-document'
+alias gems='gem search'
+alias gemU='gem update --user-install --no-document'
+
 # Cask
 [[ -d "$HOME/.cask" ]] && source "$HOME/.cask/etc/cask_completion.zsh" 2> /dev/null
 
