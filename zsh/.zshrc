@@ -261,6 +261,7 @@ alias cabSI='cabSi && cabd'
 alias cabSx='cabal sandbox delete'
 alias cabt='cabal test'
 alias cabU='cabal install --upgrade-dependencies --force-reinstalls world'
+alias cabu='cabal update'
 alias cabX='cabal clean && cabal sandbox delete'
 
 # Rubygems
