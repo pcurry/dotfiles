@@ -114,7 +114,7 @@ source "$ZSHD/editor.zsh"
 source "$ZSHD/completion.zsh"
 
 # Syntax highlighting (KEEP BEFORE substring search!)
-if [[ TERM == xterm* ]]; then
+if [[ $TERM == xterm* ]]; then
   source "$ZSHD/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(
