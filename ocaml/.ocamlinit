@@ -1,0 +1,10 @@
+(* -*- mode: tuareg; -*- *)
+
+(* Add OPAM libraries from environment *)
+let () =
+  try Topdirs.dir_directory (Sys.getenv "OCAML_TOPLEVEL_PATH")
+  with Not_found -> ()
+;;
+
+(* Bring findlib in *)
+#use "topfind";;
