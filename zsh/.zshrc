@@ -264,6 +264,14 @@ alias cabU='cabal install --upgrade-dependencies --force-reinstalls world'
 alias cabu='cabal update'
 alias cabX='cabal clean && cabal sandbox delete'
 
+# Opam
+alias opmi='opam install'
+alias opmq='opam show'
+alias opms='opam search'
+alias opmU='opam upgrade'
+alias opmu='opam update'
+alias opmx='opam remove'
+
 # Rubygems
 alias gemi='gem install --user-install --no-document'
 alias gems='gem search'
