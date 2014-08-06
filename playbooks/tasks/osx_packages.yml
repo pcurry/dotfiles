@@ -22,3 +22,4 @@
     - youtube-dl
     - autojump
     - wget
+    - rlwrap
