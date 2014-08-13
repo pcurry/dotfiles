@@ -13,9 +13,6 @@
 - name: Hide battery percentage in menu bar
   osx_defaults: domain=com.apple.menuextra.battery name=ShowPercent
                 type=string value='NO'
-- name: Show remaining battery time in menu bar
-  osx_defaults: domain=com.apple.menuextra.battery name=ShowTime
-                type=string value='YES'
 - name: Show extended save panel
   osx_defaults: domain=NSGlobalDomain name={{item}} type=bool value=true
   with_items:
