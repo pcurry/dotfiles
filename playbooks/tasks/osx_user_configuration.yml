@@ -98,3 +98,8 @@
     - Startup Window Settings
 - name: Show ~/Library
   command: chflags nohidden {{my_home}}/Library
+- name: Create KeyBindings directory
+  file: path=~/Library/KeyBindings state=directory mode=0700 group=staff
+- name: Setup Emacs keybindings
+  copy: src=DefaultKeyBinding.dict group=staff
+        dest=~/Library/KeyBindings/DefaultKeyBinding.dict
