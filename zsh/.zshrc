@@ -264,11 +264,14 @@ alias cabU='cabal install --upgrade-dependencies --force-reinstalls world'
 alias cabu='cabal update'
 alias cabX='cabal clean && cabal sandbox delete'
 
-# Ocaml & Opam
+# Ocaml & OPAM
 if (( $+commands[rlwrap] )); then
   # Add readline support to ocaml, if available
   alias ocaml='rlwrap ocaml'
 fi
+
+# Load OPAM and add some nice aliases
+[[ -f "$HOME/.opam/opam-init/init.zsh" ]] && source "$HOME/.opam/opam-init/init.zsh"
 alias opmi='opam install'
 alias opmq='opam show'
 alias opms='opam search'

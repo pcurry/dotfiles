@@ -75,8 +75,5 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 fi
 
-# OPAM
-[[ -f "$HOME/.opam/opam-init/init.zsh" ]] && source "$HOME/.opam/opam-init/init.zsh"
-
 # Personal information
 export EMAIL=swiesner@lunaryorn.com
