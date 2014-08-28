@@ -1,3 +1,6 @@
+[include]
+	path = config.secret
+	path = config.platform
 [user]
 	name = Sebastian Wiesner
 	email = swiesner@lunaryorn.com
@@ -27,6 +30,5 @@
 	preloadindex = true
 [github]
 	user = lunaryorn
-[include]
-	path = config.secret
-	path = config.platform
+[tag]
+	sort = version:refname
