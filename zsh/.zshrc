@@ -304,3 +304,9 @@ if (( $+commands[virtualenvwrapper_lazy.sh] )); then
     VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
   fi
 fi
+
+# TexLive
+alias tlmi='sudo tlmgr install'
+alias tlml='tlmgr info'
+alias tlmq='tlmgr info'
+alias tlmU='sudo tlmgr update --self --all'
