@@ -309,4 +309,5 @@ fi
 alias tlmi='sudo tlmgr install'
 alias tlml='tlmgr info'
 alias tlmq='tlmgr info'
+alias tlms='tlmgr info | grep -i'
 alias tlmU='sudo tlmgr update --self --all'
