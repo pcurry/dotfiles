@@ -26,8 +26,12 @@ else
   umask 022
 fi
 
+# Setup INFOPATH like manpath
+typeset -T INFOPATH infopath ":"
+export INFOPATH
+
 # Paths
-typeset -gU cdpath fpath mailpath path
+typeset -gU cdpath fpath mailpath path manpath infopath
 path=(
   $HOME/bin                           # Personal tools
   $HOME/.cask/bin                     # Cask
