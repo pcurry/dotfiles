@@ -43,6 +43,16 @@ path=(
   $path                               # The system path
 )
 
+manpath=(
+  /usr/local/texlive/*/texmf-dist/doc/man(N) # TeXLive manpages
+  $manpath
+)
+
+infopath=(
+  /usr/local/texlive/*/texmf-dist/doc/info(N) # TeXLive Info manuals
+  ${infopath:-""}                             # The infopath or the default
+)
+
 # Locale
 if [[ -z "$LANG" ]]; then
   # Default to US, unless the language is already configured
