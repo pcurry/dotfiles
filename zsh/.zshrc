@@ -274,8 +274,11 @@ if (( $+commands[rlwrap] )); then
 fi
 
 # Load OPAM and add some nice aliases
-[[ -f "$HOME/.opam/opam-init/init.zsh" ]] && source "$HOME/.opam/opam-init/init.zsh"
+[[ -f "$HOME/.opam/opam-init/init.zsh" ]] &&
+  source "$HOME/.opam/opam-init/init.zsh"
+alias opme='eval "$(opam config env)"'
 alias opmi='opam install'
+alias opml='opam list'
 alias opmq='opam show'
 alias opms='opam search'
 alias opmU='opam upgrade'
