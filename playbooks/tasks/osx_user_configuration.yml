@@ -43,11 +43,13 @@
 - name: Do not warn when emptying trash
   osx_defaults: domain=com.apple.finder name=WarnOnEmptyTrash
                 type=bool value=false
-- name: Show icons for hard drives, servers, and removable media on the desktop
+- name: Hide desktop icons for built-in hard disks
+  osx_defaults: domain=com.apple.finder name=ShowHardDrivesOnDesktop
+                type=bool value=false
+- name: Show desktop icons for servers and removable media
   osx_defaults: domain=com.apple.finder name={{item}} type=bool value=true
   with_items:
     - ShowExternalHardDrivesOnDesktop
-    - ShowHardDrivesOnDesktop
     - ShowMountedServersOnDesktop
     - ShowRemovableMediaOnDesktop
 - name: Minimize windows to their apps
