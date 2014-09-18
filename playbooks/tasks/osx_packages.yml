@@ -23,3 +23,9 @@
     - autojump
     - wget
     - rlwrap
+- name: Install ASpell
+  homebrew: name=aspell state=latest
+            install_options="--with-lang-de --with-lang-en"
+- name: Install Emacs
+  homebrew: name=emacs state=latest
+            install_options="--HEAD --use-git-head --cocoa --with-gnutls --with-rsvg --with-imagemagick"
