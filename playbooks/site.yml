@@ -34,23 +34,3 @@
       tags: configuration
       sudo: True
       sudo_user: "{{my_username}}"
-
-- hosts: Ubuntu
-  gather_facts: False
-  vars:
-    my_username: swiesner
-    my_home: /home/swiesner
-    gem_executable: gem2.0
-  tasks:
-    - include: tasks/replace_broken_rtl8192cu_wifi_driver.yml
-      when: ansible_user_id == 'root' and 'rtl8192cu' in lookup('pipe', 'lsmod')
-    - include: tasks/ubuntu_packages.yml
-      when: ansible_user_id == 'root'
-      tags: packages
-    - include: tasks/common_setup.yml
-      when: ansible_user_id == 'root'
-      tags: setup
-    - include: tasks/user_packages.yml
-      tags: packages
-      sudo: True
-      sudo_user: "{{my_username}}"
