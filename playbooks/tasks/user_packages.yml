@@ -33,6 +33,5 @@
     - hasktags
     - hoogle
     - packdeps
-    - pandoc
     - pointfree
     - haskell-docs
