@@ -15,6 +15,7 @@
     - stow
     - ansible
     # Misc tools
+    - pandoc
     - nmap
     - hunspell
     - the_silver_searcher
