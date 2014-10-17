@@ -311,5 +311,6 @@ fi
 alias tlmi='sudo tlmgr install'
 alias tlml='tlmgr info'
 alias tlmq='tlmgr info'
-alias tlms='tlmgr info | grep -i'
+alias tlms='tlmgr search --global'
+alias tlmS='tlmgr search'
 alias tlmU='sudo tlmgr update --self --all'
