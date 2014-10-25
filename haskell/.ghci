@@ -1,1 +1,4 @@
 :def doc \input -> return (":!haskell-docs " ++ input)
+:set -fdefer-type-errors
+
+:seti -XOverloadedStrings
