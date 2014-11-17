@@ -147,6 +147,15 @@ if [[ -f /etc/zsh_command_not_found ]]; then
   source /etc/zsh_command_not_found
 fi
 
+# Zsh online help
+unalias run-help
+autoload run-help
+if [[ $OSTYPE != darwin* ]]; then
+  HELPDIR=/usr/local/share/zsh/help
+else
+  HELPDIR=/usr/share/zsh/help
+fi
+
 # Tools
 source "$ZSHD/coreutils.zsh"
 source "$ZSHD/git.zsh"
