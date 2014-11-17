@@ -323,3 +323,17 @@ alias tlmq='tlmgr info'
 alias tlms='tlmgr search --global'
 alias tlmS='tlmgr search'
 alias tlmU='sudo tlmgr update --self --all'
+
+# Media
+function avi-to-mp4 {           # Convert AVI to MP4 with ffmpeg
+  if [[ $# -lt 1 ]]; then
+    echo "Missing input" >&2
+    return 1
+  fi
+
+  local input="$1"
+  shift 1
+  local output="${input:r}.mp4"
+
+  ffmpeg -i "${input}" -map 0 -codec copy -f mov "${@}" "${output}"
+}
