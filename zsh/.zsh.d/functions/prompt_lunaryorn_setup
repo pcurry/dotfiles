@@ -1,5 +1,5 @@
 # -*- mode: sh; -*-
-# Copyright (c) 2014 Sebastian Wiesner <swiesner@lunaryorn.com>
+# Copyright (c) 2014, 2015 Sebastian Wiesner <swiesner@lunaryorn.com>
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -113,7 +113,7 @@ function prompt_lunaryorn_setup {
   if [[ $TERM == xterm* ]]; then
     RPROMPT='$(prompt_lunaryorn_env)${vcs_info_msg_0_}'
   else
-    inline_rprompt=' ${vcs_info_msg_0_}$(prompt_lunaryorn_env)'
+    inline_rprompt=' $(prompt_lunaryorn_env)${vcs_info_msg_0_}'
   fi
 
   PROMPT="${pwd}${info}${inline_rprompt} ${sep}"
