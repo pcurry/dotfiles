@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Sebastian Wiesner <swiesner@lunaryorn.com>
+# Copyright (c) 2014, 2015 Sebastian Wiesner <swiesner@lunaryorn.com>
 # Copyright (c) 2011-2014 Sorin Ionescu <sorin.ionescu@gmail.com>
 # Copyright (c) 2009-2011 Robby Russell and contributors.
 
@@ -41,7 +41,6 @@ path=(
   ${PYTHONUSERBASE:-$HOME/.local}/bin # Local Python packages
   $HOME/Library/Python/*/bin(N)       # Local Python packages on OS X
   $HOME/.gem/ruby/*/bin(N)            # Local Ruby packages
-  /Applications/ghc-*.app/Contents/bin(N) # Portable GHC on OS X
   /usr/local/{bin,sbin}               # Local installations
   $path                               # The system path
 )
