@@ -22,7 +22,11 @@
 function prompt_lunaryorn_cwd {
   local repo_name="${vcs_info_msg_1_}"
 
-  if [[ -n $repo_name ]]; then
+  if [[ $INSIDE_EMACS == *comint* ]]; then
+    # If running inside M-x shell, print the standard working directory, so that
+    # Shell Mode can track it correctly.
+    echo -n '%~'
+  elif [[ -n $repo_name ]]; then
     # In a VCS repository, print the repository and the
     local repo_subdir="/$(shorten_path "${vcs_info_msg_2_:#.}")"
     printf "%s%s" "${repo_name}" "${repo_subdir:#/}"
