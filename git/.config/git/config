@@ -1,6 +1,3 @@
-[include]
-	path = config.secret
-	path = config.platform
 [user]
 	name = Sebastian Wiesner
 	email = swiesner@lunaryorn.com
@@ -32,3 +29,6 @@
 	user = lunaryorn
 [tag]
 	sort = version:refname
+[include]
+	path = config.secret
+	path = config.platform
