@@ -25,6 +25,7 @@
 	tool = p4merge
 [core]
 	preloadindex = true
+	autosetuprebase = true
 [github]
 	user = lunaryorn
 [tag]
