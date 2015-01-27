@@ -32,8 +32,6 @@
 - name: No shadow in screenshots
   osx_defaults: domain=com.apple.screencapture name=disable-shadow
                 type=bool value=true
-- name: Subpixel rendering in non-Apple LCDs
-  osx_defaults: domain=NSGlobalDomain name=AppleFontSmoothing type=int value=2
 - name: Search in current folder by default
   osx_defaults: domain=com.apple.finder name=FXDefaultSearchScope
                 type=string value='SCcf'
