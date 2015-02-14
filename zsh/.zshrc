@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Sebastian Wiesner <swiesner@lunaryorn.com>
+# Copyright (c) 2014, 2015 Sebastian Wiesner <swiesner@lunaryorn.com>
 # Copyright (c) 2011-2014 Sorin Ionescu <sorin.ionescu@gmail.com>
 # Copyright (c) 2009-2011 Robby Russell and contributors.
 
@@ -134,7 +134,7 @@ local -a autojump_candidates
 autojump_candidates=("/usr/share/autojump/autojump.zsh"
                      "/etc/profile.d/autojump.zsh")
 if (( $+commands[brew] )); then
-  autojump_candidates+="$(brew --prefix)/etc/autojump.zsh"
+  autojump_candidates+="$(brew --prefix)/etc/profile.d/autojump.sh"
 fi
 for candidate in "${autojump_candidates[@]}"; do
   if [[ -f "${candidate}" ]]; then
