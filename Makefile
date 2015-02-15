@@ -11,7 +11,7 @@ STOW-UNINSTALL = $(STOW-CMD) -D
 ANSIBLE-PLAY = $(ANSIBLE-PLAYBOOK) -i playbooks/inventory \
 	$(addprefix -t,$(ANSIBLE_TAGS)) $(ANSIBLEFLAGS)
 
-BASEPKGS = zsh emacs ssh mercurial git
+BASEPKGS = zsh emacs ssh mercurial git pandoc
 PROGPKGS = clojure ruby haskell ocaml
 OSXPKGS = git.osx
 LINUXPKGS =
