@@ -337,3 +337,10 @@ function avi-to-mp4 {           # Convert AVI to MP4 with ffmpeg
 
   ffmpeg -i "${input}" -map 0 -codec copy -f mov "${@}" "${output}"
 }
+
+# Vagrant aliases
+alias vags='vagrant ssh'
+alias vagu='vagrant up'
+alias vagR='vagrant reload'
+alias vagH='vagrant halt'
+alias vagi='vagrant provision'
