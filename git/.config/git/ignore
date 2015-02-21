@@ -11,3 +11,6 @@ Desktop.ini
 # CTags/ETags
 TAGS
 tags
+
+# IntelliJ
+.idea/
