@@ -160,10 +160,6 @@ fi
 source "$ZSHD/coreutils.zsh"
 source "$ZSHD/git.zsh"
 
-if [[ $HOSTNAME == *.uberspace.de ]]; then
-  source "$ZSHD/uberspace.zsh"
-fi
-
 # Misc
 alias ag='nocorrect ag'
 alias locate='noglob locate'
