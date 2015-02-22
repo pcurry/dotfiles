@@ -335,8 +335,10 @@ function avi-to-mp4 {           # Convert AVI to MP4 with ffmpeg
 }
 
 # Vagrant aliases
+alias vag='vagrant'
 alias vags='vagrant ssh'
 alias vagu='vagrant up'
 alias vagR='vagrant reload'
 alias vagH='vagrant halt'
 alias vagi='vagrant provision'
+alias vagX='vagrant destroy'
