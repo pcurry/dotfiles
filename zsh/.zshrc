@@ -155,6 +155,7 @@ if [[ $OSTYPE != darwin* ]]; then
 else
   HELPDIR=/usr/share/zsh/help
 fi
+bindkey -M emacs '^H' run-help
 
 # Tools
 source "$ZSHD/coreutils.zsh"
