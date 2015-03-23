@@ -335,6 +335,11 @@ function avi-to-mp4 {           # Convert AVI to MP4 with ffmpeg
   ffmpeg -i "${input}" -map 0 -codec copy -f mov "${@}" "${output}"
 }
 
+# CocoaPods
+alias podi='pod install'
+alias podI='pod init'
+alias podU='pod update'
+
 # Vagrant aliases
 alias vag='vagrant'
 alias vags='vagrant ssh'
