@@ -349,3 +349,11 @@ alias vagR='vagrant reload'
 alias vagH='vagrant halt'
 alias vagi='vagrant provision'
 alias vagX='vagrant destroy'
+
+# Build Textual
+function build-textual {
+  xctool \
+    -workspace Textual.xcworkspace \
+    -scheme 'Textual (Standard Release)' \
+    CONFIGURATION_BUILD_DIR='Build Results/' && open 'Build Results/'
+}
