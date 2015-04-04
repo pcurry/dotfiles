@@ -288,7 +288,8 @@ alias opmu='opam update'
 alias opmx='opam remove'
 
 # Rust
-alias rustup='curl https://static.rust-lang.org/rustup.sh | bash'
+alias rustup='curl -s https://static.rust-lang.org/rustup.sh | sh'
+alias rustup-nightly='curl -s https://static.rust-lang.org/rustup.sh | sh -s -- --channel=nightly'
 
 # Rubygems
 alias gemi='gem install --user-install --no-document'
