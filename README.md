@@ -27,7 +27,6 @@ Available Stow packages
 
 Most other directories are [GNU Stow][] packages:
 
-- `clojure`:  Configuration for Clojure, e.g. Leiningen Profiles
 - `emacs`: Emacs configuration, using [Stante Pede][] and [Cask][]
 - `git`: Configuration for Git
 - `git.gnome`: Configuration for Git, specific to Gnome 3
