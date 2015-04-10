@@ -34,6 +34,7 @@ Most other directories are [GNU Stow][] packages:
 - `git.osx`: Configuration for Git, specific to OS X
 - `mercurial`: Configuration for Mercurial
 - `ruby`: Configuration for Ruby
+- `scala`: Configuration for Scala
 - `ssh`: Configuration for SSH
 - `zsh`: Zsh configuration, using [Prezto][]
 
