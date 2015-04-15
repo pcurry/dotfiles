@@ -252,6 +252,10 @@ function yumX {
   sudo yum remove "$@" && sudo yum autoremove
 }
 
+# SBT
+alias sbtb='sbt compile'
+alias sbtt='sbt test'
+
 # Cabal
 alias cab='cabal'
 alias cabb='cabal build'
