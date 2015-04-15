@@ -190,6 +190,9 @@ if [[ $OSTYPE != darwin* ]]; then
   alias pbpaste='xsel --clipboard --output'
 fi
 
+# Emacs
+alias emacs-version="emacs -Q --batch --eval '(progn (princ (emacs-version)) (terpri))'"
+
 # Hombebrew
 alias brewc='brew cleanup'
 alias brewC='brew cleanup --force'
