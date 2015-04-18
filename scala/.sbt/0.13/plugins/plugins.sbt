@@ -1,8 +1,6 @@
 resolvers += Resolver.sonatypeRepo("snapshots")
 
-// TODO: Re-enable when scalariform mess is solved, see
-// https://github.com/ensime/ensime-server/issues/792
-// addSbtPlugin("org.ensime" % "ensime-sbt" % "0.1.5")
+addSbtPlugin("org.ensime" % "ensime-sbt" % "0.1.6")
 
 addSbtPlugin("com.eed3si9n" % "sbt-sh" % "0.1.0")
 
