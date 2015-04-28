@@ -202,7 +202,7 @@ alias brewq='brew info'
 alias brewQ='brew home'
 alias brews='brew search'
 alias brewu='brew upgrade'
-alias brewU='brew update && brew upgrade'
+alias brewU='brew update && brew upgrade --all'
 alias brewx='brew remove'
 
 # Arch Linux (aura)
