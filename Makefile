@@ -12,7 +12,7 @@ ANSIBLE-PLAY = $(ANSIBLE-PLAYBOOK) -i playbooks/inventory \
 	$(addprefix -t,$(ANSIBLE_TAGS)) $(ANSIBLEFLAGS)
 
 BASEPKGS = zsh emacs ssh mercurial git
-PROGPKGS = scala ruby haskell ocaml
+PROGPKGS = scala ruby haskell ocaml ansible
 OSXPKGS = git.osx
 LINUXPKGS =
 GNOMEPKGS = git.gnome
