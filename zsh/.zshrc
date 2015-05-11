@@ -254,6 +254,7 @@ function yumX {
 
 # SBT
 alias sbtb='sbt compile'
+alias sbtC='sbt clean'
 alias sbtt='sbt test'
 
 # Cabal
