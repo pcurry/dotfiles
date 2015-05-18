@@ -81,11 +81,6 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
-# Python packages on OS X
-if [[ "$OSTYPE" == darwin* ]]; then
-  export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
-fi
-
 # SBT options
 # export SBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC -XX:MaxMetaspaceSize=512m"
 export SBT_OPTS="-Xms512M -Xmx1536M -Xss1M"
