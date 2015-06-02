@@ -92,8 +92,14 @@ function prompt_lunaryorn_setup {
   zstyle ':vcs_info:*:prompt_lunaryorn:*' use-prompt-escapes true
   zstyle ':vcs_info:*:prompt_lunaryorn:*' get-revision true
   zstyle ':vcs_info:*:prompt_lunaryorn:*' get-bookmarks true
-  zstyle ':vcs_info:*:prompt_lunaryorn:*' stagedstr '+'
-  zstyle ':vcs_info:*:prompt_lunaryorn:*' unstagedstr '*'
+  if [[ $TERM == xterm* ]]; then
+    zstyle ':vcs_info:*:prompt_lunaryorn:*' stagedstr '✓'
+    zstyle ':vcs_info:*:prompt_lunaryorn:*' unstagedstr '✸'
+  else
+    # Fall back to standard ASCII chars for VC state
+    zstyle ':vcs_info:*:prompt_lunaryorn:*' stagedstr '+'
+    zstyle ':vcs_info:*:prompt_lunaryorn:*' unstagedstr '*'
+  fi
   zstyle ':vcs_info:*:prompt_lunaryorn:*' hgrevformat '%r' # Local revno only
   zstyle ':vcs_info:hg:prompt_lunaryorn:*' branchformat 'r%r'
   zstyle ':vcs_info:*:prompt_lunaryorn:*' formats \
@@ -109,9 +115,17 @@ function prompt_lunaryorn_setup {
   zstyle ':battery_info:*:prompt_lunaryorn' dischargingstr '%F{magenta}'
   zstyle ':battery_info:*:prompt_lunaryorn' format ' %c%(R.%p%%%%.%r)%%f'
 
+  # On xterm, gimme emojis and fancy unicode!
+  if [[ $TERM == xterm* ]]; then
+    local emoji='%(?.😍.😢)  '
+    local sep='%(?.%F{green}.%B%F{red})⤖%f%b '
+  else
+    local emoji=''
+    local sep='%(?.%F{green}.%B%F{red})$%f%b '
+  fi
+
   local pwd='%(!.%F{red}.%F{cyan})$(prompt_lunaryorn_cwd)%f%b'
   local info='$(prompt_lunaryorn_hostname)${battery_info_msg_}'
-  local sep='%(?.%F{green}.%B%F{red})$%f%b '
 
   local inline_rprompt
   if [[ $TERM == xterm* ]]; then
@@ -120,7 +134,7 @@ function prompt_lunaryorn_setup {
     inline_rprompt=' $(prompt_lunaryorn_env)${vcs_info_msg_0_}'
   fi
 
-  PROMPT="${pwd}${info}${inline_rprompt} ${sep}"
+  PROMPT="${emoji}${pwd}${info}${inline_rprompt} ${sep}"
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 
