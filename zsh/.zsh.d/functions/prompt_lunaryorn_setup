@@ -118,7 +118,7 @@ function prompt_lunaryorn_setup {
   # On xterm, gimme emojis and fancy unicode!
   if [[ $TERM == xterm* ]]; then
     local emoji='%(?.😍.😢)  '
-    local sep='%(?.%F{green}.%B%F{red})⤖%f%b '
+    local sep='🐷 %(?.%F{green}.%B%F{red})⚡%f%b '
   else
     local emoji=''
     local sep='%(?.%F{green}.%B%F{red})$%f%b '
