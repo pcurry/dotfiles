@@ -300,6 +300,10 @@ alias gemi='gem install --user-install --no-document'
 alias gems='gem search'
 alias gemU='gem update --user-install --no-document'
 
+# NPM
+alias npmi='npm install --global'
+alias npmU='npm upgrade --global'
+
 # Cask
 [[ -d "$HOME/.cask" ]] && source "$HOME/.cask/etc/cask_completion.zsh" 2> /dev/null
 
