@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Sebastian Wiesner <swiesner@lunaryorn.com>
+# Copyright (c) 2014, 2015 Sebastian Wiesner <swiesner@lunaryorn.com>
 # Copyright (c) 2011-2014 Sorin Ionescu <sorin.ionescu@gmail.com>
 # Copyright (c) 2009-2011 Robby Russell and contributors.
 
@@ -77,7 +77,7 @@ alias gld='git log --topo-order --stat --patch --full-diff --pretty=format:${log
 alias glo='git log --topo-order --pretty=format:${log_oneline_format}'
 alias glg='git log --topo-order --all --graph --pretty=format:${log_oneline_format}'
 alias glb='git log --topo-order --pretty=format:${log_brief_format}'
-alias glc='git shortlog --summary --numbered'
+alias glc='git shortlog --summary --numbered --email'
 
 # merge
 alias gm='git merge'
