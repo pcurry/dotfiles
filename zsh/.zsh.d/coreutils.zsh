@@ -83,5 +83,5 @@ function cde {
   # avoid the hassle of escaping single quotes in single quotes…
   local expr='(buffer-local-value (quote default-directory) (window-buffer))'
   local directory="$(emacsclient -e "${expr}")"
-  cd "${(Q)directory}"
+  builtin cd "${(Q)directory}"
 }
