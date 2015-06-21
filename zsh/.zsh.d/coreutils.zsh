@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Sebastian Wiesner <swiesner@lunaryorn.com>
+# Copyright (c) 2014, 2015 Sebastian Wiesner <swiesner@lunaryorn.com>
 # Copyright (c) 2011-2014 Sorin Ionescu <sorin.ionescu@gmail.com>
 # Copyright (c) 2009-2011 Robby Russell and contributors.
 
