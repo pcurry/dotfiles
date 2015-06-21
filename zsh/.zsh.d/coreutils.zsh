@@ -75,3 +75,13 @@ function mkdcd {
 function cdls {
   builtin cd "$argv[-1]" && ls "${(@)argv[1,-2]}"
 }
+
+function cde {
+  # Idea graciously taken from
+  # http://chneukirchen.org/blog/archive/2015/02/10-fancy-zsh-tricks-you-may-not-know.html,
+  # slightly improved.  We use `quote' instead of ' for default-directory to
+  # avoid the hassle of escaping single quotes in single quotes…
+  local expr='(buffer-local-value (quote default-directory) (window-buffer))'
+  local directory="$(emacsclient -e "${expr}")"
+  cd "${(Q)directory}"
+}
