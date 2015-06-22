@@ -14,3 +14,7 @@ tags
 
 # IntelliJ
 .idea/
+
+# Emacs
+.ensime
+.ensime_cache/
