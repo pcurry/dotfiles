@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Sebastian Wiesner <swiesner@lunaryorn.com>
+# Copyright (c) 2014, 2015 Sebastian Wiesner <swiesner@lunaryorn.com>
 # Copyright (c) 2011-2014 Sorin Ionescu <sorin.ionescu@gmail.com>
 # Copyright (c) 2009-2011 Robby Russell and contributors.
 
@@ -23,6 +23,7 @@
 # Setup completion
 
 autoload -Uz compinit && compinit -i
+autoload -U +X bashcompinit && bashcompinit # For bash completions
 
 setopt complete_in_word    # Complete from both ends of a word
 setopt always_to_end       # Move cursor to the end of a completed word

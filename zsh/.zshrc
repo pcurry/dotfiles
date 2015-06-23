@@ -276,6 +276,19 @@ alias cabU='cabal install --upgrade-dependencies --force-reinstalls world'
 alias cabu='cabal update'
 alias cabX='cabal clean && cabal sandbox delete'
 
+# Stack
+alias sta=stack
+alias staI='stack init'
+alias stab='stack build'
+alias stad='stack haddock'
+alias stai='stack install'
+alias stas='stack setup'
+alias stat='stack test'
+if (( $+commands[stack] )); then
+  # Load stack completions
+  eval "$(stack --bash-completion-script "$(which stack)")"
+fi
+
 # Ocaml & OPAM
 if (( $+commands[rlwrap] )); then
   # Add readline support to ocaml, if available
