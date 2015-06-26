@@ -329,6 +329,11 @@ VIRTUAL_ENV_DISABLE_PROMPT=1    # Don't mess with my prompt!
 if (( $+commands[virtualenvwrapper_lazy.sh] )); then
   export WORKON_HOME="$HOME/.virtualenvs"
   source "$commands[virtualenvwrapper_lazy.sh]"
+
+  if [[ -x /usr/local/bin/python3 ]]; then
+    # Use Python 3 for virtualenv if it exists
+    VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+  fi
 fi
 
 # TexLive
