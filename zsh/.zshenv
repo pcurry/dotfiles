@@ -40,7 +40,6 @@ path=(
   $HOME/.cabal/bin                    # Local Haskell packages
   ${PYTHONUSERBASE:-$HOME/.local}/bin # Local Python packages
   $HOME/Library/Python/*/bin(N)       # Local Python packages on OS X
-  $HOME/.gem/ruby/*/bin(N)            # Local Ruby packages
   /usr/local/{bin,sbin}               # Local installations
   $path                               # The system path
 )
