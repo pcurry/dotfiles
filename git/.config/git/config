@@ -6,8 +6,6 @@
 	status = auto
 	branch = auto
 	ui = auto
-[status]
-	showUntrackedFiles = all
 [diff]
 	mnemonicprefix = true
 	algorithm = patience
