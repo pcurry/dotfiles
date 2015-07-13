@@ -193,6 +193,15 @@ fi
 # Emacs
 alias emacs-version="emacs -Q --batch --eval '(progn (princ (emacs-version)) (terpri))'"
 
+# Java utilities
+function java-gc-details {      # Print the GC details for the JVM
+  java -XX:+PrintCommandLineFlags -XX:+PrintGCDetails "$@" -version
+}
+
+function java-final-flags {     # Print the final flags for the JVM
+  java -XX:+PrintFlagsFinal "$@" -version
+}
+
 # Hombebrew
 alias brewc='brew cleanup'
 alias brewC='brew cleanup --force'
