@@ -261,7 +261,25 @@ function yumX {
   sudo yum remove "$@" && sudo yum autoremove
 }
 
-# SBT
+# SBT alias and options
+#
+# We set the following JVM options for SBT to decrease the likelihood of memory
+# errors:
+#
+# * -XX:+UseG1GC  Use the new G1 GC which is better for applications
+# * -Xmx2G        Increase the maximum heap size of the JVM from 1GB to 2GB
+# * -Xss2M        Increase the thread stack size of the JVM from 1MB to 2MB
+#
+# For Java 7 we'd also set the following options to make sure that unreferenced
+# class objects get freed:
+#
+# * -XX:+CMSClassUnloadingEnabled  Unload unreferenced classes
+# * -XX:++UseConcMarkSweepGC       Required for CMSClassUnloadingEnabled
+# * -XX:MaxPermSize=2G             Increase the maximum perm space for classes
+#
+# For reference about the GC settings, see
+# https://blogs.oracle.com/poonam/entry/about_g1_garbage_collector_permanent
+export SBT_OPTS='-XX:+UseG1GC -Xmx2G -Xss2M'
 alias sbtb='sbt compile'
 alias sbtC='sbt clean'
 alias sbtt='sbt test'
