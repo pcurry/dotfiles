@@ -80,12 +80,10 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
-# SBT options
+# Java options
 #
-# We set the following JVM options for SBT to decrease the likelihood of memory
-# errors:
+# Give Java programs more memory by default:
 #
-# * -XX:+UseG1GC  Use the new G1 GC which is better for applications
 # * -Xmx2G        Increase the maximum heap size of the JVM from 1GB to 2GB
 # * -Xss2M        Increase the thread stack size of the JVM from 1MB to 2MB
 #
@@ -98,7 +96,7 @@ fi
 #
 # For reference about the GC settings, see
 # https://blogs.oracle.com/poonam/entry/about_g1_garbage_collector_permanent
-export SBT_OPTS='-XX:+UseG1GC -Xmx2G -Xss2M'
+export JAVA_OPTS='-Xmx2G -Xss2M'
 
 # Personal information
 export EMAIL=swiesner@lunaryorn.com
