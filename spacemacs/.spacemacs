@@ -13,7 +13,7 @@
    dotspacemacs-configuration-layers
    '(
      ;; Basics
-     (osx :variables osx-use-option-as-meta nil)
+     osx
      (ibuffer :variables
               ibuffer-group-buffers-by 'projects)
      ;; Version control
@@ -162,7 +162,8 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
-  (setq line-spacing 0.1)
+  (setq line-spacing 0.1
+        mac-right-option-modifier 'none)
   )
 
 (defun dotspacemacs/config ()
