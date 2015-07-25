@@ -162,6 +162,7 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
+  (setq line-spacing 0.1)
   )
 
 (defun dotspacemacs/config ()
