@@ -36,6 +36,8 @@
      scala
      shell-scripts
      markdown
+     ;; Private layers
+     lunaryorn
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -161,9 +163,6 @@ before layers configuration."
    ;; Not used for now.
    dotspacemacs-default-package-repository nil
    )
-  ;; User initialization goes here
-  (setq line-spacing 0.1
-        mac-right-option-modifier 'none)
   )
 
 (defun dotspacemacs/config ()
