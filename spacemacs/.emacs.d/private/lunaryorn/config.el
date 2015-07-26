@@ -31,5 +31,11 @@
       ;; Keep right option modifier free for accented input
       mac-right-option-modifier 'none)
 
+;; Use jk to leave insert mode
+(setq evil-escape-key-sequence "jk")
+
+;; Don't nag me magit
+(setq magit-push-always-verify nil)
+
 (provide 'config)
 ;;; config.el ends here
