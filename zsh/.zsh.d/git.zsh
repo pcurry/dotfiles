@@ -38,6 +38,7 @@ alias gbm='git branch -m'
 alias gbM='git branch -M'
 alias gbs='git show-branch'
 alias gbS='git show-branch -a'
+alias gbsu='git rev-parse --abbrev-ref "@{u}"'
 
 # commit
 alias gc='git commit --verbose'
@@ -78,6 +79,7 @@ alias glo='git log --topo-order --pretty=format:${log_oneline_format}'
 alias glg='git log --topo-order --all --graph --pretty=format:${log_oneline_format}'
 alias glb='git log --topo-order --pretty=format:${log_brief_format}'
 alias glc='git shortlog --summary --numbered --email'
+alias glp='git log --topo-order --pretty=format:${log_brief_format} "@{push}"'
 
 # merge
 alias gm='git merge'
