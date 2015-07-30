@@ -1,11 +1,20 @@
+# Core settings
 [user]
 	name = Sebastian Wiesner
 	email = swiesner@lunaryorn.com
-[color]
-	diff = auto
-	status = auto
-	branch = auto
-	ui = auto
+[core]
+	preloadindex = true
+	autosetuprebase = true
+# Rebasing and merging
+[rebase]
+	autosquash = true
+[merge]
+	log = true
+	tool = p4merge
+[mergetool]
+	prompt = false
+	keepBackup = false
+# Diffing and loggin
 [diff]
 	mnemonicprefix = true
 	algorithm = patience
@@ -13,23 +22,21 @@
 	xfuncname = "^\\*+.*"
 [diff "lisp"]
 	xfuncname = "^\\([^ ]+ [^ ]+"
+# Remotes
 [push]
 	default = simple
-[mergetool]
-	prompt = false
-	keepBackup = false
-[rebase]
-	autosquash = true
-[merge]
-	log = true
-	tool = p4merge
-[core]
-	preloadindex = true
-	autosetuprebase = true
-[github]
-	user = lunaryorn
+# UI
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = auto
 [tag]
 	sort = version:refname
+# Extern tools
+[github]
+	user = lunaryorn
+# Includes
 [include]
 	path = config.secret
 	path = config.platform
