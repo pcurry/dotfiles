@@ -23,6 +23,8 @@
 [diff "lisp"]
 	xfuncname = "^\\([^ ]+ [^ ]+"
 # Remotes
+[remote]
+	pushDefault = origin
 [push]
 	default = simple
 # UI
