@@ -90,7 +90,7 @@ alias gmt='git mergetool'
 
 # push
 alias gp='git push'
-alias gpf='git push --force'
+alias gpf='git push --force-with-lease'
 alias gpa='git push --all'
 alias gpA='git push --all && git push --tags'
 alias gpt='git push --tags'
