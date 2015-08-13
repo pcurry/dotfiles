@@ -8,6 +8,9 @@ addSbtPlugin("com.orrsella" %% "sbt-stats" % "1.0.5")
 
 addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.1.6")
 
+// Clean ivy cache with respect to project deps.  Great naming, by the way :)
+addSbtPlugin("com.eed3si9n" % "sbt-dirty-money" % "0.1.0")
+
 // A nice plugin for a custom SBT prompt, but the default prompt plays better
 // with SBT Mode in Emacs
 // addSbtPlugin("com.scalapenos" %% "sbt-prompt" % "0.2.1")
