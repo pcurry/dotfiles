@@ -20,6 +20,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+# Disable global RCS files.  My configuration is carefully assembled, and I
+# don't want the system mess in it
+setopt no_global_rcs            # Disable global RCS files
+
 # Some basic settings for all shell sessions
 if [[ $HOSTNAME == *.uberspace.de ]]; then
   umask 077
