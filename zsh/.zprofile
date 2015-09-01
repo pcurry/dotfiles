@@ -44,8 +44,8 @@ path=(
 )
 
 manpath=(
-  ${manpath:-""}                             # The default manpath
   /usr/local/texlive/*/texmf-dist/doc/man(N) # TeXLive manpages
+  ${manpath:-""}                             # The default manpath
 )
 
 infopath=(
