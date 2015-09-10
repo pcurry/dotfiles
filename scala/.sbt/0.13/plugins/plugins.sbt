@@ -1,7 +1,7 @@
 resolvers += Resolver.sonatypeRepo("snapshots")
 
 // Emacs backend for Scala
-addSbtPlugin("org.ensime" % "ensime-sbt" % "0.1.7")
+addSbtPlugin("org.ensime" % "ensime-sbt" % "0.2.0")
 
 // Run shell commands directly from SBT shell
 addSbtPlugin("com.eed3si9n" % "sbt-sh" % "0.1.0")
