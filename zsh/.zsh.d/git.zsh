@@ -145,13 +145,3 @@ alias gSI='git submodule update --init --recursive'
 alias gSl='git submodule status'
 alias gSs='git submodule sync'
 alias gSu='git submodule foreach git pull origin master'
-
-# Aliases for 3rd party Git utilities
-
-# GHI
-alias ghiC='ghi comment'
-alias ghic='ghi open'
-alias ghiL='ghi list --all'
-alias ghil='ghi list'
-alias ghiq='ghi show'
-alias ghix='ghi close'
