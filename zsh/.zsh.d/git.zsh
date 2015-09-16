@@ -145,3 +145,16 @@ alias gSI='git submodule update --init --recursive'
 alias gSl='git submodule status'
 alias gSs='git submodule sync'
 alias gSu='git submodule foreach git pull origin master'
+
+# utilities
+function gfr-all() {
+  for d in *(/); do
+    if [[ -e $d/.git ]]; then
+      echo "$d"
+      (
+        cd $d
+        git pull --rebase
+      )
+    fi
+  done
+}
