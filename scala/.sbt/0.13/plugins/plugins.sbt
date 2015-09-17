@@ -18,3 +18,6 @@ addSbtPlugin("com.eed3si9n" % "sbt-dirty-money" % "0.1.0")
 // A nice plugin for a custom SBT prompt, but the default prompt plays better
 // with SBT Mode in Emacs
 // addSbtPlugin("com.scalapenos" %% "sbt-prompt" % "0.2.1")
+
+// Dependency graphs for SBT projects
+addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.5")
