@@ -36,7 +36,6 @@ typeset -gU cdpath fpath mailpath path manpath infopath
 path=(
   $HOME/bin                           # Personal tools
   $HOME/.cask/bin                     # Cask
-  $HOME/.cabal/bin                    # Local Haskell packages
   ${PYTHONUSERBASE:-$HOME/.local}/bin # Local Python packages
   $HOME/Library/Python/*/bin(N)       # Local Python packages on OS X
   /usr/local/{bin,sbin}               # Local installations
