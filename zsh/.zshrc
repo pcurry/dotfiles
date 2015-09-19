@@ -111,24 +111,6 @@ add-zsh-hook precmd update_terminal_cwd
 source "$ZSHD/editor.zsh"
 source "$ZSHD/completion.zsh"
 
-# Syntax highlighting (KEEP BEFORE substring search!)
-if [[ $TERM == xterm* ]]; then
-  source "$ZSHD/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh"
-fi
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(
-  main                          # Basic highlighting
-  brackets                      # Match parenthesis
-  root                          # Highlight when root
-  cursor                        # The cursor position
-)
-
-# Substring search
-source "$ZSHD/plugins/history-substring-search/zsh-history-substring-search.zsh"
-bindtermkey 'kcuu1' history-substring-search-up
-bindtermkey 'kcud1' history-substring-search-down
-bindkey -M emacs '^P' history-substring-search-up
-bindkey -M emacs '^N' history-substring-search-down
-
 # Autojump
 local -a autojump_candidates
 autojump_candidates=("/usr/share/autojump/autojump.zsh"
@@ -156,6 +138,24 @@ else
   HELPDIR=/usr/share/zsh/help
 fi
 bindkey -M emacs '^H' run-help
+
+# Syntax highlighting (KEEP BEFORE substring search, and AFTER all zle calls!)
+if [[ $TERM == xterm* ]]; then
+  source "$ZSHD/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(
+  main                          # Basic highlighting
+  brackets                      # Match parenthesis
+  root                          # Highlight when root
+  cursor                        # The cursor position
+)
+
+# Substring search (KEEP AFTER substring search!)
+source "$ZSHD/plugins/history-substring-search/zsh-history-substring-search.zsh"
+bindtermkey 'kcuu1' history-substring-search-up
+bindtermkey 'kcud1' history-substring-search-down
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
 
 # Tools
 source "$ZSHD/coreutils.zsh"
