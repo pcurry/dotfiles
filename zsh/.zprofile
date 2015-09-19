@@ -38,8 +38,8 @@ path=(
   $HOME/.cask/bin                     # Cask
   ${PYTHONUSERBASE:-$HOME/.local}/bin # Local Python packages
   $HOME/Library/Python/*/bin(N)       # Local Python packages on OS X
-  /usr/local/{bin,sbin}               # Local installations
   /Library/TeX/texbin                 # TeXLive on OS X
+  /usr/local/{bin,sbin}               # Local installations
   $path                               # The system path
 )
 
