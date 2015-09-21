@@ -9,7 +9,7 @@ STOW-CMD = $(STOW) --target $(HOME) -v $(STOWVERBOSE) $(STOWFLAGS)
 STOW-INSTALL = $(STOW-CMD) -R
 STOW-UNINSTALL = $(STOW-CMD) -D
 
-BASEPKGS = zsh emacs ssh git
+BASEPKGS = zsh emacs ssh git tmux
 PROGPKGS = scala ruby haskell ocaml ansible
 OSXPKGS = git.osx
 
