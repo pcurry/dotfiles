@@ -8,8 +8,6 @@ ANSIBLE_TAGS =
 STOW-CMD = $(STOW) --target $(HOME) -v $(STOWVERBOSE) $(STOWFLAGS)
 STOW-INSTALL = $(STOW-CMD) -R
 STOW-UNINSTALL = $(STOW-CMD) -D
-ANSIBLE-PLAY = $(ANSIBLE-PLAYBOOK) -i playbooks/inventory \
-	$(addprefix -t,$(ANSIBLE_TAGS)) $(ANSIBLEFLAGS)
 
 BASEPKGS = zsh emacs ssh git
 PROGPKGS = scala ruby haskell ocaml ansible
@@ -34,6 +32,3 @@ prog:
 
 base:
 	$(STOW-INSTALL) $(BASEPKGS)
-
-ansible:
-	$(ANSIBLE-PLAY) playbooks/site.yml
