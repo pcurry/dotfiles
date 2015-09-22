@@ -10,10 +10,12 @@ tap 'homebrew/dupes'
 
 # Shell
 brew 'zsh'
+brew 'tmux'                     # Terminal multiplexer
+brew 'tree'                     # Directory tree printer
+brew 'autojump'                 # Fast directory jumping for Zsh
 brew 'coreutils'                # To have GNU tools at hand in need
 brew 'findutils'
-brew 'tree'
-brew 'autojump'
+brew 'gnu-sed'
 
 # Tools
 brew 'wget'
@@ -31,7 +33,11 @@ brew 'stow'
 brew 'git'
 brew 'xctool'                   # Build tool for XCode projects
 brew 'the_silver_searcher'      # Code search
+brew 'the_platinum_searcher'    # Also code search :)
 brew 'shellcheck'               # Shell script linting
+brew 'ansible'                  # Worst provisioning system ever :(
+brew 'cloc'                     # Count code lines
+brew 'redis'                    # Redis client
 
 # Github frontends
 brew 'gist'
@@ -42,7 +48,8 @@ brew 'python'
 brew 'pyqt'                     # For jupyter qtconsole
 brew 'ruby'
 brew 'rust'
-brew 'haskell-stack'
+brew 'haskell-stack'            # Haskell stack
+brew 'maven'                    # Java
 brew 'sbt'                      # Scala
 brew 'node'                     # Javascript (sad, but necessary)
 brew 'coq'
