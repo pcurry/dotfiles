@@ -1,0 +1,10 @@
+# -*- mode: pip-requirements; -*-
+
+# Python linting
+Pylint
+
+# Python web notebook and Qt REPL
+jupyter
+
+# SQL formatting
+format-sql
