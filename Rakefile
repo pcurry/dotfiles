@@ -19,7 +19,6 @@
 # SOFTWARE.
 
 namespace :install do
-
   desc 'Install Homebrew packages from Brewfile'
   task :brew do
     sh 'brew', 'tap', 'Homebrew/bundle'
@@ -33,4 +32,28 @@ namespace :install do
 
   desc 'Install all programs and tools'
   task all: [:brew, :pip]
+end
+
+namespace :dotfiles do
+  DOTFILE_PACKAGES = FileList['*/.stow-local-ignore']
+                     .sub('/.stow-local-ignore', '')
+
+  def stow(package)
+    sh 'stow', --target, ENV['HOME'], '-R', package
+  end
+
+  desc 'Install dotfile packages'
+  task :install do |_, args|
+    packages = args.extras.empty? ? DOTFILE_PACKAGES : args.extras
+    packages.each do |pkg|
+      stow(pkg)
+    end
+  end
+
+  desc 'List all available dotfile packages'
+  task :list do
+    DOTFILE_PACKAGES.each do |pkg|
+      puts pkg
+    end
+  end
 end
