@@ -20,11 +20,14 @@ brew 'gnu-sed'
 # Tools
 brew 'wget'
 brew 'homebrew/dupes/rsync'     # The built-in versions is horribly dated
+brew 'youtube-dl'               # Youtube Downloader
+
+# Documents and images
+brew 'pandoc'                   # Markdown converting reloaded
+brew 'mupdf-tools'              # Command line PDF tools
+brew 'ghostscript'              # For LaTeXIT and MacTeX
 brew 'imagemagick'              # Command line image manipulation
 brew 'optipng'                  # PNG optimisation
-brew 'mupdf-tools'              # Command line PDF tools
-brew 'youtube-dl'               # Youtube Downloader
-brew 'pandoc'                   # Markdown converting reloaded
 
 # Dotfile management
 brew 'stow'
