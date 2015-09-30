@@ -57,3 +57,48 @@ namespace :dotfiles do
     end
   end
 end
+
+namespace :osx_defaults do |ns|
+  TYPES = {
+    int: '-int',
+    string: '-string',
+    bool: '-bool'
+  }
+
+  def osx_default(domain, name, type, value)
+    task_name = "#{domain}:#{name}"
+    task task_name do
+      sh('defaults', 'write', domain, name, TYPES[type], value.to_s)
+    end
+  end
+
+  # Locale and units
+  osx_default 'NSGlobalDomain', 'AppleLocale', :string, 'de_DE'
+  osx_default 'NSGlobalDomain', 'AppleMeasurementUnits', :string, 'Centimeters'
+  osx_default 'NSGlobalDomain', 'AppleMetricUnits', :bool, true
+
+  # No quarantaine
+  osx_default 'com.apple.LaunchServices', 'LSQuarantine', :bool, false
+  osx_default 'com.apple.menuextra.battery', 'ShowPercent', :string, 'NO'
+
+  # Dialogs: Enable extended save and print panels
+  panels = ['NSNavPanelExpandedStateForSaveMode',
+            'NSNavPanelExpandedStateForSaveMode2',
+            'PMPrintingExpandedStateForPrint',
+            'PMPrintingExpandedStateForPrint2']
+  panels.each { |name| osx_default 'NSGlobalDomain', name, :bool, true }
+
+  desc 'Set all OSX defaults'
+  task all: ns.tasks.reject { |t| t.name == 'osx_defaults:all'}
+end
+
+namespace :conf do
+  task :show_library do
+    sh 'chflags', 'nohidden', "#{ENV['HOME']}/Library"
+  end
+
+  task defaults: ['osx_defaults:all', :show_library]
+
+  desc 'Set user configuration'
+  task user: [:defaults]
+end
