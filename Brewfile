@@ -18,8 +18,9 @@ brew 'findutils'
 brew 'gnu-sed'
 
 # Tools
-brew 'wget'
-brew 'homebrew/dupes/rsync'     # The built-in versions is horribly dated
+brew 'wget'                     # For all those who need it
+brew 'httpie'                   # Powerful http client
+brew 'homebrew/dupes/rsync'     # The built-in rsync is horribly outdated
 brew 'youtube-dl'               # Youtube Downloader
 
 # Documents and images
