@@ -8,3 +8,6 @@ jupyter
 
 # SQL formatting
 format-sql
+
+# virtualenv stuff
+virtualenvwrapper
