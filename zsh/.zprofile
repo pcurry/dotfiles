@@ -80,13 +80,6 @@ export LESS='-g -i -M -R -S -w -z-4'
 # * -Xmx2G        Increase the maximum heap size of the JVM from 1GB to 2GB
 # * -Xss2M        Increase the thread stack size of the JVM from 1MB to 2MB
 #
-# For Java 7 we'd also set the following options to make sure that unreferenced
-# class objects get freed:
-#
-# * -XX:+CMSClassUnloadingEnabled  Unload unreferenced classes
-# * -XX:++UseConcMarkSweepGC       Required for CMSClassUnloadingEnabled
-# * -XX:MaxPermSize=2G             Increase the maximum perm space for classes
-#
 # For reference about the GC settings, see
 # https://blogs.oracle.com/poonam/entry/about_g1_garbage_collector_permanent
 export JAVA_OPTS='-Xmx2G -Xss2M'
