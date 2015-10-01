@@ -38,8 +38,6 @@ path=(
   ${PYTHONUSERBASE:-$HOME/.local}/bin # Local Python packages
   $HOME/Library/Python/*/bin(N)       # Local Python packages on OS X
   $HOME/.gem/ruby/*/bin(N)            # Local Ruby packages
-  /Library/TeX/texbin                 # TeXLive on OS X
-  /usr/local/{bin,sbin}               # Local installations
   $path                               # The system path
 )
 
