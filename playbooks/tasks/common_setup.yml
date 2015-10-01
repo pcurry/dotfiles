@@ -1,4 +1,0 @@
-- name: Use Zsh as my shell
-  change_shell: name={{my_username}} shell=/bin/zsh
-- name: Set timezone
-  timezone: name=Europe/Berlin
