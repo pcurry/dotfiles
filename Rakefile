@@ -59,37 +59,55 @@ namespace :dotfiles do
 end
 
 namespace :osx_defaults do |ns|
-  TYPES = {
-    int: '-int',
-    string: '-string',
-    bool: '-bool'
-  }
-
-  def osx_default(domain, name, type, value)
-    task_name = "#{domain}:#{name}"
-    task task_name do
-      sh('defaults', 'write', domain, name, TYPES[type], value.to_s)
+  def type_arg(v)
+    if v.is_a?(String)
+      '-string'
+    elsif v.is_a?(TrueClass) || v.is_a?(FalseClass)
+      '-bool'
+    elsif v.is_a?(Integer)
+      '-int'
+    elsif v.is_a?(Float)
+      '-float'
+    else
+      nil
     end
   end
 
-  # Locale and units
-  osx_default 'NSGlobalDomain', 'AppleLocale', :string, 'de_DE'
-  osx_default 'NSGlobalDomain', 'AppleMeasurementUnits', :string, 'Centimeters'
-  osx_default 'NSGlobalDomain', 'AppleMetricUnits', :bool, true
+  # Global settings
+  defaults = {
+    # Global settings
+    'NSGlobalDomain' => {
+      # Locale and units
+      'AppleLocale' => 'de_DE',
+      'AppleMeasurementUnits' => 'Centimeters',
+      'AppleMetricUnits' => true,
+      # Expand save and print dialogs by default
+      'NSNavPanelExpandedStateForSaveMode' => true,
+      'PMPrintingExpandedStateForPrint' => true,
+      'NSNavPanelExpandedStateForSaveMode2' => true,
+      'PMPrintingExpandedStateForPrint2' => true,
+    },
+    'com.apple.LaunchServices' => {
+      'LSQuarantine' => false,
+    },
+    'com.apple.menuextra.battery' => {
+      'ShowPercent' => 'NO',
+    }
+  }
 
-  # No quarantaine
-  osx_default 'com.apple.LaunchServices', 'LSQuarantine', :bool, false
-  osx_default 'com.apple.menuextra.battery', 'ShowPercent', :string, 'NO'
-
-  # Dialogs: Enable extended save and print panels
-  panels = %w(NSNavPanelExpandedStateForSaveMode
-              NSNavPanelExpandedStateForSaveMode2
-              PMPrintingExpandedStateForPrint
-              PMPrintingExpandedStateForPrint2)
-  panels.each { |name| osx_default 'NSGlobalDomain', name, :bool, true }
+  defaults_tasks = defaults.flat_map do |domain, settings|
+    settings.map do |name, value|
+      task_name = "#{domain}:#{name}"
+      task task_name do
+        t = type_arg(value) || fail("Type #{value.class} not allowed")
+        sh('defaults', 'write', domain, name, t, value.to_s)
+      end
+      task_name
+    end
+  end.to_a
 
   desc 'Set all OSX defaults'
-  task all: ns.tasks.reject { |t| t.name == 'osx_defaults:all' }
+  task all: defaults_tasks
 end
 
 namespace :conf do
