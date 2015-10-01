@@ -82,14 +82,14 @@ namespace :osx_defaults do |ns|
   osx_default 'com.apple.menuextra.battery', 'ShowPercent', :string, 'NO'
 
   # Dialogs: Enable extended save and print panels
-  panels = ['NSNavPanelExpandedStateForSaveMode',
-            'NSNavPanelExpandedStateForSaveMode2',
-            'PMPrintingExpandedStateForPrint',
-            'PMPrintingExpandedStateForPrint2']
+  panels = %w(NSNavPanelExpandedStateForSaveMode
+              NSNavPanelExpandedStateForSaveMode2
+              PMPrintingExpandedStateForPrint
+              PMPrintingExpandedStateForPrint2)
   panels.each { |name| osx_default 'NSGlobalDomain', name, :bool, true }
 
   desc 'Set all OSX defaults'
-  task all: ns.tasks.reject { |t| t.name == 'osx_defaults:all'}
+  task all: ns.tasks.reject { |t| t.name == 'osx_defaults:all' }
 end
 
 namespace :conf do
