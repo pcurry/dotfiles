@@ -172,4 +172,14 @@ namespace :conf do
     desc 'Set all user configuration'
     task all: [:show_library, 'osx_defaults:all']
   end
+
+  namespace :system do
+
+    task :timezone do
+      sh 'systemsetup', '-settimezone', 'Europe/Berlin'
+    end
+
+    desc 'Set all system configuration'
+    task all: [:timezone]
+  end
 end
