@@ -86,12 +86,52 @@ namespace :osx_defaults do |ns|
       'PMPrintingExpandedStateForPrint' => true,
       'NSNavPanelExpandedStateForSaveMode2' => true,
       'PMPrintingExpandedStateForPrint2' => true,
+      # Don't save to iCloud by default
+      'NSDocumentSaveNewDocumentsToCloud' => false,
+      # Show ASCII control characters in standard text views
+      'NSTextShowsControlCharacters' => true,
     },
     'com.apple.LaunchServices' => {
       'LSQuarantine' => false,
     },
+    # Dock & Mission Control
+    'com.apple.dock' => {
+      # Show indicator dots for open apps
+      'show-process-indicators' => true,
+      # Don't minimize windows to their apps
+      'minimize-to-application' => false,
+      # Dock at bottom, and keep visible
+      'orientation' => 'bottom',
+      'autohide' => false,
+      # Don't reorder spaces by most recent use
+      'mru-spaces' => false,
+    },
+    # Dashboard
+    'com.apple.dashboard' => {
+      'dashboard-enabled-state' => 1,
+    },
+    # Menubar
     'com.apple.menuextra.battery' => {
       'ShowPercent' => 'NO',
+    },
+    # Screenshots
+    'com.apple.screencapture' => {
+      # I like shadows
+      'disable-shadow' => false,
+    },
+    # Finder
+    'com.apple.finder' => {
+      # Search in current folder by default
+      'FXDefaultSearchScope' => 'SCcf',
+      # Don't warn about changing file extensions
+      'FXEnableExtensionChangeWarning' => false,
+      # Show servers and mounted media on desktop, but not internal HDDs
+      'ShowExternalHardDrivesOnDesktop' => true,
+      'ShowMountedServersOnDesktop' => true,
+      'ShowRemovableMediaOnDesktop' => true,
+      'ShowHardDrivesOnDesktop' => false,
+      # Dont' warn when emptying trash
+      'WarnOnEmptyTrash' => false
     }
   }
 
@@ -115,8 +155,6 @@ namespace :conf do
     sh 'chflags', 'nohidden', "#{ENV['HOME']}/Library"
   end
 
-  task defaults: ['osx_defaults:all', :show_library]
-
   desc 'Set user configuration'
-  task user: [:defaults]
+  task user: ['osx_defaults:all', :show_library]
 end
