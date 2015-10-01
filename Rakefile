@@ -58,108 +58,111 @@ namespace :dotfiles do
   end
 end
 
-namespace :osx_defaults do |ns|
-  def type_arg(v)
-    if v.is_a?(String)
-      '-string'
-    elsif v.is_a?(TrueClass) || v.is_a?(FalseClass)
-      '-bool'
-    elsif v.is_a?(Integer)
-      '-int'
-    elsif v.is_a?(Float)
-      '-float'
-    else
-      nil
-    end
-  end
-
-  # Global settings
-  defaults = {
-    # Global settings
-    'NSGlobalDomain' => {
-      # Locale and units
-      'AppleLocale' => 'de_DE',
-      'AppleMeasurementUnits' => 'Centimeters',
-      'AppleMetricUnits' => true,
-      # Expand save and print dialogs by default
-      'NSNavPanelExpandedStateForSaveMode' => true,
-      'PMPrintingExpandedStateForPrint' => true,
-      'NSNavPanelExpandedStateForSaveMode2' => true,
-      'PMPrintingExpandedStateForPrint2' => true,
-      # Don't save to iCloud by default
-      'NSDocumentSaveNewDocumentsToCloud' => false,
-      # Show ASCII control characters in standard text views
-      'NSTextShowsControlCharacters' => true,
-      # Font smoothing on non-Apple LCDs
-       'AppleFontSmoothing' => 2,
-    },
-    'com.apple.LaunchServices' => {
-      # Disable quarantine for downloaded apps
-      'LSQuarantine' => false,
-    },
-    # Dock & Mission Control
-    'com.apple.dock' => {
-      # Show indicator dots for open apps
-      'show-process-indicators' => true,
-      # Don't minimize windows to their apps
-      'minimize-to-application' => false,
-      # Dock at bottom, and keep visible
-      'orientation' => 'bottom',
-      'autohide' => false,
-      # Don't reorder spaces by most recent use
-      'mru-spaces' => false,
-    },
-    # Dashboard
-    'com.apple.dashboard' => {
-      # Disable it!
-      'dashboard-enabled-state' => 1,
-    },
-    # Menubar
-    'com.apple.menuextra.battery' => {
-      'ShowPercent' => 'NO',
-    },
-    # Screenshots
-    'com.apple.screencapture' => {
-      # I like shadows
-      'disable-shadow' => false,
-    },
-    # Finder
-    'com.apple.finder' => {
-      # Search in current folder by default
-      'FXDefaultSearchScope' => 'SCcf',
-      # Don't warn about changing file extensions
-      'FXEnableExtensionChangeWarning' => false,
-      # Show servers and mounted media on desktop, but not internal HDDs
-      'ShowExternalHardDrivesOnDesktop' => true,
-      'ShowMountedServersOnDesktop' => true,
-      'ShowRemovableMediaOnDesktop' => true,
-      'ShowHardDrivesOnDesktop' => false,
-      # Dont' warn when emptying trash, and do so securely
-      'WarnOnEmptyTrash' => false,
-      'EmptyTrashSecurely' => true,
-    }
-  }
-
-  defaults_tasks = defaults.flat_map do |domain, settings|
-    settings.map do |name, value|
-      task_name = "#{domain}:#{name}"
-      task task_name do
-        t = type_arg(value) || fail("Type #{value.class} not allowed")
-        sh('defaults', 'write', domain, name, t, value.to_s)
-      end
-      task_name
-    end
-  end.to_a
-
-  desc 'Set all OSX defaults'
-  task all: defaults_tasks
-end
-
 namespace :conf do
-  task :show_library do
-    sh 'chflags', 'nohidden', "#{ENV['HOME']}/Library"
-  end
 
-  desc 'Set user configuration'
-  task user: ['osx_defaults:all', :show_library]
+  namespace :user do
+    namespace :osx_defaults do
+      def type_arg(v)
+        if v.is_a?(String)
+          '-string'
+        elsif v.is_a?(TrueClass) || v.is_a?(FalseClass)
+          '-bool'
+        elsif v.is_a?(Integer)
+          '-int'
+        elsif v.is_a?(Float)
+          '-float'
+        else
+          nil
+        end
+      end
+
+      # Global settings
+      defaults = {
+        # Global settings
+        'NSGlobalDomain' => {
+          # Locale and units
+          'AppleLocale' => 'de_DE',
+          'AppleMeasurementUnits' => 'Centimeters',
+          'AppleMetricUnits' => true,
+          # Expand save and print dialogs by default
+          'NSNavPanelExpandedStateForSaveMode' => true,
+          'PMPrintingExpandedStateForPrint' => true,
+          'NSNavPanelExpandedStateForSaveMode2' => true,
+          'PMPrintingExpandedStateForPrint2' => true,
+          # Don't save to iCloud by default
+          'NSDocumentSaveNewDocumentsToCloud' => false,
+          # Show ASCII control characters in standard text views
+          'NSTextShowsControlCharacters' => true,
+          # Font smoothing on non-Apple LCDs
+          'AppleFontSmoothing' => 2,
+        },
+        'com.apple.LaunchServices' => {
+          # Disable quarantine for downloaded apps
+          'LSQuarantine' => false,
+        },
+        # Dock & Mission Control
+        'com.apple.dock' => {
+          # Show indicator dots for open apps
+          'show-process-indicators' => true,
+          # Don't minimize windows to their apps
+          'minimize-to-application' => false,
+          # Dock at bottom, and keep visible
+          'orientation' => 'bottom',
+          'autohide' => false,
+          # Don't reorder spaces by most recent use
+          'mru-spaces' => false,
+        },
+        # Dashboard
+        'com.apple.dashboard' => {
+          # Disable it!
+          'dashboard-enabled-state' => 1,
+        },
+        # Menubar
+        'com.apple.menuextra.battery' => {
+          'ShowPercent' => 'NO',
+        },
+        # Screenshots
+        'com.apple.screencapture' => {
+          # I like shadows
+          'disable-shadow' => false,
+        },
+        # Finder
+        'com.apple.finder' => {
+          # Search in current folder by default
+          'FXDefaultSearchScope' => 'SCcf',
+          # Don't warn about changing file extensions
+          'FXEnableExtensionChangeWarning' => false,
+          # Show servers and mounted media on desktop, but not internal HDDs
+          'ShowExternalHardDrivesOnDesktop' => true,
+          'ShowMountedServersOnDesktop' => true,
+          'ShowRemovableMediaOnDesktop' => true,
+          'ShowHardDrivesOnDesktop' => false,
+          # Dont' warn when emptying trash, and do so securely
+          'WarnOnEmptyTrash' => false,
+          'EmptyTrashSecurely' => true,
+        }
+      }
+
+      defaults_tasks = defaults.flat_map do |domain, settings|
+        settings.map do |name, value|
+          task_name = "#{domain}:#{name}"
+          task task_name do
+            t = type_arg(value) || fail("Type #{value.class} not allowed")
+            sh('defaults', 'write', domain, name, t, value.to_s)
+          end
+          task_name
+        end
+      end.to_a
+
+      desc 'Set all OSX defaults'
+      task all: defaults_tasks
+    end
+
+    task :show_library do
+      sh 'chflags', 'nohidden', "#{ENV['HOME']}/Library"
+    end
+
+    desc 'Set all user configuration'
+    task all: [:show_library, 'osx_defaults:all']
+  end
 end
