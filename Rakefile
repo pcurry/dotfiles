@@ -174,12 +174,18 @@ namespace :conf do
   end
 
   namespace :system do
-
+    desc 'Set the timezone'
     task :timezone do
       sh 'systemsetup', '-settimezone', 'Europe/Berlin'
     end
 
+    desc 'Set my shell'
+    task :shell, ['username'] do |t, args|
+      args.with_defaults(username: ENV['SUDO_USER'])
+      sh 'chsh', '-s', '/bin/zsh', (args.username || fail('User not known'))
+    end
+
     desc 'Set all system configuration'
-    task all: [:timezone]
+    task all: [:timezone, :shell]
   end
 end
