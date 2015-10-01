@@ -90,8 +90,11 @@ namespace :osx_defaults do |ns|
       'NSDocumentSaveNewDocumentsToCloud' => false,
       # Show ASCII control characters in standard text views
       'NSTextShowsControlCharacters' => true,
+      # Font smoothing on non-Apple LCDs
+       'AppleFontSmoothing' => 2,
     },
     'com.apple.LaunchServices' => {
+      # Disable quarantine for downloaded apps
       'LSQuarantine' => false,
     },
     # Dock & Mission Control
@@ -108,6 +111,7 @@ namespace :osx_defaults do |ns|
     },
     # Dashboard
     'com.apple.dashboard' => {
+      # Disable it!
       'dashboard-enabled-state' => 1,
     },
     # Menubar
@@ -130,8 +134,9 @@ namespace :osx_defaults do |ns|
       'ShowMountedServersOnDesktop' => true,
       'ShowRemovableMediaOnDesktop' => true,
       'ShowHardDrivesOnDesktop' => false,
-      # Dont' warn when emptying trash
-      'WarnOnEmptyTrash' => false
+      # Dont' warn when emptying trash, and do so securely
+      'WarnOnEmptyTrash' => false,
+      'EmptyTrashSecurely' => true,
     }
   }
 
