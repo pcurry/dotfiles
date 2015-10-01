@@ -18,6 +18,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+# Is disk encryption active?  This is the very first thing I'd like to know.  If
+# it's not on, that's the very first thing I should fix before I'm allowed to
+# continue!
+if `fdesetup isactive`.strip != 'true'
+  fail("ENABLE DISK ENCRYPTION YOU FOOL!")
+end
+
 namespace :install do
   desc 'Install Homebrew packages from Brewfile'
   task :brew do
