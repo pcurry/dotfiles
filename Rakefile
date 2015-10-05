@@ -107,6 +107,12 @@ namespace :conf do
           # Disable quarantine for downloaded apps
           'LSQuarantine' => false,
         },
+        # Screensaver
+        'com.apple.screensaver' => {
+          # Ask for password immediately after screensaver starts
+          'askForPassword' => 1,
+          'askForPasswordDelay' => 0.0,
+        },
         # Dock & Mission Control
         'com.apple.dock' => {
           # Show indicator dots for open apps
