@@ -306,10 +306,11 @@ alias vagi='vagrant provision'
 alias vagX='vagrant destroy'
 
 # Tmux aliases
-alias tmCC='tmux -CC'
-alias tma='tmux attach'
-alias tml='tmux list-sessions'
-alias tmL='tmux list-clients'
+alias tmx='tmux'
+alias tmxa='tmux attach'
+alias tmxCC='tmux -CC'
+alias tmxl='tmux list-sessions'
+alias tmxL='tmux list-clients'
 
 # Build Textual
 function build-textual {
