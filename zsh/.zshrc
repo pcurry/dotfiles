@@ -305,6 +305,12 @@ alias vagH='vagrant halt'
 alias vagi='vagrant provision'
 alias vagX='vagrant destroy'
 
+# Tmux aliases
+alias tmCC='tmux -CC'
+alias tma='tmux attach'
+alias tml='tmux list-sessions'
+alias tmL='tmux list-clients'
+
 # Build Textual
 function build-textual {
   xctool \
