@@ -130,7 +130,7 @@ if [[ -f /etc/zsh_command_not_found ]]; then
 fi
 
 # Zsh online help
-unalias run-help
+(( $+aliases[run-help] )) && unalias run-help
 autoload run-help
 if [[ $OSTYPE != darwin* ]]; then
   HELPDIR=/usr/local/share/zsh/help
