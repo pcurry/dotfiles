@@ -214,53 +214,6 @@ alias brewu='brew upgrade'
 alias brewU='brew update && brew upgrade --all'
 alias brewx='brew remove'
 
-# Arch Linux (aura)
-alias pac='aura'
-alias pacc='sudo aura --sync --clean'
-alias pacC='sudo aura --orphans --abandon'
-alias paci='sudo aura --sync'
-alias pacl='aura --query --list'
-alias paco='aura --orphans'
-alias pacq='aura --sync --info'
-alias pacQ='aura --query --info'
-alias pacs='aura --sync --search'
-alias pacS='aura --query --search'
-alias pacu='sudo aura --sync --refresh'
-alias pacU='sudo aura --sync --refresh --sysupgrade'
-alias pacx='sudo aura --remove'
-alias pacX='sudo aura --remove --nosave --recursive'
-alias auri='sudo aura --aursync --delmakedeps'
-alias aurq='aura --aursync --info'
-alias aurs='aura --aursync --search'
-alias aurU='sudo aura --aursync --sysupgrade'
-
-# DPKG
-alias debc='sudo apt-get clean && sudo apt-get autoclean'
-alias debf='apt-file search --regexp'
-alias debi='sudo apt-get install'
-alias debI='sudo dpkg -i'
-alias debq='apt-cache show'
-alias debs='apt-cache search'
-alias debu='sudo apt-get update'
-alias debU='sudo apt-get update && sudo apt-get dist-upgrade'
-alias debx='sudo apt-get remove'
-function debX {
-  sudo apt-get remove --purge "$@" && sudo apt-get autoremove --purge
-}
-
-# Yum
-alias yumc='sudo yum clean all'
-alias yumi='sudo yum install'
-alias yuml='repoquery --list'
-alias yumq='yum info'
-alias yums='yum search'
-alias yumu='sudo yum update'
-alias yumU='sudo yum upgrade'
-alias yumx='sudo yum erase'
-function yumX {
-  sudo yum remove "$@" && sudo yum autoremove
-}
-
 # SBT aliases
 alias sbtb='sbt compile'
 alias sbtC='sbt clean'
