@@ -266,25 +266,6 @@ alias sbtb='sbt compile'
 alias sbtC='sbt clean'
 alias sbtt='sbt test'
 
-# Cabal
-alias cab='cabal'
-alias cabb='cabal build'
-alias cabc='cabal configure'
-alias cabC='cabal clean'
-alias cabd='cabal install --only-dependencies' # (d)ependencies
-alias cabi='cabal install'
-alias cabI='cabal copy'
-alias cabp='cabal upload'       # (p)ush
-alias cabq='cabal info'
-alias cabs='cabal list'
-alias cabSi='cabal sandbox init'
-alias cabSI='cabSi && cabd'
-alias cabSx='cabal sandbox delete'
-alias cabt='cabal test'
-alias cabU='cabal install --upgrade-dependencies --force-reinstalls world'
-alias cabu='cabal update'
-alias cabX='cabal clean && cabal sandbox delete'
-
 # Stack
 alias sta=stack
 alias staI='stack init'
