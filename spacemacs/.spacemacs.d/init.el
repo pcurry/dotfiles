@@ -13,7 +13,7 @@ values."
    dotspacemacs-distribution 'spacemacs
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers")
+   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
@@ -31,7 +31,6 @@ values."
      colors
      (ibuffer :variables
               ibuffer-group-buffers-by 'projects)
-     osx
      (shell :variables
             shell-default-shell 'shell
             shell-default-height 30
@@ -66,6 +65,11 @@ values."
      ansible
      ;; Development tools
      restclient
+     ;; My personal layers
+     lunaryorn
+     ;; OS X specifics at the very last, to make sure that the layer hooks in
+     ;; properly into all other layers
+     osx
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -105,7 +109,7 @@ values."
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'.
    ;; (default '(recents projects))
-   dotspacemacs-startup-lists '(recents projects)
+   dotspacemacs-startup-lists '(projects bookmarks recents)
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
@@ -229,7 +233,7 @@ user code."
   "Configuration function for user code.
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-)
+  (spacemacs/toggle-mode-line-battery-on))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -240,7 +244,7 @@ layers configuration. You are free to put any user code."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yaml-mode web-mode web-beautify toml-mode tagedit sql-indent slim-mode shm shell-pop scss-mode sass-mode reveal-in-osx-finder restclient rainbow-mode rainbow-identifiers racer pyvenv pytest pyenv-mode pip-requirements pbcopy multi-term less-css-mode launchctl json-mode js2-refactor js2-mode js-doc jade-mode ibuffer-projectile hy-mode hindent helm-pydoc helm-css-scss haskell-snippets haml-mode flycheck-rust flycheck-haskell fish-mode evil-commentary eshell-prompt-extras esh-help emmet-mode ein cython-mode company-web company-tern company-racer company-ghc company-cabal company-auctex company-anaconda coffee-mode cmm-mode auctex anaconda-mode helm-c-yasnippet company-statistics company-quickhelp auto-yasnippet ansible-doc ansible ac-ispell smeargle ruby-tools ruby-test-mode robe noflet magit-gitflow magit helm-gitignore helm-flyspell gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-commit flycheck-pos-tip flycheck ensime enh-ruby-mode diff-hl bundler mmm-mode markdown-toc markdown-mode gh-md window-numbering volatile-highlights vi-tilde-fringe spray smooth-scrolling rainbow-delimiters powerline popwin popup pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-descbinds helm-ag helm google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-dictionary aggressive-indent adaptive-wrap ace-window ace-link evil-leader evil which-key quelpa package-build use-package bind-key s dash spacemacs-theme))))
+    (osx-trash spaceline evil-mc yaml-mode web-mode web-beautify toml-mode tagedit sql-indent slim-mode shm shell-pop scss-mode sass-mode reveal-in-osx-finder restclient rainbow-mode rainbow-identifiers racer pyvenv pytest pyenv-mode pip-requirements pbcopy multi-term less-css-mode launchctl json-mode js2-refactor js2-mode js-doc jade-mode ibuffer-projectile hy-mode hindent helm-pydoc helm-css-scss haskell-snippets haml-mode flycheck-rust flycheck-haskell fish-mode evil-commentary eshell-prompt-extras esh-help emmet-mode ein cython-mode company-web company-tern company-racer company-ghc company-cabal company-auctex company-anaconda coffee-mode cmm-mode auctex anaconda-mode helm-c-yasnippet company-statistics company-quickhelp auto-yasnippet ansible-doc ansible ac-ispell smeargle ruby-tools ruby-test-mode robe noflet magit-gitflow magit helm-gitignore helm-flyspell gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-commit flycheck-pos-tip flycheck ensime enh-ruby-mode diff-hl bundler mmm-mode markdown-toc markdown-mode gh-md window-numbering volatile-highlights vi-tilde-fringe spray smooth-scrolling rainbow-delimiters powerline popwin popup pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-descbinds helm-ag helm google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-dictionary aggressive-indent adaptive-wrap ace-window ace-link evil-leader evil which-key quelpa package-build use-package bind-key s dash spacemacs-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
