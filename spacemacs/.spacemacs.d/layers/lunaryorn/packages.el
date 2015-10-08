@@ -12,8 +12,13 @@
 ;; which require an initialization must be listed explicitly in the list.
 (setq lunaryorn-packages
       '(exec-path-from-shell
+        ;; Basic editing
         whitespace
-        whitespace-cleanup-mode))
+        whitespace-cleanup-mode
+        writeroom-mode
+        typo
+        ;; Tools
+        projectile))
 
 ;; List of packages to exclude.
 (setq lunaryorn-excluded-packages '())
@@ -71,3 +76,31 @@
         :evil-leader "tW"))
     :config
     (progn (spacemacs|diminish whitespace-cleanup-mode " ⓧ" " x"))))
+
+(defun lunaryorn/init-writeroom-mode ()
+  (use-package writeroom-mode
+    :init (spacemacs|add-toggle writeroom
+            :status writerooom-mode
+            :on (writeroom-mode)
+            :off (writeroom-mode -1)
+            :documentation "Enable distraction-free editing"
+            :evil-leader "otw")))
+
+(defun lunaryorn/init-typo ()
+  (use-package typo
+    :init
+    (progn
+      (spacemacs|add-toggle typo
+        :status typo-mode
+        :on (typo-mode)
+        :off (typo-mode -1)
+        :documentation "Enable typographic editing"
+        :evil-leader "tt")
+
+      (dolist (hook '(markdown-mode-hook
+                      rst-mode-hook))
+        (add-hook hook 'typo-mode)))))
+
+(defun lunaryorn/post-init-projectile ()
+  ;; Remove dead projects when Emacs is idle
+  (run-with-idle-timer 10 nil #'projectile-cleanup-known-projects))
