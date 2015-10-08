@@ -11,12 +11,14 @@
 ;; List of all packages to install and/or initialize. Built-in packages
 ;; which require an initialization must be listed explicitly in the list.
 (setq lunaryorn-packages
-      '(exec-path-from-shell))
+      '(exec-path-from-shell
+        whitespace
+        whitespace-cleanup-mode))
 
 ;; List of packages to exclude.
 (setq lunaryorn-excluded-packages '())
 
-(defun spacemacs-base/init-exec-path-from-shell ()
+(defun lunaryorn/init-exec-path-from-shell ()
   (use-package exec-path-from-shell
     :ensure t
     :if (and (eq system-type 'darwin) (display-graphic-p))
@@ -42,3 +44,30 @@
         (dolist (dir (nreverse (parse-colon-path (getenv "INFOPATH"))))
           (when dir
             (add-to-list 'Info-directory-list dir)))))))
+
+;; Editing
+(defun lunaryorn/pre-init-whitespace ()
+  ;; Cleanup all whitespace
+  (evil-leader/set-key "xdw" #'whitespace-cleanup)
+  ;; Use less aggressive whitespace highlighting, and disable Spacemacs own
+  ;; whitespace highlighting
+  (setq spacemacs-show-trailing-whitespace nil
+        whitespace-style '(face indentation space-after-tab space-before-tab
+                                tab-mark empty trailing lines-tail)
+        whitespace-line-column nil))
+
+(defun lunaryorn/init-whitespace-cleanup-mode ()
+  (use-package whitespace-cleanup-mode
+    :init
+    (progn
+      (dolist (hook '(prog-mode-hook text-mode-hook conf-mode-hook))
+        (add-hook hook #'whitespace-cleanup-mode))
+
+      (spacemacs|add-toggle whitespace-cleanup
+        :status whitespace-cleanup-mode
+        :on (whitespace-cleanup-mode)
+        :off (whitespace-cleanup-mode -1)
+        :documentation "Cleanup whitespace."
+        :evil-leader "tW"))
+    :config
+    (progn (spacemacs|diminish whitespace-cleanup-mode " ⓧ" " x"))))
