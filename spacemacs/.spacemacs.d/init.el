@@ -46,6 +46,7 @@ values."
      ;; Version control
      version-control
      git
+     github
      ;; Programming and markup languages
      emacs-lisp
      haskell
