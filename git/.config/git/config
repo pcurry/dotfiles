@@ -5,8 +5,6 @@
 [core]
 	preloadindex = true
 	autosetuprebase = true
-[commit]
-	template = ~/.config/git/template
 # Rebasing and merging
 [rebase]
 	autosquash = true
