@@ -251,9 +251,84 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#272822" "#F92672" "#A6E22E" "#E6DB74" "#66D9EF" "#FD5FF0" "#A1EFE4" "#F8F8F2"])
+ '(compilation-message-face (quote default))
+ '(cua-global-mark-cursor-color "#2aa198")
+ '(cua-normal-cursor-color "#839496")
+ '(cua-overwrite-cursor-color "#b58900")
+ '(cua-read-only-cursor-color "#859900")
+ '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
+ '(highlight-symbol-colors
+   (--map
+    (solarized-color-blend it "#002b36" 0.25)
+    (quote
+     ("#b58900" "#2aa198" "#dc322f" "#6c71c4" "#859900" "#cb4b16" "#268bd2"))))
+ '(highlight-symbol-foreground-color "#93a1a1")
+ '(highlight-tail-colors
+   (quote
+    (("#49483E" . 0)
+     ("#67930F" . 20)
+     ("#349B8D" . 30)
+     ("#21889B" . 50)
+     ("#968B26" . 60)
+     ("#A45E0A" . 70)
+     ("#A41F99" . 85)
+     ("#49483E" . 100))))
+ '(hl-bg-colors
+   (quote
+    ("#7B6000" "#8B2C02" "#990A1B" "#93115C" "#3F4D91" "#00629D" "#00736F" "#546E00")))
+ '(hl-fg-colors
+   (quote
+    ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
+ '(magit-diff-use-overlays nil)
+ '(magit-pull-arguments (quote ("--rebase")))
+ '(nrepl-message-colors
+   (quote
+    ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (writeroom-mode typo magit-gh-pulls github-browse-file git-link gist whitespace-cleanup-mode osx-trash spaceline evil-mc yaml-mode web-mode web-beautify toml-mode tagedit sql-indent slim-mode shm shell-pop scss-mode sass-mode reveal-in-osx-finder restclient rainbow-mode rainbow-identifiers racer pyvenv pytest pyenv-mode pip-requirements pbcopy multi-term less-css-mode launchctl json-mode js2-refactor js2-mode js-doc jade-mode ibuffer-projectile hy-mode hindent helm-pydoc helm-css-scss haskell-snippets haml-mode flycheck-rust flycheck-haskell fish-mode evil-commentary eshell-prompt-extras esh-help emmet-mode ein cython-mode company-web company-tern company-racer company-ghc company-cabal company-auctex company-anaconda coffee-mode cmm-mode auctex anaconda-mode helm-c-yasnippet company-statistics company-quickhelp auto-yasnippet ansible-doc ansible ac-ispell smeargle ruby-tools ruby-test-mode robe noflet magit-gitflow magit helm-gitignore helm-flyspell gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-commit flycheck-pos-tip flycheck ensime enh-ruby-mode diff-hl bundler mmm-mode markdown-toc markdown-mode gh-md window-numbering volatile-highlights vi-tilde-fringe spray smooth-scrolling rainbow-delimiters powerline popwin popup pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-descbinds helm-ag helm google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-dictionary aggressive-indent adaptive-wrap ace-window ace-link evil-leader evil which-key quelpa package-build use-package bind-key s dash spacemacs-theme))))
+    (zenburn-theme monokai-theme writeroom-mode typo magit-gh-pulls github-browse-file git-link gist whitespace-cleanup-mode osx-trash spaceline evil-mc yaml-mode web-mode web-beautify toml-mode tagedit sql-indent slim-mode shm shell-pop scss-mode sass-mode reveal-in-osx-finder restclient rainbow-mode rainbow-identifiers racer pyvenv pytest pyenv-mode pip-requirements pbcopy multi-term less-css-mode launchctl json-mode js2-refactor js2-mode js-doc jade-mode ibuffer-projectile hy-mode hindent helm-pydoc helm-css-scss haskell-snippets haml-mode flycheck-rust flycheck-haskell fish-mode evil-commentary eshell-prompt-extras esh-help emmet-mode ein cython-mode company-web company-tern company-racer company-ghc company-cabal company-auctex company-anaconda coffee-mode cmm-mode auctex anaconda-mode helm-c-yasnippet company-statistics company-quickhelp auto-yasnippet ansible-doc ansible ac-ispell smeargle ruby-tools ruby-test-mode robe noflet magit-gitflow magit helm-gitignore helm-flyspell gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-commit flycheck-pos-tip flycheck ensime enh-ruby-mode diff-hl bundler mmm-mode markdown-toc markdown-mode gh-md window-numbering volatile-highlights vi-tilde-fringe spray smooth-scrolling rainbow-delimiters powerline popwin popup pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-descbinds helm-ag helm google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-dictionary aggressive-indent adaptive-wrap ace-window ace-link evil-leader evil which-key quelpa package-build use-package bind-key s dash spacemacs-theme)))
+ '(pos-tip-background-color "#073642")
+ '(pos-tip-foreground-color "#93a1a1")
+ '(safe-local-variable-values
+   (quote
+    ((flycheck-scalastylerc . "scalastyle-config.xml")
+     (scala-indent:use-javadoc-style . t)
+     (flycheck-disabled-checkers scala))))
+ '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
+ '(term-default-bg-color "#002b36")
+ '(term-default-fg-color "#839496")
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#F92672")
+     (40 . "#CF4F1F")
+     (60 . "#C26C0F")
+     (80 . "#E6DB74")
+     (100 . "#AB8C00")
+     (120 . "#A18F00")
+     (140 . "#989200")
+     (160 . "#8E9500")
+     (180 . "#A6E22E")
+     (200 . "#729A1E")
+     (220 . "#609C3C")
+     (240 . "#4E9D5B")
+     (260 . "#3C9F79")
+     (280 . "#A1EFE4")
+     (300 . "#299BA6")
+     (320 . "#2896B5")
+     (340 . "#2790C3")
+     (360 . "#66D9EF"))))
+ '(vc-annotate-very-old-color nil)
+ '(weechat-color-list
+   (unspecified "#272822" "#49483E" "#A20C41" "#F92672" "#67930F" "#A6E22E" "#968B26" "#E6DB74" "#21889B" "#66D9EF" "#A41F99" "#FD5FF0" "#349B8D" "#A1EFE4" "#F8F8F2" "#F8F8F0"))
+ '(xterm-color-names
+   ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#eee8d5"])
+ '(xterm-color-names-bright
+   ["#002b36" "#cb4b16" "#586e75" "#657b83" "#839496" "#6c71c4" "#93a1a1" "#fdf6e3"]))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
