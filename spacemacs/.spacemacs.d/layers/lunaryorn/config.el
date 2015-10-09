@@ -63,7 +63,7 @@ symbols, emojis, greek letters, as well as fall backs for."
 (setq frame-resize-pixelwise t)
 
 ;; More space between lines, makes text easier to read
-(setq-default line-spacing 0.2
+(setq-default line-spacing 0.1
               ;; Please, spacemacs
               sentence-end-double-space t)
 
