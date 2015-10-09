@@ -129,6 +129,11 @@ if [[ -f /etc/zsh_command_not_found ]]; then
   source /etc/zsh_command_not_found
 fi
 
+# Fuck :D
+if (( $+commands[thefuck] )); then
+  eval "$(thefuck --alias)"
+fi
+
 # Zsh online help
 (( $+aliases[run-help] )) && unalias run-help
 autoload run-help

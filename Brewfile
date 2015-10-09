@@ -13,6 +13,7 @@ brew 'zsh'
 brew 'tmux'                     # Terminal multiplexer
 brew 'tree'                     # Directory tree printer
 brew 'autojump'                 # Fast directory jumping for Zsh
+brew 'thefuck'                  # Fuck the last command
 brew 'coreutils'                # To have GNU tools at hand in need
 brew 'findutils'
 brew 'gnu-sed'
