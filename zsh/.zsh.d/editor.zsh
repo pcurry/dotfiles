@@ -43,6 +43,20 @@ function prepend-sudo {
 }
 zle -N prepend-sudo
 
+# Cursor management
+function set-cursor-shape() {
+  local shape="$1"
+
+  case "${shape}" in
+    block) local code=0;;
+    bar) local code=1;;
+    line) local code=2;;
+    *) return 1
+  esac
+
+  printf '\e]50;CursorShape=%s\x7' "${code}"
+}
+
 # Track editor information# Updates editor information when the keymap changes.
 # Exposes information about the Zsh Line Editor via the $editor_info associative
 # array.
@@ -53,10 +67,10 @@ function editor-info {
 
   if [[ "$KEYMAP" == 'vicmd' ]]; then
     editor_info[keymap]='command'
-    print -rn -- $terminfo[cvvis]
+    set-cursor-shape block
   else
     editor_info[keymap]='insert'
-    print -rn -- $terminfo[cnorm]
+    set-cursor-shape bar
 
     if [[ "$ZLE_STATE" == *overwrite* ]]; then
       editor_info[overwrite]='overwrite'

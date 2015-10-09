@@ -18,6 +18,7 @@
         writeroom-mode
         typo
         ;; Tools
+        flycheck
         projectile))
 
 ;; List of packages to exclude.
@@ -110,6 +111,10 @@
       (dolist (hook '(markdown-mode-hook
                       rst-mode-hook))
         (add-hook hook 'typo-mode)))))
+
+(defun lunaryorn/post-init-flycheck ()
+  ;; Enable Flycheck _everywhere
+  (global-flycheck-mode))
 
 (defun lunaryorn/post-init-projectile ()
   ;; Remove dead projects when Emacs is idle
