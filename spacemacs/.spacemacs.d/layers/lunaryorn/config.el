@@ -64,9 +64,11 @@ symbols, emojis, greek letters, as well as fall backs for."
               ;; Please, spacemacs
               sentence-end-double-space t)
 
-
 ;; Jump to bug references from code
 (add-hook 'text-mode-hook #'bug-reference-mode)
 (add-hook 'prog-mode-hook #'bug-reference-prog-mode)
+
+;; Don't nag me compile!
+(setq compilation-ask-about-save nil)
 
 ;;; config.el ends here
