@@ -51,6 +51,10 @@
             (add-to-list 'Info-directory-list dir)))))))
 
 ;; Editing
+(defun lunaryorn-whitespace-mode-local ()
+  "Enable `whitespace-mode' after local variables where set up."
+  (add-hook 'hack-local-variables-hook #'whitespace-mode nil 'local))
+
 (defun lunaryorn/pre-init-whitespace ()
   ;; Cleanup all whitespace
   (evil-leader/set-key "xdw" #'whitespace-cleanup)
@@ -60,6 +64,12 @@
         whitespace-style '(face indentation space-after-tab space-before-tab
                                 tab-mark empty trailing lines-tail)
         whitespace-line-column nil))
+
+(defun lunaryorn/post-init-whitespace ()
+  ;; Enable whitespace mode after local variables were setup because whitespace
+  ;; mode doesn't handle local variables well :(
+  (dolist (hook '(prog-mode-hook text-mode-hook conf-mode-hook))
+    (add-hook hook #'lunaryorn-whitespace-mode-local)))
 
 (defun lunaryorn/init-whitespace-cleanup-mode ()
   (use-package whitespace-cleanup-mode
