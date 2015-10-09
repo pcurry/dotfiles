@@ -43,6 +43,42 @@ function prepend-sudo {
 }
 zle -N prepend-sudo
 
+# Track editor information# Updates editor information when the keymap changes.
+# Exposes information about the Zsh Line Editor via the $editor_info associative
+# array.
+function editor-info {
+  # Clean up previous $editor_info.
+  unset editor_info
+  typeset -gA editor_info
+
+  if [[ "$KEYMAP" == 'vicmd' ]]; then
+    editor_info[keymap]='command'
+    print -rn -- $terminfo[cvvis]
+  else
+    editor_info[keymap]='insert'
+    print -rn -- $terminfo[cnorm]
+
+    if [[ "$ZLE_STATE" == *overwrite* ]]; then
+      editor_info[overwrite]='overwrite'
+    else
+      editor_info[overwrite]='insert'
+    fi
+  fi
+  zle reset-prompt
+  zle -R
+}
+zle -N editor-info
+
+function zle-keymap-select {
+  zle editor-info
+}
+zle -N zle-keymap-select
+
+function zle-line-init {
+  zle editor-info
+}
+zle -N zle-line-init
+
 unsetopt beep                   # Don't beep
 
 # Conservative word characters

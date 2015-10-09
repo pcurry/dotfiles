@@ -63,6 +63,13 @@ function prompt_lunaryorn_hostname {
   fi
 }
 
+function prompt_lunaryorn_keymap {
+  case $editor_info[keymap] in
+    command) echo '%F{yellow}❯%f ';;
+    *) echo '%F{green}❯%f ';;
+  esac
+}
+
 function prompt_lunaryorn_precmd {
   vcs_info 'prompt_lunaryorn'
   battery_info 'prompt_lunaryorn'
@@ -118,14 +125,15 @@ function prompt_lunaryorn_setup {
   # On xterm, gimme emojis and fancy unicode!
   if [[ $TERM == xterm* ]]; then
     local emoji='🐷  '
-    local sep='%(?.😍.😢) ⚡ '
+    local success='%(?.😍.😢)  '
   else
     local emoji=''
-    local sep='%(?.%F{green}.%B%F{red})$%f%b '
+    local success='%(?.%F{green}.%B%F{red})❯%f%b '
   fi
 
   local pwd='%(!.%F{red}.%F{cyan})$(prompt_lunaryorn_cwd)%f%b'
   local info='$(prompt_lunaryorn_hostname)${battery_info_msg_}'
+  local keymap='$(prompt_lunaryorn_keymap)'
 
   local inline_rprompt
   if [[ $TERM == xterm* ]]; then
@@ -134,7 +142,7 @@ function prompt_lunaryorn_setup {
     inline_rprompt=' $(prompt_lunaryorn_env)${vcs_info_msg_0_}'
   fi
 
-  PROMPT="${emoji}${pwd}${info}${inline_rprompt} ${sep}"
+  PROMPT="${emoji}${pwd}${info}${inline_rprompt} ${success}${keymap}"
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 

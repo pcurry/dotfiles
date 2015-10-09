@@ -147,7 +147,6 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(
   main                          # Basic highlighting
   brackets                      # Match parenthesis
   root                          # Highlight when root
-  cursor                        # The cursor position
 )
 
 # Substring search (KEEP AFTER substring search!)
