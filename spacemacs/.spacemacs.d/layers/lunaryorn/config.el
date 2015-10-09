@@ -6,6 +6,9 @@
 
 ;;; Code:
 
+(require 'subr-x)
+(require 'time-date)
+
 ;; Warn if the current build is older than a week.  I want a up to date build :)
 (run-with-idle-timer
  2 nil
