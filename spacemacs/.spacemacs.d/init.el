@@ -65,7 +65,9 @@ values."
      ruby
      rust
      scala
-     shell-scripts
+     (shell-scripts :variables
+                    sh-indentation 2
+                    sh-basic-offset 2)
      sql
      yaml
      ;; Configuration languages
