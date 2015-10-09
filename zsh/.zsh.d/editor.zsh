@@ -107,19 +107,30 @@ function bindtermkey {
   fi
 }
 
-# Vim bindings
+# Keybindings
+# Vi
 bindkey -M viins 'fd' vi-cmd-mode
+bindkey -M viins ' ' magic-space
+bindkey -M viins '.' expand-dot-to-parent-directory-path
+# Space is my leader in Zsh, too :) Spacemacs everywhere!
+bindkey -M vicmd '\ e' edit-command-line
+bindkey -M vicmd '\ i' expand-or-complete
+bindkey -M vicmd '\ s' prepend-sudo
+bindkey -M vicmd '\ \\' expand-cmd-path
 
-#  Keybindings
+# Emacs
 bindkey -M emacs '\C-X\C-E' edit-command-line
 bindkey -M emacs '\C-I' expand-or-complete
 bindkey -M emacs ' ' magic-space
 bindkey -M emacs '.' expand-dot-to-parent-directory-path
-bindkey -M isearch . self-insert 2> /dev/null # Not in isearch
 bindkey -M emacs '\C-x\C-S' prepend-sudo
 bindkey -M emacs '\ee' expand-cmd-path
+
+# Other maps
+bindkey -M isearch . self-insert 2> /dev/null # Not in isearch
 
 # Bind terminal keys
 bindtermkey 'kcbt' reverse-menu-complete # Previous item on Shift+Tab
 
-bindkey -v                      # Vi keybindings
+# Use vi bindings by default
+bindkey -v
