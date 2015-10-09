@@ -93,6 +93,9 @@ function bindtermkey {
   fi
 }
 
+# Vim bindings
+bindkey -M viins 'fd' vi-cmd-mode
+
 #  Keybindings
 bindkey -M emacs '\C-X\C-E' edit-command-line
 bindkey -M emacs '\C-I' expand-or-complete
@@ -105,4 +108,4 @@ bindkey -M emacs '\ee' expand-cmd-path
 # Bind terminal keys
 bindtermkey 'kcbt' reverse-menu-complete # Previous item on Shift+Tab
 
-bindkey -e                      # Emacs keybindings
+bindkey -v                      # Vi keybindings
