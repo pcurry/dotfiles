@@ -26,5 +26,6 @@
 ;;; Code:
 
 (evil-leader/set-key "ofg" #'lunaryorn-browse-feature-url)
+(evil-leader/set-key "oee" #'eval-expression)
 
 ;;; keybindings.el ends here
