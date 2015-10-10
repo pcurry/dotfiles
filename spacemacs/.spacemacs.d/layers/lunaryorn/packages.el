@@ -8,6 +8,8 @@
 ;;
 ;;; License: GPLv3
 
+(require 'subr-x)
+
 ;; List of all packages to install and/or initialize. Built-in packages
 ;; which require an initialization must be listed explicitly in the list.
 (setq lunaryorn-packages
@@ -52,7 +54,12 @@
       (with-eval-after-load 'info
         (dolist (dir (nreverse (parse-colon-path (getenv "INFOPATH"))))
           (when dir
-            (add-to-list 'Info-directory-list dir)))))))
+            (add-to-list 'Info-directory-list dir))))
+
+      ;; Make dired use gls now
+      (when-let (gls (executable-find "gls"))
+        (setq insert-directory-program gls
+              dired-listing-switches "-aBhl --group-directories-first")))))
 
 ;; Editing
 (defun lunaryorn/post-init-saveplace ()
