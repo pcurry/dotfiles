@@ -53,7 +53,8 @@ values."
           magit-refs-show-commit-count 'all
           ;; This is really creepy magit
           magit-revision-show-gravatars nil)
-     github
+     (github :variables
+             gh-profile-default-profile "lunaryorn")
      ;; Programming and markup languages
      emacs-lisp
      haskell
