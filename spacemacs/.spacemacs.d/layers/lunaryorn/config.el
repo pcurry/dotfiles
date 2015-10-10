@@ -65,6 +65,7 @@ symbols, emojis, greek letters, as well as fall backs for."
 ;; More space between lines, makes text easier to read
 (setq-default line-spacing 0.1
               ;; Please, spacemacs
+              tab-width 8
               sentence-end-double-space t)
 
 ;; Jump to bug references from code
