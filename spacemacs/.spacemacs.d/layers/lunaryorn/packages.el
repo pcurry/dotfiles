@@ -20,7 +20,9 @@
         typo
         ;; Tools
         flycheck
-        projectile))
+        projectile
+        ;; Applications
+        paradox))
 
 ;; List of packages to exclude.
 (setq lunaryorn-excluded-packages '())
@@ -124,3 +126,7 @@
 (defun lunaryorn/post-init-projectile ()
   ;; Remove dead projects when Emacs is idle
   (run-with-idle-timer 10 nil #'projectile-cleanup-known-projects))
+
+(defun lunaryorn/post-init-paradox ()
+  ;; Star packages that I install, and unstar those that I delete
+  (setq paradox-automatically-star t))
