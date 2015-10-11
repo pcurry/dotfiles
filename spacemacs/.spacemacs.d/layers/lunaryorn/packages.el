@@ -30,7 +30,6 @@
 
 (defun lunaryorn/init-exec-path-from-shell ()
   (use-package exec-path-from-shell
-    :ensure t
     :if (and (eq system-type 'darwin) (display-graphic-p))
     :config
     (progn
