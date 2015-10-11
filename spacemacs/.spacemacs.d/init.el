@@ -40,7 +40,6 @@ values."
      evil-commentary
      vim-empty-lines
      unimpaired
-     vinegar
      ;; Syntax and spell checking
      spell-checking
      syntax-checking
