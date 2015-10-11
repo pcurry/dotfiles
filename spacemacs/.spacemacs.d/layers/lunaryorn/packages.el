@@ -15,7 +15,6 @@
 (setq lunaryorn-packages
       '(exec-path-from-shell
         ;; Basic editing
-        saveplace
         whitespace
         whitespace-cleanup-mode
         writeroom-mode
@@ -62,10 +61,6 @@
               dired-listing-switches "-aBhl --group-directories-first")))))
 
 ;; Editing
-(defun lunaryorn/post-init-saveplace ()
-  ;; Pending https://github.com/syl20bnr/spacemacs/pull/3318
-  (save-place-mode))
-
 (defun lunaryorn-whitespace-mode-local ()
   "Enable `whitespace-mode' after local variables where set up."
   (add-hook 'hack-local-variables-hook #'whitespace-mode nil 'local))
