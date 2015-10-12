@@ -124,13 +124,12 @@ function prompt_lunaryorn_setup {
 
   # On xterm, gimme emojis and fancy unicode!
   if [[ $TERM == xterm* ]]; then
-    local emoji='🐷  '
-    local success='%(?.😍.😢)  '
+    local emoji='%(?.🐷.😿)  '
   else
     local emoji=''
-    local success='%(?.%F{green}.%B%F{red})❯%f%b'
   fi
 
+  local success='%(?.%F{green}.%B%F{red})❯%f%b'
   local pwd='%(!.%F{red}.%F{cyan})$(prompt_lunaryorn_cwd)%f%b'
   local info='$(prompt_lunaryorn_hostname)${battery_info_msg_}'
   local keymap='$(prompt_lunaryorn_keymap) '
