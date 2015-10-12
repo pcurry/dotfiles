@@ -8,12 +8,15 @@
 ;;
 ;;; License: GPLv3
 
+(eval-when-compile
+  (require 'use-package))
 (require 'subr-x)
 
 ;; List of all packages to install and/or initialize. Built-in packages
 ;; which require an initialization must be listed explicitly in the list.
 (setq lunaryorn-packages
       '(exec-path-from-shell
+        focus-autosave-mode
         ;; Basic editing
         whitespace
         whitespace-cleanup-mode
@@ -59,6 +62,11 @@
       (when-let (gls (executable-find "gls"))
         (setq insert-directory-program gls
               dired-listing-switches "-aBhl --group-directories-first")))))
+
+(defun lunaryorn/init-focus-autosave-mode ()
+  (use-package focus-autosave-mode
+    :init (focus-autosave-mode)
+    :config (spacemacs|hide-lighter focus-autosave-mode)))
 
 ;; Editing
 (defun lunaryorn-whitespace-mode-local ()
