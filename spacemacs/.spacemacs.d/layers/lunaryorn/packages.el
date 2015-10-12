@@ -54,7 +54,8 @@
           (when dir
             (add-to-list 'Info-directory-list dir))))
 
-      ;; Make dired use gls now
+      ;; Make dired use gls now.  Remove after
+      ;; https://github.com/syl20bnr/spacemacs/pull/3335 is merged
       (when-let (gls (executable-find "gls"))
         (setq insert-directory-program gls
               dired-listing-switches "-aBhl --group-directories-first")))))
