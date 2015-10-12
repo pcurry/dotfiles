@@ -56,13 +56,7 @@
       (with-eval-after-load 'info
         (dolist (dir (nreverse (parse-colon-path (getenv "INFOPATH"))))
           (when dir
-            (add-to-list 'Info-directory-list dir))))
-
-      ;; Make dired use gls now.  Remove after
-      ;; https://github.com/syl20bnr/spacemacs/pull/3335 is merged
-      (when-let (gls (executable-find "gls"))
-        (setq insert-directory-program gls
-              dired-listing-switches "-aBhl --group-directories-first")))))
+            (add-to-list 'Info-directory-list dir)))))))
 
 (defun lunaryorn/init-focus-autosave-mode ()
   (use-package focus-autosave-mode
