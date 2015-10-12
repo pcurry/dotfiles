@@ -130,4 +130,5 @@
 
 (defun lunaryorn/post-init-paradox ()
   ;; Star packages that I install, and unstar those that I delete
-  (setq paradox-automatically-star t))
+  (setq paradox-automatically-star t
+        paradox-spinner-type 'moon))
