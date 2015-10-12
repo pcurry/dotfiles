@@ -1,0 +1,15 @@
+inoremap fd <esc>
+
+" Leader bindings
+nnoremap ,gg :action GotoDeclaration<CR>
+nnoremap ,hu :action FindUsages<CR>
+nnoremap ,rr :action RenameElement<CR>
+
+nnoremap <Space>ss :action GotoSymbol<CR>
+nnoremap <Space>ff :action GotoFile<CR>
+nnoremap <Space>fr :action RecentFiles<CR>
+nnoremap <Space>feR :source ~/.ideavimrc<CR>
+
+nnoremap <Space>w/ :action SplitVertically<CR>
+nnoremap <Space>w- :action SplitHorizontally<CR>
+nnoremap <Space>wm :action UnsplitAll<CR>
