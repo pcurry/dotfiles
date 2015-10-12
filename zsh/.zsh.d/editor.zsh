@@ -65,11 +65,10 @@ function editor-info {
   unset editor_info
   typeset -gA editor_info
 
-  if [[ "$KEYMAP" == 'vicmd' ]]; then
-    editor_info[keymap]='command'
-    set-cursor-shape block
-  else
-    editor_info[keymap]='insert'
+  editor_info[keymap]="$KEYMAP"
+
+  if [[ "$KEYMAP" == 'viins' || "$KEYMAP" == 'main' ]]; then
+    editor_info[mode]='insert'
     set-cursor-shape bar
 
     if [[ "$ZLE_STATE" == *overwrite* ]]; then
@@ -77,6 +76,12 @@ function editor-info {
     else
       editor_info[overwrite]='insert'
     fi
+  elif [[ "$KEYMAP" == "viopp" ]]; then
+    editor_info[mode]='operator'
+    set-cursor-shape line
+  else
+    editor_info[mode]='command'
+    set-cursor-shape block
   fi
   zle reset-prompt
   zle -R
