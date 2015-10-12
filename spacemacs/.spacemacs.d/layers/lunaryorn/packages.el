@@ -17,6 +17,7 @@
 (setq lunaryorn-packages
       '(exec-path-from-shell
         focus-autosave-mode
+        spaceline
         ;; Basic editing
         whitespace
         whitespace-cleanup-mode
@@ -67,6 +68,13 @@
   (use-package focus-autosave-mode
     :init (focus-autosave-mode)
     :config (spacemacs|hide-lighter focus-autosave-mode)))
+
+(defun lunaryorn/post-init-spaceline ()
+  (spaceline-define-segment lunaryorn-branding
+    "My personal branding."
+    "🐷"
+    :enabled nil)
+  (add-to-list 'spaceline-left 'lunaryorn-branding))
 
 ;; Editing
 (defun lunaryorn-whitespace-mode-local ()
