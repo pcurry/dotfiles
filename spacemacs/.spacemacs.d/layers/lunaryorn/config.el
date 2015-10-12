@@ -60,7 +60,9 @@ symbols, emojis, greek letters, as well as fall backs for."
 (add-hook 'after-make-frame-functions #'lunaryorn-configure-fonts)
 
 ;; Resize frames pixelwise
-(setq frame-resize-pixelwise t)
+(setq frame-resize-pixelwise t
+      ;; Oh dear, let's break colours >:
+      ns-use-srgb-colorspace nil)
 
 ;; More space between lines, makes text easier to read
 (setq-default line-spacing 0.1
