@@ -288,6 +288,7 @@ layers configuration. You are free to put any user code."
    (quote
     ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
  '(magit-diff-use-overlays nil)
+ '(magit-fetch-arguments (quote ("--prune")))
  '(magit-pull-arguments (quote ("--rebase")))
  '(nrepl-message-colors
    (quote
