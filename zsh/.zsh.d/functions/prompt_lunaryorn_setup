@@ -65,7 +65,7 @@ function prompt_lunaryorn_hostname {
 
 function prompt_lunaryorn_keymap {
   case $editor_info[keymap] in
-    command) echo '%F{yellow}❯%f';;
+    command) echo '%B%F{yellow}❯%f%b';;
     *) echo '%F{green}❯%f';;
   esac
 }
