@@ -65,8 +65,8 @@ function prompt_lunaryorn_hostname {
 
 function prompt_lunaryorn_keymap {
   case $editor_info[keymap] in
-    command) echo '%F{yellow}❯%f ';;
-    *) echo '%F{green}❯%f ';;
+    command) echo '%F{yellow}❯%f';;
+    *) echo '%F{green}❯%f';;
   esac
 }
 
@@ -128,12 +128,12 @@ function prompt_lunaryorn_setup {
     local success='%(?.😍.😢)  '
   else
     local emoji=''
-    local success='%(?.%F{green}.%B%F{red})❯%f%b '
+    local success='%(?.%F{green}.%B%F{red})❯%f%b'
   fi
 
   local pwd='%(!.%F{red}.%F{cyan})$(prompt_lunaryorn_cwd)%f%b'
   local info='$(prompt_lunaryorn_hostname)${battery_info_msg_}'
-  local keymap='$(prompt_lunaryorn_keymap)'
+  local keymap='$(prompt_lunaryorn_keymap) '
 
   local inline_rprompt
   if [[ $TERM == xterm* ]]; then
