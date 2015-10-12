@@ -75,4 +75,11 @@ symbols, emojis, greek letters, as well as fall backs for."
 ;; Don't nag me compile!
 (setq compilation-ask-about-save nil)
 
+(with-eval-after-load 'dired
+  (setq dired-auto-revert-buffer t    ; Revert on re-visiting
+        ;; Inhibit prompts for simple recursive operations
+        dired-recursive-copies 'always
+        ;; Auto-copy to other Dired split window
+        dired-dwim-target t))
+
 ;;; config.el ends here
