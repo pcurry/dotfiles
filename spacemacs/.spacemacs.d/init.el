@@ -35,7 +35,10 @@ values."
      (shell :variables
             shell-default-shell 'shell
             shell-default-height 30
-            shell-default-position 'bottom)
+            shell-default-position 'bottom
+            ;; Use login shell by default, pending
+            ;; https://github.com/syl20bnr/spacemacs/pull/3363
+            shell-default-term-shell shell-file-name)
      ;; Evil setup
      evil-commentary
      vim-empty-lines
