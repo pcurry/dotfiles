@@ -64,6 +64,11 @@ symbols, emojis, greek letters, as well as fall backs for."
       ;; Oh dear, let's break colours >:
       ns-use-srgb-colorspace nil)
 
+;; Reuse frames if possible
+(add-to-list 'display-buffer-alist
+             '("." nil (reusable-frames . visible))
+             'append)
+
 ;; More space between lines, makes text easier to read
 (setq-default line-spacing 0.1
               ;; Please, spacemacs
