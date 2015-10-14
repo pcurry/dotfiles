@@ -28,8 +28,6 @@
         projectile
         ;; Applications
         paradox
-        ;; Languages
-        sbt-mode
         ))
 
 ;; List of packages to exclude.
@@ -146,8 +144,3 @@
 (defun lunaryorn/post-init-paradox ()
   ;; Star packages that I install, and unstar those that I delete
   (setq paradox-spinner-type 'moon))
-
-(defun lunaryorn/post-init-sbt-mode ()
-  ;; Pending https://github.com/syl20bnr/spacemacs/pull/3365
-  (evil-leader/set-key-for-mode 'scala-mode
-    "mbb" 'sbt-command))
