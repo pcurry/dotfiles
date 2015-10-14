@@ -28,6 +28,7 @@
         projectile
         ;; Applications
         paradox
+        osx-location
         ))
 
 ;; List of packages to exclude.
@@ -144,3 +145,7 @@
 (defun lunaryorn/post-init-paradox ()
   ;; Star packages that I install, and unstar those that I delete
   (setq paradox-spinner-type 'moon))
+
+(defun lunaryorn/post-init-osx-location ()
+  ;; Work around https://github.com/syl20bnr/spacemacs/pull/3380
+  (require 'solar))
