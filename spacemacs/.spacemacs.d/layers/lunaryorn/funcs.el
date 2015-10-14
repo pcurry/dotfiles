@@ -26,7 +26,7 @@
 (require 'lisp-mnt)
 (require 'find-func)
 
-(defun lunaryorn-browse-feature-url (feature)
+(defun lunaryorn/browse-feature-url (feature)
   "Browse the URL of the given FEATURE.
 
 Interactively, use the symbol at point, or prompt, if there is
