@@ -9,6 +9,9 @@
 (require 'subr-x)
 (require 'time-date)
 
+;; Never load outdated bytecode
+(setq load-prefer-newer t)
+
 ;; Warn if the current build is older than a week.  I want a up to date build :)
 (run-with-idle-timer
  2 nil
