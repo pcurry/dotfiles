@@ -17,6 +17,7 @@
 (setq lunaryorn-packages
       '(exec-path-from-shell
         focus-autosave-mode
+        popwin
         spaceline
         ;; Basic editing
         whitespace
@@ -64,6 +65,11 @@
   (use-package focus-autosave-mode
     :init (focus-autosave-mode)
     :config (spacemacs|hide-lighter focus-autosave-mode)))
+
+(defun lunaryorn/post-init-popwin ()
+  ;; Pending https://github.com/syl20bnr/spacemacs/pull/3383
+  (push '("*Sunshine*" :dedicated t :position bottom)
+        popwin:special-display-config))
 
 (defun lunaryorn/post-init-spaceline ()
   (spaceline-define-segment lunaryorn-branding
