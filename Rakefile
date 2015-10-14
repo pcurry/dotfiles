@@ -77,7 +77,6 @@ namespace :dotfiles do
 end
 
 namespace :conf do
-
   namespace :user do
     namespace :osx_defaults do
       def type_arg(v)
@@ -89,8 +88,6 @@ namespace :conf do
           '-int'
         elsif v.is_a?(Float)
           '-float'
-        else
-          nil
         end
       end
 
@@ -112,17 +109,17 @@ namespace :conf do
           # Show ASCII control characters in standard text views
           'NSTextShowsControlCharacters' => true,
           # Font smoothing on non-Apple LCDs
-          'AppleFontSmoothing' => 2,
+          'AppleFontSmoothing' => 2
         },
         'com.apple.LaunchServices' => {
           # Disable quarantine for downloaded apps
-          'LSQuarantine' => false,
+          'LSQuarantine' => false
         },
         # Screensaver
         'com.apple.screensaver' => {
           # Ask for password immediately after screensaver starts
           'askForPassword' => 1,
-          'askForPasswordDelay' => 0.0,
+          'askForPasswordDelay' => 0.0
         },
         # Dock & Mission Control
         'com.apple.dock' => {
@@ -134,21 +131,21 @@ namespace :conf do
           'orientation' => 'bottom',
           'autohide' => false,
           # Don't reorder spaces by most recent use
-          'mru-spaces' => false,
+          'mru-spaces' => false
         },
         # Dashboard
         'com.apple.dashboard' => {
           # Disable it!
-          'dashboard-enabled-state' => 1,
+          'dashboard-enabled-state' => 1
         },
         # Menubar
         'com.apple.menuextra.battery' => {
-          'ShowPercent' => 'NO',
+          'ShowPercent' => 'NO'
         },
         # Screenshots
         'com.apple.screencapture' => {
           # I like shadows
-          'disable-shadow' => false,
+          'disable-shadow' => false
         },
         # Finder
         'com.apple.finder' => {
@@ -163,7 +160,7 @@ namespace :conf do
           'ShowHardDrivesOnDesktop' => false,
           # Dont' warn when emptying trash, and do so securely
           'WarnOnEmptyTrash' => false,
-          'EmptyTrashSecurely' => true,
+          'EmptyTrashSecurely' => true
         }
       }
 
@@ -197,7 +194,7 @@ namespace :conf do
     end
 
     desc 'Set my shell'
-    task :shell, ['username'] do |t, args|
+    task :shell, ['username'] do |_, args|
       args.with_defaults(username: ENV['SUDO_USER'])
       sh 'chsh', '-s', '/bin/zsh', (args.username || fail('User not known'))
     end
