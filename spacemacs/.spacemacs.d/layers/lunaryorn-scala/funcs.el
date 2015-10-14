@@ -25,6 +25,17 @@
 
 ;;; Code:
 
+(require 'dash)
+
+(defun lunaryorn-scala/find-config-file-in-sbt-project (file &optional _checker)
+  "Find a config FILE in sbt project/ directories."
+  (-when-let* ((file-name (buffer-file-name))
+               (root-dir (locate-dominating-file file-name "build.sbt"))
+               (project-dir (expand-file-name "project/" root-dir))
+               (config-file (expand-file-name file project-dir)))
+    (when (file-exists-p config-file)
+      config-file)))
+
 (defun lunaryorn-scala/pop-to-sbt-frame ()
   "Open SBT REPL for this project in a new frame."
   (interactive)

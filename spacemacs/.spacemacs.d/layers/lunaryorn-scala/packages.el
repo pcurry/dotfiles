@@ -12,6 +12,7 @@
     '(
       sbt-mode
       (flycheck-auto-scalastyle :location local)
+      flycheck
       ))
 
 (setq lunaryorn-scala-excluded-packages '())
@@ -25,3 +26,7 @@
     :init (add-hook 'scala-mode-hook #'flycheck-auto-scalastyle-setup)
     :config (setq flycheck-auto-scalastyle-jar-dir
                   spacemacs-cache-directory)))
+
+(defun lunaryorn-scala/post-init-flycheck ()
+  (add-hook 'flycheck-locate-config-file-functions
+            #'lunaryorn-scala/find-config-file-in-sbt-project))
