@@ -26,9 +26,16 @@ if `fdesetup isactive`.strip != 'true'
 end
 
 namespace :install do
+  def brew_tap?(tap)
+    IO.popen(%w(brew tap)) do |source|
+      source.each.map(&:strip).include?(tap.downcase)
+    end
+  end
+
   desc 'Install Homebrew packages from Brewfile'
   task :brew do
-    sh 'brew', 'tap', 'Homebrew/bundle'
+    tap = 'Homebrew/bundle'
+    sh 'brew', 'tap', tap unless brew_tap? tap
     sh 'brew', 'bundle'
   end
 
