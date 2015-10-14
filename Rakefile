@@ -18,12 +18,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+def filevault_enabled?
+  IO.popen(%w(fdesetup isactive)) do |source|
+    source.read.strip == 'true'
+  end
+end
+
 # Is disk encryption active?  This is the very first thing I'd like to know.  If
 # it's not on, that's the very first thing I should fix before I'm allowed to
 # continue!
-if `fdesetup isactive`.strip != 'true'
-  fail("ENABLE DISK ENCRYPTION YOU FOOL!")
-end
+fail('ENABLE DISK ENCRYPTION YOU FOOL!') unless filevault_enabled?
 
 namespace :install do
   def brew_tap?(tap)
