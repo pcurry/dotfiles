@@ -60,7 +60,8 @@ values."
      ansible
      emacs-lisp
      haskell
-     html
+     (html :variables
+           css-indent-offset 2)
      ipython-notebook
      javascript
      latex
