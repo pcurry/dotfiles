@@ -145,6 +145,8 @@
   (global-flycheck-mode))
 
 (defun lunaryorn/post-init-projectile ()
+  ;; Disable caching, my systems are fast enough
+  (setq projectile-enable-caching nil)
   ;; Remove dead projects when Emacs is idle
   (run-with-idle-timer 10 nil #'projectile-cleanup-known-projects))
 
