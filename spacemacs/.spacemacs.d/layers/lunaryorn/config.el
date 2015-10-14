@@ -89,4 +89,8 @@ symbols, emojis, greek letters, as well as fall backs for."
         ;; Auto-copy to other Dired split window
         dired-dwim-target t))
 
-;;; config.el ends here
+;; Disable this most annoying spacemacs mis-feature.  See
+;; https://github.com/syl20bnr/spacemacs/pull/3398/
+(remove-hook 'after-save-hook 'byte-compile-current-buffer)
+
+;;; config.el ends her
