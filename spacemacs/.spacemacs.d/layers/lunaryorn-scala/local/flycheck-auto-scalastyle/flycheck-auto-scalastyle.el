@@ -28,7 +28,7 @@
 
 (require 'flycheck)
 
-(defcustom flycheck-auto-scalastyle-version '("0.7.0" . "2.10")
+(defcustom flycheck-auto-scalastyle-version '("0.7.0" . "2.11")
   "Version of scala style to use for Flycheck.
 
 A pair of `(VERSION . SCALA-VERSION)'."
