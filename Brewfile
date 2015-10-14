@@ -56,6 +56,7 @@ brew 'rust'
 brew 'haskell-stack'            # Haskell stack
 brew 'maven'                    # Java
 brew 'sbt'                      # Scala
+brew 'scalastyle'
 brew 'node'                     # Javascript (sad, but necessary)
 brew 'coq'
 
