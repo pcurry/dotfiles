@@ -24,6 +24,9 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     ;; System integration
+     osx
+     ;; Editing
      (auto-completion :variables
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'cycle
@@ -32,10 +35,6 @@ values."
      colors
      (ibuffer :variables
               ibuffer-group-buffers-by 'projects)
-     (shell :variables
-            shell-default-shell 'shell
-            shell-default-height 30
-            shell-default-position 'bottom)
      ;; Evil setup
      evil-commentary
      vim-empty-lines
@@ -54,7 +53,11 @@ values."
           magit-revision-show-gravatars nil)
      (github :variables
              gh-profile-default-profile "lunaryorn")
+     ;; Development tools
+     restclient
+     dash
      ;; Programming and markup languages
+     ansible
      emacs-lisp
      haskell
      html
@@ -71,16 +74,13 @@ values."
                     sh-basic-offset 2)
      sql
      yaml
-     ;; Configuration languages
-     ansible
-     ;; Development tools
-     restclient
-     dash
+     ;; Applications
+     (shell :variables
+            shell-default-shell 'shell
+            shell-default-height 30
+            shell-default-position 'bottom)
      ;; My personal layers
      lunaryorn
-     ;; OS X specifics at the very last, to make sure that the layer hooks in
-     ;; properly into all other layers
-     osx
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
