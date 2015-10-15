@@ -3,6 +3,7 @@ inoremap fd <esc>
 " Leader bindings
 nnoremap ,gg :action GotoDeclaration<CR>
 nnoremap ,hu :action FindUsages<CR>
+nnoremap ,hh :action QuickJavaDoc<CR>
 nnoremap ,rr :action RenameElement<CR>
 
 nnoremap <Space>ss :action GotoSymbol<CR>
