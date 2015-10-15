@@ -14,3 +14,6 @@ nnoremap <Space>feR :source ~/.ideavimrc<CR>
 nnoremap <Space>w/ :action SplitVertically<CR>
 nnoremap <Space>w- :action SplitHorizontally<CR>
 nnoremap <Space>wm :action UnsplitAll<CR>
+
+nnoremap <Space>j= ggvG=
+vnoremap <Space>j= =
