@@ -3,10 +3,14 @@
 ;; Copyright (C) 2015  Sebastian Wiesner
 
 ;; Author: Sebastian Wiesner <swiesner@lunaryorn.com>
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;; license: gplv3
 
 ;;; Code:
 
-(require 'subr-x)
+(require 'dash)
 (require 'time-date)
 
 ;; Never load outdated bytecode
@@ -58,7 +62,7 @@ symbols, emojis, greek letters, as well as fall backs for."
   (set-fontset-font t nil (font-spec :family "Apple Symbols")
                     frame 'append))
 
-(when-let (frame (selected-frame))
+(-when-let (frame (selected-frame))
   (lunaryorn-configure-fonts frame))
 (add-hook 'after-make-frame-functions #'lunaryorn-configure-fonts)
 
