@@ -93,6 +93,7 @@ values."
                   sunshine-show-icons (display-graphic-p))
      ;; My personal layers
      lunaryorn
+     lunaryorn-markdown
      lunaryorn-scala
      )
    ;; List of additional packages that will be installed without being
