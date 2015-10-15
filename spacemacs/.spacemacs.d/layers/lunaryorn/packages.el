@@ -25,6 +25,7 @@
         writeroom-mode
         typo
         ;; Tools
+        flyspell
         flycheck
         projectile
         ;; Applications
@@ -139,6 +140,10 @@
       (dolist (hook '(markdown-mode-hook
                       rst-mode-hook))
         (add-hook hook 'typo-mode)))))
+
+(defun lunaryorn/post-init-flyspell ()
+  ;; Work around https://github.com/syl20bnr/spacemacs/pull/3410
+  (add-hook 'prog-mode-hook #'flyspell-prog-mode))
 
 (defun lunaryorn/post-init-flycheck ()
   ;; Enable Flycheck _everywhere
