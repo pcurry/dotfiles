@@ -25,6 +25,7 @@
         writeroom-mode
         typo
         ;; Tools
+        ispell
         flyspell
         flycheck
         magit
@@ -141,6 +142,21 @@
       (dolist (hook '(markdown-mode-hook
                       rst-mode-hook))
         (add-hook hook 'typo-mode)))))
+
+(defun lunaryorn/init-ispell ()
+  (use-package ispell
+    :defer t
+    :config
+    (progn
+      (setq ispell-program-name (executable-find "aspell")
+            ispell-dictionary "en_GB"     ; Default dictionnary
+            ispell-silently-savep t       ; Don't ask when saving the private dict
+            ;; Increase the height of the choices window to take our header line
+            ;; into account.
+            ispell-choices-win-default-height 5)
+
+      (unless ispell-program-name
+        (warn "No spell checker available, install ASpell.")))))
 
 (defun lunaryorn/post-init-flyspell ()
   ;; Work around https://github.com/syl20bnr/spacemacs/pull/3410
