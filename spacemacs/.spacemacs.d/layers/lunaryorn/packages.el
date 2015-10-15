@@ -27,6 +27,7 @@
         ;; Tools
         flyspell
         flycheck
+        magit
         projectile
         ;; Applications
         paradox
@@ -148,6 +149,11 @@
 (defun lunaryorn/post-init-flycheck ()
   ;; Enable Flycheck _everywhere
   (global-flycheck-mode))
+
+(defun lunaryorn/post-init-magit ()
+  ;; Quit blame mode.  See https://github.com/syl20bnr/spacemacs/pull/3401,
+  ;; fixing https://github.com/syl20bnr/spacemacs/issues/2171
+  (evil-leader/set-key "gB" #'magit-blame-quit))
 
 (defun lunaryorn/post-init-projectile ()
   ;; Disable caching, my systems are fast enough
