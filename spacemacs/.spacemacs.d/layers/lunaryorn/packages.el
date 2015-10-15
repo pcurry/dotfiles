@@ -151,8 +151,9 @@
   (run-with-idle-timer 10 nil #'projectile-cleanup-known-projects))
 
 (defun lunaryorn/post-init-paradox ()
-  ;; Star packages that I install, and unstar those that I delete
-  (setq paradox-spinner-type 'moon))
+  ;; Make the spinner fancy and don't star packages automatically
+  (setq paradox-spinner-type 'moon
+        paradox-automatically-star nil))
 
 (defun lunaryorn/post-init-osx-location ()
   ;; Work around https://github.com/syl20bnr/spacemacs/pull/3380
