@@ -32,7 +32,9 @@
   "fvf" 'add-file-local-variable
   "fvp" 'add-file-local-variable-prop-line)
 
-(evil-leader/set-key "ofg" #'lunaryorn/browse-feature-url)
-(evil-leader/set-key "oee" #'eval-expression)
+(evil-leader/set-key
+  ;; Bindings in private key spacpacemacs
+  "ofg" #'lunaryorn/browse-feature-url
+  "oee" #'eval-expression)
 
 ;;; keybindings.el ends here
