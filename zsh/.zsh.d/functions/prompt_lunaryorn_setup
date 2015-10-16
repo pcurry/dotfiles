@@ -59,7 +59,7 @@ function prompt_lunaryorn_env {
 
 function prompt_lunaryorn_hostname {
   if [[ -n $SSH_CONNECTION ]]; then
-    echo ' %B%F{cyan}%n@%F{yellow}%M%f%b'
+    echo '%B%F{cyan}%n@%F{yellow}%M%f%b '
   fi
 }
 
@@ -130,8 +130,7 @@ function prompt_lunaryorn_setup {
   fi
 
   local success='%(?.%F{green}.%B%F{red})❯%f%b'
-  local pwd='%(!.%F{red}.%F{cyan})$(prompt_lunaryorn_cwd)%f%b'
-  local info='$(prompt_lunaryorn_hostname)${battery_info_msg_}'
+  local info='$(prompt_lunaryorn_hostname)%(!.%F{red}.%F{cyan})$(prompt_lunaryorn_cwd)%f%b${battery_info_msg_}'
   local keymap='$(prompt_lunaryorn_keymap) '
 
   local inline_rprompt
@@ -141,7 +140,7 @@ function prompt_lunaryorn_setup {
     inline_rprompt=' $(prompt_lunaryorn_env)${vcs_info_msg_0_}'
   fi
 
-  PROMPT="${emoji}${pwd}${info}${inline_rprompt} ${success}${keymap}"
+  PROMPT="${emoji}${info}${inline_rprompt} ${success}${keymap}"
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 
