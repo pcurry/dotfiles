@@ -6,6 +6,7 @@ nnoremap ,hu :action FindUsages<CR>
 nnoremap ,hh :action QuickJavaDoc<CR>
 nnoremap ,rr :action RenameElement<CR>
 
+nnoremap <Space>bd :action CloseContent<CR>
 nnoremap <Space>ss :action GotoSymbol<CR>
 nnoremap <Space>ff :action GotoFile<CR>
 nnoremap <Space>fr :action RecentFiles<CR>
