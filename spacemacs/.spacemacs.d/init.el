@@ -33,8 +33,7 @@ values."
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t)
      colors
-     (ibuffer :variables
-              ibuffer-group-buffers-by 'projects)
+     (ibuffer :variables ibuffer-group-buffers-by 'projects)
      ;; Evil setup
      evil-commentary
      vim-empty-lines
@@ -51,8 +50,7 @@ values."
           magit-refs-show-commit-count 'all
           ;; This is really creepy magit
           magit-revision-show-gravatars nil)
-     (github :variables
-             gh-profile-default-profile "lunaryorn")
+     (github :variables gh-profile-default-profile "lunaryorn")
      ;; Development tools
      restclient
      dash
@@ -61,11 +59,10 @@ values."
      ansible
      emacs-lisp
      haskell
-     (html :variables
-           css-indent-offset 2)
+     (html :variables css-indent-offset 2)
      ipython-notebook
      javascript
-     latex
+     (latex :variables latex-enable-auto-fill t)
      markdown
      python
      ruby
