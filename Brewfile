@@ -21,7 +21,6 @@ brew 'gnu-sed'
 # Tools
 brew 'homebrew/dupes/less'      # The built-in less is horribly outdated
 brew 'homebrew/dupes/rsync'     # rsync, likewise...
-brew 'wget'                     # For all those who need it
 brew 'httpie'                   # Powerful http client
 brew 'youtube-dl'               # Youtube Downloader
 
