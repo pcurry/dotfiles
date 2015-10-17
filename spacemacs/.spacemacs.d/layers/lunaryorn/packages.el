@@ -127,7 +127,7 @@
 (defun lunaryorn/init-writeroom-mode ()
   (use-package writeroom-mode
     :init (spacemacs|add-toggle writeroom
-            :status writerooom-mode
+            :status writeroom-mode
             :on (writeroom-mode)
             :off (writeroom-mode -1)
             :documentation "Enable distraction-free editing"
