@@ -19,10 +19,11 @@
         focus-autosave-mode
         popwin
         spaceline
-        ;; Basic editing
+        ;; Editing
         whitespace
         whitespace-cleanup-mode
         writeroom-mode
+        company-emoji
         typo
         ;; Tools
         ispell
@@ -81,6 +82,10 @@
     ;; Disabled pending https://github.com/TheBB/spaceline/issues/15
     :enabled nil)
   (add-to-list 'spaceline-left 'lunaryorn-branding))
+
+(defun lunaryorn/post-init-company-emoji ()
+  ;; Re-enable unicode emoji.  It's 2015, dammit
+  (setq company-emoji-insert-unicode t))
 
 ;; Editing
 (defun lunaryorn-whitespace-mode-local ()
