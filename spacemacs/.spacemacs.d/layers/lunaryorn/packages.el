@@ -24,7 +24,6 @@
         whitespace-cleanup-mode
         writeroom-mode
         company-emoji
-        typo
         ;; Tools
         ispell
         flyspell
@@ -132,21 +131,6 @@
             :off (writeroom-mode -1)
             :documentation "Enable distraction-free editing"
             :evil-leader "otw")))
-
-(defun lunaryorn/init-typo ()
-  (use-package typo
-    :init
-    (progn
-      (spacemacs|add-toggle typo
-        :status typo-mode
-        :on (typo-mode)
-        :off (typo-mode -1)
-        :documentation "Enable typographic editing"
-        :evil-leader "tt")
-
-      (dolist (hook '(markdown-mode-hook
-                      rst-mode-hook))
-        (add-hook hook 'typo-mode)))))
 
 (defun lunaryorn/init-ispell ()
   (use-package ispell

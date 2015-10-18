@@ -35,6 +35,7 @@ values."
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      colors
      emoji
+     (typography :variables typography-enable-typographic-editing t)
      ;; Evil setup
      evil-commentary
      vim-empty-lines
