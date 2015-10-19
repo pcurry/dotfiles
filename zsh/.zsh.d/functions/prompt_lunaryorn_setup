@@ -73,11 +73,6 @@ function prompt_lunaryorn_keymap {
 function prompt_lunaryorn_precmd {
   vcs_info 'prompt_lunaryorn'
   battery_info 'prompt_lunaryorn'
-
-  if [[ $battery_info_[state] == 'charged' ]]; then
-    # Don't show battery information if the battery is fully charged
-    battery_info_msg_=''
-  fi
 }
 
 function prompt_lunaryorn_setup {
@@ -118,7 +113,7 @@ function prompt_lunaryorn_setup {
 
   # Battery styling
   zstyle ':battery_info:*:prompt_lunaryorn' chargingstr '%F{yellow}'
-  zstyle ':battery_info:*:prompt_lunaryorn' chargedstr '%F{yellow}'
+  zstyle ':battery_info:*:prompt_lunaryorn' chargedstr '%F{green}'
   zstyle ':battery_info:*:prompt_lunaryorn' dischargingstr '%F{magenta}'
   zstyle ':battery_info:*:prompt_lunaryorn' format ' %c%(R.%p%%%%.%r)%%f'
 
