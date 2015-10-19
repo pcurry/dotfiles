@@ -1,0 +1,9 @@
+#+TITLE: Spacemacs fixes layer
+
+A personal layer to temporary hold fixes for Spacemacs until they are
+implemented upstream.
+
+* Pending pull requests [/]
+
+- [ ] [[https://github.com/syl20bnr/spacemacs/pull/3468][Add company-flx]]
+  - [ ][[https://github.com/syl20bnr/spacemacs/pull/3463][ Fix debug-on-error toggle]]
