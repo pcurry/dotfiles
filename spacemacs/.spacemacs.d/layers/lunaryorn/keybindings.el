@@ -27,12 +27,6 @@
 
 ;; File bindings
 (evil-leader/set-key
-  ;; Pending https://github.com/syl20bnr/spacemacs/pull/3412
-  "fvd" 'add-dir-local-variable
-  "fvf" 'add-file-local-variable
-  "fvp" 'add-file-local-variable-prop-line)
-
-(evil-leader/set-key
   ;; Bindings in private key spacpacemacs
   "ofg" #'lunaryorn/browse-feature-url
   "oee" #'eval-expression)

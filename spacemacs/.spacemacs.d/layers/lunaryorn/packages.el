@@ -17,7 +17,6 @@
 (setq lunaryorn-packages
       '(exec-path-from-shell
         focus-autosave-mode
-        popwin
         spaceline
         ;; Editing
         whitespace
@@ -26,13 +25,10 @@
         company-emoji
         ;; Tools
         ispell
-        flyspell
         flycheck
-        magit
         projectile
         ;; Applications
         paradox
-        osx-location
         ))
 
 ;; List of packages to exclude.
@@ -68,11 +64,6 @@
   (use-package focus-autosave-mode
     :init (focus-autosave-mode)
     :config (spacemacs|hide-lighter focus-autosave-mode)))
-
-(defun lunaryorn/post-init-popwin ()
-  ;; Pending https://github.com/syl20bnr/spacemacs/pull/3383
-  (push '("*Sunshine*" :dedicated t :position bottom)
-        popwin:special-display-config))
 
 (defun lunaryorn/post-init-spaceline ()
   (spaceline-define-segment lunaryorn-branding
@@ -147,18 +138,9 @@
       (unless ispell-program-name
         (warn "No spell checker available, install ASpell.")))))
 
-(defun lunaryorn/post-init-flyspell ()
-  ;; Work around https://github.com/syl20bnr/spacemacs/pull/3410
-  (add-hook 'prog-mode-hook #'flyspell-prog-mode))
-
 (defun lunaryorn/post-init-flycheck ()
   ;; Enable Flycheck _everywhere
   (global-flycheck-mode))
-
-(defun lunaryorn/post-init-magit ()
-  ;; Quit blame mode.  See https://github.com/syl20bnr/spacemacs/pull/3401,
-  ;; fixing https://github.com/syl20bnr/spacemacs/issues/2171
-  (evil-leader/set-key "gB" #'magit-blame-quit))
 
 (defun lunaryorn/post-init-projectile ()
   ;; Disable caching, my systems are fast enough
@@ -170,7 +152,3 @@
   ;; Make the spinner fancy and don't star packages automatically
   (setq paradox-spinner-type 'moon
         paradox-automatically-star nil))
-
-(defun lunaryorn/post-init-osx-location ()
-  ;; Work around https://github.com/syl20bnr/spacemacs/pull/3380
-  (require 'solar))
