@@ -43,7 +43,7 @@
         (add-hook 'text-mode-hook 'tildify-mode))
 
       (evil-leader/set-key
-        "xt" 'tildify-region)
+        "xTt" 'tildify-region)
 
       ;; Use the symbolic non-breaking space for LaTeX
       (defun typography/tildify-latex-space ()
