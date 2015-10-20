@@ -69,8 +69,8 @@
   (spaceline-define-segment lunaryorn-branding
     "My personal branding."
     "🐷"
-    ;; Disabled pending https://github.com/TheBB/spaceline/issues/15
-    :enabled nil)
+    :skip-alternate t
+    :enabled t)
   (add-to-list 'spaceline-left 'lunaryorn-branding))
 
 (defun lunaryorn/post-init-company-emoji ()
