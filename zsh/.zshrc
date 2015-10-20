@@ -160,6 +160,10 @@ bindtermkey 'kcuu1' history-substring-search-up
 bindtermkey 'kcud1' history-substring-search-down
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
+bindkey -M viins '^P' history-substring-search-up
+bindkey -M viins '^N' history-substring-search-down
+bindkey -M vicmd '\ n' history-substring-search-up
+bindkey -M vicmd '\ N' history-substring-search-down
 
 # Tools
 source "$ZSHD/coreutils.zsh"
