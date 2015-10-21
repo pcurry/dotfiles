@@ -25,6 +25,10 @@
 
 ;;; Code:
 
+(spacemacs/declare-prefix "of" "personal/files")
+(spacemacs/declare-prefix "oe" "personal/eval")
+(spacemacs/declare-prefix "ot" "personal/toggles")
+
 ;; File bindings
 (evil-leader/set-key
   ;; Bindings in private key spacpacemacs
