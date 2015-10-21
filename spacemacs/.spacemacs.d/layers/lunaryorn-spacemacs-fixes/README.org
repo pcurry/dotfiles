@@ -10,3 +10,4 @@ implemented upstream.
 - [ ] [[https://github.com/syl20bnr/spacemacs/pull/3470][Don’t override custom-file]]
 - [ ] [[https://github.com/syl20bnr/spacemacs/pull/3470][Prefixes for Ensime]]
 - [ ] [[https://github.com/syl20bnr/spacemacs/pull/3483][Prefixes for Ruby]]
+- [ ] [[https://github.com/syl20bnr/spacemacs/pull/3494][Markdown code block insertion and key prefixes]]

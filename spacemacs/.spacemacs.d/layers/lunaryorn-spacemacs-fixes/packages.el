@@ -18,6 +18,7 @@
         bundler
         robe
         ruby-test-mode
+        markdown-mode
         ))
 
 (setq lunaryorn-spacemacs-fixes-excluded-packages '())
@@ -63,3 +64,8 @@
 (defun lunaryorn-spacemacs-fixes/pre-init-ruby-test-mode ()
   (dolist (mode '(ruby-mode enh-ruby-mode))
     (spacemacs/declare-prefix-for-mode mode "mt" "ruby/test")))
+
+(defun lunaryorn-spacemacs-fixes/post-init-markdown-mode ()
+  ;; https://github.com/syl20bnr/spacemacs/pull/3494
+  (evil-leader/set-key-for-mode 'markdown-mode
+    "mxC"  'markdown-insert-gfm-code-block))
