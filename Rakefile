@@ -45,7 +45,7 @@ namespace :install do
 
   desc 'Install local Python packages from Requirements'
   task :pip do
-    sh 'pip', 'install', '--upgrade', '--user', '--requirement', 'Requirements'
+    sh 'pip3', 'install', '--upgrade', '--user', '--requirement', 'Requirements'
   end
 
   desc 'Install all programs and tools'
