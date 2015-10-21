@@ -22,6 +22,7 @@
         whitespace
         whitespace-cleanup-mode
         writeroom-mode
+        company
         company-emoji
         ;; Tools
         ispell
@@ -72,6 +73,10 @@
     :skip-alternate t
     :enabled t)
   (add-to-list 'spaceline-left 'lunaryorn-branding))
+
+(defun lunaryprn/post-init-company ()
+  ;; Auto-complete less aggressively
+  (setq company-idle-delay 0.5))
 
 (defun lunaryorn/post-init-company-emoji ()
   ;; Re-enable unicode emoji.  It's 2015, dammit
