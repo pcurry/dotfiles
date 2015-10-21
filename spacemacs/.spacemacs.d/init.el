@@ -258,8 +258,7 @@ user code."
   "Configuration function for user code.
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-  (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
   (spacemacs/toggle-mode-line-battery-on))
 
-(load (expand-file-name "custom.el" dotspacemacs-directory)
-      'no-error 'no-message)
+(setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
+(load custom-file 'no-error 'no-message)
