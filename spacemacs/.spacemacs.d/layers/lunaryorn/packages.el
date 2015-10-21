@@ -21,6 +21,7 @@
         ;; Editing
         whitespace
         whitespace-cleanup-mode
+        beacon
         writeroom-mode
         company
         company-emoji
@@ -117,6 +118,20 @@
         :documentation "Cleanup whitespace."
         :evil-leader "tW"))
     :config (spacemacs|diminish whitespace-cleanup-mode " ⓧ" " x")))
+
+(defun lunaryorn/init-beacon ()
+  (use-package beacon
+    :init
+    (progn
+      (spacemacs|add-toggle beacon
+        :status beacon-mode
+        :on (beacon-mode)
+        :off (beacon-mode -1)
+        :documentation "Enable point highlighting after scrolling"
+        :evil-leader "otb")
+
+      (spacemacs|hide-lighter beacon-mode)
+      (spacemacs/toggle-beacon-on))))
 
 (defun lunaryorn/init-writeroom-mode ()
   (use-package writeroom-mode
