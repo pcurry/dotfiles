@@ -111,8 +111,7 @@
         :off (whitespace-cleanup-mode -1)
         :documentation "Cleanup whitespace."
         :evil-leader "tW"))
-    :config
-    (progn (spacemacs|diminish whitespace-cleanup-mode " ⓧ" " x"))))
+    :config (spacemacs|diminish whitespace-cleanup-mode " ⓧ" " x")))
 
 (defun lunaryorn/init-writeroom-mode ()
   (use-package writeroom-mode
