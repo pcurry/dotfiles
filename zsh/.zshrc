@@ -289,6 +289,7 @@ alias podU='pod update'
 
 # Vagrant aliases
 alias vag='vagrant'
+alias vagGs='vagrant global-status'
 alias vagH='vagrant halt'
 alias vagR='vagrant reload'
 alias vagU='vagrant up --provision'
