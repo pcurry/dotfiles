@@ -10,6 +10,7 @@
 
 (setq lunaryorn-scala-packages
     '(
+      thrift
       sbt-mode
       (flycheck-auto-scalastyle :location local)
       (ensime-expand-region :location local)
@@ -17,6 +18,13 @@
       ))
 
 (setq lunaryorn-scala-excluded-packages '())
+
+(defun lunaryorn-scala/init-thrift ()
+  (use-package thrift
+    :defer t
+    :init (put 'thrift-indent-level 'safe-local-variable #'integerp)
+    ;; Fake inheritance from prog mode
+    :config (add-hook 'thrift-mode-hook (lambda () (run-hooks 'prog-mode-hook)))))
 
 (defun lunaryorn-scala/post-init-sbt-mode ()
   (evil-leader/set-key-for-mode 'scala-mode
