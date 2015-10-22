@@ -12,7 +12,7 @@
     '(
       sbt-mode
       (flycheck-auto-scalastyle :location local)
-      (ensime-mode-expansions :location local)
+      (ensime-expand-region :location local)
       flycheck
       ))
 
@@ -28,9 +28,10 @@
     :config (setq flycheck-auto-scalastyle-jar-dir
                   spacemacs-cache-directory)))
 
-(defun lunaryorn-scala/init-ensime-mode-expansions ()
-  (with-eval-after-load 'ensime
-    (use-package ensime-mode-expansions)))
+(defun lunaryorn-scala/init-ensime-expand-region ()
+  ;; Pending upstream, see https://github.com/ensime/ensime-emacs/pull/263
+  (spacemacs|use-package-add-hook ensime
+    :post-config (require 'ensime-expand-region)))
 
 (defun lunaryorn-scala/post-init-flycheck ()
   (add-hook 'flycheck-locate-config-file-functions
