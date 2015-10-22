@@ -246,19 +246,6 @@ if (( $+commands[rlwrap] )); then
   alias ocaml='rlwrap ocaml'
 fi
 
-# Load OPAM and add some nice aliases
-[[ -f "$HOME/.opam/opam-init/init.zsh" ]] &&
-  source "$HOME/.opam/opam-init/init.zsh"
-alias opmS='opam switch'
-alias opmU='opam upgrade'
-alias opme='eval "$(opam config env)"'
-alias opmi='opam install'
-alias opml='opam list'
-alias opmq='opam show'
-alias opms='opam search'
-alias opmu='opam update'
-alias opmx='opam remove'
-
 # Rubygems
 alias gemi='gem install --user-install --no-document'
 alias gems='gem search'
@@ -319,14 +306,6 @@ alias tmxCC='tmux -CC'
 alias tmxL='tmux list-clients'
 alias tmxa='tmux attach'
 alias tmxl='tmux list-sessions'
-
-# Build Textual
-function build-textual {
-  xctool \
-    -workspace Textual.xcworkspace \
-    -scheme 'Textual (Standard Release)' \
-    CONFIGURATION_BUILD_DIR='Build Results/' && open 'Build Results/'
-}
 
 # Media
 function avi-to-mp4 {           # Convert AVI to MP4 with ffmpeg
