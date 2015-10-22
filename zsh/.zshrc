@@ -211,15 +211,15 @@ function java-final-flags {     # Print the final flags for the JVM
 }
 
 # Hombebrew
-alias brewc='brew cleanup'
 alias brewC='brew cleanup --force'
+alias brewQ='brew home'
+alias brewU='brew update && brew upgrade --all'
+alias brewc='brew cleanup'
 alias brewi='brew install'
 alias brewl='brew list'
 alias brewq='brew info'
-alias brewQ='brew home'
 alias brews='brew search'
 alias brewu='brew upgrade'
-alias brewU='brew update && brew upgrade --all'
 alias brewx='brew remove'
 
 # SBT aliases
@@ -249,13 +249,13 @@ fi
 # Load OPAM and add some nice aliases
 [[ -f "$HOME/.opam/opam-init/init.zsh" ]] &&
   source "$HOME/.opam/opam-init/init.zsh"
+alias opmS='opam switch'
+alias opmU='opam upgrade'
 alias opme='eval "$(opam config env)"'
 alias opmi='opam install'
 alias opml='opam list'
 alias opmq='opam show'
-alias opmS='opam switch'
 alias opms='opam search'
-alias opmU='opam upgrade'
 alias opmu='opam update'
 alias opmx='opam remove'
 
@@ -288,12 +288,12 @@ if (( $+commands[virtualenvwrapper_lazy.sh] )); then
 fi
 
 # TexLive
+alias tlmS='tlmgr search'
+alias tlmU='sudo tlmgr update --self --all'
 alias tlmi='sudo tlmgr install'
 alias tlml='tlmgr info'
 alias tlmq='tlmgr info'
 alias tlms='tlmgr search --global'
-alias tlmS='tlmgr search'
-alias tlmU='sudo tlmgr update --self --all'
 
 # CocoaPods
 alias podi='pod install'
@@ -302,23 +302,23 @@ alias podU='pod update'
 
 # Vagrant aliases
 alias vag='vagrant'
-alias vags='vagrant ssh'
-alias vagu='vagrant up'
+alias vagH='vagrant halt'
+alias vagR='vagrant reload'
 alias vagU='vagrant up --provision'
+alias vagX='vagrant destroy'
+alias vagh='vagrant suspend'
+alias vagi='vagrant provision'
 alias vagr='vagrant rsync'
 alias vagra='vagrant rsync-auto'
-alias vagR='vagrant reload'
-alias vagh='vagrant suspend'
-alias vagH='vagrant halt'
-alias vagi='vagrant provision'
-alias vagX='vagrant destroy'
+alias vags='vagrant ssh'
+alias vagu='vagrant up'
 
 # Tmux aliases
 alias tmx='tmux'
-alias tmxa='tmux attach'
 alias tmxCC='tmux -CC'
-alias tmxl='tmux list-sessions'
 alias tmxL='tmux list-clients'
+alias tmxa='tmux attach'
+alias tmxl='tmux list-sessions'
 
 # Build Textual
 function build-textual {
