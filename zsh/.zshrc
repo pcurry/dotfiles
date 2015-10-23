@@ -308,6 +308,8 @@ alias podU='pod update'
 # Vagrant aliases
 alias vag='vagrant'
 alias vagGs='vagrant global-status'
+alias vagGh='vagrant-for-each vagrant suspend'
+alias vagGH='vagrant-for-each vagrant halt'
 alias vagH='vagrant halt'
 alias vagR='vagrant reload'
 alias vagU='vagrant up --provision'
@@ -318,6 +320,10 @@ alias vagr='vagrant rsync'
 alias vagra='vagrant rsync-auto'
 alias vags='vagrant ssh'
 alias vagu='vagrant up'
+
+function vagrant-for-each {         # Run command for all VMs
+  vagrant global-status | awk '/running/{print $1}'  | xargs -n 1 "$@"
+}
 
 # Tmux aliases
 alias tmx='tmux'
