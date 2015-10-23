@@ -57,5 +57,5 @@
 (eval-after-load 'expand-region
   '(ensime-expand-region-enable))
 
-(provide 'ensime-expand-region.el)
+(provide 'ensime-expand-region)
 ;;; ensime-expand-region.el ends here
