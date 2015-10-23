@@ -68,12 +68,14 @@
     :config (spacemacs|hide-lighter focus-autosave-mode)))
 
 (defun lunaryorn/post-init-spaceline ()
+  ;; Disabled, broken again.  Find some time to fix it...
   (spaceline-define-segment lunaryorn-branding
     "My personal branding."
     "🐷"
     :skip-alternate t
-    :enabled t)
-  (add-to-list 'spaceline-left 'lunaryorn-branding))
+    :enabled nil)
+  ;; (add-to-list 'spaceline-left 'lunaryorn-branding)
+  )
 
 (defun lunaryprn/post-init-company ()
   ;; Auto-complete less aggressively
