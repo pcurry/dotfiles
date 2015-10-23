@@ -3,11 +3,11 @@
 A personal layer to temporary hold fixes for Spacemacs until they are
 implemented upstream.
 
-* Pending pull requests [3/6]
+* Pending pull requests [4/6]
 
 - [ ] [[https://github.com/syl20bnr/spacemacs/pull/3468][Add company-flx]]
 - [ ] [[https://github.com/syl20bnr/spacemacs/pull/3463][Fix debug-on-error toggle]]
-- [ ] [[https://github.com/syl20bnr/spacemacs/pull/3470][Don’t override custom-file]]
+- [X] [[https://github.com/syl20bnr/spacemacs/pull/3470][Don’t override custom-file]]
 - [X] [[https://github.com/syl20bnr/spacemacs/pull/3470][Prefixes for Ensime]]
 - [X] [[https://github.com/syl20bnr/spacemacs/pull/3483][Prefixes for Ruby]]
 - [X] [[https://github.com/syl20bnr/spacemacs/pull/3494][Markdown code block insertion and key prefixes]]
