@@ -201,6 +201,24 @@ fi
 # Emacs
 alias emacs-version="emacs -Q --batch --eval '(progn (princ (emacs-version)) (terpri))'"
 
+function update-spacemacs {     # Update Spacemacs
+  (
+    cd ~/.emacs.d
+    if ! ( git diff --quiet && git diff --cached --quiet ); then
+      echo "Working directory dirty!"
+      return 1
+    fi
+    git checkout develop || return 1
+    # Push develop to my own fork, to mark the state before the current update
+    git push lunaryorn develop || return 1
+    # Not pull --rebase, and show a log of all commits in between
+    git pull --rebase || return 1
+    echo "List of changes:"
+    git --no-pager log --pretty=oneline --abbrev-commit \
+        lunaryorn/develop..develop
+  )
+}
+
 # Java utilities
 function java-gc-details {      # Print the GC details for the JVM
   java -XX:+PrintCommandLineFlags -XX:+PrintGCDetails "$@" -version
