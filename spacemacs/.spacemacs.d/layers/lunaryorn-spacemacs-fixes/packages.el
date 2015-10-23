@@ -12,15 +12,6 @@
 ;; which require an initialization must be listed explicitly in the list.
 (setq lunaryorn-spacemacs-fixes-packages
       '(
-        company-flx
         ))
 
 (setq lunaryorn-spacemacs-fixes-excluded-packages '())
-
-(defun lunaryorn-spacemacs-fixes/init-company-flx ()
-  ;; See https://github.com/syl20bnr/spacemacs/pull/3468
-  (use-package company-flx
-    :defer t)
-  (spacemacs|use-package-add-hook company
-    :pre-config
-    (company-flx-mode)))
