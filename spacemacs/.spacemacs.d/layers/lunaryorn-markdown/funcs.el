@@ -29,21 +29,11 @@
 (require 'rx)
 (require 'subr-x)
 
-(defun lunaryorn-markdown/default-title ()
-  "Get the default post title for the current buffer."
-  (when (buffer-file-name)
-    (let* ((fn (file-name-base (buffer-file-name)))
-           (words (split-string fn "-" 'omit-nulls (rx (1+ space)))))
-      (string-join (mapcar #'capitalize words) " "))))
-
-;;;###autoload
 (define-skeleton lunaryorn-markdown/post-header
   "Insert a header for blog posts."
-  (read-from-minibuffer "Title: " (lunaryorn-default-title))
+  (read-from-minibuffer "Title: ")
   "---\n"
   "title: " str "\n"
-  "tags: " ("Tag: " str ",") & -1 "\n"
-  "published: " (format-time-string "%F") "\n"
   "---\n\n"
   -)
 
