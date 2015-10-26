@@ -21,6 +21,7 @@
         ;; Editing
         whitespace
         whitespace-cleanup-mode
+        hungry-delete
         beacon
         writeroom-mode
         company
@@ -120,6 +121,9 @@
         :documentation "Cleanup whitespace."
         :evil-leader "tW"))
     :config (spacemacs|diminish whitespace-cleanup-mode " ⓧ" " x")))
+
+(defun lunaryorn/post-init-hungry-delete ()
+  (global-hungry-delete-mode))
 
 (defun lunaryorn/init-beacon ()
   (use-package beacon
