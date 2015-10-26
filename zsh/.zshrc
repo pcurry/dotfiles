@@ -210,6 +210,7 @@ function update-spacemacs {     # Update Spacemacs
     fi
     git checkout develop || return 1
     # Push develop to my own fork, to mark the state before the current update
+    git pull --rebase lunaryorn develop || return 1
     git push lunaryorn develop || return 1
     # Not pull --rebase, and show a log of all commits in between
     git pull --rebase || return 1
