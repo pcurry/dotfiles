@@ -32,7 +32,10 @@
 ;; File bindings
 (evil-leader/set-key
   ;; Bindings in private key spacpacemacs
-  "ofg" #'lunaryorn/browse-feature-url
-  "oee" #'eval-expression)
+  "oR"  'lunaryorn/recompile-packages
+  "oee" 'eval-expression
+  "ofg" 'lunaryorn/browse-feature-url
+  "ofi" 'lunaryorn/open-in-intellij
+  )
 
 ;;; keybindings.el ends here

@@ -46,4 +46,21 @@ none."
               (browse-url url)
             (user-error "Library %s has no URL header" library)))))))
 
+(defun lunaryorn/recompile-packages ()
+  "Recompile all packages."
+  (interactive)
+  (byte-recompile-directory package-user-dir nil 'force))
+
+(defun lunaryorn/open-in-intellij ()
+  "Open the current file in IntelliJ IDEA."
+  (interactive)
+  (let ((idea (executable-find "idea")))
+    (unless idea
+      (user-error "IntelliJ launcher does not exist.
+Create with Tools -> Create Command-line launcher in IntelliJ"))
+    (unless (= 0 (call-process idea nil nil nil
+                               "--line" (number-to-string (line-number-at-pos))
+                               (expand-file-name (buffer-file-name))))
+      (error "IntelliJ failed"))))
+
 ;;; funcs.el ends here
