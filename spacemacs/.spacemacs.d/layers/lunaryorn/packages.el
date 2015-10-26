@@ -30,6 +30,7 @@
         ispell
         flycheck
         projectile
+        fancy-battery
         ;; Applications
         paradox
         ))
@@ -172,6 +173,9 @@
   (setq projectile-enable-caching nil)
   ;; Remove dead projects when Emacs is idle
   (run-with-idle-timer 10 nil #'projectile-cleanup-known-projects))
+
+(defun lunaryorn/post-init-fancy-battery ()
+  (spacemacs/toggle-mode-line-battery-on))
 
 (defun lunaryorn/post-init-paradox ()
   ;; Make the spinner fancy and don't star packages automatically
