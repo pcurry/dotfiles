@@ -93,6 +93,7 @@ values."
      ;; My personal layers
      lunaryorn
      lunaryorn-markdown
+     lunaryorn-latex
      lunaryorn-scala
      lunaryorn-spacemacs-fixes
      )
