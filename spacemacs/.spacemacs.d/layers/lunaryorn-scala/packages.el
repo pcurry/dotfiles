@@ -12,7 +12,6 @@
     '(
       thrift
       sbt-mode
-      (flycheck-auto-scalastyle :location local)
       (ensime-expand-region :location local)
       flycheck
       ))
@@ -29,12 +28,6 @@
 (defun lunaryorn-scala/post-init-sbt-mode ()
   (evil-leader/set-key-for-mode 'scala-mode
     "moi" #'lunaryorn-scala/pop-to-sbt-frame))
-
-(defun lunaryorn-scala/init-flycheck-auto-scalastyle ()
-  (use-package flycheck-auto-scalastyle
-    :init (add-hook 'scala-mode-hook #'flycheck-auto-scalastyle-setup)
-    :config (setq flycheck-auto-scalastyle-jar-dir
-                  spacemacs-cache-directory)))
 
 (defun lunaryorn-scala/init-ensime-expand-region ()
   ;; Pending upstream, see https://github.com/ensime/ensime-emacs/pull/263
