@@ -31,6 +31,7 @@
         flycheck
         projectile
         fancy-battery
+        list-environment
         ;; Applications
         paradox
         ))
@@ -176,6 +177,10 @@
 
 (defun lunaryorn/post-init-fancy-battery ()
   (spacemacs/toggle-mode-line-battery-on))
+
+(defun lunaryorn/init-list-environment ()
+  (use-package list-environment
+    :init (evil-leader/set-key "oE" 'list-environment)))
 
 (defun lunaryorn/post-init-paradox ()
   ;; Make the spinner fancy and don't star packages automatically
