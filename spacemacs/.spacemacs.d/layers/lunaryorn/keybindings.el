@@ -25,8 +25,9 @@
 
 ;;; Code:
 
-(spacemacs/declare-prefix "of" "personal/files")
 (spacemacs/declare-prefix "oe" "personal/eval")
+(spacemacs/declare-prefix "of" "personal/files")
+(spacemacs/declare-prefix "oi" "personal/insert")
 (spacemacs/declare-prefix "ot" "personal/toggles")
 
 ;; File bindings
@@ -36,6 +37,7 @@
   "oee" 'eval-expression
   "ofg" 'lunaryorn/browse-feature-url
   "ofi" 'lunaryorn/open-in-intellij
+  "oip" 'lunaryorn/insert-page-break-line
   )
 
 ;;; keybindings.el ends here

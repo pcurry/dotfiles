@@ -26,6 +26,11 @@
 (require 'lisp-mnt)
 (require 'find-func)
 
+(defun lunaryorn/insert-page-break-line ()
+  "Insert a new line with a page break at point."
+  (interactive)
+  (insert "\n\n"))
+
 (defun lunaryorn/browse-feature-url (feature)
   "Browse the URL of the given FEATURE.
 
