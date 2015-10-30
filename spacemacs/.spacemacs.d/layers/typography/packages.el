@@ -12,8 +12,10 @@
 (setq typography-packages
       '(
         typo
-        tildify
         ))
+
+(when (version<= "25" emacs-version)
+  (push 'tildify typography-packages))
 
 (setq typography-excluded-packages '())
 
