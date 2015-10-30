@@ -138,8 +138,8 @@
         :documentation "Enable point highlighting after scrolling"
         :evil-leader "otb")
 
-      (spacemacs|hide-lighter beacon-mode)
-      (spacemacs/toggle-beacon-on))))
+      (spacemacs/toggle-beacon-on))
+    :config (spacemacs|hide-lighter beacon-mode))) 
 
 (defun lunaryorn/init-writeroom-mode ()
   (use-package writeroom-mode
