@@ -61,7 +61,9 @@ brew 'node'                     # Javascript (sad, but necessary)
 brew 'coq'
 
 # Emacs
+tap 'railwaycat/emacsmacport'   # Emacs Mac port
+brew 'emacs-mac'
 brew 'trash'                    # Command line trashing, used by Emacs
 brew 'texinfo'
 brew 'aspell', args: ['with-lang-de', 'with-lang-en']
-brew 'emacs', args: ['with-cocoa', 'with-gnutls', 'with-librsvg', 'HEAD']
+# brew 'emacs', args: ['with-cocoa', 'with-gnutls', 'with-librsvg', 'HEAD']
