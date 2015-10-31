@@ -20,7 +20,6 @@
         spaceline
         ;; Editing
         whitespace
-        whitespace-cleanup-mode
         hungry-delete
         beacon
         writeroom-mode
@@ -108,21 +107,6 @@
   ;; mode doesn't handle local variables well :(
   (dolist (hook '(prog-mode-hook text-mode-hook conf-mode-hook))
     (add-hook hook #'lunaryorn-whitespace-mode-local)))
-
-(defun lunaryorn/init-whitespace-cleanup-mode ()
-  (use-package whitespace-cleanup-mode
-    :init
-    (progn
-      (dolist (hook '(prog-mode-hook text-mode-hook conf-mode-hook))
-        (add-hook hook #'whitespace-cleanup-mode))
-
-      (spacemacs|add-toggle whitespace-cleanup
-        :status whitespace-cleanup-mode
-        :on (whitespace-cleanup-mode)
-        :off (whitespace-cleanup-mode -1)
-        :documentation "Cleanup whitespace."
-        :evil-leader "tW"))
-    :config (spacemacs|diminish whitespace-cleanup-mode " ⓧ" " x")))
 
 (defun lunaryorn/post-init-hungry-delete ()
   (global-hungry-delete-mode))
