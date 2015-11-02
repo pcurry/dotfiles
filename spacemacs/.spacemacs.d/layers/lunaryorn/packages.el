@@ -80,6 +80,8 @@
   )
 
 (defun lunaryorn/post-init-company ()
+  ;; Enable auto-completion everywhere!
+  (global-company-mode)
   ;; Auto-complete less aggressively
   (setq company-idle-delay 0.5))
 
