@@ -19,4 +19,5 @@
 
 (defun lunaryorn-spacemacs-fixes/post-init-ensime ()
   ;; Pending https://github.com/syl20bnr/spacemacs/pull/3634
-  (require 'ensime-expand-region))
+  (with-eval-after-load 'ensime
+    (require 'ensime-expand-region)))
