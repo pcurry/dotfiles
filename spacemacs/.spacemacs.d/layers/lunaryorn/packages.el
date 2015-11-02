@@ -86,6 +86,9 @@
   (setq company-idle-delay 0.5))
 
 (defun lunaryorn/post-init-company-emoji ()
+  ;; Enable Company Emoji everywhere
+  (with-eval-after-load 'company
+    (add-to-list 'company-backends 'company-emoji))
   ;; Re-enable unicode emoji.  It's 2015, dammit
   (setq company-emoji-insert-unicode t))
 
