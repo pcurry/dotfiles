@@ -79,7 +79,7 @@
   ;; (add-to-list 'spaceline-left 'lunaryorn-branding)
   )
 
-(defun lunaryprn/post-init-company ()
+(defun lunaryorn/post-init-company ()
   ;; Auto-complete less aggressively
   (setq company-idle-delay 0.5))
 
