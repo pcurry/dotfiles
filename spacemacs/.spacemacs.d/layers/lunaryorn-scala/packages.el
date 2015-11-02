@@ -12,7 +12,6 @@
     '(
       thrift
       sbt-mode
-      (ensime-expand-region :location local)
       flycheck
       ))
 
@@ -28,11 +27,6 @@
 (defun lunaryorn-scala/post-init-sbt-mode ()
   (evil-leader/set-key-for-mode 'scala-mode
     "moi" #'lunaryorn-scala/pop-to-sbt-frame))
-
-(defun lunaryorn-scala/init-ensime-expand-region ()
-  ;; Pending upstream, see https://github.com/ensime/ensime-emacs/pull/263
-  (spacemacs|use-package-add-hook ensime
-    :post-config (require 'ensime-expand-region)))
 
 (defun lunaryorn-scala/post-init-flycheck ()
   (add-hook 'flycheck-locate-config-file-functions
