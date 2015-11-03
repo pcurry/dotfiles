@@ -41,7 +41,8 @@ values."
      vim-empty-lines
      unimpaired
      ;; Syntax and spell checking
-     spell-checking
+     (spell-checking :variables
+                     spell-checking-enable-auto-dictionary t)
      syntax-checking
      ;; Version control
      version-control

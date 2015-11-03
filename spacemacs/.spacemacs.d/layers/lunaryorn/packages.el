@@ -145,7 +145,6 @@
     :config
     (progn
       (setq ispell-program-name (executable-find "aspell")
-            ispell-dictionary "en_GB"     ; Default dictionnary
             ispell-silently-savep t       ; Don't ask when saving the private dict
             ;; Increase the height of the choices window to take our header line
             ;; into account.
