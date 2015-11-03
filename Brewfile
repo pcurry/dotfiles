@@ -62,7 +62,7 @@ brew 'coq'
 
 # Emacs
 tap 'railwaycat/emacsmacport'   # Emacs Mac port
-brew 'emacs-mac', args: ['--with-spacemacs-icon', '--with-xml2']
+brew 'emacs-mac', args: ['with-spacemacs-icon', 'with-xml2']
 brew 'trash'                    # Command line trashing, used by Emacs
 brew 'texinfo'
 brew 'aspell', args: ['with-lang-de', 'with-lang-en']
