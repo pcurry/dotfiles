@@ -12,12 +12,6 @@
 ;; which require an initialization must be listed explicitly in the list.
 (setq lunaryorn-spacemacs-fixes-packages
       '(
-        ensime
         ))
 
 (setq lunaryorn-spacemacs-fixes-excluded-packages '())
-
-(defun lunaryorn-spacemacs-fixes/post-init-ensime ()
-  ;; Pending https://github.com/syl20bnr/spacemacs/pull/3634
-  (with-eval-after-load 'ensime
-    (require 'ensime-expand-region)))
