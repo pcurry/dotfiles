@@ -105,6 +105,8 @@ values."
    dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
+                                    ;; Disable flex matching
+                                    helm-flx
                                     ;; Snippets are awefully distracting
                                     yasnippet
                                     )
