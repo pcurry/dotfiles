@@ -6,6 +6,11 @@ Pylint
 # Python web notebook and Qt REPL
 jupyter
 
+# Analysis
+pandas
+numpy
+matplotlib
+
 # SQL formatting
 format-sql
 
