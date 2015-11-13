@@ -16,13 +16,15 @@
 ;; Never load outdated bytecode
 (setq load-prefer-newer t)
 
-;; Warn if the current build is older than a week.  I want a up to date build :)
-(run-with-idle-timer
- 2 nil
- (lambda ()
-   (let ((time-since-build (time-subtract (current-time) emacs-build-time)))
-     (when (> (time-to-number-of-days time-since-build) 7)
-       (lwarn 'emacs :warning "Your Emacs build is more than a week old!")))))
+(when (version<= "25" emacs-version)
+  ;; When on a snapshot version, warn if the build is older than a week to
+  ;; ensure that we stay up to date.
+  (run-with-idle-timer
+   2 nil
+   (lambda ()
+     (let ((time-since-build (time-subtract (current-time) emacs-build-time)))
+       (when (> (time-to-number-of-days time-since-build) 7)
+         (lwarn 'emacs :warning "Your Emacs build is more than a week old!"))))))
 
 ;; More refined font setup, providing math and emoji support.  Needs:
 ;;
