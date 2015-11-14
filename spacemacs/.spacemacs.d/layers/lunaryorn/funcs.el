@@ -31,6 +31,14 @@
   (interactive)
   (insert "\n\n"))
 
+(defun lunaryorn/insert-current-date (iso)
+  "Insert the current date at point.
+
+When ISO is non-nil, insert the date in ISO 8601 format.
+Otherwise insert the date as Mar 04, 2014."
+  (interactive "P")
+  (insert (format-time-string (if iso "%F" "%b %d, %Y"))))
+
 (defun lunaryorn/browse-feature-url (feature)
   "Browse the URL of the given FEATURE.
 

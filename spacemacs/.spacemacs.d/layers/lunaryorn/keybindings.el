@@ -37,6 +37,7 @@
   "oee" 'eval-expression
   "ofg" 'lunaryorn/browse-feature-url
   "ofi" 'lunaryorn/open-in-intellij
+  "oid" 'lunaryorn/insert-current-date
   "oip" 'lunaryorn/insert-page-break-line
   )
 
