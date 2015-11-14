@@ -33,6 +33,7 @@
         list-environment
         ;; Applications
         paradox
+        (dired :location built-in)
         ))
 
 ;; List of packages to exclude.
@@ -172,3 +173,14 @@
   ;; Make the spinner fancy and don't star packages automatically
   (setq paradox-spinner-type 'moon
         paradox-automatically-star nil))
+
+(defun lunaryorn/init-dired ()
+  ;; Dired configuration
+  (use-package dired
+    :defer t
+    :config
+    (setq dired-auto-revert-buffer t    ; Revert on re-visiting
+          ;; Inhibit prompts for simple recursive operations
+          dired-recursive-copies 'always
+          ;; Auto-copy to other Dired split window
+          dired-dwim-target t)))
