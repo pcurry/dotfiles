@@ -38,8 +38,6 @@ values."
      (typography :variables typography-enable-typographic-editing t)
      ;; Evil setup
      evil-commentary
-     ;; Breaks avy, see https://github.com/syl20bnr/spacemacs/issues/3717
-     ;; vim-empty-lines
      unimpaired
      ;; Syntax and spell checking
      (spell-checking :variables
