@@ -17,7 +17,8 @@
 
 (defun lunaryorn-markdown/post-init-markdown-mode ()
   (evil-leader/set-key-for-mode 'markdown-mode
-    "moh" 'lunaryorn-markdown/post-header)
+    "moh" 'lunaryorn-markdown/post-header
+    "mop" 'lunaryorn-markdown/publish-jekyll-draft)
 
   (let* ((layer-dir (configuration-layer/get-layer-local-dir 'lunaryorn-markdown))
          (stylesheet (expand-file-name "pandoc.css" layer-dir)))
