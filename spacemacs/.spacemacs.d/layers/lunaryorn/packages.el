@@ -80,18 +80,26 @@
   ;; (add-to-list 'spaceline-left 'lunaryorn-branding)
   )
 
+(defun lunaryorn/pre-init-company ()
+  (spacemacs|use-package-add-hook company
+    :post-config
+    ;; Auto-complete less aggressively
+    (setq company-idle-delay 0.5)))
+
 (defun lunaryorn/post-init-company ()
   ;; Enable auto-completion everywhere!
-  (global-company-mode)
-  ;; Auto-complete less aggressively
-  (setq company-idle-delay 0.5))
+  (global-company-mode))
+
+(defun lunaryorn/pre-init-company-emoji ()
+  (spacemacs|use-package-add-hook company-emoji
+    ;; Re-enable unicode emoji.  It's 2015, dammit
+    :post-config
+    (setq company-emoji-insert-unicode t)))
 
 (defun lunaryorn/post-init-company-emoji ()
   ;; Enable Company Emoji everywhere
   (with-eval-after-load 'company
-    (add-to-list 'company-backends 'company-emoji))
-  ;; Re-enable unicode emoji.  It's 2015, dammit
-  (setq company-emoji-insert-unicode t))
+    (add-to-list 'company-backends 'company-emoji)))
 
 ;; Editing
 (defun lunaryorn-whitespace-mode-local ()
@@ -99,14 +107,18 @@
   (add-hook 'hack-local-variables-hook #'whitespace-mode nil 'local))
 
 (defun lunaryorn/pre-init-whitespace ()
-  ;; Cleanup all whitespace
-  (evil-leader/set-key "xdw" #'whitespace-cleanup)
-  ;; Use less aggressive whitespace highlighting, and disable Spacemacs own
-  ;; whitespace highlighting
-  (setq spacemacs-show-trailing-whitespace nil
-        whitespace-style '(face indentation space-after-tab space-before-tab
-                                tab-mark empty trailing lines-tail)
-        whitespace-line-column nil))
+  (spacemacs|use-package-add-hook whitespace
+    :post-config
+    (progn
+      ;; Cleanup all whitespace
+      (evil-leader/set-key "xdw" #'whitespace-cleanup)
+
+      ;; Use less aggressive whitespace highlighting, and disable Spacemacs own
+      ;; whitespace highlighting
+      (setq spacemacs-show-trailing-whitespace nil
+            whitespace-style '(face indentation space-after-tab space-before-tab
+                                    tab-mark empty trailing lines-tail)
+            whitespace-line-column nil))))
 
 (defun lunaryorn/post-init-whitespace ()
   ;; Enable whitespace mode after local variables were setup because whitespace
@@ -169,10 +181,12 @@
   (use-package list-environment
     :init (evil-leader/set-key "oE" 'list-environment)))
 
-(defun lunaryorn/post-init-paradox ()
-  ;; Make the spinner fancy and don't star packages automatically
-  (setq paradox-spinner-type 'moon
-        paradox-automatically-star nil))
+(defun lunaryorn/pre-init-paradox ()
+  (spacemacs|use-package-add-hook paradox
+    :post-config
+    ;; Make the spinner fancy and don't star packages automatically
+    (setq paradox-spinner-type 'moon
+          paradox-automatically-star nil)))
 
 (defun lunaryorn/init-dired ()
   ;; Dired configuration
