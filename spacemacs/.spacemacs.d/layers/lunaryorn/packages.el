@@ -90,16 +90,12 @@
   ;; Enable auto-completion everywhere!
   (global-company-mode))
 
-(defun lunaryorn/pre-init-company-emoji ()
-  (spacemacs|use-package-add-hook company-emoji
-    ;; Re-enable unicode emoji.  It's 2015, dammit
-    :post-config
-    (setq company-emoji-insert-unicode t)))
-
 (defun lunaryorn/post-init-company-emoji ()
   ;; Enable Company Emoji everywhere
   (with-eval-after-load 'company
-    (add-to-list 'company-backends 'company-emoji)))
+    (add-to-list 'company-backends 'company-emoji))
+  ;; Re-enable unicode emoji.  It's 2015, dammit
+  (setq company-emoji-insert-unicode t))
 
 ;; Editing
 (defun lunaryorn-whitespace-mode-local ()
