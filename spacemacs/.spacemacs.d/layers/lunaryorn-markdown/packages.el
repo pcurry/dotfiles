@@ -15,16 +15,19 @@
 
 (setq lunaryorn-markdown-excluded-packages '())
 
-(defun lunaryorn-markdown/post-init-markdown-mode ()
-  (evil-leader/set-key-for-mode 'markdown-mode
-    "moh" 'lunaryorn-markdown/post-header
-    "mop" 'lunaryorn-markdown/publish-jekyll-draft)
+(defun lunaryorn-markdown/pre-init-markdown-mode ()
+  (spacemacs|use-package-add-hook markdown-mode
+    :post-config
+    (progn
+      (evil-leader/set-key-for-mode 'markdown-mode
+        "moh" 'lunaryorn-markdown/post-header
+        "mop" 'lunaryorn-markdown/publish-jekyll-draft)
 
-  (let* ((layer-dir (configuration-layer/get-layer-local-dir 'lunaryorn-markdown))
-         (stylesheet (expand-file-name "pandoc.css" layer-dir)))
-    (setq markdown-command
-          (mapconcat #'shell-quote-argument
-                     `("pandoc" "--toc" "--section-divs"
-                       "--css" ,(concat "file://" stylesheet)
-                       "--standalone" "-f" "markdown" "-t" "html5")
-                     " "))))
+      (let* ((layer-dir (configuration-layer/get-layer-local-dir 'lunaryorn-markdown))
+             (stylesheet (expand-file-name "pandoc.css" layer-dir)))
+        (setq markdown-command
+              (mapconcat #'shell-quote-argument
+                         `("pandoc" "--toc" "--section-divs"
+                           "--css" ,(concat "file://" stylesheet)
+                           "--standalone" "-f" "markdown" "-t" "html5")
+                         " "))))))
