@@ -23,6 +23,8 @@
         "moh" 'lunaryorn-markdown/post-header
         "mop" 'lunaryorn-markdown/publish-jekyll-draft)
 
+      (add-hook 'markdown-mode-hook #'auto-fill-mode)
+
       (let* ((layer-dir (configuration-layer/get-layer-local-dir 'lunaryorn-markdown))
              (stylesheet (expand-file-name "pandoc.css" layer-dir)))
         (setq markdown-command
