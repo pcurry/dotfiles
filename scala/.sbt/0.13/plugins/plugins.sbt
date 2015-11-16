@@ -21,3 +21,12 @@ addSbtPlugin("com.eed3si9n" % "sbt-dirty-money" % "0.1.0")
 
 // Dependency graphs for SBT projects
 addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.5")
+
+// Poop, poop, SBT
+resolvers += Resolver.url(
+  "team-boris",
+  url("http://dl.bintray.com/team-boris/sbt-plugins"))(
+  Resolver.ivyStylePatterns
+)
+
+addSbtPlugin("de.teamboris" % "sbt-poop" % "0.1.1")
