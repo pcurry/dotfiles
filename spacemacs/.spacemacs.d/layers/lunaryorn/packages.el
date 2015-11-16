@@ -181,12 +181,10 @@
   (use-package list-environment
     :init (evil-leader/set-key "oE" 'list-environment)))
 
-(defun lunaryorn/pre-init-paradox ()
-  (spacemacs|use-package-add-hook paradox
-    :post-config
-    ;; Make the spinner fancy and don't star packages automatically
-    (setq paradox-spinner-type 'moon
-          paradox-automatically-star nil)))
+(defun lunaryorn/post-init-paradox ()
+  ;; Make the spinner fancy and don't star packages automatically
+  (setq paradox-spinner-type 'moon
+        paradox-automatically-star nil))
 
 (defun lunaryorn/init-dired ()
   ;; Dired configuration
