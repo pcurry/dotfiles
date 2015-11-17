@@ -19,5 +19,6 @@ virtualenvwrapper
 
 # Python linting (flake8 + plugins)
 flake8
-flake8-pep257
+# Breaks Flycheck currently, see https://github.com/Robpol86/flake8-pep257/issues/2
+# flake8-pep257
 pep8-naming
