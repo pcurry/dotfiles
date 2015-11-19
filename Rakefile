@@ -57,7 +57,7 @@ namespace :dotfiles do
                      .sub('/.stow-local-ignore', '')
 
   def stow(package)
-    sh 'stow', --target, ENV['HOME'], '-R', package
+    sh 'stow', '--target', ENV['HOME'], '-R', package
   end
 
   desc 'Install dotfile packages'
