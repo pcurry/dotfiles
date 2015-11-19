@@ -1,8 +1,7 @@
 My Dotfiles
 ===========
 
-My personal dotfiles, for use with [GNU Stow][], and a bunch of [Puppet][]
-manifests for provisioning
+My personal dotfiles and settings for OS X.
 
 Usage
 -----
@@ -13,39 +12,16 @@ Clone this repository:
 $ git clone --recursive https://github.com/lunaryorn/dotfiles.git ~/dotfiles
 ```
 
-Don't forget `--recursive` to bring all submodules in, and clone to
-`~/dotfiles`, really.
+You **must** clone to a sub-directory of `~`, otherwise `stow` fails to link the
+dotfiles properly.  Don't forget `--recursive` to bring all submodules in.
 
-Install dotfiles for this system:
+Install and configure the system:
 
-```console
-$ make
+```sh
+$ sudo rake conf:system:all
+$ rake install:all conf:user:all dotfiles:install
 ```
 
-Available Stow packages
-=======================
+Make sure to install [Homebrew][] first.
 
-Most other directories are [GNU Stow][] packages:
-
-- `emacs`: Emacs configuration, using [Stante Pede][] and [Cask][]
-- `git`: Configuration for Git
-- `git.gnome`: Configuration for Git, specific to Gnome 3
-- `git.osx`: Configuration for Git, specific to OS X
-- `mercurial`: Configuration for Mercurial
-- `ruby`: Configuration for Ruby
-- `scala`: Configuration for Scala
-- `ssh`: Configuration for SSH
-- `zsh`: Zsh configuration, using [Prezto][]
-
-Use `make` to install the best set of Stow packages for your system.
-
-[GNU Stow]: http://www.gnu.org/software/stow/
-[Prezto]: https://github.com/sorin-ionescu/prezto
-[Stante Pede]: https://github.com/lunaryorn/stante-pede
-[Cask]: https://github.com/cask/cask
-
-Other configuration files
-=========================
-
-`VisualStudio`
-Settings files and extension list for Visual Studio
+[Homebrew]: http://brew.sh
