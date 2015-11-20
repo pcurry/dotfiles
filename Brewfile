@@ -66,4 +66,4 @@ brew 'coq'
 brew 'trash'                    # Command line trashing, used by Emacs
 brew 'texinfo'
 brew 'aspell', args: ['with-lang-de', 'with-lang-en']
-brew 'emacs', args: ['with-cocoa', 'with-gnutls', 'with-librsvg', 'HEAD']
+brew 'emacs', args: ['with-cocoa', 'with-gnutls', 'with-librsvg', 'devel']
