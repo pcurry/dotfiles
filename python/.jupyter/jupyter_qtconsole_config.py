@@ -4,6 +4,8 @@
 # Configurable configuration
 #------------------------------------------------------------------------------
 
+import pkg_resources
+
 #------------------------------------------------------------------------------
 # LoggingConfigurable configuration
 #------------------------------------------------------------------------------
@@ -129,7 +131,8 @@ c.JupyterQtConsoleApp.display_banner = False
 # c.JupyterQtConsoleApp.hide_menubar = False
 
 # path to a custom CSS stylesheet
-# c.JupyterQtConsoleApp.stylesheet = ''
+c.JupyterQtConsoleApp.stylesheet = pkg_resources.resource_filename(
+    'jupyter_qtconsole_colorschemes', 'zenburn.css')
 
 #------------------------------------------------------------------------------
 # NewBase configuration
@@ -272,7 +275,7 @@ c.ConsoleWidget.font_family = 'Source Code Pro'
 
 # If not empty, use this Pygments style for syntax highlighting. Otherwise, the
 # style sheet is queried for Pygments style information.
-# c.JupyterWidget.syntax_style = ''
+c.JupyterWidget.syntax_style = 'zenburn'
 
 #
 # c.JupyterWidget.in_prompt = 'In [<span class="in-prompt-number">%i</span>]: '
