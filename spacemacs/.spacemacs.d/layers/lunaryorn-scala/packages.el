@@ -26,8 +26,8 @@
 
 (defun lunaryorn-scala/post-init-sbt-mode ()
   (with-eval-after-load 'scala-mode2
-    (evil-leader/set-key-for-mode 'scala-mode
-      "moi" #'lunaryorn-scala/pop-to-sbt-frame)))
+    (spacemacs/set-leader-keys-for-major-mode 'scala-mode
+      "oi" #'lunaryorn-scala/pop-to-sbt-frame)))
 
 (defun lunaryorn-scala/post-init-flycheck ()
   (add-hook 'flycheck-locate-config-file-functions

@@ -107,7 +107,7 @@
     :post-config
     (progn
       ;; Cleanup all whitespace
-      (evil-leader/set-key "xdw" #'whitespace-cleanup)
+      (spacemacs/set-leader-keys "xdw" #'whitespace-cleanup)
 
       ;; Use less aggressive whitespace highlighting, and disable Spacemacs own
       ;; whitespace highlighting
@@ -175,7 +175,7 @@
 
 (defun lunaryorn/init-list-environment ()
   (use-package list-environment
-    :init (evil-leader/set-key "oE" 'list-environment)))
+    :init (spacemacs/set-leader-keys "oE" 'list-environment)))
 
 (defun lunaryorn/post-init-paradox ()
   ;; Make the spinner fancy and don't star packages automatically

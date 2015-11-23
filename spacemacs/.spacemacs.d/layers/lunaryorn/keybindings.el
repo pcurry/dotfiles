@@ -31,7 +31,7 @@
 (spacemacs/declare-prefix "ot" "personal/toggles")
 
 ;; File bindings
-(evil-leader/set-key
+(spacemacs/set-leader-keys
   ;; Bindings in private key spacpacemacs
   "oR"  'lunaryorn/recompile-packages
   "oee" 'eval-expression

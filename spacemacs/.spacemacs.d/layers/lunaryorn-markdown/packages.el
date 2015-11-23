@@ -19,9 +19,9 @@
   (spacemacs|use-package-add-hook markdown-mode
     :post-config
     (progn
-      (evil-leader/set-key-for-mode 'markdown-mode
-        "moh" 'lunaryorn-markdown/post-header
-        "mop" 'lunaryorn-markdown/publish-jekyll-draft)
+      (spacemacs/set-leader-keys-for-major-mode 'markdown-mode
+        "oh" 'lunaryorn-markdown/post-header
+        "op" 'lunaryorn-markdown/publish-jekyll-draft)
 
       (add-hook 'markdown-mode-hook #'auto-fill-mode)
 
