@@ -180,7 +180,7 @@ c.ConsoleWidget.buffer_size = 10000
 
 # The height of the console at start time in number of characters (will double
 # with `vsplit` paging)
-# c.ConsoleWidget.height = 25
+c.ConsoleWidget.height = 40
 
 # The font family to use for the console. On OSX this defaults to Monaco, on
 # Windows the default is Consolas with fallback of Courier, and on other
