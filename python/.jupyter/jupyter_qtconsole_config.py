@@ -207,7 +207,7 @@ c.ConsoleWidget.font_family = 'Source Code Pro'
 #    'custom_page_requested(str)' signal.
 # 'none'
 #    The text is written directly to the console.
-# c.ConsoleWidget.paging = 'inside'
+c.ConsoleWidget.paging = 'hsplit'
 
 # Whether to automatically execute on syntactically complete input.
 #
