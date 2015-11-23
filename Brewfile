@@ -49,16 +49,20 @@ brew 'gist'
 brew 'hub'
 
 # Languages
-brew 'python'
-brew 'pyqt'                     # For jupyter qtconsole
+# A decent Ruby version and Python 3.  We get PyQT as well for jupyter qtconsole
 brew 'ruby'
-brew 'rust'
-brew 'haskell-stack'            # Haskell stack
-brew 'maven'                    # Java
-brew 'sbt'                      # Scala
+brew 'python3'
+brew 'pyqt', args: ['with-python3']
+# Java and Scala
+brew 'maven'
+brew 'sbt'
 brew 'scalastyle'
-brew 'node'                     # Javascript (sad, but necessary)
+# A sad necessity
+brew 'node'
+# The cool stuff (Coq, Rust, Haskell)
 brew 'coq'
+brew 'rust'
+brew 'haskell-stack'
 
 # Emacs
 # tap 'railwaycat/emacsmacport'   # Emacs Mac port
