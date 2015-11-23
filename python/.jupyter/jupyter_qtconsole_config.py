@@ -123,7 +123,7 @@
 # c.JupyterQtConsoleApp.plain = False
 
 # Whether to display a banner upon starting the QtConsole.
-# c.JupyterQtConsoleApp.display_banner = True
+c.JupyterQtConsoleApp.display_banner = False
 
 # Start the console window with the menu bar hidden.
 # c.JupyterQtConsoleApp.hide_menubar = False
