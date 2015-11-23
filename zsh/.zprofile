@@ -43,16 +43,6 @@ path=(
   $path                               # The system path
 )
 
-manpath=(
-  /usr/local/texlive/*/texmf-dist/doc/man(N) # TeXLive manpages
-  ${manpath:-""}                             # The default manpath
-)
-
-infopath=(
-  /usr/local/texlive/*/texmf-dist/doc/info(N) # TeXLive Info manuals
-  ${infopath:-""}                             # The infopath or the default
-)
-
 # Basic tools
 export EDITOR='emacsclient'
 export VISUAL='emacsclient'
