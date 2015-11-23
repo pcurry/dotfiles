@@ -165,7 +165,7 @@ c.ConsoleWidget.font_size = 13
 
 # The maximum number of lines of text before truncation. Specifying a non-
 # positive number disables text truncation (not recommended).
-# c.ConsoleWidget.buffer_size = 10000
+c.ConsoleWidget.buffer_size = 10000
 
 # The type of completer to use. Valid values are:
 #
