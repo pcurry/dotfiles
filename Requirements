@@ -12,6 +12,9 @@ pandas
 numpy
 matplotlib
 
+# DB access
+PyMySQL
+
 # SQL formatting
 format-sql
 
