@@ -1,8 +1,5 @@
 # -*- mode: pip-requirements; -*-
 
-# Python linting
-Pylint
-
 # Python web notebook and Qt REPL
 jupyter
 jupyter_qtconsole_colorschemes
