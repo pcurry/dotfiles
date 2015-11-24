@@ -11,6 +11,7 @@ matplotlib
 
 # DB access
 PyMySQL
+sqlalchemy
 
 # SQL formatting
 format-sql
