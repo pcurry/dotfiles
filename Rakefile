@@ -48,8 +48,23 @@ namespace :install do
     sh 'pip3', 'install', '--upgrade', '--user', '--requirement', 'Requirements'
   end
 
+  GEMS = [
+    # Ruby linting
+    'rubycop',
+    # SCSS linting
+    'scss_lint', 'scss_lint_reporter_checkstyle',
+    # Travis CI client
+    'travis'
+  ]
+
+  desc 'Install local Ruby packages'
+  task :gem do
+    sh 'gem', 'install', '--user-install', *GEMS
+    sh 'gem', 'update', '--user-install'
+  end
+
   desc 'Install all programs and tools'
-  task all: [:brew, :pip]
+  task all: [:brew, :pip, :gem]
 end
 
 namespace :dotfiles do
