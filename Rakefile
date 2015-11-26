@@ -63,8 +63,23 @@ namespace :install do
     sh 'gem', 'update', '--user-install'
   end
 
+  NPM_PKGS = [
+    # Asset packging
+    'webpack', 'webpack-dev-server',
+    # Javascript linting
+    'jshint', 'eslint', 'jscs',
+    # JSON linting
+    'jsonlint'
+  ]
+
+  desc 'Install NPM packages'
+  task :npm do
+    sh 'npm', 'install', '-g', *NPM_PKGS
+    sh 'npm', 'update', '-g', *NPM_PKGS
+  end
+
   desc 'Install all programs and tools'
-  task all: [:brew, :pip, :gem]
+  task all: [:brew, :pip, :gem, :npm]
 end
 
 namespace :dotfiles do
