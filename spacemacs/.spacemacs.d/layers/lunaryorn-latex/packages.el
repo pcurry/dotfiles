@@ -9,7 +9,9 @@
 ;;; License: GPLv3
 
 (setq lunaryorn-latex-packages
-      '(auctex
+      '(
+        auctex
+        typo
         ))
 
 (setq lunaryorn-latex-excluded-packages '())
@@ -50,3 +52,7 @@
                               (,(rx (0+ space) "\\minisec{") 5))
           ;; No language-specific hyphens please
           LaTeX-babel-hyphen nil)))
+
+(defun lunaryorn-latex/post-init-typo ()
+  ;; Keep typo mode enabled in LaTeX
+  (remove-hook 'LaTeX-mode-hook 'spacemacs//disable-typo-mode))
