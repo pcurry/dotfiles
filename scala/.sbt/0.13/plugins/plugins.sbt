@@ -20,7 +20,7 @@ addSbtPlugin("com.eed3si9n" % "sbt-dirty-money" % "0.1.0")
 // addSbtPlugin("com.scalapenos" %% "sbt-prompt" % "0.2.1")
 
 // Dependency graphs for SBT projects
-addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.5")
+addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.8.0")
 
 // Poop, poop, SBT
 resolvers += Resolver.url(
